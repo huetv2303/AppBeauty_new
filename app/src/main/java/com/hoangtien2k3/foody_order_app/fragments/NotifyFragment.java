@@ -18,7 +18,6 @@ import com.hoangtien2k3.foody_order_app.components.NotifyCard;
 import com.hoangtien2k3.foody_order_app.model.Notify;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.

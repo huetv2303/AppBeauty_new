@@ -3,7 +3,6 @@ package com.hoangtien2k3.foody_order_app.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,14 +21,13 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView pic;
-        private TextView title, address, addBtn;
+        private final TextView title;
+        private final TextView address;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            pic = itemView.findViewById(R.id.pic);
             title = itemView.findViewById(R.id.title);
             address = itemView.findViewById(R.id.address);
-            addBtn = itemView.findViewById(R.id.addBtn);
         }
     }
 
@@ -46,18 +44,13 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Restaurant restaurant = restaurantList.get(position);
-
 //        holder.pic.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(restaurant.getImage()));
-
         holder.title.setText(restaurant.getName());
         holder.address.setText(restaurant.getAddress());
-
     }
 
     @Override
     public int getItemCount() {
         return restaurantList.size();
     }
-
-
 }

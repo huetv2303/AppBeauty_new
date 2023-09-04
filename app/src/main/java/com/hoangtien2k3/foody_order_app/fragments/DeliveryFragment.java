@@ -36,10 +36,8 @@ public class DeliveryFragment extends Fragment {
     private String mParam2;
 
 
-    private View mainView;
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout cartContainer;
-    private static String status;
 
 
     public DeliveryFragment() {
@@ -78,12 +76,11 @@ public class DeliveryFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        mainView = inflater.inflate(R.layout.fragment_delivery, container, false);
+        View mainView = inflater.inflate(R.layout.fragment_delivery, container, false);
         cartContainer = mainView.findViewById(R.id.cartContainerHistory);
 
         referencesComponent();
-        LoadOrder("coming");
-        status = "coming";
+        LoadOrder();
 
         return mainView;
     }
@@ -91,11 +88,10 @@ public class DeliveryFragment extends Fragment {
 
     ////////////////////////////
     public void referencesComponent() {
-        LoadOrder("coming");
+        LoadOrder();
     }
 
-    private void LoadOrder(String type) {
-        status = type;
+    private void LoadOrder() {
         cartContainer.removeAllViews();
 
         ArrayList<Order> orderArrayList = HomeActivity.dao.getOrderOfUser(HomeActivity.user.getId(), "Coming");

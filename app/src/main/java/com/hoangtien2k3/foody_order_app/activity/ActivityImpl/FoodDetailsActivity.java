@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,14 +29,13 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
     private LinearLayout layout_sizeS, layout_sizeM, layout_sizeL, btnAddToCart, btnSavedFood;
     private TextView tvName, tvDescription, tvPrice,
             tvRestaurantName, tvRestaurantAddress,
-            tvPriceSizeS,tvPriceSizeM, tvPriceSizeL,
+            tvPriceSizeS, tvPriceSizeM, tvPriceSizeL,
             tvQuantity;
-//    private Button btnAddToCart, btnSavedFood;
+    //    private Button btnAddToCart, btnSavedFood;
     public static Integer userID; // lấy ra userId
     private static int quantity;
     public static FoodSize foodSize;    // lấy ra gias cả và kích thước
     private DAO dao;    // kết nối với CSDL
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +50,9 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         LoadData();
     }
 
-
-    private String getRoundPrice(Double price){
+    private String getRoundPrice(Double price) {
         return Math.round(price) + " VNĐ";
     }
-
 
     private String getTotalPrice() {
         return Math.round(foodSize.getPrice() * quantity) + " VNĐ";
@@ -91,7 +87,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
     }
 
     @Override
-    public void referenceComponent(){
+    public void referenceComponent() {
         // quay về màn hình trước đó.
         findViewById(R.id.btnBack).setOnClickListener(view -> this.finish());
 
@@ -102,10 +98,9 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
 
             // (di chuyển con trỏ Cursor đến vị trí đúng trước khi truy cập dữ liệu.)
             // và kiểm tra xem cursor này đang không trỏ đến vị trí đầu tiên không.
-            if (!cursor.moveToFirst()){
+            if (!cursor.moveToFirst()) {
                 dao.addOrder(new Order(1, userID, "", "", 0d, "Craft")); // ta sẽ add một order và (hay thêm vào phần giỏ hàng)
                 cursor = dao.getCart(userID); // lấy ra đối tượng cursor đấy với userID
-
                 System.out.println("đã được add đối tượng vào đây rồi.");
             }
 
@@ -113,9 +108,9 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
             cursor.moveToFirst();   // (di chuyển con trỏ Cursor đến vị trí đúng trước khi truy cập dữ liệu.)
 
             OrderDetail orderDetail = dao.getExistOrderDetail(cursor.getInt(0), foodSize);
-            if(orderDetail != null) {
+            if (orderDetail != null) {
                 orderDetail.setQuantity(orderDetail.getQuantity() + quantity);
-                if(dao.updateQuantity(orderDetail)){
+                if (dao.updateQuantity(orderDetail)) {
                     Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
@@ -125,7 +120,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
                 boolean addOrderDetail = dao.addOrderDetail(new OrderDetail(cursor.getInt(0),
                         foodSize.getFoodId(), foodSize.getSize(), foodSize.getPrice(), quantity));
 
-                if(addOrderDetail){
+                if (addOrderDetail) {
                     Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
@@ -137,7 +132,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         // lưu lại thông tin món ăn (fragment_save)
         btnSavedFood.setOnClickListener(view -> {
             boolean addFoodSaved = dao.addFoodSaved(new FoodSaved(foodSize.getFoodId(), foodSize.getSize(), userID));
-            if(addFoodSaved){
+            if (addFoodSaved) {
                 Toast.makeText(this, "Đã lưu thông tin món ăn!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Thông tin món ăn đã tồn tại trong giỏ hàng!!!", Toast.LENGTH_SHORT).show();
@@ -155,7 +150,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
 
         // giảm số lượng món ăn
         btnSubQuantity.setOnClickListener(view -> {
-            if(quantity > 1){
+            if (quantity > 1) {
                 quantity--;
                 tvQuantity.setText(String.format("%s", quantity));
                 tvPrice.setText(getTotalPrice());
@@ -163,27 +158,26 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         });
     }
 
-
     // setting giá mặc định
-    private void SetPriceDefault(Double price){
+    private void SetPriceDefault(Double price) {
         tvPrice.setText(getRoundPrice(price));
         quantity = 1;
         tvQuantity.setText("1");
     }
 
-
     // load để đẩy tất cả thông tin về sản phẩm lên
     @Override
-    public void LoadData(){
+    public void LoadData() {
         Intent intent = getIntent();
-        if(intent != null){
+        if (intent != null) {
             Food food = (Food) intent.getSerializableExtra("food");
 
+            assert food != null;
             ArrayList<FoodSize> foodSizeArrayList = dao.getAllFoodSize(food.getId());
 
             // size S
-            if(foodSizeArrayList.get(0) != null){
-                if(foodSize == null) foodSize = foodSizeArrayList.get(0);
+            if (foodSizeArrayList.get(0) != null) {
+                if (foodSize == null) foodSize = foodSizeArrayList.get(0);
                 tvPriceSizeS.setText(String.format("+ %s", foodSizeArrayList.get(0).getPrice()));
                 layout_sizeS.setOnClickListener(view -> {
                     SetPriceDefault(foodSizeArrayList.get(0).getPrice());
@@ -194,7 +188,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
             }
 
             // size M
-            if(foodSizeArrayList.get(1) != null){
+            if (foodSizeArrayList.get(1) != null) {
                 tvPriceSizeM.setText(String.format("+ %s", foodSizeArrayList.get(1).getPrice()));
                 layout_sizeM.setOnClickListener(view -> {
                     SetPriceDefault(foodSizeArrayList.get(1).getPrice());
@@ -205,7 +199,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
             }
 
             // Size L
-            if(foodSizeArrayList.get(2) != null){
+            if (foodSizeArrayList.get(2) != null) {
                 tvPriceSizeL.setText(String.format("+ %s", foodSizeArrayList.get(2).getPrice()));
                 layout_sizeL.setOnClickListener(view -> {
                     SetPriceDefault(foodSizeArrayList.get(2).getPrice());

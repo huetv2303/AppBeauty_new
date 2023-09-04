@@ -1,10 +1,11 @@
 package com.hoangtien2k3.foody_order_app.model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
 public class Food implements Serializable {
-
     private Integer id;
     private String name;
     private String type;
@@ -70,17 +71,5 @@ public class Food implements Serializable {
 
     public void setRestaurantId(Integer restaurantId) {
         this.restaurantId = restaurantId;
-    }
-
-    @Override
-    public String toString() {
-        return "Food{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", image=" + Arrays.toString(image) +
-                ", description='" + description + '\'' +
-                ", restaurantId=" + restaurantId +
-                '}';
     }
 }

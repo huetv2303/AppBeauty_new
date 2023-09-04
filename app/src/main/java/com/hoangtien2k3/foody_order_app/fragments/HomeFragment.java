@@ -24,7 +24,6 @@ import com.hoangtien2k3.foody_order_app.image.PhotoAdapter;
 import com.hoangtien2k3.foody_order_app.repository.DAO;
 import com.hoangtien2k3.foody_order_app.repositoryInit.DataInitFragmentHome;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -133,17 +132,14 @@ public class HomeFragment extends Fragment {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        int currentItem = viewPager.getCurrentItem();
-                        int totalItem = listPhoto.size() - 1;
-                        if (currentItem < totalItem) {
-                            currentItem++;
-                            viewPager.setCurrentItem(currentItem);
-                        } else {
-                            viewPager.setCurrentItem(0);
-                        }
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    int currentItem = viewPager.getCurrentItem();
+                    int totalItem = listPhoto.size() - 1;
+                    if (currentItem < totalItem) {
+                        currentItem++;
+                        viewPager.setCurrentItem(currentItem);
+                    } else {
+                        viewPager.setCurrentItem(0);
                     }
                 });
             }

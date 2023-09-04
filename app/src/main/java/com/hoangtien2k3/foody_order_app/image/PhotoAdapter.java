@@ -15,8 +15,8 @@ import com.hoangtien2k3.foody_order_app.R;
 import java.util.List;
 
 public class PhotoAdapter extends PagerAdapter {
-    private Context context;
-    private List<Photo> listPhoto;
+    private final Context context;
+    private final List<Photo> listPhoto;
 
     public PhotoAdapter(Context context, List<Photo> listPhoto) {
         this.context = context;

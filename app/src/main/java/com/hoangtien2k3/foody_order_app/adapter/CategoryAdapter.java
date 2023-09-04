@@ -3,7 +3,6 @@ package com.hoangtien2k3.foody_order_app.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,13 +22,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView title;
-        private ImageView pic;
+        private final TextView title;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.categoryName);
-            pic = itemView.findViewById(R.id.categoryPic);
         }
     }
 
@@ -46,7 +43,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
         Category category = listCategory.get(position);
         holder.title.setText(category.getTitle());
-//        holder.pic.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(category.getPic()));
     }
 
     @Override

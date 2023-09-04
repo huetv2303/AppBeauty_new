@@ -22,9 +22,8 @@ import com.hoangtien2k3.foody_order_app.model.User;
 public class HomeActivity extends AppCompatActivity implements HomeActivityImpl {
     public static DAO dao;
     public static User user;
-    private Fragment homeFragment, savedFragment, chatFragment, notifyFragment, profileFragment, informationFragment;
+    private Fragment homeFragment, savedFragment, notifyFragment, profileFragment, informationFragment;
     private LinearLayout btnHome, btnProfile, btnCart, btnSupport, btnSetting;
-    private FrameLayout frameLayoutHome;
     private FragmentManager fragmentManager;
 
     @Override
@@ -32,7 +31,6 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Intent intent = getIntent();
         Integer userID = user.getId(); // dữ liệu user đã được truyền vào ở phần đăng nhập tài khoản rồi
 
         FoodDetailsActivity.userID = userID; // truyền userID của người dùng qua FoodDetailsActivity
@@ -59,7 +57,6 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         btnSupport = findViewById(R.id.supportBtn);
         btnSetting = findViewById(R.id.settingBtn);
 
-        frameLayoutHome = findViewById(R.id.frame_container);
         fragmentManager = getSupportFragmentManager();
     }
 

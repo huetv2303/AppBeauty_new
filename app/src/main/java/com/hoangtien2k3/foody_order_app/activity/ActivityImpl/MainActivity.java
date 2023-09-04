@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dao = new DAO(this);
-
         // ảnh xạ sang đối tượng khác
         ClickNextLayout();
 
@@ -47,13 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void ClickNextLayout() {
         homeLayout = findViewById(R.id.homeLayout);
-        homeLayout.setOnClickListener(view -> {
-            startActivity(new Intent(this, HomeActivity.class));
-        });
+        homeLayout.setOnClickListener(view -> startActivity(new Intent(this, HomeActivity.class)));
     }
 
     private void setRecyclerViewCategory() {
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewCategory = findViewById(R.id.recyclerView1);
         recyclerViewCategory.setLayoutManager(linearLayoutManager);
@@ -71,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         categoryAdapter = new CategoryAdapter(listCategory);
         recyclerViewCategory.setAdapter(categoryAdapter);
-
     }
-
 
     private void setRecyclerViewPopularRestaurant() {
 
@@ -89,11 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 "0631335935", null));restaurantList.add(new Restaurant(1, "Quán bánh", "24/63 Phùng Khoang",
                 "0631335935", null));
 
-
-
         popularAdapterRestaurant = new PopularAdapter(restaurantList);
         recyclerViewPopularRestaurant.setAdapter(popularAdapterRestaurant);
-
     }
-
 }

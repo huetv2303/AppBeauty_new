@@ -36,11 +36,8 @@ public class HistoryFragment extends Fragment {
     private String mParam2;
 
 
-    private View mainView;
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout cartContainer;
-    private static String status;
-
 
 
     public HistoryFragment() {
@@ -79,12 +76,11 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        mainView = inflater.inflate(R.layout.fragment_history, container, false);
+        View mainView = inflater.inflate(R.layout.fragment_history, container, false);
         cartContainer = mainView.findViewById(R.id.cartContainerHistory);
 
         referencesComponent();
-        LoadOrder("history");
-        status = "history";
+        LoadOrder();
 
         return mainView;
     }
@@ -93,11 +89,10 @@ public class HistoryFragment extends Fragment {
 
     ////////////////////////////
     public void referencesComponent() {
-        LoadOrder("history");
+        LoadOrder();
     }
 
-    private void LoadOrder(String type) {
-        status = type;
+    private void LoadOrder() {
         cartContainer.removeAllViews();
 
         ArrayList<Order> orderArrayList = HomeActivity.dao.getOrderOfUser(HomeActivity.user.getId(), "Delivered");

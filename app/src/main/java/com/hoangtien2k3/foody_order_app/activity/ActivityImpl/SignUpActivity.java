@@ -38,13 +38,13 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void init() {
-        txtPassword = (EditText) findViewById(R.id.txtPassword);
-        txtUsername = (EditText) findViewById(R.id.txtUsername);
-        txtConfirmPassword = (EditText) findViewById(R.id.txtConfirmPassword);
-        btn = (ImageView) findViewById(R.id.btnSignUp);
-        txtSignInApp = (TextView) findViewById(R.id.txtSignInApp);
-        checkUsername = (TextView) findViewById(R.id.checkUsername);
-        checkPassword = (TextView) findViewById(R.id.checkPassword);
+        txtPassword = findViewById(R.id.txtPassword);
+        txtUsername = findViewById(R.id.txtUsername);
+        txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
+        btn = findViewById(R.id.btnSignUp);
+        txtSignInApp = findViewById(R.id.txtSignInApp);
+        checkUsername = findViewById(R.id.checkUsername);
+        checkPassword = findViewById(R.id.checkPassword);
     }
 
     @SuppressLint("SetTextI18n")

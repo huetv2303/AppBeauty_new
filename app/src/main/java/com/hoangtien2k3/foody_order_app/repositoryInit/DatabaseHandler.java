@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+
 import androidx.core.content.res.ResourcesCompat;
 
 import com.hoangtien2k3.foody_order_app.R;
@@ -30,7 +31,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final SQLiteDatabase.CursorFactory DATABASE_FACTORY = null;
     private final Context context;
 
-    // region List Sample Data
+    // region List Sample DataSS
     private List<User> userList;
     private List<Restaurant> restaurantList;
     private List<RestaurantSaved> restaurantSavedList;
@@ -66,7 +67,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // region Convert Image
-    public byte[] convertDrawableToByteArray(Drawable drawable){
+    public byte[] convertDrawableToByteArray(Drawable drawable) {
         // Convert khi đúng cấu trúc bitmap
         if (drawable instanceof BitmapDrawable) {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -96,17 +97,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return stream.toByteArray();
     }
 
-    public static Bitmap convertByteArrayToBitmap(byte[] image){
+    public static Bitmap convertByteArrayToBitmap(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
     // endregion
 
-    private void SampleData(){
+    private void SampleData() {
         // region User
         userList = new ArrayList<>();
-        userList.add(new User(1,"Hoàng Anh Tiến", "Male", "12-04-2003", "0828007853", "hoangtien2k3", "123456"));
-        userList.add(new User(2,"Nguyễn Chí Hải Anh", "Male", "17-04-2003", "0947679750", "nguyenchihaianh", "123456"));
-        userList.add(new User(3,"Vũ Mạnh Chiến", "Male", "25-06-2003", "0388891635", "vumanhchien", "123456"));
+        userList.add(new User(1, "Hoàng Anh Tiến", "Male", "12-04-2003", "0828007853", "hoangtien2k3", "123456"));
+        userList.add(new User(2, "Nguyễn Chí Hải Anh", "Male", "17-04-2003", "0947679750", "nguyenchihaianh", "123456"));
+        userList.add(new User(3, "Vũ Mạnh Chiến", "Male", "25-06-2003", "0388891635", "vumanhchien", "123456"));
 
 
         // region Restaurant
@@ -319,7 +320,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // region foodSize
         foodSizeList = new ArrayList<>();
         Random random = new Random();
-        for(int i = 1; i <= 55; i++){
+        for (int i = 1; i <= 55; i++) {
             foodSizeList.add(new FoodSize(i, 1, (random.nextInt(20) + 1) * 1000d));
             foodSizeList.add(new FoodSize(i, 2, (random.nextInt(20) + 21) * 1000d));
             foodSizeList.add(new FoodSize(i, 3, (random.nextInt(20) + 41) * 1000d));
@@ -408,7 +409,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         // Add restaurant saved
-        for(RestaurantSaved restaurantSaved: restaurantSavedList){
+        for (RestaurantSaved restaurantSaved : restaurantSavedList) {
             db.execSQL("INSERT INTO tblRestaurantSaved VALUES(" + restaurantSaved.getRestaurantId() + ", " + restaurantSaved.getUserId() + ")");
         }
 
@@ -591,7 +592,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        Log.i("SQLite","Upgrade SQLite");
+        Log.i("SQLite", "Upgrade SQLite");
 
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tblNotifyToUser");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tblNotify");
@@ -609,6 +610,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        onUpgrade(db,oldVersion,newVersion);
+        onUpgrade(db, oldVersion, newVersion);
     }
 }

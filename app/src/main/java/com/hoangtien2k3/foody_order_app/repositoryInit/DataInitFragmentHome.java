@@ -9,7 +9,6 @@ import java.util.List;
 public class DataInitFragmentHome {
     // list ảnh hiển thị trong home slider
     public static final List<Photo> listPhoto = new ArrayList<>();
-
     static {
         listPhoto.add(new Photo(R.drawable.image_1));
         listPhoto.add(new Photo(R.drawable.image_2));
@@ -18,5 +17,4 @@ public class DataInitFragmentHome {
         listPhoto.add(new Photo(R.drawable.banhbonglan_socola));
         listPhoto.add(new Photo(R.drawable.banhdauxanh_cotdua));
     }
-
 }
