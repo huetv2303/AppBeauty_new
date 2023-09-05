@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ChatFragment"
+    tools:context=".fragments.HistoryFragment"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="360sp"
+        android:layout_width="match_parent"
         android:layout_height="47sp"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
         android:elevation="10dp"
         android:background="@drawable/bg_function">
 
         <LinearLayout
+            android:id="@+id/btnUpdateHistory"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="47sp"
@@ -34,16 +34,15 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="360sp"
-        android:layout_height="590dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="15sp"
         android:background="@color/white"
         android:elevation="7sp">
 
         <LinearLayout
             android:id="@+id/cartContainerHistory"
-            android:layout_width="360sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
         </LinearLayout>

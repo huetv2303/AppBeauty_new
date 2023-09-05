@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ChatFragment"
+    tools:context=".fragments.CartFragment"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="360sp"
+        android:layout_width="match_parent"
         android:layout_height="47sp"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
         android:elevation="10dp"
         android:background="@drawable/bg_function">
 
         <LinearLayout
+            android:id="@+id/btnUpdateCart"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="47sp"
@@ -34,27 +34,26 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="360sp"
-        android:layout_height="530dp"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
         android:layout_gravity="center"
-        android:layout_marginTop="15sp"
         android:background="@color/white"
         android:elevation="7sp">
 
         <LinearLayout
             android:id="@+id/cartContainerCart"
-            android:layout_width="360sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/btnThanhToan1"
+        android:id="@+id/btnOrderFood"
         android:layout_width="192dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="5sp"
         android:background="@drawable/bg_box_rounded_red"
         android:elevation="10sp"
         android:text="@string/order_food"

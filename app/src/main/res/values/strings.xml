@@ -11,6 +11,13 @@
     <string name="home_fragment">Home fragment</string>
     <string name="favorite_fragment">Favorite fragment</string>
     <string name="my_page_fragment">My Page fragment</string>
+    <string name="load_data">Load lại dữ liệu thành công.</string>
+    <string name="writer_full_information">Vui lòng điền đầy đủ thông tin!</string>
+    <string name="phoneNumber_Error">Số điện thoại không đúng định dạng.</string>
+    <string name="payment_successfully">Đã thanh toán thành công!</string>
+    <string name="error_username_login">Sai tài khoản đăng nhập</string>
+    <string name="error_password_login">Sai mật khẩu đăng nhập</string>
+    <string name="PASSWORD_LONGER_6_CHARACTER">Mật khẩu phải lớn hơn 6 ký tự</string>
 
     <string name="example_full_name">Hoàng Anh Tiến</string>
     <string name="full_name">Họ và Tên</string>

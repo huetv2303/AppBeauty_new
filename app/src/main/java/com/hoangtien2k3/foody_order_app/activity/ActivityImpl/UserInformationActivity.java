@@ -23,7 +23,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class UserInformationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
     private EditText edUser_name, edUser_phone, edUser_DoB, edUser_password;
     private Spinner spUser_gender;
     private Calendar calendar;

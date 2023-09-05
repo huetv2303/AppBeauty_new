@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,8 +23,9 @@ import com.hoangtien2k3.foody_order_app.model.User;
 public class SignUpActivity extends AppCompatActivity {
     private EditText txtUsername, txtPassword, txtConfirmPassword;
     public DAO dao;
-    private ImageView btn;
-    private TextView txtSignInApp, checkUsername, checkPassword;
+    private Button btnSignUp;
+    private TextView txtSignInApp, checkUsername, checkPassword, checkConfirmPassword;
+    private boolean isPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +44,16 @@ public class SignUpActivity extends AppCompatActivity {
         txtPassword = findViewById(R.id.txtPassword);
         txtUsername = findViewById(R.id.txtUsername);
         txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
-        btn = findViewById(R.id.btnSignUp);
+        btnSignUp = findViewById(R.id.btnSignUp);
         txtSignInApp = findViewById(R.id.txtSignInApp);
         checkUsername = findViewById(R.id.checkUsername);
         checkPassword = findViewById(R.id.checkPassword);
+        checkConfirmPassword = findViewById(R.id.checkConfirmPassword);
     }
 
     @SuppressLint("SetTextI18n")
     private void referenceSignUpAccount(){
-        btn.setOnClickListener(v -> {
+        btnSignUp.setOnClickListener(v -> {
             String username = txtUsername.getText().toString().trim();
             String password = txtPassword.getText().toString().trim();
             String confirm = txtConfirmPassword.getText().toString().trim();
@@ -58,8 +62,9 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Vui lòng điền đủ thông tin!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(!confirm.equals(password)){
-                Toast.makeText(getApplicationContext(), "Mật khẩu xác nhận không hợp lệ!", Toast.LENGTH_SHORT).show();
+            if(!confirm.equals(password)) {
+                checkConfirmPassword.setText("Nhập lại mật khẩu không đúng.");
+                Toast.makeText(getApplicationContext(), "Nhập lại mật khẩu không đúng.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -71,8 +76,9 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
 
                 // Make notify
-                dao.addNotify(new Notify(1, "Chào mừng bạn mới!", "Cảm ơn bạn đã sử dụng Foody! \n" +
-                        "Vui lòng điểu chỉnh thông tin cá nhân bằng cách click vào icon người dùng trong mục profile!",
+                dao.addNotify(new Notify(1, "Chào mừng đến với foody-order-app!",
+                        "Cảm ơn bạn đã sử dụng App! \n" +
+                        "Vui lòng điền thông tin cá nhân bằng cách click vào icon người dùng trong mục profile.",
                         dao.getDate()));
                 dao.addNotifyToUser(new NotifyToUser(dao.getNewestNotifyId(), dao.getNewestUserId()));
 
@@ -81,11 +87,15 @@ public class SignUpActivity extends AppCompatActivity {
                 intent.putExtra("username", username);
                 intent.putExtra("password", password);
                 setResult(0, intent);
+
                 // finish();
                 startActivity(new Intent(getApplicationContext(), SignInActivity.class));
             }
         });
 
+
+        // hiện password
+        findViewById(R.id.hintPassword).setOnClickListener(v -> togglePasswordVisibility());
 
         txtUsername.addTextChangedListener(new TextWatcher() {
             @Override
@@ -115,7 +125,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (txtPassword.getText().toString().length() < 6) {
-                    checkPassword.setText("Mật khẩu phải lớn hơn 6 ký tự");
+                    checkPassword.setText(getResources().getString(R.string.PASSWORD_LONGER_6_CHARACTER));
                 } else {
                     checkPassword.setText("");
                 }
@@ -125,9 +135,21 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
+
+
+    // Hàm để hiển thị hoặc ẩn mật khẩu
+    private void togglePasswordVisibility() {
+        isPasswordVisible = !isPasswordVisible;
+        int inputType = isPasswordVisible
+                ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
+                : (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        txtPassword.setInputType(inputType);
+
+        // Di chuyển con trỏ đến cuối văn bản để tránh việc mất vị trí khi thay đổi InputType
+        txtPassword.setSelection(txtPassword.getText().length());
+    }
+
 
     private void signInForm() {
         txtSignInApp.setOnClickListener(view -> startActivity(new Intent(this, SignInActivity.class)));

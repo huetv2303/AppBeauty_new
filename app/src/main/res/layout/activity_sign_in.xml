@@ -5,21 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341"
-        app:srcCompat="@drawable/bg_background_login_app" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,24 +19,32 @@
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginBottom="60dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
                 android:text="Đăng Nhập"
-                android:textColor="#603a91"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="99dp"
+                android:layout_height="81dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/user_icon" />
+
             <EditText
                 android:id="@+id/txtEmail"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="50dp"
-                android:background="@drawable/bg_edittext_background"
+                android:background="@drawable/bg_search"
                 android:drawableStart="@drawable/email"
-                android:drawablePadding="16dp"
+                android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="Tài khoản"
                 android:inputType="textPersonName"
@@ -56,70 +53,91 @@
 
             <TextView
                 android:id="@+id/validateUsername"
-                android:layout_width="280dp"
+                android:layout_width="314dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
                 android:text=""
                 android:textColor="@color/red" />
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_search"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txtPassword"
-                    android:layout_width="280dp"
+                    android:layout_width="260dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_edittext_background"
                     android:drawableStart="@drawable/password"
-                    android:drawablePadding="16dp"
+                    android:drawablePadding="20dp"
                     android:ems="10"
                     android:hint="Mật khẩu"
+                    android:background="@drawable/bg_search"
                     android:inputType="textPersonName"
                     android:padding="8dp"
                     android:textColorHint="#603a91" />
 
                 <ImageView
                     android:id="@+id/checkPassword"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="50dp"
+                    android:layout_marginEnd="10dp"
                     app:srcCompat="@drawable/eye_icon" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/validatePassword"
-                android:layout_width="280dp"
+                android:layout_width="314dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
                 android:textColor="@color/red" />
 
-            <ImageView
-                android:id="@+id/btnSignInApp"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="16dp"
-                app:srcCompat="@drawable/btn_login" />
+                android:gravity="center"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp">
+
+                <CheckBox
+                    android:id="@+id/checkBoxPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nhớ mật khẩu"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/forgetPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quên mật khẩu?"
+                    android:textAlignment="center"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="90dp" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btnSignInGoogle"
+                android:id="@+id/btnLogin"
                 style="@android:style/Widget.Button"
-                android:layout_width="253dp"
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginStart="90dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="90dp"
-                android:background="@drawable/bg_btn_background_login1"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/bg_search_background"
                 android:drawableStart="@drawable/google"
                 android:drawablePadding="16dp"
                 android:text="Đăng nhập"
@@ -134,7 +152,7 @@
                 android:layout_marginTop="32dp"
                 android:text="Chưa có tài khoản ? Tạo ngay"
                 android:textAlignment="center"
-                android:textColor="#603a91"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
         </LinearLayout>

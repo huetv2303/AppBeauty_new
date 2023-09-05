@@ -12,7 +12,7 @@
         android:layout_height="47sp"
         android:background="@color/white"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="20sp">
+        android:layout_marginBottom="80sp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -143,26 +143,36 @@
             android:layout_marginTop="2sp"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnThanhToanThanhToan"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="32sp"
-        android:background="@drawable/bg_box_rounded_red"
-        android:text="@string/payment"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        tools:ignore="DuplicateSpeakableTextCheck" />
 
-    <Button
-        android:id="@+id/btnThanhToanTroLai"
-        android:layout_width="215dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="17sp"
-        android:background="@drawable/bg_box_rounded_red"
-        android:text="@string/cancel"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:gravity="center"
+        android:layout_marginTop="50dp">
+
+        <Button
+            android:id="@+id/btnThanhToanTroLai"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_box_rounded_red"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnThanhToanThanhToan"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20sp"
+            android:background="@drawable/bg_box_rounded_red"
+            android:text="@string/payment"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+    </LinearLayout>
+
+
 </LinearLayout>

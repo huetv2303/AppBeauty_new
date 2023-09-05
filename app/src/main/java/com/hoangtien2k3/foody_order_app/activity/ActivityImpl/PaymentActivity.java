@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
+import com.hoangtien2k3.foody_order_app.exception.PhoneNumberException;
 import com.hoangtien2k3.foody_order_app.fragments.CartFragment;
 import com.hoangtien2k3.foody_order_app.repository.DAO;
 import com.hoangtien2k3.foody_order_app.model.Notify;
@@ -25,6 +26,7 @@ public class PaymentActivity extends AppCompatActivity {
     private Intent intent;
     private static double sum; // tổng hóa đơn
     public static User user;   // người đặt hóa đơn
+    private final String regexDigitPhoneNumber = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +36,19 @@ public class PaymentActivity extends AppCompatActivity {
         intent = getIntent();
         dao = new DAO(this);
 
-        referencesComponents();
+        try {
+            referencesComponents();
+        } catch (PhoneNumberException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void referencesComponents() {
+    private void referencesComponents() throws PhoneNumberException {
         TextView tvUser_name = findViewById(R.id.editText_payment_name);
         TextView tvUserPhone = findViewById(R.id.editText_payment_phone);
         TextView tvUserAddress = findViewById(R.id.editText_payment_address);
         TextView tvTotalValue = findViewById(R.id.tv_total_values);
+        Button btnThanhToan = findViewById(R.id.btnThanhToanThanhToan);
 
         tvUser_name.setText(HomeActivity.user.getName());
         tvUserPhone.setText(HomeActivity.user.getPhone());
@@ -57,14 +64,23 @@ public class PaymentActivity extends AppCompatActivity {
 
 
         // thanh toán hóa đơn
-        Button btnThanhToan = findViewById(R.id.btnThanhToanThanhToan);
         btnThanhToan.setOnClickListener(view -> {
-            name = tvUser_name.getText().toString();
-            phone = tvUserPhone.getText().toString();
-            address = tvUserAddress.getText().toString();
+            name = tvUser_name.getText().toString().trim();
+            phone = tvUserPhone.getText().toString().trim();
+            address = tvUserAddress.getText().toString().trim();
+
             if (name.isEmpty() || phone.isEmpty() || address.isEmpty()) {
-                Toast.makeText(this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.writer_full_information), Toast.LENGTH_SHORT).show();
                 return;
+            }
+
+            // kiểm tra số điện thoại có đúng định dạng hay không
+            if (phone.matches(regexDigitPhoneNumber)) {
+                try {
+                    throw new PhoneNumberException(getResources().getString(R.string.phoneNumber_Error));
+                } catch (PhoneNumberException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
             dateOfOrder = dao.getDate(); // lấy ra ngày hiện tại theo thời gian thực
@@ -73,7 +89,7 @@ public class PaymentActivity extends AppCompatActivity {
             dao.updateOrder(order);
 
             // in thông báo thanh toán tiền thành công lên màn hình
-            Toast.makeText(this, "Đã thanh toán thành công!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.payment_successfully), Toast.LENGTH_SHORT).show();
 
             // xóa thông tin sản phẩm đã thanh toán đó đi trong giỏ hàng, lịch sử, và vận chuyển
             CartFragment.cartContainer.removeAllViews();

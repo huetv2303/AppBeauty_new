@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
+import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.CartViewPagerActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.PaymentActivity;
 import com.hoangtien2k3.foody_order_app.components.CartCard;
@@ -80,7 +82,6 @@ public class CartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         mainView = inflater.inflate(R.layout.fragment_cart, container, false);
         cartContainer = mainView.findViewById(R.id.cartContainerCart);
@@ -93,13 +94,21 @@ public class CartFragment extends Fragment {
     }
 
 
-    ////////////////////////////
     private void referencesComponent() {
         LoadOrder("craft"); // load thông tin giỏ hàng lên LinearLayout
-        Button btnThanhToan = mainView.findViewById(R.id.btnThanhToan1);
+
+        // nhấn nút trên Fragment để load lại thông tin
+        LinearLayout btnUpdateCart = mainView.findViewById(R.id.btnUpdateCart);
+        btnUpdateCart.setOnClickListener(v -> {
+            LoadOrder("craft");
+            Toast.makeText(mainView.getContext(), getResources().getString(R.string.load_data), Toast.LENGTH_SHORT).show();
+        });
+
+
+        // thanh toán đơn hàng
+        Button btnThanhToan = mainView.findViewById(R.id.btnOrderFood);
         btnThanhToan.setOnClickListener(view -> {
             if (!status.equals("craft")) return;
-
             Cursor cursor = HomeActivity.dao.getCart(HomeActivity.user.getId());
             if (!cursor.moveToFirst()) return;
 
@@ -108,11 +117,8 @@ public class CartFragment extends Fragment {
             intent.putExtra("orderId", cursor.getInt(0));
             startActivity(intent);
 
-
-            // load lại phần đơn hàng vận chuyển
-            DeliveryFragment deliveryFragmentReFress = new DeliveryFragment();
-            deliveryFragmentReFress.referencesComponent();
         });
+
     }
 
     private void LoadOrder(String type) {
@@ -134,4 +140,12 @@ public class CartFragment extends Fragment {
             }
         }
     }
+
+    private void nextFragment(boolean checkClickPayment, int position) {
+        // sau khi thanh toán, sẽ tự động chuyển qua DeliveryFragment
+        if (getActivity() instanceof OnOrderButtonClickListener && checkClickPayment) {
+            ((OnOrderButtonClickListener) getActivity()).onOrderButtonClicked(position);
+        }
+    }
+
 }

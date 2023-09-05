@@ -146,7 +146,6 @@ public class HomeFragment extends Fragment {
         }, 500, 3000);
     }
 
-
     // hủy thằng timer đi, nếu fragment không tồn tại nữa
     @Override
     public void onDestroy() {

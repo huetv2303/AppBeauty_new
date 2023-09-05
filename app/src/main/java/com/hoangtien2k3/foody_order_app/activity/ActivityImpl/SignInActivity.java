@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ import com.hoangtien2k3.foody_order_app.repository.DAO;
 import com.hoangtien2k3.foody_order_app.model.User;
 
 public class SignInActivity extends AppCompatActivity {
-    private ImageView btnSignInApp;
+    private Button btnLogin;
     private EditText txtUsername, txtPassword;
     private TextView validateUsername, validatePassword, textSignUpApp;
     public static final String PREFERENCES = "store_info";
@@ -47,7 +48,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void initializeUI() {
-        btnSignInApp = findViewById(R.id.btnSignInApp);
+        btnLogin = findViewById(R.id.btnLogin);
         txtUsername = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPassword);
         validateUsername = findViewById(R.id.validateUsername);
@@ -58,7 +59,7 @@ public class SignInActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void checkLogin() {
         // đăng nhập
-        btnSignInApp.setOnClickListener(v-> {
+        btnLogin.setOnClickListener(v-> {
             String username = txtUsername.getText().toString().trim();
             String password = txtPassword.getText().toString().trim();
 
@@ -75,7 +76,6 @@ public class SignInActivity extends AppCompatActivity {
                     editor.putString("password", userExist.getPassword());
                     editor.apply();
 
-
                     // setup thông báo về rỗng
                     validateUsername.setText("");
                     validatePassword.setText("");
@@ -86,9 +86,9 @@ public class SignInActivity extends AppCompatActivity {
 
                 } else { // đăng nhập thất bại
                     if (!dao.checkUsername(username)) {
-                        validateUsername.setText("Sai tài khoản đăng nhập");
+                        validateUsername.setText(getResources().getString(R.string.error_username_login));
                     } else if (!dao.checkPasswordToCurrentUsername(username, password)) {
-                        validatePassword.setText("Sai mật khẩu đăng nhập");
+                        validatePassword.setText(getResources().getString(R.string.error_password_login));
                     }
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_information_login), Toast.LENGTH_SHORT).show();
                 }
@@ -121,9 +121,7 @@ public class SignInActivity extends AppCompatActivity {
             }
 
         });
-
     }
-
 
     // Hàm để hiển thị hoặc ẩn mật khẩu
     private void togglePasswordVisibility() {
@@ -137,7 +135,6 @@ public class SignInActivity extends AppCompatActivity {
         txtPassword.setSelection(txtPassword.getText().length());
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -146,7 +143,6 @@ public class SignInActivity extends AppCompatActivity {
             txtPassword.setText(data.getStringExtra("password"));
         }
     }
-
 
     private void setNextActivityListener() {
         textSignUpApp.setOnClickListener(v -> {

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
@@ -36,6 +37,7 @@ public class HistoryFragment extends Fragment {
     private String mParam2;
 
 
+    private View mainView;
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout cartContainer;
 
@@ -76,7 +78,7 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View mainView = inflater.inflate(R.layout.fragment_history, container, false);
+        mainView = inflater.inflate(R.layout.fragment_history, container, false);
         cartContainer = mainView.findViewById(R.id.cartContainerHistory);
 
         referencesComponent();
@@ -86,10 +88,16 @@ public class HistoryFragment extends Fragment {
     }
 
 
-
     ////////////////////////////
     public void referencesComponent() {
         LoadOrder();
+
+        LinearLayout btnUpdateHistory = mainView.findViewById(R.id.btnUpdateHistory);
+        btnUpdateHistory.setOnClickListener(v -> {
+            LoadOrder();
+            Toast.makeText(mainView.getContext(), getResources().getString(R.string.load_data), Toast.LENGTH_SHORT).show();
+        });
+
     }
 
     private void LoadOrder() {

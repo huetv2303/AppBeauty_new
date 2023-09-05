@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.components.CartCard;
+import com.hoangtien2k3.foody_order_app.fragments.DeliveryFragment;
 import com.hoangtien2k3.foody_order_app.repository.DAO;
 import com.hoangtien2k3.foody_order_app.model.Food;
 import com.hoangtien2k3.foody_order_app.model.FoodSize;
@@ -25,7 +26,6 @@ import com.hoangtien2k3.foody_order_app.model.Restaurant;
 import java.util.ArrayList;
 
 public class ViewOrderActivity extends AppCompatActivity {
-
     private LinearLayout layout_container;
     private TextView tvDate, tvPrice, tvAddress, tvStatus;
     private DAO dao;
@@ -59,6 +59,7 @@ public class ViewOrderActivity extends AppCompatActivity {
             btnDeleteOrder.setBackgroundColor(Color.GRAY);
         }
 
+
         btnDeleteOrder.setOnClickListener(view -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setMessage("Bạn có muốn xóa món đơn hàng này không?");
@@ -77,6 +78,7 @@ public class ViewOrderActivity extends AppCompatActivity {
             });
             dialog.setNegativeButton("Không", (dialogInterface, i) -> {});
             dialog.show();
+
         });
 
         Button btnCancel = findViewById(R.id.btnCancelOrderView);

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
@@ -36,6 +37,7 @@ public class DeliveryFragment extends Fragment {
     private String mParam2;
 
 
+    private View mainView;
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout cartContainer;
 
@@ -74,24 +76,27 @@ public class DeliveryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
-        View mainView = inflater.inflate(R.layout.fragment_delivery, container, false);
+        mainView = inflater.inflate(R.layout.fragment_delivery, container, false);
         cartContainer = mainView.findViewById(R.id.cartContainerHistory);
 
         referencesComponent();
-        LoadOrder();
-
         return mainView;
     }
 
-
-    ////////////////////////////
     public void referencesComponent() {
         LoadOrder();
+
+        // nhấn để load lại thông tin của FragmentDelivery
+        LinearLayout btnUpdateDelivery = mainView.findViewById(R.id.btnUpdateDelivery);
+        btnUpdateDelivery.setOnClickListener(v-> {
+            LoadOrder();
+            Toast.makeText(mainView.getContext(), getResources().getString(R.string.load_data), Toast.LENGTH_SHORT).show();
+        });
     }
 
-    private void LoadOrder() {
+    // load tất cả thông tin và đẩy lên Fragment
+    public void LoadOrder() {
         cartContainer.removeAllViews();
 
         ArrayList<Order> orderArrayList = HomeActivity.dao.getOrderOfUser(HomeActivity.user.getId(), "Coming");

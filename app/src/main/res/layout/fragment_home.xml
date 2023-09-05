@@ -27,7 +27,7 @@
         android:layout_height="40sp"
         android:layout_marginEnd="136dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/logo"
+        android:src="@drawable/money_icon"
         app:layout_constraintBottom_toBottomOf="@+id/imageCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageCart"
@@ -92,7 +92,7 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:background="@drawable/bg_orange_light_banner"
+            android:background="@drawable/bg_search_background"
             android:layout_height="140dp"/>
 
         <me.relex.circleindicator.CircleIndicator
