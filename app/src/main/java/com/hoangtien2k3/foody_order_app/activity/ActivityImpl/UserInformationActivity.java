@@ -64,10 +64,9 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
         edUser_phone = findViewById(R.id.editText_user_phone);
         edUser_DoB = findViewById(R.id.user_birthday_pick);
         edUser_DoB.setOnClickListener(view -> PickDate());
-
         edUser_password = findViewById(R.id.editText_user_password);
-
         spUser_gender = findViewById(R.id.spinner_user_gender);
+
         ArrayAdapter<CharSequence> genders = ArrayAdapter.createFromResource(this, R.array.genders, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         genders.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         spUser_gender.setAdapter(genders);
