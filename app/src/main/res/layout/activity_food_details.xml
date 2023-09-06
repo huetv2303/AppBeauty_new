@@ -196,7 +196,7 @@
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="303dp"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="2dp"
                 android:text="@string/example_food_describe"
@@ -217,7 +217,7 @@
             <TextView
                 android:id="@+id/tvRestaurantName"
                 android:layout_width="303dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="2dp"
                 android:text="@string/app_name"
@@ -228,9 +228,9 @@
             <TextView
                 android:id="@+id/tvRestaurantAddress"
                 android:layout_width="303dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:text="@string/address"
                 android:textColor="@color/green"
                 android:textSize="16sp"
