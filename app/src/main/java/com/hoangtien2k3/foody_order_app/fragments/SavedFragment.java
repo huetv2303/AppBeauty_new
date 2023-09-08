@@ -92,10 +92,9 @@ public class SavedFragment extends Fragment {
 
         btn_saved_food.setOnClickListener(view -> {
             btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(),R.color.silver));
-            tv_saved_food.setTextColor(Color.WHITE);
+            tv_saved_food.setTextColor(Color.BLUE);
             btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(),R.drawable.bg_white));
             tv_saved_restaurant.setTextColor(Color.BLACK);
-
             LoadSavedCard("food");
         });
 
@@ -103,7 +102,7 @@ public class SavedFragment extends Fragment {
             btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(),R.drawable.bg_white));
             tv_saved_food.setTextColor(Color.BLACK);
             btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(),R.color.silver));
-            tv_saved_restaurant.setTextColor(Color.WHITE);
+            tv_saved_restaurant.setTextColor(Color.BLUE);
 
             LoadSavedCard("restaurant");
         });

@@ -8,7 +8,6 @@
     tools:context=".activity.ActivityImpl.HomeActivity"
     android:background="@android:color/white">
 
-
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
@@ -29,6 +28,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -51,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:text="Trang chủ"
                     android:textAlignment="center"
+                    android:textStyle="bold"
                     android:textColor="#676767"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -66,6 +67,7 @@
                     android:id="@+id/image_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     app:srcCompat="@drawable/like" />
 
                 <TextView
@@ -74,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="Ưu thích"
                     android:textAlignment="center"
+                    android:textStyle="bold"
                     android:textColor="#676767"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -87,7 +90,7 @@
                 android:visibility="visible">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/image_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -99,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:text="Giỏ hàng"
                     android:textAlignment="center"
+                    android:textStyle="bold"
                     android:textColor="#676767"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -123,6 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="Thông báo"
                     android:textAlignment="center"
+                    android:textStyle="bold"
                     android:textColor="#676767"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -142,16 +147,16 @@
                     app:srcCompat="@drawable/bottom_btn4" />
 
                 <TextView
-                    android:id="@+id/text_55"
+                    android:id="@+id/text_5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Cài đặt"
                     android:textAlignment="center"
+                    android:textStyle="bold"
                     android:textColor="#676767"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.bottomappbar.BottomAppBar>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

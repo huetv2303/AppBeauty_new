@@ -39,7 +39,6 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
         setContentView(R.layout.activity_category);
 
         intent_get_data = getIntent();
-
         dao = new DAO(this);
 
         initializeUI();

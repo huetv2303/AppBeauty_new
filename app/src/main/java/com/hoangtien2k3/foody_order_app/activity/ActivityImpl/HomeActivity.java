@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.activity.HomeActivityImpl;
@@ -25,6 +27,7 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
     private Fragment homeFragment, savedFragment, notifyFragment, profileFragment, informationFragment;
     private LinearLayout btnHome, btnProfile, btnCart, btnSupport, btnSetting;
     private FragmentManager fragmentManager;
+    private TextView[] textViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +35,12 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         setContentView(R.layout.activity_home);
 
         Integer userID = user.getId(); // dữ liệu user đã được truyền vào ở phần đăng nhập tài khoản rồi
-
         FoodDetailsActivity.userID = userID; // truyền userID của người dùng qua FoodDetailsActivity
         ViewOrderActivity.userID = userID;   // truyền userID của người dùng qua ViewOrderActivity
-
         dao = new DAO(this);
 
         initializeUI();
-        loadFragment(homeFragment); // setting: load mặc định - HomeFragment lên trên HomeActivity
+        loadFragment(homeFragment, textViews[0]); // setting: load mặc định - HomeFragment lên trên HomeActivity
         clickButtonNavigation();
     }
 
@@ -57,31 +58,49 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         btnSupport = findViewById(R.id.supportBtn);
         btnSetting = findViewById(R.id.settingBtn);
 
+        textViews = new TextView[] {
+                findViewById(R.id.text_1),
+                findViewById(R.id.text_2),
+                findViewById(R.id.text_3),
+                findViewById(R.id.text_4),
+                findViewById(R.id.text_5),
+        };
+
         fragmentManager = getSupportFragmentManager();
     }
 
-
-    // click vào bottiom để thay đổi
     @Override
     public void clickButtonNavigation() {
-        btnHome.setOnClickListener(v -> loadFragment(homeFragment));
-        btnProfile.setOnClickListener(v -> loadFragment(savedFragment));
-        btnSupport.setOnClickListener(v -> loadFragment(notifyFragment));
-        btnSetting.setOnClickListener(v -> loadFragment(profileFragment));
+        btnHome.setOnClickListener(v -> loadFragment(homeFragment, textViews[0]));
+        btnProfile.setOnClickListener(v -> loadFragment(savedFragment, textViews[1]));
+        btnSupport.setOnClickListener(v -> loadFragment(notifyFragment, textViews[3]));
+        btnSetting.setOnClickListener(v -> loadFragment(profileFragment, textViews[4]));
 
         // giỏ hàng: dùng ViewPager và Tablayout
         btnCart.setOnClickListener(view -> {
+            setTextColorOnClick(textViews[2]);
             Intent intent = new Intent(HomeActivity.this, CartViewPagerActivity.class);
             startActivity(intent);
         });
     }
 
     // load Fragment
-    private void loadFragment(Fragment fragmentReplace) {
+    private void loadFragment(Fragment fragmentReplace, TextView textColor) {
+        setTextColorOnClick(textColor);
         fragmentManager
                 .beginTransaction()
                 .replace(R.id.frame_container, fragmentReplace)
                 .commit();
+    }
+
+    // setup textColor
+    private void setTextColorOnClick(TextView textColor) {
+        for(TextView textView : textViews) {
+            if (textView != textColor)
+                textView.setTextColor(Color.BLACK);
+            else
+                textView.setTextColor(Color.BLUE);
+        }
     }
 
 }

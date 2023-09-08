@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "order-food.sqlite";
+    private static final String DATABASE_NAME = "order-food-3.sqlite";
     private static final Integer DATABASE_VERSION = 1;
     private static final SQLiteDatabase.CursorFactory DATABASE_FACTORY = null;
     private final Context context;
@@ -112,19 +112,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // region Restaurant
         restaurantList = new ArrayList<>();
-        restaurantList.add(new Restaurant(1, "Bánh mỳ Phùng Khoang", "Số 24/63 Phùng Khoang, Trung Văn, Nam Từ Liêm, Hà Nội",
+        restaurantList.add(new Restaurant(1, "Quán bánh mỳ", "Số 24/63 Phùng Khoang, Nam Từ Liêm",
                 "0631335935", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_banh_my_cho_phung_khoang, null))));
-        restaurantList.add(new Restaurant(2, "Quán trà sữa", "Số 16/84 Hồ Tùng Mậu, Cầu Giấy, Thành Phố Hà Nội ",
+        restaurantList.add(new Restaurant(2, "Quán trà sữa", "Số 16/84 Hồ Tùng Mậu, Cầu Giấy",
                 "0885438847", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_cafe_duong_tau, null))));
-        restaurantList.add(new Restaurant(3, "Quán cơm tấm", "Số 44 Cầy Giấy, P.Quang Hoa, Quận Cầu Giấy, Hà Nội",
+        restaurantList.add(new Restaurant(3, "Quán cơm tấm", "Số 44 Cầy Giấy, P.Quang Hoa, Hà Nội",
                 "0559996574", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_com_tam_phuc_map, null))));
-        restaurantList.add(new Restaurant(4, "Quán bánh Thanh Hà", "Số 184 P. Phùng Khoang. Trung Văn, Nam Từ Liêm, Hà Nội",
+        restaurantList.add(new Restaurant(4, "Quán bánh Thanh Hà", "Số 184 Phùng Khoang, Trung Văn",
                 "0141670738", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_banh_ngot_le_van_viet, null))));
-        restaurantList.add(new Restaurant(5, "Quán kem Moly", "105 Thanh Xuân Bắc, P.Thanh Xuân Bắc, Quận Thanh Xuân, Hà Nội",
+        restaurantList.add(new Restaurant(5, "Quán kem Moly", "105 Thanh Xuân Bắc, Thanh Xuân",
                 "0627724695", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_kem_co_hai, null))));
-        restaurantList.add(new Restaurant(6, "Phở bò Hoàng Tiến", "R1B KĐT Royal City 72A Nguyễn Trãi, Quận Thanh Xuân, Hà Nội",
+        restaurantList.add(new Restaurant(6, "Phở bò Hoàng Tiến", "Royal City 72A Nguyễn Trãi, Nam Từ Liêm",
                 "0925063881", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_pho_gia_truyen, null))));
-        // endregion
 
         // region Restaurant saved
         restaurantSavedList = new ArrayList<>();

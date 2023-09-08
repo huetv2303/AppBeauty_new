@@ -103,7 +103,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp">
 
@@ -130,12 +129,12 @@
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
+                android:layout_width="220dp"
                 android:layout_height="55dp"
-                android:layout_marginStart="50dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="100dp"
-                android:layout_marginEnd="50dp"
                 android:drawablePadding="16dp"
+                android:gravity="center"
                 android:text="Đăng nhập"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
@@ -145,10 +144,11 @@
                 android:id="@+id/textSignUpApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="25dp"
                 android:text="Chưa có tài khoản ? Tạo ngay"
                 android:textAlignment="center"
                 android:textColor="@color/blue"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>

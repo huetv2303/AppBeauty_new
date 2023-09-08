@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -103,8 +104,13 @@ public class HomeFragment extends Fragment {
 
         // Khởi tạo RecyclerView và hiển thị danh sách nhà hàng
         recyclerView = rootView.findViewById(R.id.recyclerView_Restaurant);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 2);
+
+
         restaurantAdapter = new RestaurantAdapter(HomeActivity.dao.getRestaurantList());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(restaurantAdapter);
 
 
