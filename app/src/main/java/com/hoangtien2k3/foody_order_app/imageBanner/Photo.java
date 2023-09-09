@@ -1,4 +1,4 @@
-package com.hoangtien2k3.foody_order_app.image;
+package com.hoangtien2k3.foody_order_app.imageBanner;
 
 public class Photo {
 

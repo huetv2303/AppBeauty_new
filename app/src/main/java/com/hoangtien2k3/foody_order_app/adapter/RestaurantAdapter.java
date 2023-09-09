@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,14 +34,14 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         private final ImageView imageRestaurant;
         private final TextView tvRestaurantName_res_cart, tvRestaurantAddress_res_cart;
         private LinearLayout btnSavedShop;
-        private final LinearLayout linearlayout_restaurant;
+//        private final LinearLayout linearlayout_restaurant;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageRestaurant = itemView.findViewById(R.id.imageRestaurant);
             tvRestaurantName_res_cart = itemView.findViewById(R.id.tvRestaurantName_res_cart);
             tvRestaurantAddress_res_cart = itemView.findViewById(R.id.tvRestaurantAddress_res_cart);
             btnSavedShop = itemView.findViewById(R.id.btnSavedShop);
-            linearlayout_restaurant = itemView.findViewById(R.id.linearlayout_restaurant);
+//            linearlayout_restaurant = itemView.findViewById(R.id.linearlayout_restaurant);
         }
     }
 
@@ -63,7 +62,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         holder.tvRestaurantAddress_res_cart.setText(restaurant.getAddress());
 
         // hiển thị chi tiết FragmentCategory
-        holder.linearlayout_restaurant.setOnClickListener(v -> {
+        holder.imageRestaurant.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), CategoryActivity.class);
             // dùng putExtra để đẩy Id sang Fragment khác cũng là cách hay
             intent.putExtra("restaurantId", restaurant.getId());

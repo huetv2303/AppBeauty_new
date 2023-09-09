@@ -2,7 +2,6 @@ package com.hoangtien2k3.foody_order_app.components;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;

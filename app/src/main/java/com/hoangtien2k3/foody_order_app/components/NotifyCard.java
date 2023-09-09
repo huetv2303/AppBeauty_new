@@ -10,7 +10,6 @@ import com.hoangtien2k3.foody_order_app.model.Notify;
 
 
 public class NotifyCard extends LinearLayout implements BaseComponent{
-
     TextView tvTitle, tvContent, tvDateMake;
     Notify notify;
 

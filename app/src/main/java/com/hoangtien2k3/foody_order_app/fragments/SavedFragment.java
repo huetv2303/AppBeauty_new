@@ -142,9 +142,7 @@ public class SavedFragment extends Fragment {
 
             }
         } else {
-
             ArrayList<RestaurantSaved> restaurantSavedArrayList = HomeActivity.dao.getRestaurantSavedList(HomeActivity.user.getId());
-
             for(RestaurantSaved restaurantSaved : restaurantSavedArrayList){
                 Restaurant restaurant = HomeActivity.dao.getRestaurantInformation(restaurantSaved.getRestaurantId());
                 RestaurantCard card = new RestaurantCard(getContext(), restaurant, true);

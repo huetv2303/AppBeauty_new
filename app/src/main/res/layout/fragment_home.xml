@@ -90,7 +90,7 @@
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@drawable/bg_search_background" />
+            android:background="@drawable/bg_search" />
 
         <me.relex.circleindicator.CircleIndicator
             android:id="@+id/circle_indicator"
@@ -118,8 +118,8 @@
         android:id="@+id/recyclerView_Restaurant"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

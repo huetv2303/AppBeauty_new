@@ -1,7 +1,7 @@
 package com.hoangtien2k3.foody_order_app.repositoryInit;
 
 import com.hoangtien2k3.foody_order_app.R;
-import com.hoangtien2k3.foody_order_app.image.Photo;
+import com.hoangtien2k3.foody_order_app.imageBanner.Photo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
@@ -20,8 +19,8 @@ import android.widget.LinearLayout;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.adapter.RestaurantAdapter;
-import com.hoangtien2k3.foody_order_app.image.Photo;
-import com.hoangtien2k3.foody_order_app.image.PhotoAdapter;
+import com.hoangtien2k3.foody_order_app.imageBanner.Photo;
+import com.hoangtien2k3.foody_order_app.imageBanner.PhotoAdapter;
 import com.hoangtien2k3.foody_order_app.repository.DAO;
 import com.hoangtien2k3.foody_order_app.repositoryInit.DataInitFragmentHome;
 
@@ -106,7 +105,6 @@ public class HomeFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.recyclerView_Restaurant);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 2);
-
 
         restaurantAdapter = new RestaurantAdapter(HomeActivity.dao.getRestaurantList());
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
