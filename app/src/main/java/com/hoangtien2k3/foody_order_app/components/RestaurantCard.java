@@ -20,7 +20,8 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
     private boolean isSaved;
     private ImageView image;
     private TextView tvRestaurantName, tvRestaurantAddress;
-    private Button btnSaved;
+    private LinearLayout btnSavedShop;
+    private TextView textViewSaveShop;
 
     public RestaurantCard(Context context, Restaurant restaurant, boolean isSaved) {
         super(context);
@@ -38,7 +39,8 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
         image = findViewById(R.id.imageRestaurant);
         tvRestaurantName = findViewById(R.id.tvRestaurantName_res_cart);
         tvRestaurantAddress = findViewById(R.id.tvRestaurantAddress_res_cart);
-        btnSaved = findViewById(R.id.btnSavedRestaurant);
+        btnSavedShop = findViewById(R.id.btnSavedShop);
+        textViewSaveShop = findViewById(R.id.textViewSaveShop);
     }
 
     @Override
@@ -49,9 +51,9 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
         initUI();
 
         if(isSaved){
-            btnSaved.setText("BỎ LƯU");   // Thẻ được lưu
+            textViewSaveShop.setText("BỎ LƯU");
         }
-        btnSaved.setOnClickListener(view ->{
+        btnSavedShop.setOnClickListener(view ->{
             if(isSaved){
                 if(HomeActivity.dao.deleteRestaurantSaved(new RestaurantSaved(restaurant.getId(), HomeActivity.user.getId()))){
                     Toast.makeText(context, "Đã bỏ lưu thông tin nhà hàng!", Toast.LENGTH_SHORT).show();

@@ -34,14 +34,14 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView imageRestaurant;
         private final TextView tvRestaurantName_res_cart, tvRestaurantAddress_res_cart;
-        private final Button btnSavedRestaurant;
+        private LinearLayout btnSavedShop;
         private final LinearLayout linearlayout_restaurant;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageRestaurant = itemView.findViewById(R.id.imageRestaurant);
             tvRestaurantName_res_cart = itemView.findViewById(R.id.tvRestaurantName_res_cart);
             tvRestaurantAddress_res_cart = itemView.findViewById(R.id.tvRestaurantAddress_res_cart);
-            btnSavedRestaurant = itemView.findViewById(R.id.btnSavedRestaurant);
+            btnSavedShop = itemView.findViewById(R.id.btnSavedShop);
             linearlayout_restaurant = itemView.findViewById(R.id.linearlayout_restaurant);
         }
     }
@@ -71,7 +71,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         });
 
         // lưu thông tin cửa hàng vào danh sách chờ
-        holder.btnSavedRestaurant.setOnClickListener(v -> {
+        holder.btnSavedShop.setOnClickListener(v -> {
             Context context = v.getContext(); // Lấy context từ View v
             if(HomeActivity.dao.addRestaurantSaved(new RestaurantSaved(restaurant.getId(), HomeActivity.user.getId()))){
                 Toast.makeText(context, "Lưu thông tin nhà hàng thành công!", Toast.LENGTH_SHORT).show();
