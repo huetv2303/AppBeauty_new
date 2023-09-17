@@ -19,6 +19,7 @@
         android:id="@+id/btn_notify"
         android:icon="@drawable/notify_icon"
         android:title="@string/notify_lower" />
+
     <item
         android:id="@+id/btn_profile"
         android:icon="@drawable/person_icon"

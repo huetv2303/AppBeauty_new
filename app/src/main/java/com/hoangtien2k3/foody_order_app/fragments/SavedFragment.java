@@ -29,11 +29,6 @@ import com.hoangtien2k3.foody_order_app.model.RestaurantSaved;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SavedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SavedFragment extends Fragment {
 
     @SuppressLint("StaticFieldLeak")
@@ -50,15 +45,6 @@ public class SavedFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SavedFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static SavedFragment newInstance(String param1, String param2) {
         SavedFragment fragment = new SavedFragment();
         Bundle args = new Bundle();
@@ -72,7 +58,6 @@ public class SavedFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            // TODO: Rename and change types of parameters
             String mParam1 = getArguments().getString(ARG_PARAM1);
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -91,17 +76,17 @@ public class SavedFragment extends Fragment {
         tv_saved_restaurant = mainView.findViewById(R.id.tv_saved_restaurant);
 
         btn_saved_food.setOnClickListener(view -> {
-            btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(),R.color.silver));
+            btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(), R.color.silver));
             tv_saved_food.setTextColor(Color.BLUE);
-            btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(),R.drawable.bg_white));
+            btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_white));
             tv_saved_restaurant.setTextColor(Color.BLACK);
             LoadSavedCard("food");
         });
 
         btn_saved_restaurant.setOnClickListener(view -> {
-            btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(),R.drawable.bg_white));
+            btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_white));
             tv_saved_food.setTextColor(Color.BLACK);
-            btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(),R.color.silver));
+            btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(), R.color.silver));
             tv_saved_restaurant.setTextColor(Color.BLUE);
 
             LoadSavedCard("restaurant");
@@ -112,15 +97,15 @@ public class SavedFragment extends Fragment {
         return mainView;
     }
 
-    private void LoadSavedCard(String type){
+    private void LoadSavedCard(String type) {
         saved_container.removeAllViews();
 
-        if(type.equals("food")){
+        if (type.equals("food")) {
             ArrayList<FoodSaved> foodSavedArrayList = HomeActivity.dao.getFoodSaveList(HomeActivity.user.getId());
 
-            if(foodSavedArrayList.size() > 0){
+            if (foodSavedArrayList.size() > 0) {
 
-                for(FoodSaved foodSaved : foodSavedArrayList){
+                for (FoodSaved foodSaved : foodSavedArrayList) {
                     Food food = HomeActivity.dao.getFoodById(foodSaved.getFoodId());
                     Restaurant restaurant = HomeActivity.dao.getRestaurantInformation(food.getRestaurantId());
                     FoodSize foodSize = HomeActivity.dao.getFoodSize(foodSaved.getFoodId(), foodSaved.getSize());
@@ -132,7 +117,7 @@ public class SavedFragment extends Fragment {
                         intent.putExtra("food", food);
                         try {
                             startActivity(intent);
-                        } catch (Exception e){
+                        } catch (Exception e) {
                             Toast.makeText(getContext(), "Không thể hiển thị thông tin!", Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -143,7 +128,7 @@ public class SavedFragment extends Fragment {
             }
         } else {
             ArrayList<RestaurantSaved> restaurantSavedArrayList = HomeActivity.dao.getRestaurantSavedList(HomeActivity.user.getId());
-            for(RestaurantSaved restaurantSaved : restaurantSavedArrayList){
+            for (RestaurantSaved restaurantSaved : restaurantSavedArrayList) {
                 Restaurant restaurant = HomeActivity.dao.getRestaurantInformation(restaurantSaved.getRestaurantId());
                 RestaurantCard card = new RestaurantCard(getContext(), restaurant, true);
                 card.setOnClickListener(view -> {

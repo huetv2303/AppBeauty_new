@@ -27,7 +27,7 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
     private Spinner spUser_gender;
     private Calendar calendar;
     private String newUser_name, newUser_phone, newUser_DoB, newUser_gender, newUser_password;
-    private DAO dao;
+    private final DAO dao  = new DAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,6 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
                 break;
         }
 
-        dao = new DAO(this);
     }
 
 

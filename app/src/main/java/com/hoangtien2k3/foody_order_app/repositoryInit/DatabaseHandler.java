@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "order-food-3.sqlite";
+    private static final String DATABASE_NAME = "FoodyOrderApp1.sqlite";
     private static final Integer DATABASE_VERSION = 1;
     private static final SQLiteDatabase.CursorFactory DATABASE_FACTORY = null;
     private final Context context;
@@ -108,7 +108,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         userList.add(new User(1, "Hoàng Anh Tiến", "Male", "12-04-2003", "0828007853", "hoangtien2k3", "123456"));
         userList.add(new User(2, "Nguyễn Chí Hải Anh", "Male", "17-04-2003", "0947679750", "nguyenchihaianh", "123456"));
         userList.add(new User(3, "Vũ Mạnh Chiến", "Male", "25-06-2003", "0388891635", "vumanhchien", "123456"));
-
 
         // region Restaurant
         restaurantList = new ArrayList<>();

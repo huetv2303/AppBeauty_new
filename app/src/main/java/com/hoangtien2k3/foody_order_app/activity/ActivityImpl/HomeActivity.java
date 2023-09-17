@@ -1,16 +1,16 @@
 package com.hoangtien2k3.foody_order_app.activity.ActivityImpl;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.activity.HomeActivityImpl;
 import com.hoangtien2k3.foody_order_app.repository.DAO;
@@ -25,9 +25,8 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
     public static DAO dao;
     public static User user;
     private Fragment homeFragment, savedFragment, notifyFragment, profileFragment, informationFragment;
-    private LinearLayout btnHome, btnProfile, btnCart, btnSupport, btnSetting;
     private FragmentManager fragmentManager;
-    private TextView[] textViews;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         dao = new DAO(this);
 
         initializeUI();
-        loadFragment(homeFragment, textViews[0]); // setting: load mặc định - HomeFragment lên trên HomeActivity
+
         clickButtonNavigation();
     }
 
@@ -52,55 +51,43 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         profileFragment = new ProfileFragment();
         informationFragment = new CartFragment();
 
-        btnHome = findViewById(R.id.homeBtn);
-        btnProfile = findViewById(R.id.profileBtn);
-        btnCart = findViewById(R.id.cartBtn);
-        btnSupport = findViewById(R.id.supportBtn);
-        btnSetting = findViewById(R.id.settingBtn);
-
-        textViews = new TextView[] {
-                findViewById(R.id.text_1),
-                findViewById(R.id.text_2),
-                findViewById(R.id.text_3),
-                findViewById(R.id.text_4),
-                findViewById(R.id.text_5),
-        };
-
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         fragmentManager = getSupportFragmentManager();
     }
 
     @Override
     public void clickButtonNavigation() {
-        btnHome.setOnClickListener(v -> loadFragment(homeFragment, textViews[0]));
-        btnProfile.setOnClickListener(v -> loadFragment(savedFragment, textViews[1]));
-        btnSupport.setOnClickListener(v -> loadFragment(notifyFragment, textViews[3]));
-        btnSetting.setOnClickListener(v -> loadFragment(profileFragment, textViews[4]));
+        loadFragment(homeFragment); // setting: load mặc định - HomeFragment lên trên HomeActivity
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        // giỏ hàng: dùng ViewPager và Tablayout
-        btnCart.setOnClickListener(view -> {
-            setTextColorOnClick(textViews[2]);
-            Intent intent = new Intent(HomeActivity.this, CartViewPagerActivity.class);
-            startActivity(intent);
+                if (item.getItemId() == R.id.action_home) {
+                    loadFragment(homeFragment);
+                } else if (item.getItemId() == R.id.action_favorites) {
+                    loadFragment(savedFragment);
+                } else if (item.getItemId() == R.id.action_category) {
+                    Intent intent = new Intent(HomeActivity.this, CartViewPagerActivity.class);
+                    startActivity(intent);
+                } else if (item.getItemId() == R.id.action_notify) {
+                    loadFragment(notifyFragment);
+                } else if (item.getItemId() == R.id.action_profile) {
+                    loadFragment(profileFragment);
+                } else {
+                    return true;
+                }
+
+                return true;
+            }
         });
     }
 
     // load Fragment
-    private void loadFragment(Fragment fragmentReplace, TextView textColor) {
-        setTextColorOnClick(textColor);
+    private void loadFragment(Fragment fragmentReplace) {
         fragmentManager
                 .beginTransaction()
                 .replace(R.id.frame_container, fragmentReplace)
                 .commit();
-    }
-
-    // setup textColor
-    private void setTextColorOnClick(TextView textColor) {
-        for(TextView textView : textViews) {
-            if (textView != textColor)
-                textView.setTextColor(Color.BLACK);
-            else
-                textView.setTextColor(Color.BLUE);
-        }
     }
 
 }

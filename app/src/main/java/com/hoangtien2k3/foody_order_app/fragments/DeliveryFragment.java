@@ -20,15 +20,8 @@ import com.hoangtien2k3.foody_order_app.model.Order;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DeliveryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class DeliveryFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class DeliveryFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -46,14 +39,6 @@ public class DeliveryFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Information2Fragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static DeliveryFragment newInstance(String param1, String param2) {
         DeliveryFragment fragment = new DeliveryFragment();

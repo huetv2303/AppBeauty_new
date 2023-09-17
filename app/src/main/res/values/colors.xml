@@ -13,7 +13,7 @@
     <color name="blue">#0000ff</color>
     <color name="yellow">#ffff00</color>
     <color name="navy_blue">#373b54</color>
-
+    <color name="tranparent_white">#55ffffff</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -23,5 +23,7 @@
     <color name="sub_color">#FF8080</color>
     <color name="choose_color">#DA1B1B</color>
     <color name="bgBottomNavigation">#fe485a</color>
+    <color name="dark_orange">#ff8f00</color>
+    <color name="light_black">#424242</color>
 
 </resources>

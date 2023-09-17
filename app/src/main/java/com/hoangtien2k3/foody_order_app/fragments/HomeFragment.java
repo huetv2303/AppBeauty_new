@@ -30,12 +30,6 @@ import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
     private Intent intent;
     private View mainView;
@@ -43,9 +37,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private RestaurantAdapter restaurantAdapter;
     private DAO dao;
-
     private ConstraintLayout btnOrderFood;
-
 
     // loaf
     private ViewPager viewPager;
@@ -54,10 +46,6 @@ public class HomeFragment extends Fragment {
     private List<Photo> listPhoto; // danh sách các ảnh để hiển thị
     private Timer timer; // thằng này sẽ sét thời gian các ảnh hiển thị
 
-
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -69,15 +57,6 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -105,12 +84,9 @@ public class HomeFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.recyclerView_Restaurant);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 2);
-
         restaurantAdapter = new RestaurantAdapter(HomeActivity.dao.getRestaurantList());
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(restaurantAdapter);
-
 
         // Khởi tạo ViewPager và PhotoAdapter
         viewPager = rootView.findViewById(R.id.viewpager);

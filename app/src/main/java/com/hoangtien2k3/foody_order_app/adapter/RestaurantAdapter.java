@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView imageRestaurant;
         private final TextView tvRestaurantName_res_cart, tvRestaurantAddress_res_cart;
-        private LinearLayout btnSavedShop;
+        private CheckBox btnSavedShop;
 //        private final LinearLayout linearlayout_restaurant;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

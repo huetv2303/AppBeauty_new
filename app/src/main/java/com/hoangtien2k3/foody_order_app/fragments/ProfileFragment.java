@@ -19,11 +19,6 @@ import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.SignInActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.UserInformationActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfileFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -38,15 +33,6 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ProfileFragment newInstance(String param1, String param2) {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
@@ -75,7 +61,7 @@ public class ProfileFragment extends Fragment {
         return mainView;
     }
 
-    private void referenceComponent(){
+    private void referenceComponent() {
         LinearLayout user_information = mainView.findViewById(R.id.layout_user_information);
         user_information.setOnClickListener(view -> startActivity(new Intent(getActivity(), UserInformationActivity.class)));
 
@@ -118,7 +104,8 @@ public class ProfileFragment extends Fragment {
                 requireActivity().finish();
                 startActivity(new Intent(getActivity(), SignInActivity.class));
             });
-            dialog.setNegativeButton("Không", (dialogInterface, i) -> {});
+            dialog.setNegativeButton("Không", (dialogInterface, i) -> {
+            });
             dialog.show();
         });
 

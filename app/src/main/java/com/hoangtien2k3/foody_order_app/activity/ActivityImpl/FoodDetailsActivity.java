@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 public class FoodDetailsActivity extends AppCompatActivity implements FoodDetailsActivityImpl {
     private ImageView image, btnAddQuantity, btnSubQuantity;
     private LinearLayout layout_sizeS, layout_sizeM, layout_sizeL, btnAddToCart, btnSavedFood;
+    private CheckBox checkBoxFavorite, checkBoxCart;
     private TextView tvName, tvDescription, tvPrice,
             tvRestaurantName, tvRestaurantAddress,
             tvPriceSizeS, tvPriceSizeM, tvPriceSizeL,
@@ -40,7 +42,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_details);
+        setContentView(R.layout.activity_food_details_test);
 
         quantity = 1;
         dao = new DAO(this);
@@ -81,6 +83,8 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
 
         btnAddToCart = findViewById(R.id.btnAddToCart);
         btnSavedFood = findViewById(R.id.btnSavedFood);
+        checkBoxCart = findViewById(R.id.checkBoxCart);
+        checkBoxFavorite = findViewById(R.id.checkBoxFavorite);
 
         btnAddQuantity = findViewById(R.id.btnAddQuantity_Food);
         btnSubQuantity = findViewById(R.id.btnSubQuantity_Food);
@@ -91,54 +95,21 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         // quay về màn hình trước đó.
         findViewById(R.id.btnBack).setOnClickListener(view -> this.finish());
 
-        // đẩy thông tin món ăn vào giỏ hàng
         btnAddToCart.setOnClickListener(view -> {
-            // Make cart if don't have
-            Cursor cursor = dao.getCart(userID);
-
-            // (di chuyển con trỏ Cursor đến vị trí đúng trước khi truy cập dữ liệu.)
-            // và kiểm tra xem cursor này đang không trỏ đến vị trí đầu tiên không.
-            if (!cursor.moveToFirst()) {
-                dao.addOrder(new Order(1, userID, "", "", 0d, "Craft")); // ta sẽ add một order và (hay thêm vào phần giỏ hàng)
-                cursor = dao.getCart(userID); // lấy ra đối tượng cursor đấy với userID
-                System.out.println("đã được add đối tượng vào đây rồi.");
-            }
-
-            // add order detail
-            cursor.moveToFirst();   // (di chuyển con trỏ Cursor đến vị trí đúng trước khi truy cập dữ liệu.)
-
-            OrderDetail orderDetail = dao.getExistOrderDetail(cursor.getInt(0), foodSize);
-            if (orderDetail != null) {
-                orderDetail.setQuantity(orderDetail.getQuantity() + quantity);
-                if (dao.updateQuantity(orderDetail)) {
-                    Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
-                }
-
-            } else {
-                boolean addOrderDetail = dao.addOrderDetail(new OrderDetail(cursor.getInt(0),
-                        foodSize.getFoodId(), foodSize.getSize(), foodSize.getPrice(), quantity));
-
-                if (addOrderDetail) {
-                    Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
-                }
-            }
+            addCartProduct();
         });
 
+        checkBoxCart.setOnClickListener(view -> {
+            addCartProduct();
+        });
 
-        // lưu lại thông tin món ăn (fragment_save)
         btnSavedFood.setOnClickListener(view -> {
-            boolean addFoodSaved = dao.addFoodSaved(new FoodSaved(foodSize.getFoodId(), foodSize.getSize(), userID));
-            if (addFoodSaved) {
-                Toast.makeText(this, "Đã lưu thông tin món ăn!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Thông tin món ăn đã tồn tại trong giỏ hàng!!!", Toast.LENGTH_SHORT).show();
-            }
+            saveFood();
         });
 
+        checkBoxFavorite.setOnClickListener(view -> {
+            saveFood();
+        });
 
         // tăng số lượng món ăn
         btnAddQuantity.setOnClickListener(view -> {
@@ -157,6 +128,56 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
             }
         });
     }
+
+
+    // đẩy thông tin vào giỏ hàng
+    private void addCartProduct() {
+        // Make cart if don't have
+        Cursor cursor = dao.getCart(userID);
+
+        // (di chuyển con trỏ Cursor đến vị trí đúng trước khi truy cập dữ liệu.)
+        // và kiểm tra xem cursor này đang không trỏ đến vị trí đầu tiên không.
+        if (!cursor.moveToFirst()) {
+            dao.addOrder(new Order(1, userID, "", "", 0d, "Craft")); // ta sẽ add một order và (hay thêm vào phần giỏ hàng)
+            cursor = dao.getCart(userID); // lấy ra đối tượng cursor đấy với userID
+            System.out.println("đã được add đối tượng vào đây rồi.");
+        }
+
+        // add order detail
+        cursor.moveToFirst();   // (di chuyển con trỏ Cursor đến vị trí đúng trước khi truy cập dữ liệu.)
+
+        OrderDetail orderDetail = dao.getExistOrderDetail(cursor.getInt(0), foodSize);
+        if (orderDetail != null) {
+            orderDetail.setQuantity(orderDetail.getQuantity() + quantity);
+            if (dao.updateQuantity(orderDetail)) {
+                Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            boolean addOrderDetail = dao.addOrderDetail(new OrderDetail(cursor.getInt(0),
+                    foodSize.getFoodId(), foodSize.getSize(), foodSize.getPrice(), quantity));
+
+            if (addOrderDetail) {
+                Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    // lưu lại thông tin món ăn
+    private void saveFood() {
+        boolean addFoodSaved = dao.addFoodSaved(new FoodSaved(foodSize.getFoodId(), foodSize.getSize(), userID));
+        if (addFoodSaved) {
+            Toast.makeText(this, "Đã lưu thông tin món ăn!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Thông tin món ăn đã tồn tại trong giỏ hàng!!!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     // setting giá mặc định
     private void SetPriceDefault(Double price) {

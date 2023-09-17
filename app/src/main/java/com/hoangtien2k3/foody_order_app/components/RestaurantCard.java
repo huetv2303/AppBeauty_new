@@ -2,6 +2,7 @@ package com.hoangtien2k3.foody_order_app.components;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +20,10 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
     private boolean isSaved;
     private ImageView image;
     private TextView tvRestaurantName, tvRestaurantAddress;
-    private LinearLayout btnSavedShop;
+
+//    private LinearLayout btnSavedShop;
+    private CheckBox btnSavedShop;
+
     private TextView textViewSaveShop;
 
     public RestaurantCard(Context context, Restaurant restaurant, boolean isSaved) {
@@ -38,7 +42,9 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
         image = findViewById(R.id.imageRestaurant);
         tvRestaurantName = findViewById(R.id.tvRestaurantName_res_cart);
         tvRestaurantAddress = findViewById(R.id.tvRestaurantAddress_res_cart);
+//        btnSavedShop = findViewById(R.id.btnSavedShop);
         btnSavedShop = findViewById(R.id.btnSavedShop);
+
         textViewSaveShop = findViewById(R.id.textViewSaveShop);
     }
 
