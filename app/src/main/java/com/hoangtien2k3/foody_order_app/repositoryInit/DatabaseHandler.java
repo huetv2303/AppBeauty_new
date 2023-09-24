@@ -26,12 +26,12 @@ import java.util.List;
 import java.util.Random;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "FoodyOrderApp1.sqlite";
+    private static final String DATABASE_NAME = "foodyorderversion1.sqlite";
     private static final Integer DATABASE_VERSION = 1;
     private static final SQLiteDatabase.CursorFactory DATABASE_FACTORY = null;
     private final Context context;
 
-    // region List Sample DataSS
+    // List Sample DataSS
     private List<User> userList;
     private List<Restaurant> restaurantList;
     private List<RestaurantSaved> restaurantSavedList;
@@ -42,7 +42,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private List<Order> orderList;
     private List<OrderDetail> orderDetailList;
     private List<FoodSaved> foodSavedList;
-    // endregion
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, DATABASE_FACTORY, DATABASE_VERSION);
@@ -66,7 +65,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return c;
     }
 
-    // region Convert Image
+    // Convert Image
     public byte[] convertDrawableToByteArray(Drawable drawable) {
         // Convert khi đúng cấu trúc bitmap
         if (drawable instanceof BitmapDrawable) {
@@ -100,7 +99,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static Bitmap convertByteArrayToBitmap(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
-    // endregion
 
     private void SampleData() {
         // region User
@@ -132,7 +130,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         restaurantSavedList.add(new RestaurantSaved(1, 2));
         restaurantSavedList.add(new RestaurantSaved(2, 2));
         restaurantSavedList.add(new RestaurantSaved(6, 3));
-        // endregion
 
         // region Food
         foodList = new ArrayList<>();
@@ -158,7 +155,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         foodList.add(new Food(1, "Kem ốc quế socola", "Kem",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_socola, null)),
                 "Kem tươi mát ngon lắm bạn ơi!", 4));
-        // endregion
+
         // region Banh mi
         foodList.add(new Food(1, "Bánh mì bò kho", "Bánh mì",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_bokho, null)),
@@ -196,7 +193,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         foodList.add(new Food(1, "Hamburger gà", "Bánh mì",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_ga, null)),
                 "Bữa ăn đơn giản cho người đơn giản!", 5));
-        // endregion
+
         // region Banh ngot
         foodList.add(new Food(1, "Bánh đậu xanh cốt dừa", "Bánh ngọt",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhdauxanh_cotdua, null)),
@@ -228,7 +225,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         foodList.add(new Food(1, "Bánh su kem", "Bánh ngọt",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhsukem, null)),
                 "Cảm nhận sự ngọt ngào của những chiếc bánh ngon!", 4));
-        // endregion
+
         // region Com suon
         foodList.add(new Food(1, "Cơm sườn trứng", "Cơm sườn",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_trung, null)),
@@ -254,7 +251,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         foodList.add(new Food(1, "Cơm sườn xào chua ngọt", "Cơm sườn",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_chuangot, null)),
                 "Món ăn bình dân truyền thống nhưng không thể thiếu hằng ngày!", 3));
-        // endregion
+
         // region Mon nuoc
         foodList.add(new Food(1, "Bánh canh", "Món nước",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhcanh, null)),
@@ -298,7 +295,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         foodList.add(new Food(1, "Phở bò", "Món nước",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.phobo, null)),
                 "Nước súp đậm đà, trứ danh món Việt!", 6));
-        // endregion
+
         // region Tra sua
         foodList.add(new Food(1, "Trà sữa dâu", "Trà sữa",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.trasua_dau, null)),
@@ -312,8 +309,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         foodList.add(new Food(1, "Trà sữa xoài", "Trà sữa",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.trasua_xoai, null)),
                 "Uống đi, khum mặp đâu!", 2));
-        // endregion
-        // endregion
 
         // region foodSize
         foodSizeList = new ArrayList<>();
@@ -323,7 +318,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             foodSizeList.add(new FoodSize(i, 2, (random.nextInt(20) + 21) * 1000d));
             foodSizeList.add(new FoodSize(i, 3, (random.nextInt(20) + 41) * 1000d));
         }
-        // endregion
 
         // region foodSaved
         foodSavedList = new ArrayList<>();
@@ -338,7 +332,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         foodSavedList.add(new FoodSaved(42, 3, 3));
         foodSavedList.add(new FoodSaved(31, 3, 3));
         foodSavedList.add(new FoodSaved(20, 1, 4));
-        // endregion
 
         // region notify
         notifyList = new ArrayList<>();
@@ -348,7 +341,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "Ứng dụng Foody-Order-App dùng cho việc lựa chọn thưởng thức món ăn tại nhánh chóng.", "02/09/2023"));
         notifyList.add(new Notify(3, "Bạn đi đâu đấy!",
                 "Foody-Order-App luôn luôn chào mừng bạn.", "02/09/2023"));
-        // endregion
 
         // region notify to user
         notifyToUsers = new ArrayList<>();
@@ -356,7 +348,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         notifyToUsers.add(new NotifyToUser(3, 2));
         notifyToUsers.add(new NotifyToUser(3, 3));
         notifyToUsers.add(new NotifyToUser(3, 4));
-        // endregion
 
         // region Order
         orderList = new ArrayList<>();
@@ -365,7 +356,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         orderList.add(new Order(3, 3, "Triều Khúc", "4/3/2023", 0d, "Coming"));
         orderList.add(new Order(4, 4, "Nam Từ Liêm", "5/4/2023", 0d, "Craft"));
         orderList.add(new Order(5, 1, "Hà Đông", "4/5/2023", 0d, "Coming"));
-        // endregion
 
         // region Order detail
         orderDetailList = new ArrayList<>();
@@ -382,7 +372,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         orderDetailList.add(new OrderDetail(5, 31, 2, 18000d, 1));
         orderDetailList.add(new OrderDetail(5, 33, 3, 25000d, 3));
         orderDetailList.add(new OrderDetail(5, 41, 3, 25000d, 1));
-        // endregion
     }
 
     private void addSampleData(SQLiteDatabase db) {

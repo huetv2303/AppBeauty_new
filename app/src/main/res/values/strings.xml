@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">food_order_app</string>
+    <string name="app_name">Đặt Đồ Ăn</string>
     <string name="email_failed">Email Không Đúng</string>
     <string name="email_login_failed">Email Login Không Thành Công</string>
     <string name="email_and_password_failed">Email Login Không Thành Công</string>

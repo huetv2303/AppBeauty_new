@@ -20,9 +20,6 @@ import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.SignInActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.UserInformationActivity;
 
 public class ProfileFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -46,7 +43,6 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            // TODO: Rename and change types of parameters
             String mParam1 = getArguments().getString(ARG_PARAM1);
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -57,8 +53,8 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         mainView = inflater.inflate(R.layout.fragment_profile, container, false);
         referenceComponent();
-        // Inflate the layout for this fragment
-        return mainView;
+
+        return mainView; // Inflate the layout for this fragment
     }
 
     private void referenceComponent() {

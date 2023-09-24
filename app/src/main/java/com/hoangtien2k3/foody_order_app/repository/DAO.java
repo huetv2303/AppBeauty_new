@@ -45,7 +45,6 @@ public class DAO {
         }
         return restaurantArrayList;
     }
-    // endregion
 
     // region RestaurantSaved
     public boolean addRestaurantSaved(RestaurantSaved restaurantSaved) {

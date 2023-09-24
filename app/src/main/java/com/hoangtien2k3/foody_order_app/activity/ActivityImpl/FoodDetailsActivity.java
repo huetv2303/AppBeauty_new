@@ -33,6 +33,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
             tvRestaurantName, tvRestaurantAddress,
             tvPriceSizeS, tvPriceSizeM, tvPriceSizeL,
             tvQuantity;
+
     //    private Button btnAddToCart, btnSavedFood;
     public static Integer userID; // lấy ra userId
     private static int quantity;
@@ -42,7 +43,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_details_test);
+        setContentView(R.layout.activity_food_details);
 
         quantity = 1;
         dao = new DAO(this);

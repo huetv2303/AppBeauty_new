@@ -14,8 +14,10 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.CartViewPagerActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.adapter.RestaurantAdapter;
@@ -38,6 +40,7 @@ public class HomeFragment extends Fragment {
     private RestaurantAdapter restaurantAdapter;
     private DAO dao;
     private ConstraintLayout btnOrderFood;
+    private ImageView imageCart;
 
     // loaf
     private ViewPager viewPager;
@@ -99,6 +102,13 @@ public class HomeFragment extends Fragment {
         circleIndicator.setViewPager(viewPager);
         photoAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
         autoSildeImage(); // thiết lập thời gian hiển thị ảnh
+
+        imageCart = rootView.findViewById(R.id.imageCart);
+        imageCart.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), CartViewPagerActivity.class);
+            startActivity(intent);
+        });
+
 
         return rootView;
     }

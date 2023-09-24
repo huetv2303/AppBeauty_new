@@ -20,13 +20,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <TextView
         android:id="@+id/image_image"
         android:layout_width="140sp"
         android:layout_height="40sp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginEnd="116dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/money_icon"
+        android:text="Trang Chủ"
+        android:textColor="@color/red"
+        android:textSize="30dp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/imageCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageCart"
@@ -48,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_5" />
+            android:src="@mipmap/order_icon" />
 
     </androidx.cardview.widget.CardView>
 
@@ -109,8 +113,8 @@
         android:layout_marginTop="24dp"
         android:text="Danh Mục Quán Ăn"
         android:textColor="#000000"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 

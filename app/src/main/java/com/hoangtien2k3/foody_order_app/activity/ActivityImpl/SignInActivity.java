@@ -76,10 +76,6 @@ public class SignInActivity extends AppCompatActivity {
                     editor.putString("password", userExist.getPassword());
                     editor.apply();
 
-                    // setup thông báo về rỗng
-                    validateUsername.setText("");
-                    validatePassword.setText("");
-
                     Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
                     HomeActivity.user = userExist; // truyền cái User đã đăng ký tài khoản vào HomeActivity
                     startActivity(intent); // start nó lên
@@ -95,6 +91,10 @@ public class SignInActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(SignInActivity.this, getResources().getString(R.string.input_full_username_and_password), Toast.LENGTH_SHORT).show();
             }
+
+            // setup thông báo về rỗng
+            validateUsername.setText("");
+            validatePassword.setText("");
         });
 
 
@@ -147,7 +147,7 @@ public class SignInActivity extends AppCompatActivity {
     private void setNextActivityListener() {
         textSignUpApp.setOnClickListener(v -> {
             Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 0);
         });
     }
 }

@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -27,6 +29,8 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
     private Fragment homeFragment, savedFragment, notifyFragment, profileFragment, informationFragment;
     private FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
+    private static int clickToLogout;
+    private static int stackLayout = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,9 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
 
         initializeUI();
 
+        stackLayout++;
+        clickToLogout = 0;
+
         clickButtonNavigation();
     }
 
@@ -50,7 +57,6 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         notifyFragment = new NotifyFragment();
         profileFragment = new ProfileFragment();
         informationFragment = new CartFragment();
-
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         fragmentManager = getSupportFragmentManager();
     }
@@ -88,6 +94,37 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
                 .beginTransaction()
                 .replace(R.id.frame_container, fragmentReplace)
                 .commit();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        System.out.println(stackLayout);
+        if(stackLayout < 2){
+            clickToLogout++;
+
+            if(clickToLogout > 1){
+                finish();
+                stackLayout--;
+            } else {
+                Toast.makeText(this, "Click thêm lần nữa để đăng xuất!", Toast.LENGTH_SHORT).show();
+            }
+
+            new CountDownTimer(3000, 1000) {
+                @Override
+                public void onTick(long l) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    clickToLogout = 0;
+                }
+            }.start();
+        } else {
+            stackLayout--;
+            super.onBackPressed();
+        }
     }
 
 }

@@ -54,9 +54,7 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
                 spUser_gender.setSelection(2);
                 break;
         }
-
     }
-
 
     private void referencesComponent(){
         edUser_name = findViewById(R.id.editText_user_name);
