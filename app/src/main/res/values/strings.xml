@@ -26,7 +26,7 @@
     <string name="address">Địa chỉ</string>
     <string name="example_address">Số 24/62 Phùng Khoang, Nam Từ Liêm ...</string>
     <string name="total">Tổng cộng</string>
-    <string name="payment">Thanh Toán</string>
+    <string name="payment">Đặt Hàng</string>
     <string name="order_food">Đặt Hàng</string>
     <string name="cancel">Hủy</string>
     <string name="your_information">Thông Tin Cá Nhân</string>
@@ -129,7 +129,7 @@
     <string name="bonus_money">Tiền thưởng</string>
     <string name="voucher">Ví voucher</string>
     <string name="invite_friend">Mời bạn bè</string>
-    <string name="hint">Gợi ý</string>
+    <string name="hint">Thông báo</string>
     <string name="policy_and_secure">Chính sách và bảo mật</string>
     <string name="logout">Đăng xuất</string>
     <string name="title">Tiêu đề</string>

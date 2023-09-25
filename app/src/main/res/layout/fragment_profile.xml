@@ -8,9 +8,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="87sp"
+        android:layout_height="100sp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         android:background="@drawable/bg_function"
         android:elevation="10dp"
         android:orientation="vertical">
@@ -18,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="47sp"
-            android:background="@color/silver"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <TextView
@@ -28,20 +27,21 @@
                 android:gravity="center"
                 android:text="@string/account"
                 android:textColor="@color/blue"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layout_user_information"
             android:layout_width="match_parent"
-            android:layout_height="40sp"
+            android:layout_height="52sp"
+            android:gravity="center"
             android:orientation="horizontal"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="24dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
                 android:contentDescription="@string/content_description_image"
@@ -55,16 +55,16 @@
                 android:layout_marginStart="20dp"
                 android:gravity="center"
                 android:text="@string/example_full_name"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textSize="20dp"
+                android:textColor="@color/red"
+                android:textStyle="italic" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="504dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
         android:background="@drawable/bg_function"
         android:elevation="5dp"
         android:orientation="vertical">
@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="Thanh Toán"
                 android:textColor="@color/black"
@@ -110,7 +110,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/history"
                 android:textColor="@color/black"
@@ -134,7 +134,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/bill_lower"
                 android:textColor="@color/black"
@@ -158,7 +158,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/bonus_money"
                 android:textColor="@color/black"
@@ -182,7 +182,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/voucher"
                 android:textColor="@color/black"
@@ -206,7 +206,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/hint"
                 android:textColor="@color/black"
@@ -230,7 +230,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/policy_and_secure"
                 android:textColor="@color/black"
@@ -254,7 +254,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/logout"
                 android:textColor="@color/black"

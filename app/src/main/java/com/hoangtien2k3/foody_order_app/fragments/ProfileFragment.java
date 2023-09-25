@@ -14,8 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
-import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.CartViewPagerActivity;
+import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.CategoryActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
+import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.PaymentActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.SignInActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.UserInformationActivity;
 
@@ -43,6 +44,7 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            // TODO: Rename and change types of parameters
             String mParam1 = getArguments().getString(ARG_PARAM1);
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -53,8 +55,8 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         mainView = inflater.inflate(R.layout.fragment_profile, container, false);
         referenceComponent();
-
-        return mainView; // Inflate the layout for this fragment
+        // Inflate the layout for this fragment
+        return mainView;
     }
 
     private void referenceComponent() {
@@ -63,21 +65,21 @@ public class ProfileFragment extends Fragment {
 
         LinearLayout payment = mainView.findViewById(R.id.account_btn_layout_payment);
         payment.setOnClickListener(view -> {
-            intent = new Intent(getActivity(), CartViewPagerActivity.class);
+            intent = new Intent(getActivity(), HomeActivity.class);
             intent.putExtra("request", "payment");
             startActivity(intent);
         });
 
         LinearLayout history = mainView.findViewById(R.id.account_btn_layout_history);
         history.setOnClickListener(view -> {
-            intent = new Intent(getActivity(), CartViewPagerActivity.class);
+            intent = new Intent(getActivity(), HomeActivity.class);
             intent.putExtra("request", "history");
             startActivity(intent);
         });
 
         LinearLayout check = mainView.findViewById(R.id.account_btn_layout_check);
         check.setOnClickListener(view -> {
-            intent = new Intent(getActivity(), CartViewPagerActivity.class);
+            intent = new Intent(getActivity(), HomeActivity.class);
             intent.putExtra("request", "check");
             startActivity(intent);
         });

@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.components.CartCard;
-import com.hoangtien2k3.foody_order_app.fragments.DeliveryFragment;
 import com.hoangtien2k3.foody_order_app.repository.DAO;
 import com.hoangtien2k3.foody_order_app.model.Food;
 import com.hoangtien2k3.foody_order_app.model.FoodSize;

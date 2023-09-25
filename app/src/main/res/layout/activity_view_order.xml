@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="---- HÓA ĐƠN ----"
+            android:text="Hóa Đơn Đã Đặt"
             android:textAlignment="center"
             android:textColor="@color/blue"
             android:textSize="35dp"

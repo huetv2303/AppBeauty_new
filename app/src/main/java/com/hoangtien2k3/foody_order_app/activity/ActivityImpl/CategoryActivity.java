@@ -57,41 +57,38 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
         tvRestaurantAddress = findViewById(R.id.tvRestaurantAddress_category);
         tvRestaurantPhone = findViewById(R.id.tvRestaurantPhone_category);
         foodCartContainer = findViewById(R.id.foodCartContainer);
-//        searchBar = findViewById(R.id.search_bar);
+        searchBar = findViewById(R.id.search_bar);
     }
 
+    @Override
+    public void setupSearchBar() {
+        // thanh tìm kiếm thông tin
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                String nameFoodOfThisRestaurant = searchBar.getQuery().toString();
+                loadFoodData(nameFoodOfThisRestaurant);
+                return false;
+            }
 
-    // tìm kiếm thông tin về đồ ăn trên danh sách đồ ăn.
-//    @Override
-//    public void setupSearchBar() {
-//        // thanh tìm kiếm thông tin
-//        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                String nameFoodOfThisRestaurant = searchBar.getQuery().toString();
-//                loadFoodData(nameFoodOfThisRestaurant);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                return false;
-//            }
-//        });
-//    }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+    }
 
 
     @Override
     public void loadRestaurantInformation() {
         // thoat về trang chủ
-        image.setOnClickListener(view -> {
-            Intent intent = new Intent(CategoryActivity.this, HomeActivity.class);
-            intent.putExtra("request","cart");
-            startActivity(intent);
-        });
+        image.setOnClickListener(view -> finish());
 
         // load lại tất cả thông tin
         imageSync.setOnClickListener(view -> loadFoodData(null));
+
+        // tìm kiếm thông tin về đồ ăn trên danh sách đồ ăn.
+        setupSearchBar();
 
         // Restaurant data: đẩy thông tin lên
         LinearLayout layoutRestaurant = findViewById(R.id.layout_restaurantInformation);

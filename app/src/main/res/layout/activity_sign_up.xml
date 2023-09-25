@@ -136,14 +136,14 @@
 
             <Button
                 android:id="@+id/btnSignUp"
-                android:layout_width="220dp"
+                android:layout_width="212dp"
                 android:layout_height="55dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="70dp"
                 android:gravity="center"
-                android:layout_gravity="center"
-                android:textStyle="bold"
+                android:text="Đăng Ký"
                 android:textSize="22sp"
-                android:text="Đăng Ký" />
+                android:textStyle="bold" />
 
 
             <TextView

@@ -25,5 +25,6 @@
     <color name="bgBottomNavigation">#fe485a</color>
     <color name="dark_orange">#ff8f00</color>
     <color name="light_black">#424242</color>
+    <color name="app_color2">#E8584D</color>
 
 </resources>

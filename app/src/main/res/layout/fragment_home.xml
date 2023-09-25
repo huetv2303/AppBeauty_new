@@ -11,12 +11,12 @@
 
     <ImageView
         android:id="@+id/imageCart"
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/bottom_btn5"
+        android:src="@drawable/cart_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,13 +24,13 @@
         android:id="@+id/image_image"
         android:layout_width="140sp"
         android:layout_height="40sp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginEnd="120dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/money_icon"
         android:text="Trang Chủ"
         android:textColor="@color/red"
-        android:textSize="30dp"
-        android:textStyle="italic"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageCart"
@@ -53,11 +53,25 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@mipmap/order_icon" />
-
     </androidx.cardview.widget.CardView>
 
+<!--    <SearchView-->
+<!--        android:id="@+id/search_bar"-->
+<!--        android:layout_width="360sp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:background="@drawable/bg_search_view"-->
+<!--        android:elevation="5dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/image_image" />-->
+
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/search_bar"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
@@ -67,7 +81,7 @@
         android:drawableStart="@drawable/search"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Find your food"
+        android:hint="Tìm kiếm đồ ăn"
         android:inputType="text"
         android:paddingStart="20dp"
         android:textColor="@color/white"
@@ -88,7 +102,7 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/bg_orange_light_banner"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText">
+        app:layout_constraintTop_toBottomOf="@+id/search_bar">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager"
@@ -105,16 +119,38 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="70dp"
+        android:background="@color/red"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewSaveShop"
+            android:layout_width="70dp"
+            android:layout_height="20sp"
+            android:text="Giảm 15%"
+            android:textColor="@color/yellow"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Danh Mục Quán Ăn"
-        android:textColor="#000000"
+        android:text="Gợi ý của hàng"
+        android:textColor="@color/red"
         android:textSize="20dp"
-        android:textStyle="italic"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 

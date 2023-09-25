@@ -23,11 +23,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class UserInformationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
     private EditText edUser_name, edUser_phone, edUser_DoB, edUser_password;
     private Spinner spUser_gender;
     private Calendar calendar;
     private String newUser_name, newUser_phone, newUser_DoB, newUser_gender, newUser_password;
-    private final DAO dao  = new DAO(this);
+    private DAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
 
         referencesComponent();
 
-        Toast.makeText(this, HomeActivity.user.getGender(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, HomeActivity.user.getGender(), Toast.LENGTH_SHORT).show();
 
         edUser_name.setText(HomeActivity.user.getName());
         edUser_phone.setText(HomeActivity.user.getPhone());
@@ -54,6 +55,8 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
                 spUser_gender.setSelection(2);
                 break;
         }
+
+        dao = new DAO(this);
     }
 
     private void referencesComponent(){
@@ -61,9 +64,10 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
         edUser_phone = findViewById(R.id.editText_user_phone);
         edUser_DoB = findViewById(R.id.user_birthday_pick);
         edUser_DoB.setOnClickListener(view -> PickDate());
-        edUser_password = findViewById(R.id.editText_user_password);
-        spUser_gender = findViewById(R.id.spinner_user_gender);
 
+        edUser_password = findViewById(R.id.editText_user_password);
+
+        spUser_gender = findViewById(R.id.spinner_user_gender);
         ArrayAdapter<CharSequence> genders = ArrayAdapter.createFromResource(this, R.array.genders, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         genders.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         spUser_gender.setAdapter(genders);

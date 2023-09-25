@@ -35,14 +35,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         private final ImageView imageRestaurant;
         private final TextView tvRestaurantName_res_cart, tvRestaurantAddress_res_cart;
         private CheckBox btnSavedShop;
-//        private final LinearLayout linearlayout_restaurant;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageRestaurant = itemView.findViewById(R.id.imageRestaurant);
             tvRestaurantName_res_cart = itemView.findViewById(R.id.tvRestaurantName_res_cart);
             tvRestaurantAddress_res_cart = itemView.findViewById(R.id.tvRestaurantAddress_res_cart);
             btnSavedShop = itemView.findViewById(R.id.btnSavedShop);
-//            linearlayout_restaurant = itemView.findViewById(R.id.linearlayout_restaurant);
         }
     }
 

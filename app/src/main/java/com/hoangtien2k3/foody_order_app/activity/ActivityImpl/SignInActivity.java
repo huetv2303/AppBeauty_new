@@ -59,7 +59,7 @@ public class SignInActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void checkLogin() {
         // đăng nhập
-        btnLogin.setOnClickListener(v-> {
+        btnLogin.setOnClickListener(v -> {
             String username = txtUsername.getText().toString().trim();
             String password = txtPassword.getText().toString().trim();
 
@@ -86,13 +86,13 @@ public class SignInActivity extends AppCompatActivity {
                     } else if (!dao.checkPasswordToCurrentUsername(username, password)) {
                         validatePassword.setText(getResources().getString(R.string.error_password_login));
                     }
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.error_information_login), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.error_information_login), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(SignInActivity.this, getResources().getString(R.string.input_full_username_and_password), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.input_full_username_and_password), Toast.LENGTH_SHORT).show();
+                return;
             }
 
-            // setup thông báo về rỗng
             validateUsername.setText("");
             validatePassword.setText("");
         });
@@ -126,9 +126,7 @@ public class SignInActivity extends AppCompatActivity {
     // Hàm để hiển thị hoặc ẩn mật khẩu
     private void togglePasswordVisibility() {
         isPasswordVisible = !isPasswordVisible;
-        int inputType = isPasswordVisible
-                ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
-                : (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        int inputType = isPasswordVisible ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) : (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         txtPassword.setInputType(inputType);
 
         // Di chuyển con trỏ đến cuối văn bản để tránh việc mất vị trí khi thay đổi InputType
@@ -138,7 +136,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(data != null) {
+        if (data != null) {
             txtUsername.setText(data.getStringExtra("username"));
             txtPassword.setText(data.getStringExtra("password"));
         }

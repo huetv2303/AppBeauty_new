@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.R;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
-import com.hoangtien2k3.foody_order_app.fragments.CartFragment;
+import com.hoangtien2k3.foody_order_app.fragments.ChatFragment;
 import com.hoangtien2k3.foody_order_app.repositoryInit.DatabaseHandler;
 import com.hoangtien2k3.foody_order_app.model.Food;
 import com.hoangtien2k3.foody_order_app.model.OrderDetail;
@@ -102,7 +102,7 @@ public class CartCard extends LinearLayout implements BaseComponent {
             dialog.setPositiveButton("Có", (dialogInterface, i) -> {
                 if (HomeActivity.dao.deleteOrderDetailByOrderIdAndFoodId(card.getOrderId(), food.getId())) {
 //                    ChatFragment.cartContainer.removeView(this);
-                    CartFragment.cartContainer.removeView(this); // xóa view đó (hay là xóa món ăn đó khỏi giỏ hàng)
+                    ChatFragment.cartContainer.removeView(this); // xóa view đó (hay là xóa món ăn đó khỏi giỏ hàng)
 
                     Toast.makeText(context, "Đã xóa thông tin thành công.", Toast.LENGTH_SHORT).show(); // đẩy ra thông báo
                 } else {
