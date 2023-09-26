@@ -141,7 +141,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         if (!cursor.moveToFirst()) {
             dao.addOrder(new Order(1, userID, "", "", 0d, "Craft")); // ta sẽ add một order và (hay thêm vào phần giỏ hàng)
             cursor = dao.getCart(userID); // lấy ra đối tượng cursor đấy với userID
-            System.out.println("đã được add đối tượng vào đây rồi.");
+//            System.out.println("đã được add đối tượng vào đây rồi.");
         }
 
         // add order detail
@@ -151,9 +151,9 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         if (orderDetail != null) {
             orderDetail.setQuantity(orderDetail.getQuantity() + quantity);
             if (dao.updateQuantity(orderDetail)) {
-                Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_dish_successfully), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_error), Toast.LENGTH_SHORT).show();
             }
 
         } else {
@@ -161,9 +161,9 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
                     foodSize.getFoodId(), foodSize.getSize(), foodSize.getPrice(), quantity));
 
             if (addOrderDetail) {
-                Toast.makeText(this, "Thêm Món Ăn Vào Giỏ Hàng Thành Công.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_dish_successfully), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Có Lỗi Xảy Ra.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_error), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -173,9 +173,9 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
     private void saveFood() {
         boolean addFoodSaved = dao.addFoodSaved(new FoodSaved(foodSize.getFoodId(), foodSize.getSize(), userID));
         if (addFoodSaved) {
-            Toast.makeText(this, "Đã lưu thông tin món ăn!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.SAVED_DISHED), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Thông tin món ăn đã tồn tại trong giỏ hàng!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.INFORMATION_EXISTED), Toast.LENGTH_SHORT).show();
         }
     }
 

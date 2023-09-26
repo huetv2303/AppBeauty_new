@@ -43,8 +43,9 @@ public class IntroActivity extends AppCompatActivity {
         binding.viewpaper.setAdapter(introAdapter);
         binding.viewpaper.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         binding.dotsIndicator.attachTo(binding.viewpaper);
-        new TabLayoutMediator(binding.tablayout, binding.viewpaper, (tab, position) -> {
-        }).attach();
+
+        new TabLayoutMediator(binding.tablayout, binding.viewpaper, (tab, position) -> {}).attach();
+
         binding.tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

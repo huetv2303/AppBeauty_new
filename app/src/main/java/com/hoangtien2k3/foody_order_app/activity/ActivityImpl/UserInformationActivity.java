@@ -45,10 +45,10 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
         edUser_password.setText(HomeActivity.user.getPassword());
 
         switch (HomeActivity.user.getGender()){
-            case "Male":
+            case "Nam":
                 spUser_gender.setSelection(0);
                 break;
-            case "Female":
+            case "Nữ":
                 spUser_gender.setSelection(1);
                 break;
             default:
@@ -82,7 +82,7 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
             newUser_password = edUser_password.getText().toString();
 
             if(newUser_name.isEmpty() || newUser_phone.isEmpty() || newUser_DoB.isEmpty() || newUser_password.isEmpty()){
-                Toast.makeText(this, "Vui lòng điền đủ thông tin!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.fill_full_the_information), Toast.LENGTH_SHORT).show();
             } else {
                 String oldPassword = HomeActivity.user.getPassword();
                 User editUser = new User(HomeActivity.user.getId(),
@@ -92,14 +92,14 @@ public class UserInformationActivity extends AppCompatActivity implements Adapte
                 dao.updateUser(editUser);
 
                 if(!oldPassword.equals(newUser_password)){
-                    Toast.makeText(this, "Vui lòng đăng nhập lại!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.login_again), Toast.LENGTH_SHORT).show();
                     // Make notify
-                    dao.addNotify(new Notify(1, "Mật khẩu đã thay đổi!",
-                            "Vui lòng đăng nhập lại ứng dụng để cập nhật thông tin cá nhân mới!",
+                    dao.addNotify(new Notify(1, getResources().getString(R.string.password_change),
+                            getResources().getString(R.string.login_again_update_information),
                             dao.getDate()));
                     dao.addNotifyToUser(new NotifyToUser(dao.getNewestNotifyId(), dao.getNewestUserId()));
                 } else {
-                    Toast.makeText(this, "Thay đổi thông tin thành công!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.chang_information_successfully), Toast.LENGTH_SHORT).show();
                 }
                 HomeActivity.user = editUser;
                 finish();

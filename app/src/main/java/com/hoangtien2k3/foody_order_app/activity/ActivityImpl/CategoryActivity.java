@@ -139,7 +139,7 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
                 try {
                     startActivity(intent);
                 } catch (Exception e){
-                    Toast.makeText(this, "Không thể hiển thị thông tin!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.not_view_information), Toast.LENGTH_SHORT).show();
                 }
             });
 

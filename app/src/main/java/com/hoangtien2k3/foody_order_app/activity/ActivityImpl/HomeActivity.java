@@ -49,14 +49,12 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         clickToLogout = 0;
         clickButtonNavigation();
 
+        // từ Fragment trở đến Activity để lấy đối tượng User (Xác thực)
         Intent intent = getIntent();
         String request = intent.getStringExtra("request");
         if(request != null) {
             switch (request) {
-                case "history":
-                case "check":
-                case "payment":
-                case "cart":
+                case "history": case "check": case "payment": case "cart":
                     loadFragment_replace(chatFragment, 2);
                     break;
                 case "hint":

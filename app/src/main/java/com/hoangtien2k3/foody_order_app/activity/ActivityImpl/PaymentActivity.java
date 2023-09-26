@@ -31,10 +31,8 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-
         intent = getIntent();
         dao = new DAO(this);
-
         referencesComponents();
     }
 
@@ -62,7 +60,7 @@ public class PaymentActivity extends AppCompatActivity {
             phone = tvUserPhone.getText().toString();
             address = tvUserAddress.getText().toString();
             if (name.isEmpty() || phone.isEmpty() || address.isEmpty()) {
-                Toast.makeText(this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.fill_full_the_information), Toast.LENGTH_SHORT).show();
                 return;
             }
             dateOfOrder = dao.getDate();
@@ -70,12 +68,12 @@ public class PaymentActivity extends AppCompatActivity {
             Order order = new Order(orderId, user.getId(), address, dateOfOrder, sum, "Coming");
             dao.updateOrder(order);
 
-            Toast.makeText(this, "Đã thanh toán thành công!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.payment_successfully), Toast.LENGTH_SHORT).show();
             ChatFragment.cartContainer.removeAllViews();
 
             // User Notify
-            String content = "Đơn hàng của bạn đang được giao!\nTổng giá trị đơn hàng là " + sum + " VNĐ";
-            dao.addNotify(new Notify(1, "Thông báo về đơn hàng!", content, dateOfOrder));
+            String content = getResources().getString(R.string.information_order_item) + sum + " VNĐ";
+            dao.addNotify(new Notify(1, getResources().getString(R.string.information_order), content, dateOfOrder));
             dao.addNotifyToUser(new NotifyToUser(dao.getNewestNotifyId(), user.getId()));
 
             finish();

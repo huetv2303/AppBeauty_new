@@ -1,5 +1,6 @@
 package com.hoangtien2k3.foody_order_app.fragments;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,10 +19,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.CategoryActivity;
 import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.HomeActivity;
 import com.hoangtien2k3.foody_order_app.R;
+import com.hoangtien2k3.foody_order_app.activity.ActivityImpl.SignInActivity;
 import com.hoangtien2k3.foody_order_app.adapter.RestaurantAdapter;
 import com.hoangtien2k3.foody_order_app.imageBanner.Photo;
 import com.hoangtien2k3.foody_order_app.imageBanner.PhotoAdapter;
@@ -103,6 +106,25 @@ public class HomeFragment extends Fragment {
             intent = new Intent(getActivity(), HomeActivity.class);
             intent.putExtra("request", "cart");
             startActivity(intent);
+        });
+
+        rootView.findViewById(R.id.imageNotify).setOnClickListener(v -> {
+            intent = new Intent(getActivity(), HomeActivity.class);
+            intent.putExtra("request", "hint");
+            startActivity(intent);
+        });
+
+        rootView.findViewById(R.id.imageLogout).setOnClickListener(view -> {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+            dialog.setMessage("Bạn có muốn đăng xuất tài khoản ?");
+            dialog.setPositiveButton("Có", (dialogInterface, i) -> {
+                Toast.makeText(this.getActivity(), "Đã đăng xuất khỏi hệ thống!", Toast.LENGTH_SHORT).show();
+                requireActivity().finish();
+                startActivity(new Intent(getActivity(), SignInActivity.class));
+            });
+            dialog.setNegativeButton("Không", (dialogInterface, i) -> {
+            });
+            dialog.show();
         });
 
 

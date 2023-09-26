@@ -35,16 +35,14 @@ public class ViewOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order);
-
         dao = new DAO(this);
         Intent intent = getIntent();
         order = (Order) intent.getSerializableExtra("order");
-
         referencesComponent();
         LoadData();
     }
 
-    public void referencesComponent(){
+    public void referencesComponent() {
         layout_container = findViewById(R.id.layout_container_order_detail);
 
         tvDate = findViewById(R.id.tvDateMakeOrderView);
@@ -53,29 +51,29 @@ public class ViewOrderActivity extends AppCompatActivity {
         tvStatus = findViewById(R.id.tvOrderStatusView);
 
         Button btnDeleteOrder = findViewById(R.id.btnDeleteOrder);
-        if(order.getStatus().equals("Delivered") || order.getStatus().equals("Canceled")){
+        if (order.getStatus().equals("Delivered") || order.getStatus().equals("Canceled")) {
             btnDeleteOrder.setEnabled(false);
             btnDeleteOrder.setBackgroundColor(Color.GRAY);
         }
 
-
         btnDeleteOrder.setOnClickListener(view -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setMessage("Bạn có muốn xóa món đơn hàng này không?");
+            dialog.setMessage(getResources().getString(R.string.If_You_Delete_Cart));
             dialog.setPositiveButton("Có", (dialogInterface, i) -> {
                 order.setStatus("Canceled");
                 dao.updateOrder(order);
-                Toast.makeText(this, "Đơn hàng đã bị hủy!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.order_cancel), Toast.LENGTH_SHORT).show();
 
                 // User Notify
-                String content = "Đơn hàng của bạn đã bị hủy!\nTổng giá trị đơn hàng là " + order.getTotalValue()
-                        + " VNĐ \nBạn có thể góp ý gì liên hệ Hoàng Tiên - 0828007853";
-                dao.addNotify(new Notify(1, "Thông báo về đơn hàng!",
+                String content = getResources().getString(R.string.information_order_cancel) + order.getTotalValue()
+                        + getResources().getString(R.string.contact_information);
+                dao.addNotify(new Notify(1, getResources().getString(R.string.information_order),
                         content, dao.getDate()));
                 dao.addNotifyToUser(new NotifyToUser(dao.getNewestNotifyId(), userID));
                 finish();
             });
-            dialog.setNegativeButton("Không", (dialogInterface, i) -> {});
+            dialog.setNegativeButton("Không", (dialogInterface, i) -> {
+            });
             dialog.show();
 
         });
@@ -84,15 +82,15 @@ public class ViewOrderActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(view -> finish());
     }
 
-    private void LoadData(){
-        tvDate.setText(String.format("+ Ngày đặt hàng: %s", order.getDateOfOrder()));
-        tvAddress.setText(String.format("+ Địa chỉ: %s", order.getAddress()));
-        tvPrice.setText(String.format("+ Tổng giá trị: %s", getRoundPrice(order.getTotalValue())));
-        tvStatus.setText(String.format("+ Trạng thái giao hàng: %s",order.getStatus()));
+    private void LoadData() {
+        tvDate.setText(String.format("+ Ngày Đặt Sản Phẩm: %s", order.getDateOfOrder()));
+        tvAddress.setText(String.format("+ Địa Chỉ Giao Hàng: %s", order.getAddress()));
+        tvPrice.setText(String.format("+ Tổng Tiền Sản Phẩm: %s", getRoundPrice(order.getTotalValue())));
+        tvStatus.setText(String.format("+ Trạng Thái Giao Hàng: %s", order.getStatus()));
 
         ArrayList<OrderDetail> orderDetailArrayList = dao.getCartDetailList(order.getId());
-        if(orderDetailArrayList.size() > 0) {
-            for(OrderDetail orderDetail : orderDetailArrayList){
+        if (orderDetailArrayList.size() > 0) {
+            for (OrderDetail orderDetail : orderDetailArrayList) {
                 Food food = dao.getFoodById(orderDetail.getFoodId());
                 Restaurant restaurant = dao.getRestaurantInformation(food.getRestaurantId());
                 FoodSize foodSize = dao.getFoodSize(orderDetail.getFoodId(), orderDetail.getSize());
@@ -104,8 +102,8 @@ public class ViewOrderActivity extends AppCompatActivity {
                     intent.putExtra("food", food);
                     try {
                         startActivity(intent);
-                    } catch (Exception e){
-                        Toast.makeText(this, "Không thể hiển thị thông tin!", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(this, getResources().getString(R.string.not_found_information), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -115,7 +113,7 @@ public class ViewOrderActivity extends AppCompatActivity {
 
     }
 
-    private String getRoundPrice(Double price){
+    private String getRoundPrice(Double price) {
         return Math.round(price) + " VNĐ";
     }
 }

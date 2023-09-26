@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Đặt Đồ Ăn</string>
+    <string name="app_notify">Thông Báo</string>
     <string name="email_failed">Email Không Đúng</string>
     <string name="email_login_failed">Email Login Không Thành Công</string>
     <string name="email_and_password_failed">Email Login Không Thành Công</string>
@@ -7,24 +8,48 @@
     <string name="input_full_username_and_password">Nhập Đầy Đủ Username Và Password</string>
     <string name="input_full_information">Hãy Nhập Đầy Đủ Thông Tin</string>
     <string name="password_failed">Mật Khẩu Không Đúng</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="password_again_failed">Nhập lại mật khẩu không đúng.</string>
+    <string name="user_existed">Người dùng đã tồn tại!</string>
+    <string name="account_existed">Tên tài khoản đã tồn tại</string>
+    <string name="account_create_success">Tạo tài khoản thành công!</string>
+    <string name="password_change">Mật khẩu đã thay đổi!</string>
+    <string name="login_again_update_information">Vui lòng đăng nhập lại ứng dụng để cập nhật thông tin cá nhân mới!</string>
+    <string name="chang_information_successfully">Thay đổi thông tin thành công!</string>
+    <string name="not_view_information">Không thể hiển thị thông tin!</string>
+    <string name="add_dish_successfully">Thêm Món Ăn Vào Giỏ Hàng Thành Công.</string>
+    <string name="add_error">Thêm món ăn không thành công (Lỗi)</string>
+    <string name="SAVED_DISHED">Đã lưu thông tin món ăn</string>
+    <string name="INFORMATION_EXISTED">Thông tin món ăn đã tồn tại trong giỏ hàng.</string>
+    <string name="If_You_Delete_Cart">Bạn có muốn xóa món đơn hàng này không?</string>
+    <string name="order_cancel">Đơn hàng đã bị hủy.</string>
+    <string name="not_found_information">Không thể hiển thị thông tin.</string>
+    <string name="save_restaurant_successfully">Lưu thông tin nhà hàng thành công.</string>
+
     <string name="home_fragment">Home fragment</string>
     <string name="favorite_fragment">Favorite fragment</string>
     <string name="my_page_fragment">My Page fragment</string>
     <string name="load_data">Load lại dữ liệu thành công.</string>
-    <string name="writer_full_information">Vui lòng điền đầy đủ thông tin!</string>
+    <string name="fill_full_the_information">Vui lòng điền đầy đủ thông tin.</string>
+    <string name="login_again">Vui lòng đăng nhập lại.</string>
     <string name="phoneNumber_Error">Số điện thoại không đúng định dạng.</string>
     <string name="payment_successfully">Đã thanh toán thành công!</string>
     <string name="error_username_login">Sai tài khoản đăng nhập</string>
     <string name="error_password_login">Sai mật khẩu đăng nhập</string>
     <string name="PASSWORD_LONGER_6_CHARACTER">Mật khẩu phải lớn hơn 6 ký tự</string>
+    <string name="USERNAME_LONGER_8_CHARACTER">Tài khoản phải lớn hơn 8 ký tự</string>
+    <string name="information_order_item">Đơn hàng của bạn đang được giao!\nTổng giá trị đơn hàng là </string>
+    <string name="information_order_cancel">Đơn hàng của bạn đã bị hủy!\nTổng giá trị đơn hàng là  </string>
+    <string name="information_order">Thông báo về đơn hàng.</string>
+    <string name="contact_information"> VND \nBạn có thể góp ý gì liên hệ Hoàng Anh Tiến - 0828007853</string>
 
+    <string name="title_intro">Chào mừng đến với foody-order-app!</string>
+    <string name="contex_intro">Cảm ơn bạn đã sử dụng App! \nVui lòng điền thông tin cá nhân bằng cách click vào icon người dùng trong mục profile.</string>
     <string name="example_full_name">Hoàng Anh Tiến</string>
     <string name="full_name">Họ và Tên</string>
     <string name="number_phone">Số điện thoại</string>
-    <string name="hint_phone">0828-007-xxx</string>
+    <string name="hint_phone">0828–007-xxx</string>
     <string name="address">Địa chỉ</string>
-    <string name="example_address">Số 24/62 Phùng Khoang, Nam Từ Liêm ...</string>
+    <string name="example_address">Số 24/62 Phùng Khoang, Nam Từ Liêm …</string>
     <string name="total">Tổng cộng</string>
     <string name="payment">Đặt Hàng</string>
     <string name="order_food">Đặt Hàng</string>
@@ -89,17 +114,18 @@
     <string name="money_text_short">13.000</string>
     <string name="example_food_describe">Pizza bao gồm nhiều chất dinh dưỡng chứa nhiều chất xơ và chất đạm thơm ngon mời bạn ăn nha!</string>
     <string name="example_user_name">Hoàng Anh Tiến</string>
-    <string name="example_date">02/09/2023</string>
-    <string name="banh_mi_co_ba">Quán bánh mì cô Ba</string>
-    <string name="banh_ngot_le_van_viet">Quán bánh ngọt Hoàng Anh Tiến</string>
-    <string name="quan_com_Phuc_Map">Quán cơm tấm Hoàng Tiến</string>
+    <string name="example_date">26/09/2023</string>
+
+    <string name="banh_mi_co_ba">Quán bánh mì Hải Anh</string>
+    <string name="banh_ngot_le_van_viet">Quán bánh ngọt Hoàng Tiến</string>
+    <string name="quan_com_Phuc_Map">Quán cơm tấm Mạnh Chiến</string>
     <string name="quan_kem_co_hai">Quán kem cô Hai</string>
     <string name="quan_tra_sua">Quán trà sữa Coffee House</string>
 
     <string-array name="genders">
-        <item>Male</item>
-        <item>Female</item>
-        <item>Other</item>
+        <item>Name</item>
+        <item>Nữ</item>
+        <item>Khác</item>
     </string-array>
 
     <string name="DoB_hint">Nhấn để chọn ngày</string>
@@ -135,9 +161,12 @@
     <string name="title">Tiêu đề</string>
     <string name="content">Nội dung</string>
 
-    <string name="home">Trang chủ</string>
-    <string name="saved_lower">Đã lưu</string>
-    <string name="notify_lower">Thông báo</string>
-    <string name="information">Thông tin</string>
+    <string name="home_btn">Trang chủ</string>
+    <string name="favourite_btn">Yêu thích</string>
+    <string name="cart_btn">Yêu thích</string>
+    <string name="notify_btn">Thông báo</string>
+    <string name="information_btn">Cá nhân</string>
+
+
 
 </resources>

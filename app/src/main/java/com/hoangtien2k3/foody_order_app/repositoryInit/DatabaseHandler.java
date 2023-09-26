@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "foody_order_app_version_2.sqlite";
+    private static final String DATABASE_NAME = "foody_order_app_version_4.sqlite";
     private static final Integer DATABASE_VERSION = 1;
     private static final SQLiteDatabase.CursorFactory DATABASE_FACTORY = null;
     private final Context context;

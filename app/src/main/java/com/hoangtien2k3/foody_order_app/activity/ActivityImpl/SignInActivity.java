@@ -126,7 +126,9 @@ public class SignInActivity extends AppCompatActivity {
     // Hàm để hiển thị hoặc ẩn mật khẩu
     private void togglePasswordVisibility() {
         isPasswordVisible = !isPasswordVisible;
-        int inputType = isPasswordVisible ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) : (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        int inputType = isPasswordVisible
+                ? (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
+                : (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         txtPassword.setInputType(inputType);
 
         // Di chuyển con trỏ đến cuối văn bản để tránh việc mất vị trí khi thay đổi InputType

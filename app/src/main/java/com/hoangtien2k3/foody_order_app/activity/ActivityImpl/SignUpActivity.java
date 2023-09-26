@@ -31,12 +31,9 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
         init();
-
         referenceSignUpAccount();
         dao = new DAO(this);
-
         signInForm();
     }
 
@@ -59,26 +56,25 @@ public class SignUpActivity extends AppCompatActivity {
             String confirm = txtConfirmPassword.getText().toString().trim();
 
             if(username.isEmpty() || password.isEmpty() || confirm.isEmpty()) {
-                Toast.makeText(getApplicationContext(), "Vui lòng điền đủ thông tin!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.fill_full_the_information), Toast.LENGTH_SHORT).show();
                 return;
             }
             if(!confirm.equals(password)) {
-                checkConfirmPassword.setText("Nhập lại mật khẩu không đúng.");
-                Toast.makeText(getApplicationContext(), "Nhập lại mật khẩu không đúng.", Toast.LENGTH_SHORT).show();
+                checkConfirmPassword.setText(getResources().getString(R.string.password_again_failed));
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.password_again_failed), Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if(dao.UserExited(username)){
-                Toast.makeText(getApplicationContext(), "Người dùng đã tồn tại!", Toast.LENGTH_SHORT).show();
-                checkUsername.setText("Tên tài khoản đã tồn tại");
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.user_existed), Toast.LENGTH_SHORT).show();
+                checkUsername.setText(getResources().getString(R.string.account_existed));
             } else if (!dao.UserExited(username) && username.length() >= 8 && password.length() >= 6){
                 dao.addUser(new User(null, "", "Male", "12/04/2003", "", username, password));
-                Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.account_create_success), Toast.LENGTH_SHORT).show();
 
                 // Make notify
-                dao.addNotify(new Notify(1, "Chào mừng đến với foody-order-app!",
-                        "Cảm ơn bạn đã sử dụng App! \n" +
-                        "Vui lòng điền thông tin cá nhân bằng cách click vào icon người dùng trong mục profile.",
+                dao.addNotify(new Notify(1, getResources().getString(R.string.title_intro),
+                        getResources().getString(R.string.contex_intro),
                         dao.getDate()));
                 dao.addNotifyToUser(new NotifyToUser(dao.getNewestNotifyId(), dao.getNewestUserId()));
 
@@ -106,7 +102,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (txtUsername.getText().toString().length() < 8) {
-                    checkUsername.setText("Tài khoản phải lớn hơn 8 ký tự");
+                    checkUsername.setText(getResources().getString(R.string.USERNAME_LONGER_8_CHARACTER));
                 } else {
                     checkUsername.setText("");
                 }
