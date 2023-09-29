@@ -96,11 +96,11 @@
 
                 <TextView
                     android:id="@+id/tvFoodQuantity_Cart"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginStart="15dp"

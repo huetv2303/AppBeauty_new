@@ -75,13 +75,14 @@
                     android:id="@+id/txtPassword"
                     android:layout_width="260dp"
                     android:layout_height="50dp"
+                    android:background="@drawable/bg_search"
                     android:drawableStart="@drawable/password"
                     android:drawablePadding="20dp"
                     android:ems="10"
                     android:hint="Mật khẩu"
-                    android:background="@drawable/bg_search"
                     android:inputType="textPersonName"
                     android:padding="8dp"
+                    android:password="true"
                     android:textColorHint="#603a91" />
 
                 <ImageView

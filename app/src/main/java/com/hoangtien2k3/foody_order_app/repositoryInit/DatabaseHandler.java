@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "foody_order_app_version_4.sqlite";
+    private static final String DATABASE_NAME = "foody_order_app_version_5.sqlite";
     private static final Integer DATABASE_VERSION = 1;
     private static final SQLiteDatabase.CursorFactory DATABASE_FACTORY = null;
     private final Context context;
@@ -110,7 +110,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // region Restaurant
         restaurantList = new ArrayList<>();
         restaurantList.add(new Restaurant(1, "Quán bánh mỳ", "Số 24/63 Phùng Khoang, Trung Văn, Nam Từ Liêm",
-                "0631335935", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_banh_my_cho_phung_khoang, null))));
+                "0828007853", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_banh_my_cho_phung_khoang, null))));
         restaurantList.add(new Restaurant(2, "Quán trà sữa", "Số 16/84 Hồ Tùng Mậu, Cầu Giấy, Hà Nội",
                 "0885438847", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.quan_cafe_duong_tau, null))));
         restaurantList.add(new Restaurant(3, "Quán cơm tấm", "Số 44/132 Q.Cầy Giấy, P.Quang Hoa, Hà Nội",
