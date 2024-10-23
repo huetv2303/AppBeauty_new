@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#ff0000</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="gray">#808080</color>
+    <color name="maroon">#800000</color>
+    <color name="purple">#800080</color>
+    <color name="fuchsia">#ff00ff</color>
+    <color name="green">#008000</color>
+    <color name="lime">#00ff00</color>
+    <color name="blue">#0000ff</color>
+    <color name="yellow">#ffff00</color>
+    <color name="navy_blue">#373b54</color>
+    <color name="tranparent_white">#55ffffff</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="main_color">#FF4646</color>
+    <color name="sub_color">#FF8080</color>
+    <color name="choose_color">#DA1B1B</color>
+    <color name="bgBottomNavigation">#fe485a</color>
+    <color name="dark_orange">#ff8f00</color>
+    <color name="light_black">#424242</color>
+    <color name="app_color2">#E8584D</color>
+</resources>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pen_image">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:text="Đăng Nhập"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="99dp"
+                android:layout_height="81dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/food_delivery_image" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/bg_search"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="20dp"
+                android:ems="10"
+                android:hint="Tài khoản"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColorHint="#603a91" />
+
+            <TextView
+                android:id="@+id/validateUsername"
+                android:layout_width="314dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:text=""
+                android:textColor="@color/red" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_search"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="260dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_search"
+                    android:drawableStart="@drawable/password"
+                    android:drawablePadding="20dp"
+                    android:ems="10"
+                    android:hint="Mật khẩu"
+                    android:inputType="textPersonName"
+                    android:padding="8dp"
+                    android:password="true"
+                    android:textColorHint="#603a91" />
+
+                <ImageView
+                    android:id="@+id/checkPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    app:srcCompat="@drawable/eye_icon" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/validatePassword"
+                android:layout_width="314dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:textColor="@color/red" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp">
+
+                <CheckBox
+                    android:id="@+id/checkBoxPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nhớ mật khẩu"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="215dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:drawablePadding="16dp"
+                android:gravity="center"
+                android:text="Đăng nhập"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textSignUpApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Chưa có tài khoản ? Tạo ngay"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
