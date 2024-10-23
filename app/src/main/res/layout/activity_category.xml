@@ -106,12 +106,13 @@
                     android:textColor="@color/red"
                     android:text="@string/hint_phone" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/foodCartContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
+                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

@@ -42,7 +42,7 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
         dao = new DAO(this);
 
         initializeUI();
-//        setupSearchBar();
+       //setupSearchBar();
         loadRestaurantInformation();
         loadFoodData(null);
     }

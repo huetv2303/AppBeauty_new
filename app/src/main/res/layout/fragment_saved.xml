@@ -69,20 +69,30 @@
                     android:gravity="center"/>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
+
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search favor foodbbkk" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="643dp"
         android:layout_gravity="center"
         android:background="@color/white"
         android:elevation="6dp">
+
         <LinearLayout
             android:id="@+id/layout_saved"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:orientation="vertical">
-        </LinearLayout>
+            android:orientation="vertical"/>
     </ScrollView>
+
+
 </LinearLayout>

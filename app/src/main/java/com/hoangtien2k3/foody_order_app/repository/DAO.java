@@ -46,6 +46,7 @@ public class DAO {
         return restaurantArrayList;
     }
 
+
     // region RestaurantSaved
     public boolean addRestaurantSaved(RestaurantSaved restaurantSaved) {
         String query = "INSERT INTO tblRestaurantSaved VALUES(" + restaurantSaved.getRestaurantId() + ", " + restaurantSaved.getUserId() + ")";
