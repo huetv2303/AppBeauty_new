@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.hoangtien2k3.foody_order_app'
-    compileSdk 33
+     compileSdk 33
 
     defaultConfig {
         applicationId "com.hoangtien2k3.foody_order_app"
