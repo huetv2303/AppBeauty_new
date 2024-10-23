@@ -20,16 +20,13 @@
             android:name=".activity.ActivityImpl.UserInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ActivityImpl.HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.ActivityImpl.FoodDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ActivityImpl.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ActivityImpl.SignUpActivity"
+            android:name=".activity.ActivityImpl.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ActivityImpl.CategoryActivity"
@@ -37,8 +34,9 @@
         <activity
             android:name=".activity.ActivityImpl.SignInActivity"
             android:exported="false" />
+
         <activity
-            android:name=".activity.ActivityImpl.IntroActivity"
+            android:name=".activity.ActivityImpl.SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

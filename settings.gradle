@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "foody-order-app"
+rootProject.name = "beauty_new"
 include ':app'
