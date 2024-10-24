@@ -16,10 +16,10 @@
     <string name="login_again_update_information">Vui lòng đăng nhập lại ứng dụng để cập nhật thông tin cá nhân mới!</string>
     <string name="chang_information_successfully">Thay đổi thông tin thành công!</string>
     <string name="not_view_information">Không thể hiển thị thông tin!</string>
-    <string name="add_dish_successfully">Thêm Món Ăn Vào Giỏ Hàng Thành Công.</string>
-    <string name="add_error">Thêm món ăn không thành công (Lỗi)</string>
-    <string name="SAVED_DISHED">Đã lưu thông tin món ăn</string>
-    <string name="INFORMATION_EXISTED">Thông tin món ăn đã tồn tại trong giỏ hàng.</string>
+    <string name="add_product_successfully">Thêm sản phẩm Vào Giỏ Hàng Thành Công.</string>
+    <string name="add_error">Thêm sản phẩm không thành công (Lỗi)</string>
+    <string name="SAVED_Product">Đã lưu thông tin sản phẩm</string>
+    <string name="INFORMATION_EXISTED">Thông tin sản phẩm đã tồn tại trong giỏ hàng.</string>
     <string name="If_You_Delete_Cart">Bạn có muốn xóa món đơn hàng này không?</string>
     <string name="order_cancel">Đơn hàng đã bị hủy.</string>
     <string name="not_found_information">Không thể hiển thị thông tin.</string>

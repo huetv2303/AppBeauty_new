@@ -44,7 +44,7 @@
                     android:id="@+id/tv_saved_cosmetic"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/cosmetic"
+                    android:text="Sản phẩm"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="italic"
@@ -52,16 +52,16 @@
                     android:gravity="center"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/btn_saved_restaurant"
+                android:id="@+id/btn_saved_store"
                 android:layout_width="205sp"
                 android:layout_height="40sp"
                 android:layout_gravity="center"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/tv_saved_restaurant"
+                    android:id="@+id/tv_saved_store"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/restaurants"
+                    android:text="Cửa hàng"
                     android:textSize="17sp"
                     android:textColor="@color/black"
                     android:textStyle="italic"
