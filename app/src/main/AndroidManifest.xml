@@ -20,7 +20,7 @@
             android:name=".activity.ActivityImpl.UserInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ActivityImpl.FoodDetailsActivity"
+            android:name=".activity.ActivityImpl.CosmeticDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ActivityImpl.PaymentActivity"

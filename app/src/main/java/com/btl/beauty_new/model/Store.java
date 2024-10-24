@@ -4,14 +4,14 @@ import androidx.lifecycle.ViewModel;
 
 import java.io.Serializable;
 
-public class Restaurant extends ViewModel implements Serializable {
+public class Store extends ViewModel implements Serializable {
     private Integer id;
     private String name;
     private String address;
     private String phone;
     private byte[] image;
 
-    public Restaurant(Integer id, String name, String address, String phone, byte[] image) {
+    public Store(Integer id, String name, String address, String phone, byte[] image) {
         this.id = id;
         this.name = name;
         this.address = address;

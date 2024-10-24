@@ -16,12 +16,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.btl.beauty_new.activity.ActivityImpl.CategoryActivity;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.activity.ActivityImpl.SignInActivity;
-import com.btl.beauty_new.adapter.RestaurantAdapter;
+import com.btl.beauty_new.adapter.StoreAdapter;
 import com.btl.beauty_new.imageBanner.Photo;
 import com.btl.beauty_new.imageBanner.PhotoAdapter;
 import com.btl.beauty_new.repository.DAO;
@@ -38,7 +40,7 @@ public class HomeFragment extends Fragment {
     private View mainView;
     private LinearLayout layout_container;
     private DAO dao;
-    private ConstraintLayout btnOrderFood;
+    private ConstraintLayout btnOrderCosmetic;
 
     // loaf
     private ViewPager viewPager;
@@ -79,24 +81,13 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Khởi tạo RecyclerView và hiển thị danh sách nhà hàng
-        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_Restaurant);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_Store);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 2);
-        RestaurantAdapter restaurantAdapter = new RestaurantAdapter(HomeActivity.dao.getRestaurantList());
+        StoreAdapter storeAdapter = new StoreAdapter(HomeActivity.dao.getStoreList());
         recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setAdapter(restaurantAdapter);
+        recyclerView.setAdapter(storeAdapter);
 
-        // Khởi tạo ViewPager và PhotoAdapter
-        viewPager = rootView.findViewById(R.id.viewpager);
-        CircleIndicator circleIndicator = rootView.findViewById(R.id.circle_indicator);
-
-        listPhoto = DataInitFragmentHome.listPhoto;
-        PhotoAdapter photoAdapter = new PhotoAdapter(requireContext(), listPhoto);
-        viewPager.setAdapter(photoAdapter);
-
-        circleIndicator.setViewPager(viewPager);
-        photoAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
-        autoSildeImage(); // thiết lập thời gian hiển thị ảnh
 
         rootView.findViewById(R.id.imageCart).setOnClickListener(v -> {
             intent = new Intent(getActivity(), HomeActivity.class);
@@ -123,49 +114,33 @@ public class HomeFragment extends Fragment {
             dialog.show();
         });
 
+        SearchView searchBar = rootView.findViewById(R.id.search_bar);
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            private boolean isSearchSubmitted = false;
 
-//        SearchView searchBar = mainView.findViewById(R.id.search_bar);
-//        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                String textSearch = searchBar.getQuery().toString();
-//                intent = new Intent(getActivity(), CategoryActivity.class);
-//                intent.putExtra("nameFood", textSearch);
-//                startActivity(intent);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                return false;
-//            }
-//        });
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                if (!isSearchSubmitted) {
+                    isSearchSubmitted = true;
+                    String textSearch = searchBar.getQuery().toString();
+                    intent = new Intent(getActivity(), CategoryActivity.class);
+                    intent.putExtra("nameCosmetic", textSearch);
+                    startActivity(intent);
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                isSearchSubmitted = false; // Reset flag nếu người dùng thay đổi text
+                return false;
+            }
+        });
+
 
         return rootView;
     }
 
-    // thiết lập thời gian lặp lại ảnh
-    private void autoSildeImage() {
-        if (listPhoto == null || listPhoto.isEmpty() || viewPager == null) return;
-
-        // init timer
-        if (timer == null) timer = new Timer();
-        timer.schedule((new TimerTask() {
-            @Override
-            public void run() {
-                new Handler(Looper.getMainLooper()).post(() -> {
-                    int currentItem = viewPager.getCurrentItem();
-                    int totalItem = listPhoto.size() - 1;
-                    if (currentItem < totalItem) {
-                        currentItem++;
-                        viewPager.setCurrentItem(currentItem);
-                    } else {
-                        viewPager.setCurrentItem(0);
-                    }
-                });
-            }
-        }), 500, 3000);
-    }
 
     // hủy thằng timer đi, nếu fragment không tồn tại nữa
     @Override

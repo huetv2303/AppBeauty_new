@@ -17,7 +17,7 @@
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/imageSavedFood"
+            android:id="@+id/imageSavedCosmetic"
             android:layout_width="36dp"
             android:layout_height="77sp"
             android:layout_margin="5dp"
@@ -34,7 +34,7 @@
             android:layout_weight="6">
 
             <TextView
-                android:id="@+id/tvFoodNameSaved"
+                android:id="@+id/tvCosmeticNameSaved"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -55,7 +55,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvFoodSavedSize"
+                    android:id="@+id/tvCosmeticSavedSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -64,7 +64,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/tvFoodSavedPrice"
+                    android:id="@+id/tvCosmeticSavedPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
@@ -74,7 +74,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <TextView
-                android:id="@+id/tvFoodSavedRestaurantName"
+                android:id="@+id/tvCosmeticSavedRestaurantName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"

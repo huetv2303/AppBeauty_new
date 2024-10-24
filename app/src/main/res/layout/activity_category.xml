@@ -64,13 +64,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/layout_restaurantInformation"
+                android:id="@+id/layout_storeInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageRestaurant_category"
+                    android:id="@+id/imageStore_category"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_gravity="center"
@@ -79,7 +79,7 @@
                     android:src="@drawable/quan_banh_mi_co_ba" />
 
                 <TextView
-                    android:id="@+id/tvRestaurantName_category"
+                    android:id="@+id/tvStoreName_category"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -91,7 +91,7 @@
                     android:textColor="@color/blue"
                     android:text="@string/quan_pho_gia_truyen" />
                 <TextView
-                    android:id="@+id/tvRestaurantAddress_category"
+                    android:id="@+id/tvStoreAddress_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -99,7 +99,7 @@
                     android:textStyle="italic"
                     android:text="@string/example_address" />
                 <TextView
-                    android:id="@+id/tvRestaurantPhone_category"
+                    android:id="@+id/tvStorePhone_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -108,7 +108,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/foodCartContainer"
+                android:id="@+id/cosmeticCartContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"></LinearLayout>

@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         setContentView(R.layout.activity_home);
 
         Integer userID = user.getId(); // dữ liệu user đã được truyền vào ở phần đăng nhập tài khoản rồi
-        FoodDetailsActivity.userID = userID; // truyền userID của người dùng qua FoodDetailsActivity
+        CosmeticDetailsActivity.userID = userID; // truyền userID của người dùng qua CosmeticDetailsActivity
         ViewOrderActivity.userID = userID;   // truyền userID của người dùng qua ViewOrderActivity
 
         dao = new DAO(this);

@@ -21,10 +21,10 @@ import com.btl.beauty_new.activity.ActivityImpl.PaymentActivity;
 import com.btl.beauty_new.activity.ActivityImpl.ViewOrderActivity;
 import com.btl.beauty_new.components.CartCard;
 import com.btl.beauty_new.components.OrderCard;
-import com.btl.beauty_new.model.Food;
+import com.btl.beauty_new.model.Cosmetic;
 import com.btl.beauty_new.model.Order;
 import com.btl.beauty_new.model.OrderDetail;
-import com.btl.beauty_new.model.Restaurant;
+import com.btl.beauty_new.model.Store;
 
 import java.util.ArrayList;
 
@@ -132,12 +132,12 @@ public class ChatFragment extends Fragment {
                 cursor.moveToFirst();
                 ArrayList<OrderDetail> orderDetailArrayList = HomeActivity.dao.getCartDetailList(cursor.getInt(0));
                 if (orderDetailArrayList.size() > 0) {
-                    Food food;
-                    Restaurant restaurant;
+                    Cosmetic cosmetic;
+                    Store restaurant;
                     for (OrderDetail orderDetail : orderDetailArrayList) {
-                        food = HomeActivity.dao.getFoodById(orderDetail.getFoodId());
-                        restaurant = HomeActivity.dao.getRestaurantInformation(food.getRestaurantId());
-                        CartCard card = new CartCard(getContext(), food, restaurant.getName(), orderDetail);
+                        cosmetic = HomeActivity.dao.getCosmeticById(orderDetail.getCosmeticId());
+                        restaurant = HomeActivity.dao.getStoreInformation(cosmetic.getStoreId());
+                        CartCard card = new CartCard(getContext(), cosmetic, restaurant.getName(), orderDetail);
                         cartContainer.addView(card);
                     }
                 }

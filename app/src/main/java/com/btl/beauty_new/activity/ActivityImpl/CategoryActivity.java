@@ -13,24 +13,24 @@ import android.widget.Toast;
 
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.activity.CategoryActivityImpl;
-import com.btl.beauty_new.components.FoodCard;
+import com.btl.beauty_new.components.CosmeticCard;
+import com.btl.beauty_new.model.Cosmetic;
 import com.btl.beauty_new.repository.DAO;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
-import com.btl.beauty_new.model.Food;
-import com.btl.beauty_new.model.FoodSize;
-import com.btl.beauty_new.model.Restaurant;
+import com.btl.beauty_new.model.CosmeticSize;
+import com.btl.beauty_new.model.Store;
 
 
 import java.util.ArrayList;
 
 public class CategoryActivity extends AppCompatActivity implements CategoryActivityImpl {
-    private LinearLayout foodCartContainer;
+    private LinearLayout cosmeticCartContainer;
     private DAO dao;
     private Intent intent_get_data;
-    private Integer restaurantId;
+    private Integer storeId;
 
-    private ImageView image, imageSync, restaurantImage;
-    private TextView tvRestaurantName, tvRestaurantAddress, tvRestaurantPhone;
+    private ImageView image, imageSync, storeImage;
+    private TextView tvstoreName, tvstoreAddress, tvstorePhone;
     private SearchView searchBar;
 
     @Override
@@ -42,9 +42,9 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
         dao = new DAO(this);
 
         initializeUI();
-       //setupSearchBar();
-        loadRestaurantInformation();
-        loadFoodData(null);
+        //setupSearchBar();
+        loadStoreInformation();
+        loadCosmeticData(null);
     }
 
 
@@ -52,11 +52,11 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
     public void initializeUI() {
         image = findViewById(R.id.imageCartC);
         imageSync = findViewById(R.id.imageSync);
-        restaurantImage = findViewById(R.id.imageRestaurant_category);
-        tvRestaurantName = findViewById(R.id.tvRestaurantName_category);
-        tvRestaurantAddress = findViewById(R.id.tvRestaurantAddress_category);
-        tvRestaurantPhone = findViewById(R.id.tvRestaurantPhone_category);
-        foodCartContainer = findViewById(R.id.foodCartContainer);
+        storeImage = findViewById(R.id.imageStore_category);
+        tvstoreName = findViewById(R.id.tvStoreName_category);
+        tvstoreAddress = findViewById(R.id.tvStoreAddress_category);
+        tvstorePhone = findViewById(R.id.tvStorePhone_category);
+        cosmeticCartContainer = findViewById(R.id.cosmeticCartContainer);
         searchBar = findViewById(R.id.search_bar);
     }
 
@@ -66,8 +66,8 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                String nameFoodOfThisRestaurant = searchBar.getQuery().toString();
-                loadFoodData(nameFoodOfThisRestaurant);
+                String nameCosmeticOfThisstore = searchBar.getQuery().toString();
+                loadCosmeticData(nameCosmeticOfThisstore);
                 return false;
             }
 
@@ -80,71 +80,75 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
 
 
     @Override
-    public void loadRestaurantInformation() {
+    public void loadStoreInformation() {
         // thoat về trang chủ
         image.setOnClickListener(view -> finish());
 
         // load lại tất cả thông tin
-        imageSync.setOnClickListener(view -> loadFoodData(null));
+        imageSync.setOnClickListener(view -> loadCosmeticData(null));
 
         // tìm kiếm thông tin về đồ ăn trên danh sách đồ ăn.
         setupSearchBar();
 
-        // Restaurant data: đẩy thông tin lên
-        LinearLayout layoutRestaurant = findViewById(R.id.layout_restaurantInformation);
-        restaurantId = intent_get_data.getIntExtra("restaurantId", -1);
-        if(restaurantId != -1){
-            Restaurant restaurant = dao.getRestaurantInformation(restaurantId);
-            restaurantImage.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(restaurant.getImage()));
-            tvRestaurantName.setText(restaurant.getName());
-            tvRestaurantAddress.setText(String.format("\t+ Địa Chỉ: %s", restaurant.getAddress()));
-            tvRestaurantPhone.setText(String.format("\t+ Số Điện Thoại: %s", restaurant.getPhone()));
+        // store data: đẩy thông tin lên
+        LinearLayout layoutstore = findViewById(R.id.layout_storeInformation);
+        storeId = intent_get_data.getIntExtra("storeId", -1);
+        if (storeId != -1) {
+            Store store = dao.getStoreInformation(storeId);
+            storeImage.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(store.getImage()));
+            tvstoreName.setText(store.getName());
+            tvstoreAddress.setText(String.format("\t+ Địa Chỉ: %s", store.getAddress()));
+            tvstorePhone.setText(String.format("\t+ Số Điện Thoại: %s", store.getPhone()));
         } else {
-            layoutRestaurant.setVisibility(View.GONE);
+            layoutstore.setVisibility(View.GONE);
         }
     }
 
     @Override
-    public void loadFoodData(String nameFoodOfThisRestaurant) {
-        foodCartContainer.removeAllViews();
-        // Add food cart to layout container
-        ArrayList<Food> foodArrayList;
+    public void loadCosmeticData(String nameCosmeticOfThisStore) {
+        cosmeticCartContainer.removeAllViews(); // Xóa tất cả các view hiện có trong cosmeticCartContainer
 
-        if(nameFoodOfThisRestaurant == null) {
-            int getRestaurantId = intent_get_data.getIntExtra("restaurantId", -1);
-            System.out.println(getRestaurantId);
-            if (getRestaurantId == -1){
-                String foodKeyword = intent_get_data.getStringExtra("nameFood");
-                foodArrayList = dao.getFoodByKeyWord(foodKeyword, null);
-                System.out.println(foodArrayList);
+        ArrayList<Cosmetic> cosmeticArrayList; // Khai báo danh sách mỹ phẩm
+
+        // Kiểm tra nếu tên mỹ phẩm không phải null
+        if (nameCosmeticOfThisStore == null) {
+            int getstoreId = intent_get_data.getIntExtra("storeId", -1); // Lấy storeId từ intent
+            System.out.println(getstoreId); // In ra storeId để kiểm tra
+            if (getstoreId == -1) {
+                String cosmeticKeyword = intent_get_data.getStringExtra("nameCosmetic"); // Lấy tên mỹ phẩm từ intent
+                cosmeticArrayList = dao.getCosmeticByKeyWord(cosmeticKeyword, null); // Gọi DAO để lấy danh sách mỹ phẩm theo từ khóa
+                System.out.println(cosmeticArrayList); // In ra danh sách mỹ phẩm
             } else {
-                foodArrayList = dao.getFoodByRestaurant(getRestaurantId);
+                cosmeticArrayList = dao.getCosmeticBystore(getstoreId); // Gọi DAO để lấy danh sách mỹ phẩm theo storeId
             }
         } else {
-            foodArrayList = dao.getFoodByKeyWord(nameFoodOfThisRestaurant, restaurantId);
+            cosmeticArrayList = dao.getCosmeticByKeyWord(nameCosmeticOfThisStore, storeId); // Lấy danh sách mỹ phẩm theo tên từ searchBar
         }
 
-        // duyệt qua danh sách sản phẩm
-        for(Food food : foodArrayList){
-            Restaurant restaurant = dao.getRestaurantInformation(food.getRestaurantId());
-            FoodSize foodSize = dao.getFoodDefaultSize(food.getId());
+        // Duyệt qua danh sách mỹ phẩm và tạo CosmeticCard cho mỗi sản phẩm
+        for (Cosmetic cosmetic : cosmeticArrayList) {
+            Store store = dao.getStoreInformation(cosmetic.getStoreId()); // Lấy thông tin cửa hàng dựa trên storeId của mỹ phẩm
+            CosmeticSize cosmeticSize = dao.getCosmeticDefaultSize(cosmetic.getId()); // Lấy kích thước mặc định của mỹ phẩm
 
-            FoodCard foodCard = new FoodCard(this, food, foodSize.getPrice(), restaurant.getName());
+            // Tạo CosmeticCard với thông tin mỹ phẩm, giá và tên cửa hàng
+            CosmeticCard cosmeticCard = new CosmeticCard(this, cosmetic, cosmeticSize.getPrice(), store.getName());
 
-            // click đê hiển thị thông tin chi tiết
-            foodCard.setOnClickListener(view -> {
-                FoodDetailsActivity.foodSize = foodSize;
-                Intent intent = new Intent(this, FoodDetailsActivity.class);
-                intent.putExtra("food", food);
+            // Đặt listener cho CosmeticCard để mở chi tiết mỹ phẩm khi nhấn
+            cosmeticCard.setOnClickListener(view -> {
+                CosmeticDetailsActivity.cosmeticSize = cosmeticSize; // Lưu kích thước mỹ phẩm vào activity chi tiết
+                Intent intent = new Intent(this, CosmeticDetailsActivity.class); // Tạo intent để mở CosmeticDetailsActivity
+                intent.putExtra("cosmetic", cosmetic); // Truyền thông tin mỹ phẩm qua intent
                 try {
-                    startActivity(intent);
-                } catch (Exception e){
+                    startActivity(intent); // Mở activity chi tiết
+                } catch (Exception e) {
+                    // Hiển thị thông báo nếu không mở được activity
                     Toast.makeText(this, getResources().getString(R.string.not_view_information), Toast.LENGTH_SHORT).show();
                 }
             });
 
-            // thêm thông tin
-            foodCartContainer.addView(foodCard);
+            // Thêm CosmeticCard vào cosmeticCartContainer
+            cosmeticCartContainer.addView(cosmeticCard);
         }
+
     }
 }

@@ -12,11 +12,11 @@ import com.btl.beauty_new.R;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
 import com.btl.beauty_new.fragments.SavedFragment;
-import com.btl.beauty_new.model.Restaurant;
-import com.btl.beauty_new.model.RestaurantSaved;
+import com.btl.beauty_new.model.Store;
+import com.btl.beauty_new.model.StoreSaved;
 
 public class RestaurantCard extends LinearLayout implements BaseComponent{
-    private Restaurant restaurant;
+    private Store restaurant;
     private boolean isSaved;
     private ImageView image;
     private TextView tvRestaurantName, tvRestaurantAddress;
@@ -26,7 +26,7 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
 
     private TextView textViewSaveShop;
 
-    public RestaurantCard(Context context, Restaurant restaurant, boolean isSaved) {
+    public RestaurantCard(Context context, Store restaurant, boolean isSaved) {
         super(context);
         this.restaurant = restaurant;
         this.isSaved = isSaved;
@@ -51,7 +51,7 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
     @Override
     public void initControl(Context context){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.view_restaurant_card, this);
+        inflater.inflate(R.layout.view_store_card, this);
 
         initUI();
 
@@ -60,14 +60,14 @@ public class RestaurantCard extends LinearLayout implements BaseComponent{
         }
         btnSavedShop.setOnClickListener(view ->{
             if(isSaved){
-                if(HomeActivity.dao.deleteRestaurantSaved(new RestaurantSaved(restaurant.getId(), HomeActivity.user.getId()))){
+                if(HomeActivity.dao.deleteStoreSaved(new StoreSaved(restaurant.getId(), HomeActivity.user.getId()))){
                     Toast.makeText(context, "Đã bỏ lưu thông tin nhà hàng!", Toast.LENGTH_SHORT).show();
                     SavedFragment.saved_container.removeView(this);
                 } else {
                     Toast.makeText(context, "Có lỗi khi xóa thông tin!", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                if(HomeActivity.dao.addRestaurantSaved(new RestaurantSaved(restaurant.getId(), HomeActivity.user.getId()))){
+                if(HomeActivity.dao.addStoreSaved(new StoreSaved(restaurant.getId(), HomeActivity.user.getId()))){
                     Toast.makeText(context, "Lưu thông tin nhà hàng thành công!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();

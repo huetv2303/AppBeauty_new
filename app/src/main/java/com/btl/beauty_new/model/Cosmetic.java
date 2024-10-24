@@ -2,24 +2,24 @@ package com.btl.beauty_new.model;
 
 import java.io.Serializable;
 
-public class Food implements Serializable {
+public class Cosmetic implements Serializable {
     private Integer id;
     private String name;
     private String type;
     private byte[] image; // trong SQLite thì dùng BLOG (binary
     private String description;
-    private Integer restaurantId;
+    private Integer storeId;
 
-    public Food() {
+    public Cosmetic() {
     }
 
-    public Food(Integer id, String name, String type, byte[] image, String description, Integer restaurantId) {
+    public Cosmetic(Integer id, String name, String type, byte[] image, String description, Integer storeId) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.image = image;
         this.description = description;
-        this.restaurantId = restaurantId;
+        this.storeId = storeId;
     }
 
     public Integer getId() {
@@ -62,11 +62,11 @@ public class Food implements Serializable {
         this.description = description;
     }
 
-    public Integer getRestaurantId() {
-        return restaurantId;
+    public Integer getStoreId() {
+        return storeId;
     }
 
-    public void setRestaurantId(Integer restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
     }
 }

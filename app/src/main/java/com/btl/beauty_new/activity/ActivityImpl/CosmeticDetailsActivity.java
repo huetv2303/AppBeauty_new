@@ -13,37 +13,37 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.btl.beauty_new.R;
-import com.btl.beauty_new.activity.FoodDetailsActivityImpl;
+import com.btl.beauty_new.activity.CosmeticDetailsActivityImpl;
+import com.btl.beauty_new.model.Cosmetic;
 import com.btl.beauty_new.repository.DAO;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
-import com.btl.beauty_new.model.Food;
-import com.btl.beauty_new.model.FoodSaved;
-import com.btl.beauty_new.model.FoodSize;
+import com.btl.beauty_new.model.CosmeticSaved;
+import com.btl.beauty_new.model.CosmeticSize;
 import com.btl.beauty_new.model.Order;
 import com.btl.beauty_new.model.OrderDetail;
-import com.btl.beauty_new.model.Restaurant;
+import com.btl.beauty_new.model.Store;
 
 import java.util.ArrayList;
 
-public class FoodDetailsActivity extends AppCompatActivity implements FoodDetailsActivityImpl {
+public class CosmeticDetailsActivity extends AppCompatActivity implements CosmeticDetailsActivityImpl {
     private ImageView image, btnAddQuantity, btnSubQuantity;
-    private LinearLayout layout_sizeS, layout_sizeM, layout_sizeL, btnAddToCart, btnSavedFood;
+    private LinearLayout layout_sizeS, layout_sizeM, layout_sizeL, btnAddToCart, btnSavedCosmetic;
     private CheckBox checkBoxFavorite, checkBoxCart;
     private TextView tvName, tvDescription, tvPrice,
-            tvRestaurantName, tvRestaurantAddress,
+            tvStoreName, tvStoreAddress,
             tvPriceSizeS, tvPriceSizeM, tvPriceSizeL,
             tvQuantity;
 
-    //    private Button btnAddToCart, btnSavedFood;
+    //    private Button btnAddToCart, btnSavedCosmetic;
     public static Integer userID; // lấy ra userId
     private static int quantity;
-    public static FoodSize foodSize;    // lấy ra gias cả và kích thước
+    public static CosmeticSize cosmeticSize;    // lấy ra gias cả và kích thước
     private DAO dao;    // kết nối với CSDL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_details);
+        setContentView(R.layout.activity_cosmetic_details);
 
         quantity = 1;
         dao = new DAO(this);
@@ -58,13 +58,13 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
     }
 
     private String getTotalPrice() {
-        return Math.round(foodSize.getPrice() * quantity) + " VNĐ";
+        return Math.round(cosmeticSize.getPrice() * quantity) + " VNĐ";
     }
 
     @Override
     public void initializeUI() {
         // initUI
-        tvName = findViewById(R.id.tvFoodName);
+        tvName = findViewById(R.id.tvCosmeticName);
         tvDescription = findViewById(R.id.tvDescription);
         tvPrice = findViewById(R.id.tvPrice);
         image = findViewById(R.id.image);
@@ -77,18 +77,18 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         tvPriceSizeM = findViewById(R.id.tvPriceSizeM);
         tvPriceSizeL = findViewById(R.id.tvPriceSizeL);
 
-        tvQuantity = findViewById(R.id.tvFoodQuantity_Food);
+        tvQuantity = findViewById(R.id.tvCosmeticQuantity_Cosmetic);
 
-        tvRestaurantName = findViewById(R.id.tvRestaurantName);
-        tvRestaurantAddress = findViewById(R.id.tvRestaurantAddress);
+        tvStoreName = findViewById(R.id.tvStoreName);
+        tvStoreAddress = findViewById(R.id.tvStoreAddress);
 
         btnAddToCart = findViewById(R.id.btnAddToCart);
-        btnSavedFood = findViewById(R.id.btnSavedFood);
+        btnSavedCosmetic = findViewById(R.id.btnSavedCosmetic);
         checkBoxCart = findViewById(R.id.checkBoxCart);
         checkBoxFavorite = findViewById(R.id.checkBoxFavorite);
 
-        btnAddQuantity = findViewById(R.id.btnAddQuantity_Food);
-        btnSubQuantity = findViewById(R.id.btnSubQuantity_Food);
+        btnAddQuantity = findViewById(R.id.btnAddQuantity_Cosmetic);
+        btnSubQuantity = findViewById(R.id.btnSubQuantity_Cosmetic);
     }
 
     @Override
@@ -104,12 +104,12 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
             addCartProduct();
         });
 
-        btnSavedFood.setOnClickListener(view -> {
-            saveFood();
+        btnSavedCosmetic.setOnClickListener(view -> {
+            saveCosmetic();
         });
 
         checkBoxFavorite.setOnClickListener(view -> {
-            saveFood();
+            saveCosmetic();
         });
 
         // tăng số lượng món ăn
@@ -147,7 +147,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
         // add order detail
         cursor.moveToFirst();   // (di chuyển con trỏ Cursor đến vị trí đúng trước khi truy cập dữ liệu.)
 
-        OrderDetail orderDetail = dao.getExistOrderDetail(cursor.getInt(0), foodSize);
+        OrderDetail orderDetail = dao.getExistOrderDetail(cursor.getInt(0), cosmeticSize);
         if (orderDetail != null) {
             orderDetail.setQuantity(orderDetail.getQuantity() + quantity);
             if (dao.updateQuantity(orderDetail)) {
@@ -158,7 +158,7 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
 
         } else {
             boolean addOrderDetail = dao.addOrderDetail(new OrderDetail(cursor.getInt(0),
-                    foodSize.getFoodId(), foodSize.getSize(), foodSize.getPrice(), quantity));
+                    cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), cosmeticSize.getPrice(), quantity));
 
             if (addOrderDetail) {
                 Toast.makeText(this, getResources().getString(R.string.add_dish_successfully), Toast.LENGTH_SHORT).show();
@@ -170,9 +170,9 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
 
 
     // lưu lại thông tin món ăn
-    private void saveFood() {
-        boolean addFoodSaved = dao.addFoodSaved(new FoodSaved(foodSize.getFoodId(), foodSize.getSize(), userID));
-        if (addFoodSaved) {
+    private void saveCosmetic() {
+        boolean addCosmeticSaved = dao.addCosmeticSaved(new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID));
+        if (addCosmeticSaved) {
             Toast.makeText(this, getResources().getString(R.string.SAVED_DISHED), Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, getResources().getString(R.string.INFORMATION_EXISTED), Toast.LENGTH_SHORT).show();
@@ -192,56 +192,56 @@ public class FoodDetailsActivity extends AppCompatActivity implements FoodDetail
     public void LoadData() {
         Intent intent = getIntent();
         if (intent != null) {
-            Food food = (Food) intent.getSerializableExtra("food");
+            Cosmetic cosmetic = (Cosmetic) intent.getSerializableExtra("cosmetic");
 
-            assert food != null;
-            ArrayList<FoodSize> foodSizeArrayList = dao.getAllFoodSize(food.getId());
+            assert cosmetic != null;
+            ArrayList<CosmeticSize> cosmeticSizeArrayList = dao.getAllCosmeticSize(cosmetic.getId());
 
             // size S
-            if (foodSizeArrayList.get(0) != null) {
-                if (foodSize == null) foodSize = foodSizeArrayList.get(0);
-                tvPriceSizeS.setText(String.format("+ %s", foodSizeArrayList.get(0).getPrice()));
+            if (cosmeticSizeArrayList.get(0) != null) {
+                if (cosmeticSize == null) cosmeticSize = cosmeticSizeArrayList.get(0);
+                tvPriceSizeS.setText(String.format("+ %s", cosmeticSizeArrayList.get(0).getPrice()));
                 layout_sizeS.setOnClickListener(view -> {
-                    SetPriceDefault(foodSizeArrayList.get(0).getPrice());
-                    foodSize = foodSizeArrayList.get(0);
+                    SetPriceDefault(cosmeticSizeArrayList.get(0).getPrice());
+                    cosmeticSize = cosmeticSizeArrayList.get(0);
                 });
             } else {
                 layout_sizeS.setVisibility(View.INVISIBLE);
             }
 
             // size M
-            if (foodSizeArrayList.get(1) != null) {
-                tvPriceSizeM.setText(String.format("+ %s", foodSizeArrayList.get(1).getPrice()));
+            if (cosmeticSizeArrayList.get(1) != null) {
+                tvPriceSizeM.setText(String.format("+ %s", cosmeticSizeArrayList.get(1).getPrice()));
                 layout_sizeM.setOnClickListener(view -> {
-                    SetPriceDefault(foodSizeArrayList.get(1).getPrice());
-                    foodSize = foodSizeArrayList.get(1);
+                    SetPriceDefault(cosmeticSizeArrayList.get(1).getPrice());
+                    cosmeticSize = cosmeticSizeArrayList.get(1);
                 });
             } else {
                 layout_sizeM.setVisibility(View.INVISIBLE);
             }
 
             // Size L
-            if (foodSizeArrayList.get(2) != null) {
-                tvPriceSizeL.setText(String.format("+ %s", foodSizeArrayList.get(2).getPrice()));
+            if (cosmeticSizeArrayList.get(2) != null) {
+                tvPriceSizeL.setText(String.format("+ %s", cosmeticSizeArrayList.get(2).getPrice()));
                 layout_sizeL.setOnClickListener(view -> {
-                    SetPriceDefault(foodSizeArrayList.get(2).getPrice());
-                    foodSize = foodSizeArrayList.get(2);
+                    SetPriceDefault(cosmeticSizeArrayList.get(2).getPrice());
+                    cosmeticSize = cosmeticSizeArrayList.get(2);
                 });
             } else {
                 layout_sizeL.setVisibility(View.INVISIBLE);
             }
 
             // Set information: đẩy lên các thông tin cơ bản (tên, miêu tả, ảnh)
-            tvName.setText(food.getName());
-            tvDescription.setText(food.getDescription());
-            image.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(food.getImage()));
+            tvName.setText(cosmetic.getName());
+            tvDescription.setText(cosmetic.getDescription());
+            image.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(cosmetic.getImage()));
 
-            Restaurant restaurant = dao.getRestaurantInformation(food.getRestaurantId());
-            tvRestaurantName.setText(String.format("+ Tên cửa hàng \n \t\t %s", restaurant.getName()));
-            tvRestaurantAddress.setText(String.format("+ Địa chỉ\n \t\t %s", restaurant.getAddress()));
+            Store store = dao.getStoreInformation(cosmetic.getStoreId());
+            tvStoreName.setText(String.format("+ Tên cửa hàng \n \t\t %s", store.getName()));
+            tvStoreAddress.setText(String.format("+ Địa chỉ\n \t\t %s", store.getAddress()));
 
             // set giá tổng
-            tvPrice.setText(getRoundPrice(foodSize.getPrice()));
+            tvPrice.setText(getRoundPrice(cosmeticSize.getPrice()));
         }
     }
 }

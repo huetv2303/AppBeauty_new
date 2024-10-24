@@ -2,26 +2,26 @@ package com.btl.beauty_new.model;
 
 import java.io.Serializable;
 
-public class FoodSize implements Serializable {
-    private Integer foodId;
+public class CosmeticSize implements Serializable {
+    private Integer cosmeticId;
     private Integer size;
     private Double price;
 
-    public FoodSize() {
+    public CosmeticSize() {
     }
 
-    public FoodSize(Integer foodId, Integer size, Double price) {
-        this.foodId = foodId;
+    public CosmeticSize(Integer cosmeticId, Integer size, Double price) {
+        this.cosmeticId = cosmeticId;
         this.size = size;
         this.price = price;
     }
 
-    public Integer getFoodId() {
-        return foodId;
+    public Integer getCosmeticId() {
+        return cosmeticId;
     }
 
-    public void setFoodId(Integer foodId) {
-        this.foodId = foodId;
+    public void setCosmeticId(Integer cosmeticId) {
+        this.cosmeticId = cosmeticId;
     }
 
     public Integer getSize() {

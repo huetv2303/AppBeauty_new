@@ -14,12 +14,12 @@ import android.widget.Toast;
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.fragments.ChatFragment;
+import com.btl.beauty_new.model.Cosmetic;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
-import com.btl.beauty_new.model.Food;
 import com.btl.beauty_new.model.OrderDetail;
 
 public class CartCard extends LinearLayout implements BaseComponent {
-    private Food food;
+    private Cosmetic cosmetic;
     private String restaurantName;
     private OrderDetail card;
     private boolean activateControl;
@@ -35,18 +35,18 @@ public class CartCard extends LinearLayout implements BaseComponent {
         initControl(context);
     }
 
-    public CartCard(Context context, Food food, String restaurantName, OrderDetail card) {
+    public CartCard(Context context, Cosmetic cosmetic, String restaurantName, OrderDetail card) {
         super(context);
-        this.food = food;
+        this.cosmetic = cosmetic;
         this.restaurantName = restaurantName;
         this.card = card;
         this.activateControl = true;
         initControl(context);
     }
 
-    public CartCard(Context context, Food food, String restaurantName, OrderDetail card, boolean activateControl) {
+    public CartCard(Context context, Cosmetic cosmetic, String restaurantName, OrderDetail card, boolean activateControl) {
         super(context);
-        this.food = food;
+        this.cosmetic = cosmetic;
         this.restaurantName = restaurantName;
         this.card = card;
         this.activateControl = activateControl;
@@ -98,9 +98,9 @@ public class CartCard extends LinearLayout implements BaseComponent {
         // xóa món ăn đó khỏi giỏ hàng
         btnDelete.setOnClickListener(view -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(getContext()); // khai báo 1 dialog
-            dialog.setMessage("Bạn có muốn xóa món " + food.getName() + " không ?");
+            dialog.setMessage("Bạn có muốn xóa món " + cosmetic.getName() + " không ?");
             dialog.setPositiveButton("Có", (dialogInterface, i) -> {
-                if (HomeActivity.dao.deleteOrderDetailByOrderIdAndFoodId(card.getOrderId(), food.getId())) {
+                if (HomeActivity.dao.deleteOrderDetailByOrderIdAndCosmeticId(card.getOrderId(), cosmetic.getId())) {
 //                    ChatFragment.cartContainer.removeView(this);
                     ChatFragment.cartContainer.removeView(this); // xóa view đó (hay là xóa món ăn đó khỏi giỏ hàng)
 
@@ -123,8 +123,8 @@ public class CartCard extends LinearLayout implements BaseComponent {
         }
 
         // Set information for cart card
-        image.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(food.getImage()));
-        tvName.setText(food.getName());
+        image.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(cosmetic.getImage()));
+        tvName.setText(cosmetic.getName());
         switch (card.getSize()) {
             case 1:
                 tvSize.setText("Size S");

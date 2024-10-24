@@ -15,7 +15,7 @@
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/imageFood"
+            android:id="@+id/imageCosmetic"
             android:contentDescription="@string/content_description_image"
             android:padding="8sp"
             android:scaleType="fitXY"
@@ -42,7 +42,7 @@
                     android:layout_marginEnd="15dp" />
 
                 <TextView
-                    android:id="@+id/tvNameFood"
+                    android:id="@+id/tvNameCosmetic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -53,7 +53,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvSizeFood"
+                android:id="@+id/tvSizeCosmetic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -74,7 +74,7 @@
                     android:layout_marginStart="30dp" />
 
                 <TextView
-                    android:id="@+id/tvPriceFood"
+                    android:id="@+id/tvPriceCosmetic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -85,7 +85,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvFoodRestaurantName"
+                android:id="@+id/tvCosmeticStoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -1,6 +1,6 @@
 package com.btl.beauty_new.activity;
 
-public interface FoodDetailsActivityImpl {
+public interface CosmeticDetailsActivityImpl {
     void initializeUI();
     void referenceComponent();
     void LoadData();

@@ -1,22 +1,22 @@
 package com.btl.beauty_new.model;
 
-public class FoodSaved {
-    private Integer foodId;
+public class CosmeticSaved {
+    private Integer cosmeticId;
     private Integer size;
     private Integer userId;
 
-    public FoodSaved(Integer foodId, Integer size, Integer userId) {
-        this.foodId = foodId;
+    public CosmeticSaved(Integer cosmeticId, Integer size, Integer userId) {
+        this.cosmeticId = cosmeticId;
         this.size = size;
         this.userId = userId;
     }
 
-    public Integer getFoodId() {
-        return foodId;
+    public Integer getCosmeticId() {
+        return cosmeticId;
     }
 
-    public void setFoodId(Integer foodId) {
-        this.foodId = foodId;
+    public void setCosmeticId(Integer cosmeticId) {
+        this.cosmeticId = cosmeticId;
     }
 
     public Integer getSize() {

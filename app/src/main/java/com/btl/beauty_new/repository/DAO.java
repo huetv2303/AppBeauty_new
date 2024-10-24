@@ -20,36 +20,36 @@ public class DAO {
         db = dbHelper.getReadableDatabase();
     }
 
-    // region Restaurant
-    public Restaurant getRestaurantInformation(Integer restaurantId) {
-        String query = "SELECT * FROM tblRestaurant WHERE id=" + restaurantId;
+    // region store
+    public Store getStoreInformation(Integer storeId) {
+        String query = "SELECT * FROM tblStore WHERE id=" + storeId;
         Cursor cursor = dbHelper.getDataRow(query);
-        return new Restaurant(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+        return new Store(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                 cursor.getString(3), cursor.getBlob(4));
     }
 
-    public Restaurant getRestaurantByName(String restaurantName) {
-        String query = "SELECT * FROM tblRestaurant WHERE name='" + restaurantName + "'";
+    public Store getStoreByName(String storeName) {
+        String query = "SELECT * FROM tblStore WHERE name='" + storeName + "'";
         Cursor cursor = dbHelper.getDataRow(query);
-        return new Restaurant(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+        return new Store(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                 cursor.getString(3), cursor.getBlob(4));
     }
 
-    public ArrayList<Restaurant> getRestaurantList() {
-        ArrayList<Restaurant> restaurantArrayList = new ArrayList<>();
-        String query = "SELECT * FROM tblRestaurant";
+    public ArrayList<Store> getStoreList() {
+        ArrayList<Store> storeArrayList = new ArrayList<>();
+        String query = "SELECT * FROM tblStore";
         Cursor cursor = dbHelper.getData(query);
         while (cursor.moveToNext()) {
-            restaurantArrayList.add(new Restaurant(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+            storeArrayList.add(new Store(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                     cursor.getString(3), cursor.getBlob(4)));
         }
-        return restaurantArrayList;
+        return storeArrayList;
     }
 
 
-    // region RestaurantSaved
-    public boolean addRestaurantSaved(RestaurantSaved restaurantSaved) {
-        String query = "INSERT INTO tblRestaurantSaved VALUES(" + restaurantSaved.getRestaurantId() + ", " + restaurantSaved.getUserId() + ")";
+    // region storeSaved
+    public boolean addStoreSaved(StoreSaved storeSaved) {
+        String query = "INSERT INTO tblStoreSaved VALUES(" + storeSaved.getStoreId() + ", " + storeSaved.getUserId() + ")";
         try {
             dbHelper.queryData(query);
             return true;
@@ -58,8 +58,8 @@ public class DAO {
         }
     }
 
-    public boolean deleteRestaurantSaved(RestaurantSaved restaurantSaved) {
-        String query = "DELETE FROM tblRestaurantSaved WHERE restaurant_id=" + restaurantSaved.getRestaurantId() + " AND user_id=" + restaurantSaved.getUserId();
+    public boolean deleteStoreSaved(StoreSaved storeSaved) {
+        String query = "DELETE FROM tblStoreSaved WHERE store_id=" + storeSaved.getStoreId() + " AND user_id=" + storeSaved.getUserId();
         try {
             dbHelper.queryData(query);
             return true;
@@ -68,14 +68,14 @@ public class DAO {
         }
     }
 
-    public ArrayList<RestaurantSaved> getRestaurantSavedList(Integer userId) {
-        ArrayList<RestaurantSaved> restaurantSavedArrayList = new ArrayList<>();
-        String query = "SELECT * FROM tblRestaurantSaved WHERE user_id=" + userId;
+    public ArrayList<StoreSaved> getStoreSavedList(Integer userId) {
+        ArrayList<StoreSaved> storeSavedArrayList = new ArrayList<>();
+        String query = "SELECT * FROM tblStoreSaved WHERE user_id=" + userId;
         Cursor cursor = dbHelper.getData(query);
         while (cursor.moveToNext()) {
-            restaurantSavedArrayList.add(new RestaurantSaved(cursor.getInt(0), cursor.getInt(1)));
+            storeSavedArrayList.add(new StoreSaved(cursor.getInt(0), cursor.getInt(1)));
         }
-        return restaurantSavedArrayList;
+        return storeSavedArrayList;
     }
     // endregion
 
@@ -126,10 +126,10 @@ public class DAO {
     // endregion
 
     // region OrderDetail
-    public OrderDetail getExistOrderDetail(Integer orderId, FoodSize foodSize) {
+    public OrderDetail getExistOrderDetail(Integer orderId, CosmeticSize cosmeticSize) {
         String query = "SELECT * FROM tblOrderDetail WHERE order_id=" + orderId +
-                " AND food_id=" + foodSize.getFoodId() +
-                " AND size=" + foodSize.getSize();
+                " AND cosmetic_id=" + cosmeticSize.getCosmeticId() +
+                " AND size=" + cosmeticSize.getSize();
         Cursor cursor = dbHelper.getDataRow(query);
         if (cursor.moveToFirst()) {
             OrderDetail orderDetail = new OrderDetail(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2),
@@ -143,7 +143,7 @@ public class DAO {
     public boolean addOrderDetail(OrderDetail od) {
         String query = "INSERT INTO tblOrderDetail VALUES(" +
                 od.getOrderId() + ", " +
-                od.getFoodId() + ", " +
+                od.getCosmeticId() + ", " +
                 od.getSize() + ", " +
                 od.getPrice() + ", " +
                 od.getQuantity() + ")";
@@ -155,8 +155,8 @@ public class DAO {
         }
     }
 
-    public boolean deleteOrderDetailByOrderIdAndFoodId(Integer orderId, Integer foodId) {
-        String query = "DELETE FROM tblOrderDetail WHERE food_id=" + foodId + " and order_id=" + orderId;
+    public boolean deleteOrderDetailByOrderIdAndCosmeticId(Integer orderId, Integer cosmeticId) {
+        String query = "DELETE FROM tblOrderDetail WHERE cosmetic_id=" + cosmeticId + " and order_id=" + orderId;
         try {
             dbHelper.queryData(query);
             return true;
@@ -184,7 +184,7 @@ public class DAO {
     public boolean updateQuantity(OrderDetail orderDetail) {
         String query = "UPDATE tblOrderDetail SET quantity=" + orderDetail.getQuantity() +
                 " WHERE order_id=" + orderDetail.getOrderId() +
-                " AND food_id=" + orderDetail.getFoodId() +
+                " AND cosmetic_id=" + orderDetail.getCosmeticId() +
                 " AND size=" + orderDetail.getSize();
         try {
             dbHelper.queryData(query);
@@ -311,49 +311,49 @@ public class DAO {
     }
     // endregion
 
-    // region Food
-    public FoodSize getFoodDefaultSize(Integer foodId) {
-        String sql = "SELECT * FROM tblFoodSize WHERE food_id=" + foodId;
+    // region cosmetic
+    public CosmeticSize getCosmeticDefaultSize(Integer cosmeticId) {
+        String sql = "SELECT * FROM tblCosmeticSize WHERE cosmetic_id=" + cosmeticId;
         Cursor cursor = dbHelper.getDataRow(sql);
         if (cursor == null)
             return null;
-        return new FoodSize(cursor.getInt(0), cursor.getInt(1), cursor.getDouble(2));
+        return new CosmeticSize(cursor.getInt(0), cursor.getInt(1), cursor.getDouble(2));
     }
 
-    public FoodSize getFoodSize(Integer foodId, Integer size) {
-        String sql = "SELECT * FROM tblFoodSize WHERE food_id=" + foodId + " AND size=" + size;
+    public CosmeticSize getCosmeticSize(Integer cosmeticId, Integer size) {
+        String sql = "SELECT * FROM tblCosmeticSize WHERE cosmetic_id=" + cosmeticId + " AND size=" + size;
         Cursor cursor = dbHelper.getDataRow(sql);
         if (cursor == null)
             return null;
-        return new FoodSize(cursor.getInt(0), cursor.getInt(1), cursor.getDouble(2));
+        return new CosmeticSize(cursor.getInt(0), cursor.getInt(1), cursor.getDouble(2));
     }
 
-    public ArrayList<FoodSize> getAllFoodSize(Integer foodId) {
-        ArrayList<FoodSize> foodSizeList = new ArrayList<>();
-        String sql = "SELECT * FROM tblFoodSize WHERE food_id=" + foodId;
+    public ArrayList<CosmeticSize> getAllCosmeticSize(Integer cosmeticId) {
+        ArrayList<CosmeticSize> cosmeticSizeList = new ArrayList<>();
+        String sql = "SELECT * FROM tblCosmeticSize WHERE cosmetic_id=" + cosmeticId;
         Cursor cursor = dbHelper.getData(sql);
         while (cursor.moveToNext()) {
-            foodSizeList.add(new FoodSize(cursor.getInt(0), cursor.getInt(1), cursor.getDouble(2)));
+            cosmeticSizeList.add(new CosmeticSize(cursor.getInt(0), cursor.getInt(1), cursor.getDouble(2)));
         }
-        return foodSizeList;
+        return cosmeticSizeList;
     }
 
-    public Food getFoodById(Integer id) {
-        String query = "SELECT * FROM tblFood WHERE id=" + id;
+    public Cosmetic getCosmeticById(Integer id) {
+        String query = "SELECT * FROM tblCosmetic WHERE id=" + id;
         Cursor cursor = dbHelper.getDataRow(query);
-        return new Food(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getBlob(3), cursor.getString(4), cursor.getInt(5));
+        return new Cosmetic(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getBlob(3), cursor.getString(4), cursor.getInt(5));
     }
 
-    public ArrayList<Food> getFoodByKeyWord(String keyword, Integer restaurantId) {
-        ArrayList<Food> listFood = new ArrayList<>();
-        String query = "SELECT * FROM tblFood WHERE name LIKE '%" + keyword + "%'";
-        if (restaurantId != null) {
-            query += " AND restaurant_id=" + restaurantId;
+    public ArrayList<Cosmetic> getCosmeticByKeyWord(String keyword, Integer storeId) {
+        ArrayList<Cosmetic> listCosmetic = new ArrayList<>();
+        String query = "SELECT * FROM tblCosmetic WHERE name LIKE '%" + keyword + "%'";
+        if (storeId != null) {
+            query += " AND store_id=" + storeId;
         }
 
         Cursor cursor = dbHelper.getData(query);
         while (cursor.moveToNext()) {
-            listFood.add(new Food(cursor.getInt(0),
+            listCosmetic.add(new Cosmetic(cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getBlob(3),
@@ -361,15 +361,15 @@ public class DAO {
                     cursor.getInt(5))
             );
         }
-        return listFood;
+        return listCosmetic;
     }
 
-    public ArrayList<Food> getFoodByType(String type) {
-        ArrayList<Food> listFood = new ArrayList<>();
-        String query = "SELECT * FROM tblFood WHERE type='" + type + "'";
+    public ArrayList<Cosmetic> getCosmeticByType(String type) {
+        ArrayList<Cosmetic> listCosmetic = new ArrayList<>();
+        String query = "SELECT * FROM tblCosmetic WHERE type='" + type + "'";
         Cursor cursor = dbHelper.getData(query);
         while (cursor.moveToNext()) {
-            listFood.add(new Food(cursor.getInt(0),
+            listCosmetic.add(new Cosmetic(cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getBlob(3),
@@ -377,15 +377,15 @@ public class DAO {
                     cursor.getInt(5))
             );
         }
-        return listFood;
+        return listCosmetic;
     }
 
-    public ArrayList<Food> getFoodByRestaurant(Integer restaurantId) {
-        ArrayList<Food> listFood = new ArrayList<>();
-        String query = "SELECT * FROM tblFood WHERE restaurant_id=" + restaurantId;
+    public ArrayList<Cosmetic> getCosmeticBystore(Integer storeId) {
+        ArrayList<Cosmetic> listCosmetic = new ArrayList<>();
+        String query = "SELECT * FROM tblCosmetic WHERE store_id=" + storeId;
         Cursor cursor = dbHelper.getData(query);
         while (cursor.moveToNext()) {
-            listFood.add(new Food(cursor.getInt(0),
+            listCosmetic.add(new Cosmetic(cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getBlob(3),
@@ -393,25 +393,25 @@ public class DAO {
                     cursor.getInt(5))
             );
         }
-        return listFood;
+        return listCosmetic;
     }
     // endregion
 
-    // region Food Saved
-    public ArrayList<FoodSaved> getFoodSaveList(Integer userId) {
-        ArrayList<FoodSaved> foodSavedArrayList = new ArrayList<>();
-        String query = "SELECT * FROM tblFoodSaved WHERE user_id=" + userId;
+    // region cosmetic Saved
+    public ArrayList<CosmeticSaved> getCosmeticSaveList(Integer userId) {
+        ArrayList<CosmeticSaved> cosmeticSavedArrayList = new ArrayList<>();
+        String query = "SELECT * FROM tblCosmeticSaved WHERE user_id=" + userId;
         Cursor cursor = dbHelper.getData(query);
         while (cursor.moveToNext()) {
-            foodSavedArrayList.add(new FoodSaved(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2)));
+            cosmeticSavedArrayList.add(new CosmeticSaved(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2)));
         }
-        return foodSavedArrayList;
+        return cosmeticSavedArrayList;
     }
 
-    public boolean addFoodSaved(FoodSaved foodSaved) {
-        String query = "INSERT INTO tblFoodSaved VALUES(" + foodSaved.getFoodId() + ", "
-                + foodSaved.getSize() + ", "
-                + foodSaved.getUserId() + ")";
+    public boolean addCosmeticSaved(CosmeticSaved cosmeticSaved) {
+        String query = "INSERT INTO tblCosmeticSaved VALUES(" + cosmeticSaved.getCosmeticId() + ", "
+                + cosmeticSaved.getSize() + ", "
+                + cosmeticSaved.getUserId() + ")";
         try {
             dbHelper.queryData(query);
             return true;
@@ -420,9 +420,9 @@ public class DAO {
         }
     }
 
-    public void deleteFoodSavedByFoodIdAndSize(Integer foodId, Integer size) {
-        String query = "DELETE FROM tblFoodSaved WHERE food_id=" +
-                foodId + " and size=" + size;
+    public void deleteCosmeticSavedByCosmeticIdAndSize(Integer cosmeticId, Integer size) {
+        String query = "DELETE FROM tblCosmeticSaved WHERE cosmetic_id=" +
+                cosmeticId + " and size=" + size;
         dbHelper.queryData(query);
     }
     // endregion
