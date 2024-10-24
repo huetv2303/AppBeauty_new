@@ -136,7 +136,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cosmeticList = new ArrayList<>();
         // region Shiseido
         cosmeticList.add(new Cosmetic(1, "Tinh chất dưỡng da", "Dưỡng da",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemhop_daudo, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi, null)),
                 "Serum ULTIMUNE đoạt nhiều giải thưởng, giúp củng cố hàng rào bảo vệ da mạnh mẽ, phục hồi độ đàn hồi của da. Trải nghiệm sự rạng rỡ, mịn màng và đàn hồi, cho làn da Khỏe khoắn, Tươi trẻ:\n" +
                         "\n" +
                         "Loại da:\n" +
@@ -162,7 +162,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "Kết cấu sánh mịn nhưng trong mướt dễ dàng thẩm thấu trên toàn bộ khuôn mặt và vùng da mắt.\n" +
                         "Cảm giác mịn mượt như satin đọng lại trên da, như thể làn da được bảo vệ bởi một tấm màn vô hình.\n", 5));
         cosmeticList.add(new Cosmetic(1, "Sữa rửa mặt SHISEIDO", "Sữa rửa mặt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemhop_suadua, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi1, null)),
                 "Rạng rỡ tinh tế. " +
                         "\t\t Sữa rửa mặt có chứa Bột trắng siêu mịn và đất sét trắng để loại bỏ các tạp chất một cách hiệu quả. Giàu dưỡng chất. Bọt êm mịn. Loại bỏ các tế bào da xỉn màu ở bề mặt, các chất gây ô nhiễm và các chất bị ôxi hóa gây nên lão hóa. Được làm từ những nguyên liệu có khả năng dưỡng ẩm sâu, không gây khô da, củng cố khả năng bảo vệ từ bên trong.\n" +
                         "\t\t Phù hợp cho mọi loại da.\n" +
@@ -171,7 +171,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t + Massage nhẹ nhàng toàn gương mặt"+
                         "\t\t + Rửa mặt lại thật sạch bằng nước", 5));
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng ban ngày", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_vani, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi2, null)),
                 "Kem dưỡng cao cấp ban ngày đa chức năng với kết cấu mịn mượt giàu ẩm giúp duy trì cảm giác ẩm mượt tối ưu suốt cả ngày. Công nghệ độc quyền của Shiseido kích thích Nhân tố bảo vệ da ban ngày để mang đến làn da rạng rỡ từ bên trong. Làn da được bảo vệ ngay cả khi bị tác động bởi những yếu tố gây hại như tia UV, môi trường khô, ôxi hóa và sự ô nhiễm. Có thể sử dụng dưới lớp trang điểm.:\n" +
                         "\t\t Bảo vệ da với SPF 20.\n" +
                         "\t\t+ Tổng quan:\n" +
@@ -183,7 +183,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t  PHỨC HỢP SKINGENECELL ENMEI\n" +
                         "Thảo dược từ xa xưa nay trở thành nguồn năng lượng sống mới cho làn da. Tìm thấy sâu trong rừng thiêng nơi ngọn núi Koya huyền bí, loài thảo mộc đã được các vị thiền sư sử dụng hàng thế kỷ nay. Các nghiên cứu hiện đại đã giúp chạm đến và khai thác sức mạnh chống lão hóa và duy trì vẻ đẹp vượt trội cùa loài thảo mộc huyền bí.\n" , 5));
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng mắt", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_dau, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi3, null)),
                 "Kem dưỡng mắt chuyên sâu, giảm rõ rệt quầng thâm mắt, cho vẻ ngoài trẻ trung đầy sức sống." +
                         "\n\n  Thành phần chính:\n" +
                         "\t\t+  WATER (AQUA)･DIMETHICONE･BUTYLENE GLYCOL･GLYCERIN･ALCOHOL･DIMETHICONE/VINYL DIMETHICONE CROSSPOLYMER･MYRISTYL MYRISTATE･PETROLATUM･HYDROGENATED POLYDECENE･BEHENYL ALCOHOL･CETYL ETHYLHEXANOATE･GLYCERYL STEARATE SE･POTASSIUM METHOXYSALICYLATE･POLYMETHYL METHACRYLATE･STEARYL ALCOHOL･DIMETHYLACRYLAMIDE/SODIUM ACRYLOYLDIMETHYLTAURATE CROSSPOLYMER･POLYSORBATE 60･PEG-40 STEARATE･TOCOPHERYL ACETATE･PHENOXYETHANOL･TITANIUM DIOXIDE (CI 77891)･FRAGRANCE (PARFUM)･SORBITAN TRISTEARATE･TRISODIUM EDTA･PEG-10 DIMETHICONE･SODIUM CITRATE･ORYZANOL･2-O-ETHYL ASCORBIC ACID･MICA･SILICA･XANTHAN GUM･SODIUM METAPHOSPHATE･LIMONENE･CITRIC ACID･PEG/PPG-14/7 DIMETHYL ETHER･ALUMINUM HYDROXIDE･BENZYL BENZOATE･HYDROXYISOHEXYL 3-CYCLOHEXENE CARBOXALDEHYDE･IRON OXIDES (CI 77491)･SODIUM HYALURONATE･LINALOOL･CRATAEGUS MONOGYNA FLOWER EXTRACT･TOCOPHEROL･\n" +
@@ -192,7 +192,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t + Thoa đều khắp mi mắt và vùng da dưới mắt."+
                         "\t\t + Massage nhẹ nhàng theo hướng từ gò mà lên.", 5));
         cosmeticList.add(new Cosmetic(1, "Kem chống nắng dưỡng da", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_socola, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi4, null)),
                 "huyển hóa một phần ánh nắng mặt trời thành ánh sáng sinh học với Công nghệ Sun Dual Care™. " +
                         "\n\n Sản phẩm chống nắng đầu tiên giúp bảo vệ da khỏi tia UV, đồng thời, chuyển hóa một phần ánh sáng mặt trời thành ánh sáng có lợi, tối ưu hiệu quả chăm sóc da.\n" +
                         "\t\t Phù hợp để dùng hằng ngày với kết cấu nhẹ tênh, không dầu, với thành phần các chất chống ôxi hóa và hyaluronic acid, sản phẩm giúp bảo vệ da khỏi các yếu tố ô nhiễm môi trường gây sạm hoặc khô da, để lại một làn da ẩm mịn, tươi sáng.\n" +
@@ -204,7 +204,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "không kháng nước và công thức kháng nước lưu lại trên da\n" +
                         "\t\t Không gây bết dính", 5));
         cosmeticList.add(new Cosmetic(1, "Mặt nạ ban đêm", "Mặt nạ",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_socola, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi5, null)),
                 "Đánh thức giác quan của làn da. Toả sáng rạng rỡ từ bên trong." +
                         "\t\t Ứng dụng khoa học hệ thần kinh của các giác quan trên làn da. Chất gel giàu dưỡng chất, êm ái trên da, áp dụng công nghệ ReNeura Technology+™ gửi các tín hiệu cảm biến bên trong làn da, giúp da phản ứng tối ưu đến hiệu quả chống lão hoá của sản phẩm. \n" +
                         "\t\t Tập trung vào quá trình hoạt động ban đêm của làn da, kem dưỡng cung cấp dưỡng chất tràn đầy, giúp giải quyết các tổn thương xuất hiện ban ngày, ngay trong giấc ngủ của bạn. \n" +
@@ -339,178 +339,153 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng2: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất2.\n" +
                         "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
 
-        // region Banh ngot
-        cosmeticList.add(new Cosmetic(1, "Bánh đậu xanh cốt dừa", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhdauxanh_cotdua, null)),
-                "Bánh đậu xanh cốt dừa là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh đậu xanh cốt dừa:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 200g đậu xanh không vỏ\n" +
-                        "\t\t+ 120g đường\n" +
-                        "\t\t+ Một chút muối\n" +
-                        "\t\t+ 1 thìa dầu ăn\n" +
-                        "\t\t+ 60ml nước cốt dừa1\n" +
-                        "\nCách làm:\n" +
-                        "\n" +
-                        "\t\t+ Đậu xanh vo sạch, sau đó ngâm nước 2-3 tiếng cho đỗ nở mềm1.\n" +
-                        "\t\t+ Cho đỗ, một chút muối vào nồi, sau đó cho nước ngập mặt đỗ (cỡ 1 đốt ngón tay). Bật bếp và không cần đậy nắp nồi, nấu cho tới khi đỗ chín mềm và nước cũng rút cạn thì tắt bếp1.\n" +
-                        "\t\t+ Cho đỗ vào máy xay sinh tố cùng với nước cốt dừa, xay cho hỗn hợp nhuyễn mịn1.\n" +
-                        "\t\t+ Đổ hỗn hợp vừa xay ra chảo chống dính và bật bếp nhỏ lửa, cho thêm đường, dầu ăn và trộn đều, xào như vậy cho tới khi bột đậu xanh khô ráo là tắt bếp1.\n" +
-                        "\t\t+ Chuẩn bị 1 chiếc khuôn vuông, sau đó lót màng bọc thực phẩm vào rồi lấy 1 lượng đậu xanh vừa đủ, trút vào khuôn và ấn đều 4 góc sao cho phẳng đều là được1.\n" +
-                        "\t\t+ Lấy bánh ra khỏi khuôn, bôi 1 lớp mỏng dầu ăn lên dao rồi cắt bánh thành các miếng vuông vừa nhỏ là xong rồi nhé! Những chiếc bánh nhỏ xinh lại bùi thơm vị đỗ xanh, béo ngậy nước cốt dừa, ngọt vừa phải, ăn không bị ngấy1.", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh matcha", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banh_matcha, null)),
-                "Bánh matcha là một loại bánh ngọt với hương vị đặc trưng từ bột trà xanh matcha. Dưới đây là một số cách làm bánh matcha phổ biến:\n" +
-                        "\n" +
-                        "Bánh bông lan matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: 100g bột mì, 50g bột bắp, 5g bột nở, 20g bột matcha, 3 quả trứng gà, 80g đường, 40g bơ nhạt, muối, vani1.\n" +
-                        "\t\t+ Cách chế biến: Đầu tiên, bạn cần tách lòng đỏ và lòng trắng trứng, sau đó đánh lòng đỏ với 40g đường và vani. Tiếp theo, hòa tan bơ và dầu ăn trong nước sôi. Khi hỗn hợp bơ còn ấm, bạn cho bột trà xanh vào và khuấy đều. Sau cùng, bạn trộn hỗn hợp bột mì, bột bắp và bột nở với nhau và cho vào hỗn hợp trà xanh. Tiếp tục thêm hỗn hợp lòng đỏ trứng ban đầu và trộn thật đều1.\n" +
-                        "\t\t+ Bánh mousse matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: Vài lát bánh bông lan matcha, 250g whipping cream, 5g bột trà xanh, 60g đường, 2 lá gelatine1.\n" +
-                        "\t\t+ Cách chế biến: Bạn cần phải kết hợp các nguyên liệu này để tạo ra một lớp mousse mềm mại và thơm ngon1.\n" +
-                        "\t\t+ Bánh tiramisu matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: Các nguyên liệu cần thiết cho loại bánh này gồm có matcha, kem mascarpone, và các loại nguyên liệu khác tùy thuộc vào cách bạn muốn làm1.\n" +
-                        "\t\t+ Cách chế biến: Bạn sẽ cần phải kết hợp các nguyên liệu này để tạo ra một lớp tiramisu mềm mại và thơm ngon1.\n" +
-                        "\t\t+ Bánh quy matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: Bạn sẽ cần có bột matcha, bột mì, và các nguyên liệu khác tùy thuộc vào cách bạn muốn làm1.\n" +
-                        "\t\t+ Cách chế biến: Bạn sẽ cần phải kết hợp các nguyên liệu này để tạo ra những chiếc bánh quy giòn và thơm ngon1.", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh sầu riêng", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banh_saurieng, null)),
-                "Bánh matcha là một loại bánh ngọt có hương vị đặc trưng của bột trà xanh matcha. Dưới đây là một số công thức làm bánh matcha:\n" +
-                        "\n" +
-                        "\t\t+ Bánh bông lan matcha: Bánh bông lan matcha có vị béo ngọt, đắng nhẹ của bột trà xanh và hương vị thơm ngon của trứng. Bánh bông lan matcha mềm mịn, thơm ngon chắc chắn sẽ làm các bé thích mê1.\n" +
-                        "\t\t+ Bánh mousse matcha: Bánh mousse matcha là sự kết hợp cực kỳ sáng tạo và mới lạ từ những nguyên liệu đơn giản. Bột trà xanh đắng nhẹ, thơm dịu kết hợp cùng whipping cream béo ngậy chắc chắn sẽ khiến cho những tâm hồn yêu đồ ngọt thích thú1.\n" +
-                        "\t\t+ Bánh Chocopie Orion Matcha Trà Xanh: Lớp bánh xốp mịn với sô cô la chảy ngọt ngào bên ngoài đến lớp nhân marshmallow vị matcha thanh hấp dẫn ở bên trong2.", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan cuộn", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_cuon, null)),
-                "Bánh bông lan cuộn là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan cuộn:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn đơn giản1: Công thức này giới thiệu cách làm bánh bông lan cuộn kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn Vanilla Cake Roll Recipe1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn kem tươi hoa quả2: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn hoa cúc1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh sầu riêng", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banh_saurieng, null)),
-                "Bánh sầu riêng là một loại bánh ngọt có hương vị đặc trưng của sầu riêng. Dưới đây là một số thông tin về các loại bánh sầu riêng phổ biến:\n" +
-                        "\n" +
-                        "\t\t+ Bánh Sầu Riêng TBT: Bánh được làm bằng sầu riêng Ri6 tươi nguyên chất, không sử dụng sầu kem sầu pha trộn. Vỏ bánh dai mềm mịn, không bị bột bở khi ăn. Lớp kem lạnh thơm béo, xen lẫn nhân sầu ngọt dịu1.\n" +
-                        "\t\t+ Bánh Sầu Riêng: Chuyên sỉ & lẻ bánh sầu riêng ngàn lớp, bánh crepe. Với phương châm luôn đặt chất lượng lên hàng đầu, chúng tôi tự hào mang đến những sản phẩm tốt nhất cho khách hàng2.\n" +
-                        "\t\t+ Bánh Sầu Riêng Chiên: Bánh Sầu Riêng Chiên giòn rụm thơm ngon tuyệt cú mèo3.\n" +
-                        "\t\t+ Bánh Trung Thu Nhân Sầu Riêng: Bánh Trung Thu Nhân Sầu Riêng thơm nức mũi4", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan cuộn", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_cuon, null)),
-                "Bánh bông lan cuộn là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan cuộn:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn đơn giản1: Công thức này giới thiệu cách làm bánh bông lan cuộn kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn Vanilla Cake Roll Recipe1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn kem tươi hoa quả2: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn hoa cúc1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan socola", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_socola, null)),
-                "Bánh bông lan socola là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan socola:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm Bánh Bông Lan Socola cực đơn giản chỉ trong 3 bước - PasGo1: Công thức này giới thiệu cách làm Bánh Bông Lan Socola kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm Bánh Bông Lan Socola Tươi | Chocolate Cake | Chị Mía2: Công thức này hướng dẫn cách làm Bánh Bông Lan Socola Tươi theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh bông lan socola cực đơn giản (chocolate sponge cake …3: Công thức này hướng dẫn cách làm bánh bông lan socola theo công thức như thế nào ngon nhất3.\n" +
-                        "\t\t+ BÁNH BÔNG LAN SOCOLA – Công ty TNHH Đại Hiền Tâm4: Công thức này hướng dẫn cách làm bánh bông lan socola theo công thức như thế nào ngon nhất4", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan trứng muối", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_trungmuoi, null)),
-                "Bánh bông lan trứng muối là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan trứng muối:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan trứng muối (bằng nồi cơm điện hoặc lò nướng)1: Công thức này giới thiệu cách làm bánh bông lan trứng muối kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách Làm Bánh Bông Lan Trứng Muối Đơn Giản Tại Nhà2: Công thức này hướng dẫn cách làm bánh bông lan trứng muối theo công thức như thế nào ngon nhất", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan trứng muối", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_trungmuoi, null)),
-                "Bánh bông lan trứng muối là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan trứng muối:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan trứng muối (bằng nồi cơm điện hoặc lò nướng)1: Công thức này giới thiệu cách làm bánh bông lan trứng muối kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách Làm Bánh Bông Lan Trứng Muối Đơn Giản Tại Nhà2: Công thức này hướng dẫn cách làm bánh bông lan trứng muối theo công thức như thế nào ngon nhất", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh su kem", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhsukem, null)),
-                "Bánh su kem, còn được gọi là Choux à la crème, là một loại bánh ngọt có nguồn gốc từ nước Pháp. Bánh su kem có độ mềm dẻo, thơm ngậy đầy lôi cuốn1. Dưới đây là một số công thức nấu bánh su kem:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm Bánh Su Kem (Choux à la crème) Ngon Béo Ngậy – bTaskee1: Công thức này giới thiệu cách làm bánh su kem kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Làm Bánh Su Kem Với Công Thức Dễ Thành Công Ngay Lần Đầu | Choux Pastry Recipe | Chị Mía2: Công thức này hướng dẫn cách làm bánh su kem theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Bánh Su kem (Choux à la Crème) – Demo & Một số lưu ý khi làm Choux3: Công thức này hướng dẫn cách làm bánh su kem theo công thức như thế nào ngon nhất", 4));
+        // region Olay
+        cosmeticList.add(new Cosmetic(1, "Tinh Chất Olay Chống Lão Hóa Chứa Chiết Xuât Retinol24 30ml", "Tinh chất",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic1, null)),
+                "Serum OLAY RETINOL24: LIỆU TRÌNH TRẺ HÓA DA BAN ĐÊM, GIÚP MỜ NẾP NHĂN RÕ RỆT SAU 28 NGÀY\n" +
+                        "\nRetinol là một dẫn xuất của Vitamin A, có tác dụng trung hòa các gốc tự do, kích thích sản sinh collagen và tái tạo bề mặt da. Retinol giúp làm mờ thâm nám, cải thiện lỗ chân lông và mụn.\n" +
+                        "\nOlay Retinol24 kết hợp phức hợp độc quyền giữa Niacinamide, Retinol và Retinyl Propionate, giúp trẻ hóa da hiệu quả mà không gây kích ứng mạnh. Serum giúp mờ nếp nhăn, đều màu da, mờ đốm nâu, và tăng cường độ săn chắc cho da.\n" +
+                        "\nCông thức nhẹ nhàng, không chứa hương liệu và phẩm màu, thẩm thấu nhanh, không nhờn dính, đồng thời cấp ẩm cho da suốt 24 giờ.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "- Sử dụng vào ban đêm.\n" +
+                        "- Lấy một lượng vừa đủ thoa đều lên mặt và cổ sau khi rửa mặt.\n" +
+                        "- Dùng hàng ngày để đạt hiệu quả tối ưu, thấy rõ sự cải thiện sau 28 ngày.", 4));
+        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm Ban Đêm Sáng Da OLAY LUMINOUS 50G", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic, null)),
+                "Cuộc sống bận rộn, năng động, khiến làn da của chúng ta dễ xuất hiện những dấu hiệu lão hóa: da sạm, không đều màu, thâm mụn, nếp nhăn, chảy xệ…\n" +
+                        "\nOlay - thương hiệu mỹ phẩm hàng đầu thế giới đến từ Mỹ, với công nghệ hiện đại và thành phần an toàn, giúp cải thiện rõ rệt các vấn đề về da, đồng thời phục hồi và làm chậm quá trình lão hóa.\n" +
+                        "\nOlay Luminous sử dụng phức hợp Niacinamide giúp thúc đẩy tái tạo bề mặt da, tăng sinh collagen và làm sáng đều màu da. Kết cấu kem mỏng nhẹ, thấm nhanh, nuôi dưỡng da từ sâu bên trong.\n" +
+                        "\nHướng dẫn sử dụng: Lấy một lượng vừa đủ thoa đều lên mặt và cổ, massage nhẹ nhàng. Dùng hàng ngày vào buổi tối sau khi rửa mặt.\n" +
+                        "\nXuất xứ thương hiệu: Mỹ\n" +
+                        "\nSản xuất tại: Thái Lan", 4));
+        cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang OLAY Vitamin C Sạch Sâu 80 miếng/hộp", "Tẩy trang",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic2, null)),
+                "Thiết kế theo Olay\n" +
+                        "\nKích thước: 6cm x 6cm\n" +
+                        "Số lượng: 80 miếng/hộp\n" +
+                        "Thành phần: 100% bông xơ tự nhiên\n" +
+                        "Hạn sử dụng: 3 năm kể từ ngày sản xuất\n" +
+                        "\nĐặc điểm:\n" +
+                        "- Bề mặt dập nổi hình tròn tăng khả năng loại bỏ bụi bẩn giúp vệ sinh da sạch hơn.\n" +
+                        "- 100% bông xơ tự nhiên mềm mại, an toàn, có khả năng tự hủy, thân thiện với môi trường.\n" +
+                        "- Công nghệ Spunlace xử lý màng bông bằng tia nước áp lực cao giúp bông mịn, dai, không bị xơ trên bề mặt.\n" +
+                        "- Đạt chứng nhận ISO 9001, ISO 13485, Hàng Việt Nam chất lượng cao, và các chứng nhận CE.", 4));
+        cosmeticList.add(new Cosmetic(1, "Sữa Rửa Mặt Ngày & Đêm", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic3, null)),
+                "OLAY Total Effects: Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa\n" +
+                        "\nOLAY Total Effects là thương hiệu chăm sóc da đại chúng đầu tiên giới thiệu thành phần Niacinamide (Vitamin B3), được chứng minh giúp tăng cường hàng rào bảo vệ da và phục hồi vẻ ngoài tươi trẻ hơn.\n" +
+                        "\nKem dưỡng OLAY Total Effects được cải tiến với 50% Vitamin E kết hợp cùng hệ dưỡng chất vitamin C, B5 và không chứa dầu, giúp phục hồi và làm chậm 7 dấu hiệu lão hóa da:\n" +
+                        "- Rãnh và nếp nhăn\n" +
+                        "- Da không đều màu\n" +
+                        "- Đốm đồi mồi\n" +
+                        "- Da kém săn chắc\n" +
+                        "- Da khô\n" +
+                        "- Da xỉn màu\n" +
+                        "- Lỗ chân lông to.", 4));
+        cosmeticList.add(new Cosmetic(1, "Combo 2: Serum Căng Mướt, Sáng Khỏe & Phục Hồi Dấu Hiệu Lão", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic4, null)),
+                "OLAY Regenerist: Dưỡng Da Căng Mướt, Sáng Khỏe & Phục Hồi Dấu Hiệu Lão Hóa\n" +
+                        "\nThành phần chính là Bioavailable Niacinamide, tính ổn định cao và khả năng thẩm thấu sâu vào 10 lớp biểu bì, giúp thúc đẩy quá trình thay mới tế bào da và ngăn chặn dịch chuyển của hắc sắc tố, giúp da tươi sáng, rạng rỡ.\n" +
+                        "\nKết hợp cùng hệ dưỡng chất cao cấp:\n" +
+                        "- Amino-Peptide (Pro-Collagen) giúp làm mờ nếp nhăn và săn chắc da\n" +
+                        "- Axit Hyaluronic (HA) giúp cấp ẩm mạnh mẽ\n" +
+                        "- Chiết xuất Carob hỗ trợ phục hồi tổn thương bề mặt da.",4));
+        cosmeticList.add(new Cosmetic(1, "Super Serum OLAY Luminous Niacinamide & Vitamin C ", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic5, null)),
+                "Super Serum OLAY Luminous Niacinamide + Vitamin C: Giúp Giảm 5 Năm Vết Thâm, Đốm Nâu Dài Dẳng\n" +
+                        "\nBạn có biết, những vết thâm, đốm nâu chỉ là bề nổi của tảng băng, được hình thành tích tụ dưới lớp biểu bì qua năm tháng?\n" +
+                        "\nRa mắt dòng sản phẩm OLAY Luminous Niacinamide + Vitamin C MỚI! Với phức hợp Bioavailable^ Vitamin C gồm Niacinamide & Vitamin C, sản phẩm không chỉ tác động trên bề mặt mà còn thẩm thấu sâu vào 10 lớp biểu bì, giúp GIẢM 5 NĂM vết thâm, đốm nâu tích tụ lâu ngày, làm đều màu da cho làn da tươi sáng, rạng rỡ gấp 2 lần**.\n" +
+                        "\nSUPER SERUM mỏng nhẹ, thấm nhanh, không nhờn dính, kết hợp với Kem Dưỡng OLAY Luminous Vitamin C để đạt được hiệu quả tối ưu.\n" +
+                        "\nKẾT QUẢ NGHIÊN CỨU LÂM SÀNG CHO THẤY^^:\n" +
+                        "- 96% người dùng cảm thấy da được cấp ẩm sau khi sử dụng\n" +
+                        "- 91% người dùng cảm thấy da sáng khỏe hơn sau khi sử dụng.", 4));
+        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm Ban Ngày Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa ", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic6, null)),
+                "OLAY Total Effects: Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa\n" +
+                        "\nOLAY Total Effects là thương hiệu chăm sóc da đại chúng đầu tiên giới thiệu thành phần làm chậm dấu hiệu lão hóa mạnh mẽ, Niacinamide (Vitamin B3), giúp tăng cường hàng rào bảo vệ da và phục hồi vẻ ngoài tươi trẻ.\n" +
+                        "\nKem dưỡng OLAY Total Effects được cải tiến bổ sung 50% Vitamin E cùng hệ dưỡng chất vitamin C, B5 và không chứa dầu, giúp phục hồi và làm chậm rõ rệt 7 dấu hiệu lão hóa của da:\n" +
+                        "- Rãnh và nếp nhăn\n" +
+                        "- Da không đều màu\n" +
+                        "- Đốm đồi mồi\n" +
+                        "- Da kém săn chắc\n" +
+                        "- Da khô\n" +
+                        "- Da xỉn màu\n" +
+                        "- Lỗ chân lông to.", 4));
 
-        // region Com suon
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn trứng", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_trung, null)),
-                "Cơm sườn trứng là một món ăn truyền thống của Việt Nam, thường được phục vụ trong bữa ăn hàng ngày. Dưới đây là cách làm cơm sườn trứng tại nhà1:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 1kg sườn cốt lết\n" +
-                        "\t\t+ 400g thịt băm\n" +
-                        "\t\t+ 3 quả trứng gà\n" +
-                        "\t\t+ Hành tím, hành lá, hành tây, tỏi\n" +
-                        "\t\t+ Gia vị: Mật ong, sữa tươi không đường, sữa đặc, dầu hào, giấm ăn, dầu ăn, nước tương, nước mắm, đường, muối, hạt nêm, tiêu xay1\n" +
-                        "\nCách làm:\n" +
-                        "\n" +
-                        "\t\t+ Sơ chế sườn heo và ướp sườn: Rửa sạch sườn heo, sau đó dùng búa đập nhẹ nhàng lên 2 mặt thịt để thịt mềm và dễ ngấm gia vị hơn. Với sườn, bạn ướp sườn nướng như sau: 1 muỗng canh đường, 2 muỗng canh nước tương, 2 muỗng canh dầu hào, 2 muỗng canh nước mắm, 1 muỗng canh mật ong. Sau đó thêm vào 100ml sữa tươi không đường, 2 muỗng canh sữa đặc, 1 muỗng canh hành băm, 1 muỗng canh tỏi băm, 1 muỗng cà phê tiêu xay, ½ muỗng canh dầu ăn, ⅓ muỗng cà phê muối. Bạn trộn đều tất cả lên cùng thịt sườn. Sau đó cho phần thịt đã ướp vào hộp nhựa đậy nắp kín1.\n" +
-                        "\t\t+ Sơ chế các nguyên liệu khác: Hành tây thái mỏng. Gừng, tỏi, sả đập dập. Cà chua cắt hạt lựu. Cà rốt tỉa hoa1.\n" +
-                        "\t\t+ Pha nước mắm: Trong một cái chén nhỏ bạn cho vào: 3 muỗng canh nước mắm ngon (hoặc nước mắm chấm), sau đó cho tiếp vào chén: 2 muỗng canh dầu hào (hoặc dầu cá), tiếp theo là: 3 muỗng canh nước lọc (hoặc nước cốt dừa), cuối cùng bạn cho vào chén: 3 muỗng canh đường và khuấy đều1.\n" +
-                        "\t\t+ Nướng thịt: Bạn cho từ từ phần thịt đã được ướp vào chảo và để lửa vừa phải1.\n" +
-                        "\t\t+ Làm mỡ hành và tóp mỡ: Bạn cho từ từ phần thịt đã được ướp vào chảo và để lửa vừa phải1.\n" +
-                        "\t\t+ Chiên trứng: Bạn cho từ từ phần thịt đã được ướp vào chảo và để lửa vừa phải1.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn bì chả", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_bi_cha, null)),
-                "Cơm sườn bì chả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm cơm tấm (cơm gạo tấm), sườn heo nướng, bì (da heo giòn) và chả (thường là chả trứng hoặc chả hấp). " +
-                        "\n+ Cơm tấm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng. Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới. \n+ " +
-                        "\t\t+ Bì được làm từ da heo, thường được luộc và xắt nhỏ. Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người. \n+ " +
-                        "\t\t+ Món ăn thường được dùng kèm với nước mắm pha chua ngọt và rau sống. Cơm sườn bì chả là một món ăn ngon và bổ dưỡng, rất phù hợp cho bữa trưa hoặc bữa tối. \n+ " +
-                        "\t\t+ Chúc bạn thưởng thức ngon miệng! \uD83D\uDE0A", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn nướng", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_nuong, null)),
-                "Cơm sườn nướng ả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm:\n" +
-                        "\n" +
-                        "\t\t+ Cơm tấm: Cơm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng.\n" +
-                        "\t\t+ Sườn heo nướng: Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới.\n" +
-                        "\t\t+ Bì (da heo giòn): Bì được làm từ da heo, thường được luộc và xắt nhỏ.\n" +
-                        "\t\t+ Chả: Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn ram", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_ram, null)),
-                "Cơm sườn ram là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam. Món này bao gồm cơm trắng được phục vụ cùng với sườn heo đã được ướp với các loại gia vị và sau đó được ram cho tới khi chín tới. Dưới đây là một số công thức nấu Cơm sườn ram:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm món sườn ram: 6 công thức ram sườn ngon khỏi chê1: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, ớt, đường, bột nêm, bột ngọt, nước mắm, nước màu trong khoảng 20 phút. Sau đó, sườn được chiên trong chảo dầu nóng. Khi sườn chín, lửa được tăng lớn để sườn lên màu1.\n" +
-                        "\t\t+ Cách Làm Sườn Ram Mặn Ngọt Ngon Mềm, Đậm Đà Đưa Cơm2: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, tỏi, nước mắm, dầu hào, bột nêm, tiêu và nước hàng. Sau đó, sườn được chiên trong chảo dầu nóng. Khi miếng sườn đã rất mềm và thấm gia vị mặn ngọt đậm đà, thêm hành lá vào chảo và tắt bếp2.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn bì chả", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_bi_cha, null)),
-                "Cơm sườn bì chả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm cơm tấm (cơm gạo tấm), sườn heo nướng, bì (da heo giòn) và chả (thường là chả trứng hoặc chả hấp). \\n+ Cơm tấm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng. Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới. \\n+ \" +\n" +
-                        "\"Bì được làm từ da heo, thường được luộc và xắt nhỏ. Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người. \\n+ \" +\n" +
-                        "\"Món ăn thường được dùng kèm với nước mắm pha chua ngọt và rau sống. Cơm sườn bì chả là một món ăn ngon và bổ dưỡng, rất phù hợp cho bữa trưa hoặc bữa tối. \\n+ \" +\n" +
-                        "\"Chúc bạn thưởng thức ngon miệng! \\uD83D\\uDE0A", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn nướng", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_nuong, null)),
-                "Cơm sườn nướng ả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Cơm tấm: Cơm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng.\\n\" +\n" +
-                        "\"\\t\\t+ Sườn heo nướng: Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới.\\n\" +\n" +
-                        "\"\\t\\t+ Bì (da heo giòn): Bì được làm từ da heo, thường được luộc và xắt nhỏ.\\n\" +\n" +
-                        "\"\\t\\t+ Chả: Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn ram", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_ram, null)),
-                "Cơm sườn ram là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam. Món này bao gồm cơm trắng được phục vụ cùng với sườn heo đã được ướp với các loại gia vị và sau đó được ram cho tới khi chín tới. Dưới đây là một số công thức nấu Cơm sườn ram:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Cách làm món sườn ram: 6 công thức ram sườn ngon khỏi chê1: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, ớt, đường, bột nêm, bột ngọt, nước mắm, nước màu trong khoảng 20 phút. Sau đó, sườn được chiên trong chảo dầu nóng. Khi sườn chín, lửa được tăng lớn để sườn lên màu1.\\n\" +\n" +
-                        "\"\\t\\t+ Cách Làm Sườn Ram Mặn Ngọt Ngon Mềm, Đậm Đà Đưa Cơm2: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, tỏi, nước mắm, dầu hào, bột nêm, tiêu và nước hàng. Sau đó, sườn được chiên trong chảo dầu nóng. Khi miếng sườn đã rất mềm và thấm gia vị mặn ngọt đậm đà, thêm hành lá vào chảo và tắt bếp2.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn xào chua ngọt", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_chuangot, null)),
-                "Cơm sườn xào chua ngọt là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam. Món này bao gồm cơm trắng được phục vụ cùng với sườn heo đã được ướp với các loại gia vị và sau đó được xào chung với nước sốt chua ngọt. Dưới đây là một số công thức nấu Cơm sườn xào chua ngọt:\n" +
-                        "\n" +
-                        "\t\t+ 6 Cách Làm Sườn Xào Chua Ngọt Đậm Đà, Hấp Dẫn, Ngon Đúng Điệu1: Công thức này giới thiệu cách làm sườn xào chua ngọt mặn ngọt. Sườn non được ướp với hành tím, ớt, đường, bột nêm, bột ngọt, nước mắm, nước màu trong khoảng 20 phút. Sau đó, sườn được chiên trong chảo dầu nóng. Khi sườn chín, lửa được tăng lớn để sườn lên màu1.\n" +
-                        "\t\t+ Cách làm sườn xào chua ngọt ngon bất bại, vô cùng đơn giản2: Công thức này giới thiệu cách làm sườn xào chua ngọt. Sườn non được ướp với hành tím, tỏi, nước mắm, dầu hào, bột nêm, tiêu và nước hàng. Sau đó, sườn được chiên trong chảo dầu nóng. Khi miếng sườn đã rất mềm và thấm gia vị mặn ngọt thì thêm hành lá vào chảo và tắt bếp2.\n" +
-                        "\t\t+ Cách làm sườn xào chua ngọt kiểu miền Nam vét sạch nồi cơm3: Công thức này hướng dẫn cách làm sườn xào chua ngọt theo kiểu miền Nam3.\n" +
-                        "\t\t+ Sườn xào chua ngọt cho bữa cơm ngon hấp dẫn mỗi ngày4: Công thức này hướng dẫn cách làm sườn xào chua ngọt4.", 3));
+
+        // region neutro
+        cosmeticList.add(new Cosmetic(1, "Tinh chất cấp nước phục hồi da Neutrogena Serum dưỡng ẩm", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic, null)),
+                "Tinh Chất Cấp Nước Phục Hồi Da Neutrogena® Hydro Boost Hyaluronic Acid Serum dưỡng ẩm\n" +
+                        "\nƯU ĐIỂM:\n" +
+                        "Cấp ẩm ngay lập tức, bổ sung và làm mịn da khô bằng cách truyền hydrat hóa không trọng lượng vào sâu bên trong bề mặt da. Huyết thanh dưỡng ẩm được chứng minh là có khả năng làm mịn và cấp nước cho da để có làn da khỏe mạnh hơn trong suốt 24 giờ.\n" +
+                        "\nSản phẩm chứa Axit Hyaluronic tinh khiết + Chất tăng cường độ ẩm, pro-vitamin B5 và glycerin, chất dưỡng ẩm tự nhiên, giúp làm dịu và mềm da, trẻ hóa da và giải quyết các vấn đề như khô, ngứa, mụn và ửng đỏ.\n" +
+                        "\nĐược cho là có tác dụng với mọi loại da, kể cả da nhạy cảm, serum nên được sử dụng cả sáng và tối để tạo cảm giác \"sảng khoái\" trên da.\n" +
+                        "\nĐã được chứng minh lâm sàng về khả năng tăng cường hydrat hóa không trọng lượng trong 24 giờ cho làn da khỏe mạnh, sáng mịn. Hơn 78% người dùng đồng ý rằng huyết thanh này không để lại cảm giác nhờn trên da.\n" +
+                        "\nKhông chứa hương liệu, phù hợp với mọi loại da và da nhạy cảm đã được phê duyệt.", 3));
+        cosmeticList.add(new Cosmetic(1, "Nước Hoa Hồng Neutrogena Clear Pore Oil-Eliminating Astringent Toner", "Nước hoa",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic1, null)),
+                "Nước Hoa Hồng Neutrogena Clear Pore Oil-Eliminating Astringent Toner\n" +
+                        "\nDung tích: 236ml\n" +
+                        "Xuất xứ: Mỹ\n" +
+                        "\n– Công thức có chứa Salicylic Acid, một chất hóa học giúp ngăn ngừa tắc nghẽn và mụn trứng cá, được các bác sĩ da liễu khuyên dùng.\n" +
+                        "\n– Toner hỗ trợ ngăn ngừa mụn trứng cá, giảm viêm sưng, hình thành mụn và mụn đầu đen.\n" +
+                        "\n– Với độ pH cân bằng, toner không gây kích ứng hay khô da, se khít lỗ chân lông, mang đến làn da sạch sẽ, thoải mái và mịn màng.\n" +
+                        "\n– Thiết kế chai chắc chắn, sạch sẽ, tạo cảm giác dễ chịu.\n" +
+                        "\n– Sản phẩm thích hợp cho da dầu, da hỗn hợp.\n" +
+                        "\nHƯỚNG DẪN SỬ DỤNG:\n" +
+                        "- Làm sạch da trước khi áp dụng sản phẩm, thoa nhẹ một lớp mỏng lên bề mặt da.\n" +
+                        "- Nếu xảy ra tình trạng khô hoặc bong tróc khó chịu, hãy giảm tần suất sử dụng xuống một lần/ngày hoặc cách ngày.", 3));
+        cosmeticList.add(new Cosmetic(1, "Chấm mụn thần thánh Stubborn Acne™ Spot Drying Lotion", "Chấm mụn",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic2, null)),
+                "Chấm mụn Stubborn Acne™ Spot Drying Lotion\n" +
+                        "\nSản phẩm giúp làm khô bề mặt, thu gom cồi mụn nhanh chóng, mụn trông rõ ràng hơn, nhỏ hơn chỉ sau 1 ngày.\n" +
+                        "\n- Có tác dụng hiệu quả đối với mụn trứng cá.\n" +
+                        "- Làm mờ vết thâm đen sau mụn.\n" +
+                        "- Không mùi, rất dịu nhẹ, có thể sử dụng cả ngày.", 3));
+        cosmeticList.add(new Cosmetic(1, "Kem chống nắng Sport Face Oil-Free Lotion Sunscreen SPF 70+", "Kem chống nắng",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic3, null)),
+                "Kem chống nắng Sport Face Oil-Free Lotion Sunscreen Broad Spectrum SPF 70+\n" +
+                        "\nCông thức kem chống nắng dành cho da mặt thể thao của chúng tôi khai thác sức mạnh của Công nghệ Helioplex® để cung cấp khả năng chống tia UVA/UVB phổ rộng vượt trội khỏi ánh nắng mặt trời. Nó cũng chống nước (lên đến 80 phút), cọ xát, mồ hôi và lau để bạn có thể tiếp tục hoạt động mà không lo bị cháy nắng.\n" +
+                        "\n- Non-comedogenic (không làm tắc nghẽn lỗ chân lông)\n" +
+                        "- Không chứa dầu\n" +
+                        "- Không chứa PABA\n" +
+                        "- Chống mồ hôi/chống nước (80 phút)\n" +
+                        "\nCÁCH SỬ DỤNG\n" +
+                        "- Bôi Kem Chống Nắng Neutrogena Sport Face SPF 70 trước 30 phút khi đi ra đường để kem kịp thấm vào da và phát huy tác dụng chống nắng một cách tối đa.\n" +
+                        "- Chỉ cần bôi một lớp kem mỏng. Bôi quá nhiều vừa gây lãng phí vừa không tốt cho da vì lớp kem thừa không kịp thấm vào da sẽ có thể là nguyên nhân gây nên bệnh dị ứng da trong mùa hè.",3));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic4, null)),
+                "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi - Hàng Mỹ\n" +
+                        "\n- Kem dưỡng ban ngày Protect & Perfect Advanced Day Cream: Kem dưỡng ban ngày Protect And Perfect Advanced Day Cream có chỉ số chống nắng phổ rộng SPF 30 để bảo vệ làn da của bạn khỏi các tia có hại của mặt trời.\n" +
+                        "\n- Kem dưỡng ban đêm cao cấp Protect & Perfect: Kem dưỡng ban đêm cao cấp Protect And Perfect giúp giảm nếp nhăn và giảm rõ rệt các nếp nhăn. Dễ dàng áp dụng trước khi đi ngủ.\n" +
+                        "\nKem cao cấp Protect & Perfect: Cả Kem ban ngày và Kem ban đêm đều có công nghệ tiên tiến bảo vệ và hoàn hảo giúp giảm nếp nhăn và giảm rõ rệt.", 3));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng cấp ẩm cho mặt La.Roch.e.P.osay", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic5, null)),
+                "Kem dưỡng cấp ẩm cho mặt La Roche-Posay Toleriane Double Repair - Dung tích 100ml\n" +
+                        "\nThành phần Kem dưỡng Toleriane Double Repair Face Moisturizer UV gồm nước khoáng La Roche-Posay prebiotic, ceramide-3, niacinamide và glycerin, cung cấp độ ẩm lên đến 48 giờ và phục hồi hàng rào bảo vệ tự nhiên của da, phục hồi làn da khỏe mạnh. Ngay lập tức làm dịu ngay cả làn da nhạy cảm với kết cấu kem nhẹ.\n" +
+                        "\nKết cấu kem nhẹ của nó dễ dàng hấp thụ vào da để mang lại sự thoải mái ngay lập tức.\n" +
+                        "\nPhù hợp với mọi loại da, kể cả da nhạy cảm. Không mùi, không paraben, không dầu, không cồn, không gây mụn.", 3));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm ngày / đêm cho da nhạy cảm CETAPHIL REDNESS", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic6, null)),
+                "Kem dưỡng ẩm ngày / đêm cho da nhạy cảm CETAPHIL REDNESS RELIEVING MOISTURIZER - Dung tích 50ml - Hàng Mỹ\n" +
+                        "\nDành cho da dễ mẩn đỏ, nhạy cảm.\n" +
+                        "- Cung cấp độ ẩm liên tục để cải thiện kết cấu da bằng cách bù nước cho da khô, da nhạy cảm và giảm rõ rệt sự xuất hiện của mẩn đỏ do khô.\n" +
+                        "- Công thức đặc biệt với Allantoin, chiết xuất cam thảo và caffein để làm dịu mẩn đỏ.\n" +
+                        "- Cho làn da cảm giác dịu nhẹ và cân bằng.\n" +
+                        "- Bác sĩ da liễu đã thử nghiệm và chứng minh lâm sàng là nhẹ nhàng trên da nhạy cảm.",3));
+
+
+
+
+
+
+
+
 
         // region thebodyshop
         cosmeticList.add(new Cosmetic(1, "Sữa Rửa Mặt ", "Sữa Rửa Mặt ",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhcanh, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the, null)),
                 "oại bỏ tạp chất và bụi bẩn hiệu quả cùng Himalayan Charcoal Purifying Clay Wash 100% thuần chay, được chiết xuất từ than tre ở chân núi Himalayan kết hợp với đất sét cao lanh và dầu cây trà theo chương trình Thương Mại Cộng Đồng từ Kenya. \n" +
                         "\n" +
                         " Sữa rửa mặt tạo bọt có kết cấu đất sét mềm mượt, đủ dịu nhẹ cho mọi loại da, mang lại cho làn da cảm giác tươi mát, mềm mại mà không gây cảm giác khô ráp.\n" +
@@ -522,7 +497,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Bơ Tẩy Trang ", "Tẩy Trang ",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bunmam, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the1, null)),
                 "Điểm nổi bật\n" +
                         "\n" +
                         "\t\t- Làn da của bạn sẽ trở nên tươi tắn và hồng hào hơn nhờ loại bơ tẩy trang dưỡng da mới có tông màu má hồng tuyệt đẹp.\n" +
@@ -539,7 +514,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Kem Chống Nắng", "Kem chống nắng ",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bun_thai, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the2, null)),
                 "Điểm nổi bật\n" +
                         "\n" +
                         "\t\t- Kem chống nắng Skin Defence Multi-Protection Light Essence sẽ đáp ứng nhu cầu bảo vệ da hàng ngày của bạn - hãy hứa với chúng tôi rằng bạn sẽ không rời khỏi nhà mà chưa có nó.\n" +
@@ -555,7 +530,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Không gây mụn\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hoanhthanh, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the3, null)),
                 "Điểm nổi bật\n" +
                         "\n" +
                         "\t\t- Kem giữ ẩm dạng gel Seaweed Oil-Control Gel Cream giữ lại hơi nước, không dầu, không bịt kín chân lông, và thẩm thấu dễ dàng.\n" +
@@ -566,7 +541,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Cân bằng dầu và khô thoáng\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang", "Bông Tẩy Trang",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_bokho, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the4, null)),
                 "Điểm nổi bật\n" +
                         "\n" +
                         "\t\t- Bông Tẩy Trang hữu cơ của The Body Shop hoàn chỉnh với hai bề mặt không có lông tơ đáp ứng mọi nhu cầu làm đẹp của bạn.\n" +
@@ -577,7 +552,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Hai bề mặt có kết cấu khác nhau cho kem dưỡng da hoặc chất lỏng\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Tẩy Tế Bào Chết ", "Tẩy Tế Bào Chết ",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_namvang, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the5, null)),
                 "Điểm nổi bật\n" +
                         "\n" +
                         "\t\t- Nhẹ nhàng xoa dịu cơ thể xinh đẹp trở nên mềm mại như lụa mà không để lại cảm giác da bị mất đi lớp dầu tự nhiên với sản phẩm Tẩy tế bào chết toàn thân Avocado của chúng tôi.\n" +
@@ -591,7 +566,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Lăn Khử Mùi", "Lăn Khử Mùi",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bun_thai, null)),
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the6, null)),
                 "Cảm nhận hương thơm thơm mát với Maca Root & Aloe Fresh Kick Deodorant được chiết xuất từ rễ cây maca, dầu hạt cộng đồng Brazil và dầu hữu cơ trong chương trình Thương Mại Cộng Đồng.\n" +
                         "\n" +
                         "\t\t+ Thanh khử mùi\n"+
@@ -671,9 +646,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cosmeticSizeList = new ArrayList<>();
         Random random = new Random();
         for (int i = 1; i <= 55; i++) {
-            cosmeticSizeList.add(new CosmeticSize(i, 1, (random.nextInt(20) + 1) * 1000d));
-            cosmeticSizeList.add(new CosmeticSize(i, 2, (random.nextInt(20) + 21) * 1000d));
-            cosmeticSizeList.add(new CosmeticSize(i, 3, (random.nextInt(20) + 41) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 1, (random.nextInt(50) + 1) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 2, (random.nextInt(50) + 21) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 3, (random.nextInt(50) + 41) * 1000d));
         }
 
         // region cosmeticSaved

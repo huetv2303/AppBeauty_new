@@ -61,16 +61,16 @@ public class StoreCard extends LinearLayout implements BaseComponent{
         btnSavedShop.setOnClickListener(view ->{
             if(isSaved){
                 if(HomeActivity.dao.deleteStoreSaved(new StoreSaved(store.getId(), HomeActivity.user.getId()))){
-                    Toast.makeText(context, "Đã bỏ lưu thông tin nhà hàng!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Đã bỏ lưu thông tin cửa hàng!", Toast.LENGTH_SHORT).show();
                     SavedFragment.saved_container.removeView(this);
                 } else {
                     Toast.makeText(context, "Có lỗi khi xóa thông tin!", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 if(HomeActivity.dao.addStoreSaved(new StoreSaved(store.getId(), HomeActivity.user.getId()))){
-                    Toast.makeText(context, "Lưu thông tin nhà hàng thành công!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Lưu thông tin cửa hàng thành công!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Bạn đã lưu thông tin cửa hàng này rồi!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
