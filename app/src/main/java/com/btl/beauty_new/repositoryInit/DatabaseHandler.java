@@ -772,7 +772,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Add store
         for (Store store : storeList) {
-            String sql = "INSERT INTO tblstore VALUES(null, ?, ?, ?, ?)";
+            String sql = "INSERT INTO tblStore VALUES(null, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
             statement.clearBindings();
             statement.bindString(1, store.getName());
