@@ -115,6 +115,7 @@ public class HomeFragment extends Fragment {
         });
 
         SearchView searchBar = rootView.findViewById(R.id.search_bar);
+
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             private boolean isSearchSubmitted = false;
 
