@@ -21,7 +21,7 @@ import com.btl.beauty_new.activity.ActivityImpl.CategoryActivity;
 import com.btl.beauty_new.activity.ActivityImpl.CosmeticDetailsActivity;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.components.CosmeticSavedCard;
-import com.btl.beauty_new.components.RestaurantCard;
+import com.btl.beauty_new.components.StoreCard;
 import com.btl.beauty_new.model.Cosmetic;
 import com.btl.beauty_new.model.CosmeticSaved;
 import com.btl.beauty_new.model.CosmeticSize;
@@ -172,7 +172,7 @@ public class SavedFragment extends Fragment {
                 // Loại bỏ dấu khỏi tên nhà hàng trước khi so sánh
                 String restaurantName = removeAccents(restaurant.getName().toLowerCase());
                 if (restaurantName.contains(searchQuery)) {
-                    RestaurantCard card = new RestaurantCard(getContext(), restaurant, true);
+                    StoreCard card = new StoreCard(getContext(), restaurant, true);
                     card.setOnClickListener(view -> {
                         Intent intent = new Intent(getActivity(), CategoryActivity.class);
                         intent.putExtra("restaurantId", restaurant.getId());
