@@ -16,14 +16,14 @@
     <string name="login_again_update_information">Vui lòng đăng nhập lại ứng dụng để cập nhật thông tin cá nhân mới!</string>
     <string name="chang_information_successfully">Thay đổi thông tin thành công!</string>
     <string name="not_view_information">Không thể hiển thị thông tin!</string>
-    <string name="add_product_successfully">Thêm sản phẩm Vào Giỏ Hàng Thành Công.</string>
-    <string name="add_error">Thêm sản phẩm không thành công (Lỗi)</string>
-    <string name="SAVED_Product">Đã lưu thông tin sản phẩm</string>
-    <string name="INFORMATION_EXISTED">Thông tin sản phẩm đã tồn tại trong giỏ hàng.</string>
-    <string name="If_You_Delete_Cart">Bạn có muốn xóa món đơn hàng này không?</string>
+    <string name="add_dish_successfully">Thêm Mỹ Phẩm Vào Giỏ Hàng Thành Công.</string>
+    <string name="add_error">Thêm mỹ phẩm không thành công (Lỗi)</string>
+    <string name="SAVED_DISHED">Đã lưu thông tin món ăn</string>
+    <string name="INFORMATION_EXISTED">Thông tin mỹ phẩm đã tồn tại trong giỏ hàng.</string>
+    <string name="If_You_Delete_Cart">Bạn có muốn xóa đơn hàng này không?</string>
     <string name="order_cancel">Đơn hàng đã bị hủy.</string>
     <string name="not_found_information">Không thể hiển thị thông tin.</string>
-    <string name="save_restaurant_successfully">Lưu thông tin nhà hàng thành công.</string>
+    <string name="save_restaurant_successfully">Lưu thông tin cửa hàng thành công.</string>
 
     <string name="home_fragment">Home fragment</string>
     <string name="favorite_fragment">Favorite fragment</string>
@@ -40,16 +40,16 @@
     <string name="information_order_item">Đơn hàng của bạn đang được giao!\nTổng giá trị đơn hàng là </string>
     <string name="information_order_cancel">Đơn hàng của bạn đã bị hủy!\nTổng giá trị đơn hàng là  </string>
     <string name="information_order">Thông báo về đơn hàng.</string>
-    <string name="contact_information"> VND \nBạn có thể góp ý gì liên hệ Hoàng Anh Tiến - 0828007853</string>
+    <string name="contact_information"> VND \nBạn có thể góp ý gì liên hệ Nhóm 11 - 0987654321</string>
 
-    <string name="title_intro">Chào mừng đến với foody-order-app!</string>
+    <string name="title_intro">Chào mừng đến với Beauty Order App!</string>
     <string name="contex_intro">Cảm ơn bạn đã sử dụng App! \nVui lòng điền thông tin cá nhân bằng cách click vào icon người dùng trong mục profile.</string>
-    <string name="example_full_name">Hoàng Anh Tiến</string>
+    <string name="example_full_name">Nhóm 11</string>
     <string name="full_name">Họ và Tên</string>
     <string name="number_phone">Số điện thoại</string>
-    <string name="hint_phone">0828–007-xxx</string>
+    <string name="hint_phone">0987–654-xxx</string>
     <string name="address">Địa chỉ</string>
-    <string name="example_address">Số 24/62 Phùng Khoang, Nam Từ Liêm …</string>
+    <string name="example_address">54 Triều Khúc, Thanh Xuân</string>
     <string name="total">Tổng cộng</string>
     <string name="payment">Đặt Hàng</string>
     <string name="order_cosmetic">Đặt Hàng</string>
@@ -64,10 +64,10 @@
     <string name="describe">Mô Tả</string>
     <string name="product_invoice">Hóa Đơn - Đồ Ăn</string>
 
-    <string name="money_text">13.000 VNĐ</string>
+    <string name="money_text">100.000 VNĐ</string>
     <string name="example_size">Size S</string>
-    <string name="meat_banh_mi">Bánh mì kẹp thịt</string>
-    <string name="quan_pho_gia_truyen">Quán phở gia truyền</string>
+    <string name="meat_banh_mi"></string>
+    <string name="la_roche_posay">La Roche-Posay</string>
     <string name="content_description_image">COSMETIC</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -104,23 +104,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
 
-    <string name="rice">Cơm sườn</string>
-    <string name="hamburger">Bánh mì kẹp</string>
-    <string name="milk_tea">Trà sữa</string>
-    <string name="water_cosmetic">Món nước</string>
-    <string name="ice_cream">Kem</string>
-    <string name="cake">Bánh ngọt</string>
-    <string name="egg_banh_mi">Bánh mì trứng</string>
-    <string name="money_text_short">13.000</string>
-    <string name="example_cosmetic_describe">Pizza bao gồm nhiều chất dinh dưỡng chứa nhiều chất xơ và chất đạm thơm ngon mời bạn ăn nha!</string>
-    <string name="example_user_name">Hoàng Anh Tiến</string>
-    <string name="example_date">26/09/2023</string>
+    <string name="rice"></string>
+    <string name="hamburger"></string>
+    <string name="milk_tea"></string>
+    <string name="water_cosmetic"></string>
+    <string name="ice_cream"></string>
+    <string name="cake"></string>
+    <string name="egg_banh_mi"></string>
+    <string name="money_text_short">100.000</string>
+    <string name="example_cosmetic_describe">Mỹ phẩm giúp da trẻ đẹp, sáng da, ngăn ngừa lão hóa!</string>
+    <string name="example_user_name">Nhóm 11</string>
+    <string name="example_date">28/10/2024</string>
 
-    <string name="banh_mi_co_ba">Quán bánh mì Hải Anh</string>
-    <string name="banh_ngot_le_van_viet">Quán bánh ngọt Hoàng Tiến</string>
-    <string name="quan_com_Phuc_Map">Quán cơm tấm Mạnh Chiến</string>
-    <string name="quan_kem_co_hai">Quán kem cô Hai</string>
-    <string name="quan_tra_sua">Quán trà sữa Coffee House</string>
+    <string name="banh_mi_co_ba"></string>
+    <string name="banh_ngot_le_van_viet"></string>
+    <string name="quan_com_Phuc_Map"></string>
+    <string name="quan_kem_co_hai"></string>
+    <string name="quan_tra_sua"></string>
 
     <string name="DoB_hint">Nhấn để chọn ngày</string>
     <string name="store_information">Thông tin cửa hàng</string>
@@ -141,10 +141,10 @@
     <string name="size_l_describe">LỚN</string>
     <string name="add_to_saved">Lưu thông tin</string>
     <string name="add_to_cart">Thêm vào giỏ hàng</string>
-    <string name="cosmetic_type">Loại món ăn</string>
-    <string name="cosmetic">Món ăn</string>
+    <string name="cosmetic_type">Loại mỹ phẩm</string>
+    <string name="cosmetic">Mỹ phẩm</string>
     <string name="saved">ĐÃ LƯU</string>
-    <string name="restaurants">Quán ăn</string>
+    <string name="store">Cửa hàng</string>
     <string name="bill_lower">Hóa đơn</string>
     <string name="bonus_money">Tiền thưởng</string>
     <string name="voucher">Ví voucher</string>

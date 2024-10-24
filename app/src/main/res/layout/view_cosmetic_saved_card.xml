@@ -24,7 +24,7 @@
             android:layout_weight="2"
             android:contentDescription="@string/content_description_image"
             android:scaleType="fitXY"
-            android:src="@drawable/slider_1" />
+            android:src="@drawable/cos_laroche2" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_marginStart="5sp"
