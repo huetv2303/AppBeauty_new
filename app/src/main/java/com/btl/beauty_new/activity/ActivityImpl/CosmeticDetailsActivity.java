@@ -1,5 +1,6 @@
 package com.btl.beauty_new.activity.ActivityImpl;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -53,6 +54,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         LoadData();
     }
 
+    @NonNull
     private String getRoundPrice(Double price) {
         return Math.round(price) + " VNĐ";
     }
