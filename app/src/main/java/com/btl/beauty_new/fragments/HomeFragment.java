@@ -89,6 +89,8 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(storeAdapter);
 
 
+
+
         rootView.findViewById(R.id.imageCart).setOnClickListener(v -> {
             intent = new Intent(getActivity(), HomeActivity.class);
             intent.putExtra("request", "cart");
