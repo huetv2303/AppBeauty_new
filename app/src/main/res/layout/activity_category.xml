@@ -76,7 +76,7 @@
                     android:layout_gravity="center"
                     android:scaleType="fitXY"
                     android:contentDescription="@string/content_description_image"
-                    android:src="@drawable/quan_banh_mi_co_ba" />
+                    android:src="@drawable/la_roche_posay" />
 
                 <TextView
                     android:id="@+id/tvStoreName_category"
@@ -89,7 +89,7 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginBottom="3dp"
                     android:textColor="@color/blue"
-                    android:text="@string/quan_pho_gia_truyen" />
+                    android:text="@string/la_roche_posay" />
                 <TextView
                     android:id="@+id/tvStoreAddress_category"
                     android:layout_width="match_parent"

@@ -27,7 +27,7 @@
             android:layout_weight="2"
             android:contentDescription="@string/content_description_image"
             android:scaleType="fitXY"
-            android:src="@drawable/slider_1" />
+            android:src="@drawable/cos_cetaphil1" />
         <LinearLayout
             android:layout_marginStart="5dp"
             android:layout_width="1dp"

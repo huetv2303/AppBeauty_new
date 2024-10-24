@@ -61,7 +61,7 @@
                     android:id="@+id/tv_saved_store"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/restaurants"
+                    android:text="@string/store"
                     android:textSize="17sp"
                     android:textColor="@color/black"
                     android:textStyle="italic"

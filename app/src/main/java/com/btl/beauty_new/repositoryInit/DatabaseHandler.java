@@ -197,96 +197,120 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Kem Ốc Quế TH true ICE CREAM Sô Cô La Nguyên Chất: Sản phẩm được làm từ sữa tươi sạch nguyên chất của Trang trại TH cùng các nguyên liệu hoàn toàn tự nhiên. Sản phẩm có lớp kem sô cô la nguyên chất mềm mịn, được phủ sốt sô cô la cùng hạt đậu phộng thơm ngậy trên bề mặt, cuộn trong vỏ bánh ốc quế giòn tan bên ngoài.\n" +
                         "\t\t+ Kem Ốc Quế Delight Sôcôla - Đậu Phộng 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn.", 5));
 
-        // region Banh mi
-        cosmeticList.add(new Cosmetic(1, "Bánh mì bò kho", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_bokho, null)),
-                "Bánh mì bò kho là một món ăn ngon và bổ dưỡng, thường được chế biến cho bữa ăn sáng. Dưới đây là cách nấu bánh mì bò kho1:\n" +
+        // dữ liệu cửa hàng 1
+        cosmeticList.add(new Cosmetic(1, "SRM Cerave dạng chai", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cerave1, null)),
+                "Sữa rửa mặt Cerave - sản phẩm hoàn hảo cho làn da dầu siêu nhạy cảm:\n" +
                         "\n" +
-                        "Nguyên liệu:\n" +
+                        "Thành phần & công dụng chính:\n" +
                         "\n" +
-                        "\t\t+ 1 kg thịt bắp bò hoặc thịt mông bò\n" +
-                        "\t\t+ 2 củ hành khô hoặc ½ củ hành tây\n" +
-                        "\t\t+ 1 trái cà chua\n" +
-                        "\t\t+ 1 mẩu gừng nhỏ\n" +
-                        "\t\t+ 5 tép tỏi\n" +
-                        "\t\t+ 3 cây sả\n" +
-                        "\t\t+ 2 hoa hồi\n" +
-                        "\t\t+ 1 thanh quế\n" +
-                        "\t\t+ 2 củ cà rốt\n" +
-                        "\t\t+ 1 thìa dầu màu điều\n" +
-                        "\t\t+ 1 thìa bột năng\n" +
-                        "\t\t+ Nước dừa tươi (nếu có)\n" +
-                        "\t\t+ Bánh mì: 2 cái1\n" +
-                        "\nCách làm:\n" +
+                        "\t\tCeramides - giúp duy trì lớp màng bảo vệ da, giúp tăng dẻo dai, khỏe mạnh, chống tia cực tím cho da\n" +
+                        "\t\tHyaluoronic acid - tạo lớp dưỡng ẩm tự nhiên trên da, giúp dưỡng da mềm mịn và tránh tình trạng lão hóa sớm\n" +
+                        "\t\tNiacinamide - giúp da tự sản sinh thêm ceramides và các acid béo cần thiết để tự duy trì và phục hồi màng bảo vệ da, giúp hỗ trợ làm trắng da, phòng ngừa lão hóa và giảm mụn\n" +
+                        "\nHướng dẫn sử dụng:\n" +
                         "\n" +
-                        "\t\t+ Sơ chế thịt bò: Thịt bò vo sạch, sau đó ngâm nước khoảng 5-6 tiếng cho đỗ nở mềm1.\n" +
-                        "\t\t+ Nấu thịt bò: Cho thịt vào nồi, sau đó cho nước ngập mặt thịt (cỡ 1 đốt ngón tay). Bật bếp và không cần đậy nắp nồi, nấu cho tới khi thịt chín mềm và nước cũng rút cạn thì tắt bếp1.\n" +
-                        "\t\t+ Sơ chế các nguyên liệu khác: Hành tây thái mỏng. Gừng, tỏi, sả đập dập. Cà chua cắt hạt lựu. Cà rốt tỉa hoa, thái miếng vừa ăn. Hoa hồi, quế rang thơm. Hòa tan bột năng cùng một chút nước1.\n" +
-                        "\t\t+ Nấu bò kho: Phi thơm gừng, tỏi, sả với 1 thìa dầu màu điều. Cho thịt bò vào xào đến khi săn lại thì cho cà chua vào đảo đều tay. Cho nước dừa, nước lọc xâm xấp mặt thịt. Cho tiếp quế, hoa hồi vào nồi và đun sôi1.\n" +
-                        "\t\t+ Sau khoảng 30 phút thì vớt xác quế, hoa hồi, sả ra ngoài1.\n" +
-                        "\t\t+ Cho bột năng đã hòa tan vào và khuấy đều1.\n" +
-                        "\t\t+ Cuối cùng cho cà rốt, nêm nếm gia vị vừa ăn1.\n" +
-                        "\t\t+ Đun sôi thêm một lúc đến khi cà rốt chín thì tắt bếp1.", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì bơ tỏi", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_botoi, null)),
-                "Bánh mì bơ tỏi là một món ăn rất nhiều người yêu thích, không chỉ tiện lợi cho bữa sáng dinh dưỡng mà còn cực kỳ thích hợp cho những buổi tiệc nhỏ1. \n\n-  Dưới đây là một số công thức nấu bánh mì bơ tỏi:\n" +
-                        "\t\t+ Hướng Dẫn Cách Làm Bánh Mì Bơ Tỏi Siêu Ngon - Huongnghiepaau1: Công thức này giới thiệu cách làm bánh mì bơ tỏi kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh mì bơ tỏi giòn thơm nức mũi - Bách hóa XANH2: Công thức này hướng dẫn cách làm bánh mì bơ tỏi thơm ngon, giòn rụm đơn giản tại nhà2.\n" +
-                        "\t\t+ Cách làm bánh mì bơ tỏi bằng nồi chiên không dầu hấp dẫn3: Công thức này hướng dẫn cách làm bánh mì bơ tỏi với nồi chiên không dầu, giúp bạn có được chiếc bánh mì giòn rụm, thơm phức3.", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì chảo", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_chao, null)),
-                "Bánh mì chảo là một món ăn ngon và nhanh gọn, thích hợp cho bữa sáng. Dưới đây là cách làm bánh mì chảo pate, xúc xích, trứng1:\n" +
+                        "\t\tLàm ẩm da với nước và cho một lượng sản phẩm vừa đủ ra lòng bàn tay. Thoa sản phẩm lên mặt nhẹ nhàng massage trong vòng 1 phút. Tránh tiếp xúc sản phẩm với mắt, nếu có, rửa kỹ lại với nước\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Cerave dạng chai nhỏ", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cerave2, null)),
+                "\n" +
+                        "Thành phần & công dụng chính:\n" +
                         "\n" +
-                        "Nguyên liệu:\n" +
+                        "\t\tCeramides - giúp duy trì lớp màng bảo vệ da, giúp tăng dẻo dai, khỏe mạnh, chống tia cực tím cho da\n" +
+                        "\t\tHyaluoronic acid - tạo lớp dưỡng ẩm tự nhiên trên da, giúp dưỡng da mềm mịn và tránh tình trạng lão hóa sớm\n" +
+                        "\t\tNiacinamide - giúp da tự sản sinh thêm ceramides và các acid béo cần thiết để tự duy trì và phục hồi màng bảo vệ da, giúp hỗ trợ làm trắng da, phòng ngừa lão hóa và giảm mụn\n" +
+                        "\nHướng dẫn sử dụng:\n" +
                         "\n" +
-                        "\t\t+ 2 muỗng canh dầu ăn\n" +
-                        "\t\t+ 1 muỗng canh tỏi băm\n" +
-                        "\t\t+ 2 trái cà chua cắt hạt lựu\n" +
-                        "\t\t+ 3 muỗng canh sốt cà chua\n" +
-                        "\t\t+ 1 muỗng cà phê muối\n" +
-                        "\t\t+ 1 muỗng cà phê đường\n" +
-                        "\t\t+ 1 muỗng cà phê tiêu\n" +
-                        "\t\t+ Bánh mì, pa tê, xúc xích, trứng gà (số lượng tùy thích)1\n" +
-                        "\nCách làm:\n" +
+                        "\t\tLàm ẩm da với nước và cho một lượng sản phẩm vừa đủ ra lòng bàn tay. Thoa sản phẩm lên mặt nhẹ nhàng massage trong vòng 1 phút. Tránh tiếp xúc sản phẩm với mắt, nếu có, rửa kỹ lại với nước\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm Cerave", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cerave3, null)),
+                ":\n" +
+                        "Thành Phần:\n" +
                         "\n" +
-                        "\t\t+ Làm sốt cà chua: Cho 1 muỗng canh dầu ăn vào nồi để phi tỏi cho thơm. Khi tỏi đã vàng thì cho cà chua cắt nhỏ và 3 muỗng canh sốt cà chua vào trộn đều, thêm chút nước và nêm với 1 muỗng cà phê muối, 1 muỗng cà phê đường và 1 muỗng cà phê tiêu rồi nấu cho đến khi cà chua nhừ là được1.\n" +
-                        "\t\t+ Làm bánh mì chảo: Làm nóng chảo rồi cho 1 muỗng canh dầu ăn vào, dầu ăn nóng thì cho xúc xích đã cắt đôi và 1 viên pa tê vào chiên cho xúc xích vàng. Khi xúc xích đã vàng thì đập trứng gà và hành tây cắt sợi vào. Cuối cùng múc nước sốt đã làm chan vào rồi cho 1 viên bơ lạt lên", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì hoa cúc", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_hoacuc, null)),
-                "Bánh mì chảo là một món ăn ngon được giới trẻ yêu thích và ngày càng trở nên phổ biến1. Hương vị hòa quyện giữa xúc xích, trứng, pate, thịt bò mềm… đắm chìm trong nước xốt đậm đà, sánh mịn thật khó quên khi đã thưởng thức qua 1 lần1. \n\n- Dưới đây là một số công thức nấu bánh mì chảo:\n" +
-                        "\t\t+ Cách làm bánh mì chảo pate, xúc xích1: Công thức này giới thiệu cách làm bánh mì chảo kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Tự Tay Làm Bánh Mì Chảo Cho Siêu Ngon Bữa Sáng Đầy Năng Lượng2: Công thức này hướng dẫn cách làm bánh mì chảo thơm ngon, giòn rụm đơn giản tại nhà2.\n" +
-                        "\t\t+ Bánh mì chảo cá hộp3: Bạn tìm 1 món ăn sáng chế biến nhanh nhưng cũng phải ngon miệng thì bánh mì chảo là món bạn đang tìm kiếm. Nguyên liệu dễ mua, thời gian thực hiện nhanh chóng và còn rất được lòng của mọi người3.\n" +
-                        "\t\t- 4 cách làm bánh mì chảo tại nhà thơm ngon cho bữa sáng4: Công thức này hướng dẫn cách làm bánh mì chảo theo công thức như thế nào ngon nhất. Vì thế, hôm nay Chef.vn sẽ hướng dẫn các bạn cách nấu bò kho bánh mì rất đơn giản mà lại dễ làm, quan trọng nhất là bạn phải biết mẹo để ướp thịt bò để món bò kho đậm đà thơm ngon mà không bị dai", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì hoa cúc", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_hoacuc, null)),
-                "Bánh mì hoa cúc, còn được gọi là Brioche, là một loại bánh mì có nguồn gốc từ Pháp. Với thành phần giàu bơ và trứng, bánh mì hoa cúc có một lớp vỏ mềm, ẩm và vàng sẫm. Khi nướng lên, bánh luôn có thớ mềm và xốp, hương vị vô cùng tuyệt vời1. \n\n- Dưới đây là một số công thức nấu bánh mì hoa cúc:\n" +
-                        "\t\t+ Cách Làm Bánh Mì Hoa Cúc Đơn Giản & Ngon Nhất1: Công thức này giới thiệu cách làm bánh mì hoa cúc kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh mì hoa cúc Harrys (đơn giản, nhồi bột dễ) [VIDEO]2: Công thức này hướng dẫn cách làm bánh mì hoa cúc theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh mì hoa cúc Harrys (đơn giản, nhồi bột dễ) [VIDEO] - Savoury Days2: Công thức này hướng dẫn cách làm bánh mì hoa cúc theo công thức như thế nào ngon nhất2", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì kẹp thịt", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_kepthit, null)),
-                "Bánh mì kẹp thịt là một món ăn truyền thống của người Việt, được nhiều người yêu thích và trở thành “siêu sao” ẩm thực không chỉ ở Việt Nam mà còn trên khắp thế giới1. \n\n- Dưới đây là một số công thức nấu bánh mì kẹp thịt:\n" +
-                        "\t\t+ Cách Làm Bánh Mì Kẹp Thịt Việt Nam Làm Mê Mẩn Thực Khách Thế Giới - Huongnghiepaau1: Công thức này giới thiệu cách làm bánh mì kẹp thịt kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm 4 món bánh mì kẹp siêu ngon và đơn giản - YummyDay2: Công thức này hướng dẫn cách làm bánh mì kẹp thơm ngon, giòn rụm đơn giản tại nhà2.\n" +
-                        "\t\t+ Bánh mì sandwich kẹp thịt nguội cho bữa sáng ngon lành3: Công thức này hướng dẫn cách làm bánh mì sandwich kẹp thịt nguội cho bữa sáng ngon lành3.\n" +
-                        "\t\t+ Top 10 loại nhân kẹp bánh mì thơm ngon, dinh dưỡng cho bữa sáng4: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất4.\n" +
-                        "\t\t+ Cách làm bánh mì kẹp thịt ngon không kém ngoài hàng5: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất5.", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì kẹp xúc xích", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_kepxucxich, null)),
-                "Bánh mì kẹp xúc xích là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. \n\n- Dưới đây là một số công thức nấu bánh mì kẹp xúc xích:\n" +
-                        "\t\t+ Cách làm bánh mì kẹp trứng xúc xích cho bữa sáng ngon miệng!1: Công thức này giới thiệu cách làm bánh mì kẹp trứng xúc xích kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh mì kẹp trứng xúc xích CỰC NGON2: Công thức này hướng dẫn cách làm bánh mì kẹp trứng xúc xích thơm ngon hấp dẫn chi tiết2.\n" +
-                        "\t\t+ Cách làm bánh mì kẹp xúc xích NGON, RẺ, CỰC DỄ LÀM tại nhà3: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất3.\n" +
-                        "\t\t+ Bật mí cách làm bánh mì kẹp xúc xích đơn giản, chuẩn vị4: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất4.", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger bò", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_bo, null)),
-                "Hamburger bò là một món ăn nhanh phổ biến của người phương Tây1. \n\n- Dưới đây là một số công thức nấu Hamburger bò:\n" +
-                        "\t\t+ Cách làm Hamburger bò cực đơn giản chỉ trong 3 bước - PasGo2: Công thức này giới thiệu cách làm Hamburger bò kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu2.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng1: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger heo", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_heo, null)),
+                        "\t\tAqua/Water/Eau, Glycerin, Cetearyl Alcohol, Caprylic/Capric Triglyceride, Cetyl Alcohol, Ceteareth-20, Petrolatum , Potassium Phosphate," +
+                        " Ceramide Np, Ceramide Ap, Ceramide Eop, Carbomer, Dimethicone, Behentrimonium Methosulfate, Sodium Lauroyl Lactylate, Sodium Hyaluronate," +
+                        " Cholesterol, Phenoxyethanol, Disodium Edta, Dipotassium Phosphate, Tocopherol, Phytosphingosine, Xanthan Gum, Ethylhexylglycerin\n" +
+                        "\t\tCông dụng:\n" +
+                        "\t\tThích hợp cho da khô và rất khô sử dụng cho mặt và cơ thể\n" +
+                        "\t\tGiúp khôi phục và duy trì hàng rào bảo vệ tự nhiên của da\n" +
+                        "\t\tGiúp duy trì độ ẩm tự nhiên của da\n" +
+                        "\t\tKhông gây mụn, không có mùi thơm\n" +
+                        "\t\tĐược phát triển bởi các bác sĩ da liễu\n" +
+                        "\t\tĐỐI TƯỢNG SỬ DỤNG: Phù hợp với da khô, cần dưỡng ẩm\n" +
+                        "\nHướng dấn sử dụng:\n" +
+                        "\t\tSử dụng ngày 2 lần sáng và tối", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Cetaphil", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cetaphil1, null)),
+                ":\n" +
+                        "Thành Phần:\n" +
+                        "\n" +
+                        "\t\tCetyl Alcohol và Stearyl Alcohol: Là hai loại cồn béo có tác dụng làm mềm da và cải thiện độ đàn hồi cho da rất tốt. Cetyl Alcohol và Stearyl Alcohol đều rất lành tính với da nên được sử dụng rất phổ biến trong các sản phẩm dưỡng da.\n" +
+                        "\t\tSodium Lauryl Sulfate: Có công dụng làm sạch nhẹ nhàng các bụi bẩn, bã nhờn dư thừa và lớp trang điểm còn sót lại, giúp da luôn khô thoáng và sạch sẽ.\n" +
+                        "\t\tPropylene Glycol: Là thành phần ngăn sự thoát hơi nước trên bề mặt da, có công dụng hydrat hóa và cung cấp độ ẩm cho da.\n" +
+                        "\t\tĐặc biệt, sữa rửa mặt không chứa xà phòng, không chứa hương liệu và các chất bảo quản nên đảm bảo an toàn cho da và không gây kích ứng cho da, dù là da nhạy cảm.\n" +
+                        "\nHướng dấn sử dụng:\n" +
+                        "\t\tDùng ướt:\n" +
+                        "\t\tĐầu tiên, làm ướt da mặt với nước\n" +
+                        "\t\tSau đó cho một lượng sản phẩm vừa đủ và thoa đều lên mặt, kết hợp thực hiện massage nhẹ nhàng trong khoảng 2 – 3 phút để thư giãn cũng như giúp loại bỏ bụi bẩn bám trên da một cách nhẹ nhàng.\n" +
+                        "\t\tCuối cùng, rửa sạch lại với nước và dùng khăn hoặc bông cotton nhẹ nhàng thấm khô nước trên mặt.\n" +
+                        "\t\tDùng khô:\n" +
+                        "\t\tCho sữa rửa mặt lên da và mát-xa nhẹ nhàng để hoà tan bụi bẩn, tạp chất.\n" +
+                        "\t\tDùng miếng vải mềm hoặc bông cotton để lau đi lượng sữa rửa mặt còn dư. Nhờ đó, trên da để lại trên làn da một màng sữa rửa mặt Cetaphil mỏng giữ cho da mềm và ẩm suốt cả ngày.\n" +
+                        "\t\t", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Bioderma 2024 lọ nhỏ mới", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio1, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER/EAU, SODIUM COCOAMPHOACETATE, SODIUM LAURETH SULFATE, METHYLPROPANEDIOL, DISODIUM EDTA, MANNITOL, " +
+                        "XYLITOL, RHAMNOSE, FRUCTOOLIGOSACCHARIDES, ZINC SULFATE, COPPER SULFATE, GINKGO BILOBA LEAF EXTRACT, PEG-90 GLYCERYL ISOSTEARATE, " +
+                        "LACTIC ACID , LAURETH-2, POTASSIUM SORBATE, SODIUM CHLORIDE, PROPYLENE GLYCOL, SODIUM HYDROXIDE, FRAGRANCE (PARFUM). [BI 418]\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t- Lấy một ít sản phẩm lên tay ướt đã rửa sạch và tạo bọt \n" +
+                        "\t\t- Massage nhẹ nhàng lên vùng da đã làm ướt rồi rửa lại thật sạch\n" +
+                        "\t\t- Lau khô nhẹ nhàng bằng khăn sạch\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Bioderma 2024 dạng chai mới", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio2, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER/EAU, SODIUM COCOAMPHOACETATE, SODIUM LAURETH SULFATE, METHYLPROPANEDIOL, DISODIUM EDTA, MANNITOL, " +
+                        "XYLITOL, RHAMNOSE, FRUCTOOLIGOSACCHARIDES, ZINC SULFATE, COPPER SULFATE, GINKGO BILOBA LEAF EXTRACT, PEG-90 GLYCERYL ISOSTEARATE, " +
+                        "LACTIC ACID , LAURETH-2, POTASSIUM SORBATE, SODIUM CHLORIDE, PROPYLENE GLYCOL, SODIUM HYDROXIDE, FRAGRANCE (PARFUM). [BI 418]\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t- Lấy một ít sản phẩm lên tay ướt đã rửa sạch và tạo bọt \n" +
+                        "\t\t- Massage nhẹ nhàng lên vùng da đã làm ướt rồi rửa lại thật sạch\n" +
+                        "\t\t- Lau khô nhẹ nhàng bằng khăn sạch\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "Tẩy trang Bioderma", "Tẩy trang",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio3, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER/EAU, SODIUM COCOAMPHOACETATE, SODIUM LAURETH SULFATE, METHYLPROPANEDIOL, DISODIUM EDTA, MANNITOL, " +
+                        "XYLITOL, RHAMNOSE, FRUCTOOLIGOSACCHARIDES, ZINC SULFATE, COPPER SULFATE, GINKGO BILOBA LEAF EXTRACT, PEG-90 GLYCERYL ISOSTEARATE, " +
+                        "LACTIC ACID , LAURETH-2, POTASSIUM SORBATE, SODIUM CHLORIDE, PROPYLENE GLYCOL, SODIUM HYDROXIDE, FRAGRANCE (PARFUM). [BI 418]\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t1. Làm ướt bông tẩy trang với dung dịch Sensibio H20 \n" +
+                        "\t\t2. Nhẹ nhàng làm sạch vùng mặt và mắt\n" +
+                        "\t\t3. Thực hiện lại thao tác trên cho đến khi không thấy bám bẩn trên bông tẩy trang\n" +
+                        "\t\t4. Không cần rửa lại với nước\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Bioderma 2023 cũ", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio4, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER, SODIUM LAURETH SULFATE, PEG-8, COCO-BETAINE, HEXYLENE GLYCOL, ZINC PCA, SODIUM CHLORIDE, " +
+                        "CITRIC ACID, SODIUM HYDROXIDE, PHENOXYETHANOL, CAPRYLYL GLYCOL, SODIUM BENZOATE, PARFUM/FRAGRANCE.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t- Làm ướt da mặt bằng nước ấm\n" +
+                        "\t\t- Lấy một lượng sản phẩm vừa đủ ra lòng bàn tay\n" +
+                        "\t\t- Tạo bọt và mát-xa nhẹ nhàng lên mặt, tránh vùng mắt\n" +
+                        "\t\t- Rửa lại bằng nước sạch và lau khô\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM La Roche-Posay 2024 mới", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_laroche1, null)),
                 "Dưới đây là cách làm Hamburger Heo Bò Nhà Làm1:\n" +
                         "\n" +
                         "Nguyên liệu:\n" +
@@ -307,24 +331,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Bỏ 2 phần thịt vào chảo tráng dầu chiên vàng đều 2 mặt khoảng 10p-15p. Vớt thịt ra cho hành tây vào xào sơ thêm ít đường và muối vào khi xào hành.\n" +
                         "\t\t+ Hành tây đã xào sơ cho vào chén cho 1 muỗng cafe giấm ăn, 2 muỗng cafe đường. Trộn đều.\n" +
                         "\t\t+ Trình bày: cắt vỏ bánh làm đôi. Cho sốt kewpie vào 1 bên vỏ bánh, sau đó cho lên đó 1 lớp rau củ, tiếp đến thêm 1 lớp thịt và 1 muỗng sốt hoisin lên trên, tiếp tục cho 1 lớp nấm lên trên1", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger bò", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_bo, null)),
-                "Hamburger bò là một món ăn nhanh phổ biến của người phương Tây1. \n\n- Dưới đây là một số công thức nấu Hamburger bò:\n" +
-                        "\t\t+ Cách làm Hamburger bò cực đơn giản chỉ trong 3 bước - PasGo2: Công thức này giới thiệu cách làm Hamburger bò kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu2.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng1: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger heo", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_heo, null)),
-                "Hamburger heo là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. \n\n- Dưới đây là một số công thức nấu Hamburger heo:\n" +
-                        "\t\t+ Cách làm Hamburger heo cực đơn giản chỉ trong 3 bước - PasGo1: Công thức này giới thiệu cách làm Hamburger heo kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng2: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger gà", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_ga, null)),
-                "Hamburger gà là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. \n\n- Dưới đây là một số công thức nấu Hamburger gà:\n" +
-                        "\t\t+ Cách làm Hamburger gà cực đơn giản chỉ trong 3 bước - PasGo1: Công thức này giới thiệu cách làm Hamburger gà kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng2: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
+
+        cosmeticList.add(new Cosmetic(1, "KCN La Roche-Posay", "Kem chống nắng",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_laroche2, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA / WATER, HOMOSALATE, ETHYLHEXYL SALICYLATE, SILICA, BIS-ETHYLHEXYLOXYPHENOL METHOXYPHENYL TRIAZINE, BUTYL METHOXYDIBENZOYLMETHANE, " +
+                        "C12-15 ALKYL BENZOATE, ETHYLHEXYL TRIAZONE, ALCOHOL DENAT., GLYCERIN, PROPANEDIOL, DIMETHICONE, OCTOCRYLENE, POTASSIUM CETYL PHOSPHATE, " +
+                        "PEG-8 LAURATE, TOCOPHEROL, CAPRYLYL GLYCOL, ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER, SODIUM HYDROXIDE, XANTHAN GUM, " +
+                        "DISODIUM EDTA, PARFUM / FRAGRANCE.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\t- Lắc đều trước khi sử dụng\n" +
+                        "\t\t- Thoa đều lên da trước khi tiếp xúc với ánh nắng ít nhất 20 phút\n" +
+                        "\t\t- Thoa lại sau mỗi 2 giờ hoặc sau khi bơi lội, ra mồ hôi\n" +
+                        "\t\t- Tránh tiếp xúc trực tiếp với mắt\n", 1));
 
         // region Banh ngot
         cosmeticList.add(new Cosmetic(1, "Bánh đậu xanh cốt dừa", "Bánh ngọt",
@@ -716,8 +735,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cosmeticSavedList.add(new CosmeticSaved(20, 1, 4));
 
 
-
-
         // region notify
         notifyList = new ArrayList<>();
         notifyList.add(new Notify(1, "Chào bạn mới!",
@@ -963,6 +980,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         addSampleData(sqLiteDatabase);
         Log.i("SQLite", "ADDED DATA");
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         Log.i("SQLite", "Upgrade SQLite");
