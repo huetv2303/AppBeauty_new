@@ -14,13 +14,13 @@ import android.widget.Toast;
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.components.CartCard;
 import com.btl.beauty_new.repository.DAO;
-import com.btl.beauty_new.model.Food;
-import com.btl.beauty_new.model.FoodSize;
+import com.btl.beauty_new.model.Cosmetic;
+import com.btl.beauty_new.model.CosmeticSize;
 import com.btl.beauty_new.model.Notify;
 import com.btl.beauty_new.model.NotifyToUser;
 import com.btl.beauty_new.model.Order;
 import com.btl.beauty_new.model.OrderDetail;
-import com.btl.beauty_new.model.Restaurant;
+import com.btl.beauty_new.model.Store;
 
 import java.util.ArrayList;
 
@@ -91,15 +91,15 @@ public class ViewOrderActivity extends AppCompatActivity {
         ArrayList<OrderDetail> orderDetailArrayList = dao.getCartDetailList(order.getId());
         if (orderDetailArrayList.size() > 0) {
             for (OrderDetail orderDetail : orderDetailArrayList) {
-                Food food = dao.getFoodById(orderDetail.getFoodId());
-                Restaurant restaurant = dao.getRestaurantInformation(food.getRestaurantId());
-                FoodSize foodSize = dao.getFoodSize(orderDetail.getFoodId(), orderDetail.getSize());
+                Cosmetic cosmetic = dao.getCosmeticById(orderDetail.getCosmeticId());
+                Store restaurant = dao.getStoreInformation(cosmetic.getStoreId());
+                CosmeticSize cosmeticSize = dao.getCosmeticSize(orderDetail.getCosmeticId(), orderDetail.getSize());
 
-                CartCard card = new CartCard(this, food, restaurant.getName(), orderDetail, false);
+                CartCard card = new CartCard(this, cosmetic, restaurant.getName(), orderDetail, false);
                 card.setOnClickListener(view -> {
-                    FoodDetailsActivity.foodSize = foodSize;
-                    Intent intent = new Intent(this, FoodDetailsActivity.class);
-                    intent.putExtra("food", food);
+                    CosmeticDetailsActivity.cosmeticSize = cosmeticSize;
+                    Intent intent = new Intent(this, CosmeticDetailsActivity.class);
+                    intent.putExtra("food", cosmetic);
                     try {
                         startActivity(intent);
                     } catch (Exception e) {

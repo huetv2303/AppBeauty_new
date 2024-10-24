@@ -18,15 +18,15 @@ import android.widget.Toast;
 
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.activity.ActivityImpl.CategoryActivity;
-import com.btl.beauty_new.activity.ActivityImpl.FoodDetailsActivity;
+import com.btl.beauty_new.activity.ActivityImpl.CosmeticDetailsActivity;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
-import com.btl.beauty_new.components.FoodSavedCard;
+import com.btl.beauty_new.components.CosmeticSavedCard;
 import com.btl.beauty_new.components.RestaurantCard;
-import com.btl.beauty_new.model.Food;
-import com.btl.beauty_new.model.FoodSaved;
-import com.btl.beauty_new.model.FoodSize;
-import com.btl.beauty_new.model.Restaurant;
-import com.btl.beauty_new.model.RestaurantSaved;
+import com.btl.beauty_new.model.Cosmetic;
+import com.btl.beauty_new.model.CosmeticSaved;
+import com.btl.beauty_new.model.CosmeticSize;
+import com.btl.beauty_new.model.Store;
+import com.btl.beauty_new.model.StoreSaved;
 
 import java.util.ArrayList;
 
@@ -34,8 +34,8 @@ public class SavedFragment extends Fragment {
 
     @SuppressLint("StaticFieldLeak")
     public static LinearLayout saved_container;
-    private LinearLayout btn_saved_food, btn_saved_restaurant;
-    private TextView tv_saved_food, tv_saved_restaurant;
+    private LinearLayout btn_saved_cosmetic, btn_saved_restaurant;
+    private TextView tv_saved_cosmetic, tv_saved_restaurant;
     private SearchView searchView;
 
 
@@ -74,25 +74,25 @@ public class SavedFragment extends Fragment {
 
         // Khai báo các thành phần giao diện
         saved_container = mainView.findViewById(R.id.layout_saved);
-        btn_saved_food = mainView.findViewById(R.id.btn_saved_food);
-        tv_saved_food = mainView.findViewById(R.id.tv_saved_food);
+        btn_saved_cosmetic = mainView.findViewById(R.id.btn_saved_cosmetic);
+        tv_saved_cosmetic = mainView.findViewById(R.id.tv_saved_cosmetic);
         btn_saved_restaurant = mainView.findViewById(R.id.btn_saved_restaurant);
         tv_saved_restaurant = mainView.findViewById(R.id.tv_saved_restaurant);
         searchView = mainView.findViewById(R.id.searchView); // Thêm dòng này
 
         // Sự kiện click cho nút "Lưu món ăn"
-        btn_saved_food.setOnClickListener(view -> {
-            btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(), R.color.silver));
-            tv_saved_food.setTextColor(Color.BLUE);
+        btn_saved_cosmetic.setOnClickListener(view -> {
+            btn_saved_cosmetic.setBackground(ContextCompat.getDrawable(requireContext(), R.color.silver));
+            tv_saved_cosmetic.setTextColor(Color.BLUE);
             btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_white));
             tv_saved_restaurant.setTextColor(Color.BLACK);
-            LoadSavedCard("food", "");
+            LoadSavedCard("cosmetic", "");
         });
 
         // Sự kiện click cho nút "Lưu nhà hàng"
         btn_saved_restaurant.setOnClickListener(view -> {
-            btn_saved_food.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_white));
-            tv_saved_food.setTextColor(Color.BLACK);
+            btn_saved_cosmetic.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_white));
+            tv_saved_cosmetic.setTextColor(Color.BLACK);
             btn_saved_restaurant.setBackground(ContextCompat.getDrawable(requireContext(), R.color.silver));
             tv_saved_restaurant.setTextColor(Color.BLUE);
 
@@ -109,14 +109,14 @@ public class SavedFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                String type = btn_saved_food.getBackground().getConstantState().equals(ContextCompat.getDrawable(requireContext(), R.color.silver).getConstantState()) ? "food" : "restaurant";
+                String type = btn_saved_cosmetic.getBackground().getConstantState().equals(ContextCompat.getDrawable(requireContext(), R.color.silver).getConstantState()) ? "cosmetic" : "restaurant";
                 LoadSavedCard(type, newText);  // Xử lý tìm kiếm trong onQueryTextChange
                 return true;  // Trả về true để thông báo rằng sự kiện đã được xử lý
             }
         });
 
         // Tải danh sách món ăn đã lưu lúc đầu
-        LoadSavedCard("food", "");
+        LoadSavedCard("cosmetic", "");
 
         return mainView;
     }
@@ -136,23 +136,23 @@ public class SavedFragment extends Fragment {
         // Loại bỏ dấu khỏi từ khóa tìm kiếm
         searchQuery = removeAccents(searchQuery.toLowerCase());
 
-        if (type.equals("food")) {
-            ArrayList<FoodSaved> foodSavedArrayList = HomeActivity.dao.getFoodSaveList(HomeActivity.user.getId());
+        if (type.equals("cosmetic")) {
+            ArrayList<CosmeticSaved> cosmeticSavedArrayList = HomeActivity.dao.getCosmeticSaveList(HomeActivity.user.getId());
 
-            if (foodSavedArrayList.size() > 0) {
-                for (FoodSaved foodSaved : foodSavedArrayList) {
-                    Food food = HomeActivity.dao.getFoodById(foodSaved.getFoodId());
+            if (cosmeticSavedArrayList.size() > 0) {
+                for (CosmeticSaved cosmeticSaved : cosmeticSavedArrayList) {
+                    Cosmetic cosmetic = HomeActivity.dao.getCosmeticById(cosmeticSaved.getCosmeticId());
                     // Loại bỏ dấu khỏi tên thực phẩm trước khi so sánh
-                    String foodName = removeAccents(food.getName().toLowerCase());
-                    if (foodName.contains(searchQuery)) {
-                        Restaurant restaurant = HomeActivity.dao.getRestaurantInformation(food.getRestaurantId());
-                        FoodSize foodSize = HomeActivity.dao.getFoodSize(foodSaved.getFoodId(), foodSaved.getSize());
+                    String cosmeticName = removeAccents(cosmetic.getName().toLowerCase());
+                    if (cosmeticName.contains(searchQuery)) {
+                        Store restaurant = HomeActivity.dao.getStoreInformation(cosmetic.getStoreId());
+                        CosmeticSize cosmeticSize = HomeActivity.dao.getCosmeticSize(cosmeticSaved.getCosmeticId(), cosmeticSaved.getSize());
 
-                        FoodSavedCard savedCard = new FoodSavedCard(getContext(), food, restaurant.getName(), foodSize);
+                        CosmeticSavedCard savedCard = new CosmeticSavedCard(getContext(), cosmetic, restaurant.getName(), cosmeticSize);
                         savedCard.setOnClickListener(view -> {
-                            FoodDetailsActivity.foodSize = foodSize;
-                            Intent intent = new Intent(getContext(), FoodDetailsActivity.class);
-                            intent.putExtra("food", food);
+                            CosmeticDetailsActivity.cosmeticSize = cosmeticSize;
+                            Intent intent = new Intent(getContext(), CosmeticDetailsActivity.class);
+                            intent.putExtra("cosmetic", cosmetic);
                             try {
                                 startActivity(intent);
                             } catch (Exception e) {
@@ -165,10 +165,10 @@ public class SavedFragment extends Fragment {
                 }
             }
         } else {
-            ArrayList<RestaurantSaved> restaurantSavedArrayList = HomeActivity.dao.getRestaurantSavedList(HomeActivity.user.getId());
+            ArrayList<StoreSaved> restaurantSavedArrayList = HomeActivity.dao.getStoreSavedList(HomeActivity.user.getId());
 
-            for (RestaurantSaved restaurantSaved : restaurantSavedArrayList) {
-                Restaurant restaurant = HomeActivity.dao.getRestaurantInformation(restaurantSaved.getRestaurantId());
+            for (StoreSaved restaurantSaved : restaurantSavedArrayList) {
+                Store restaurant = HomeActivity.dao.getStoreInformation(restaurantSaved.getStoreId());
                 // Loại bỏ dấu khỏi tên nhà hàng trước khi so sánh
                 String restaurantName = removeAccents(restaurant.getName().toLowerCase());
                 if (restaurantName.contains(searchQuery)) {

@@ -13,33 +13,33 @@ import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
 import com.btl.beauty_new.fragments.SavedFragment;
-import com.btl.beauty_new.model.Food;
-import com.btl.beauty_new.model.FoodSize;
+import com.btl.beauty_new.model.Cosmetic;
+import com.btl.beauty_new.model.CosmeticSize;
 
 @SuppressLint("ViewConstructor")
-public class FoodSavedCard extends LinearLayout implements BaseComponent{
-    private final Food food;
+public class CosmeticSavedCard extends LinearLayout implements BaseComponent{
+    private final Cosmetic cosmetic;
     private final String restaurantName;
-    private final FoodSize foodSize;
+    private final CosmeticSize cosmeticSize;
     private ImageView image;
     private TextView tvName, tvSize, tvrestaurantName, tvPrice;
     private Button btnDelete;
 
-    public FoodSavedCard(Context context, Food food, String restaurantName, FoodSize foodSize) {
+    public CosmeticSavedCard(Context context, Cosmetic cosmetic, String restaurantName, CosmeticSize cosmeticSize) {
         super(context);
-        this.food = food;
+        this.cosmetic = cosmetic;
         this.restaurantName = restaurantName;
-        this.foodSize = foodSize;
+        this.cosmeticSize = cosmeticSize;
         initControl(context);
     }
 
     @Override
     public void initUI() {
-        image = findViewById(R.id.imageSavedFood);
-        tvName = findViewById(R.id.tvFoodNameSaved);
-        tvSize = findViewById(R.id.tvFoodSavedSize);
-        tvrestaurantName = findViewById(R.id.tvFoodSavedRestaurantName);
-        tvPrice = findViewById(R.id.tvFoodSavedPrice);
+        image = findViewById(R.id.imageSavedCosmetic);
+        tvName = findViewById(R.id.tvCosmeticNameSaved);
+        tvSize = findViewById(R.id.tvCosmeticSavedSize);
+        tvrestaurantName = findViewById(R.id.tvCosmeticSavedRestaurantName);
+        tvPrice = findViewById(R.id.tvCosmeticSavedPrice);
         btnDelete = findViewById(R.id.btnDeleteSaveCardItem);
     }
 
@@ -47,15 +47,15 @@ public class FoodSavedCard extends LinearLayout implements BaseComponent{
     @SuppressLint("SetTextI18n")
     public void initControl(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.view_food_saved_card, this);
+        inflater.inflate(R.layout.view_cosmetic_saved_card, this);
 
         initUI();
 
         btnDelete.setOnClickListener(view -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
-            dialog.setMessage("Bạn có muốn xóa món " + food.getName() + " không?");
+            dialog.setMessage("Bạn có muốn xóa món " + cosmetic.getName() + " không?");
             dialog.setPositiveButton("Có", (dialogInterface, i) -> {
-                HomeActivity.dao.deleteFoodSavedByFoodIdAndSize(foodSize.getFoodId(), foodSize.getSize());
+                HomeActivity.dao.deleteCosmeticSavedByCosmeticIdAndSize(cosmeticSize.getCosmeticId(), cosmeticSize.getSize());
                 SavedFragment.saved_container.removeView(this);
             });
             dialog.setNegativeButton("Không", (dialogInterface, i) -> {
@@ -65,9 +65,9 @@ public class FoodSavedCard extends LinearLayout implements BaseComponent{
 
 
         // Set information for cart card
-        image.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(food.getImage()));
-        tvName.setText(food.getName());
-        switch (foodSize.getSize()) {
+        image.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(cosmetic.getImage()));
+        tvName.setText(cosmetic.getName());
+        switch (cosmeticSize.getSize()) {
             case 1:
                 tvSize.setText("Size S");
                 break;
@@ -79,7 +79,7 @@ public class FoodSavedCard extends LinearLayout implements BaseComponent{
                 break;
         }
         tvrestaurantName.setText(restaurantName);
-        tvPrice.setText(getRoundPrice(foodSize.getPrice()));
+        tvPrice.setText(getRoundPrice(cosmeticSize.getPrice()));
     }
 
     private String getRoundPrice(Double price) {

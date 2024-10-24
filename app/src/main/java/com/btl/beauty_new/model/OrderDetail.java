@@ -2,22 +2,22 @@ package com.btl.beauty_new.model;
 
 public class OrderDetail {
     private Integer orderId;
-    private Integer foodId;
+    private Integer cosmeticId;
     private Integer size;
     private Double price;
     private Integer quantity;
 
-    public OrderDetail(Integer orderId, Integer foodId, Integer size, Double price) {
+    public OrderDetail(Integer orderId, Integer cosmeticId, Integer size, Double price) {
         this.orderId = orderId;
-        this.foodId = foodId;
+        this.cosmeticId = cosmeticId;
         this.size = size;
         this.price = price;
         this.quantity = 1;
     }
 
-    public OrderDetail(Integer orderId, Integer foodId, Integer size, Double price, Integer quantity) {
+    public OrderDetail(Integer orderId, Integer cosmeticId, Integer size, Double price, Integer quantity) {
         this.orderId = orderId;
-        this.foodId = foodId;
+        this.cosmeticId = cosmeticId;
         this.size = size;
         this.price = price;
         this.quantity = quantity;
@@ -31,12 +31,12 @@ public class OrderDetail {
         this.orderId = orderId;
     }
 
-    public Integer getFoodId() {
-        return foodId;
+    public Integer getCosmeticId() {
+        return cosmeticId;
     }
 
-    public void setFoodId(Integer foodId) {
-        this.foodId = foodId;
+    public void setCosmeticId(Integer cosmeticId) {
+        this.cosmeticId = cosmeticId;
     }
 
     public Integer getSize() {

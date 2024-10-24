@@ -34,17 +34,17 @@
             android:layout_height="40sp"
             android:orientation="horizontal">
             <LinearLayout
-                android:id="@+id/btn_saved_food"
+                android:id="@+id/btn_saved_cosmetic"
                 android:layout_width="205dp"
                 android:layout_height="40sp"
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 android:background="@color/silver">
                 <TextView
-                    android:id="@+id/tv_saved_food"
+                    android:id="@+id/tv_saved_cosmetic"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/food"
+                    android:text="@string/cosmetic"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="italic"
@@ -77,7 +77,7 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search favor foodbbkk" />
+        android:queryHint="Search favor cosmetic" />
 
     <ScrollView
         android:layout_width="match_parent"

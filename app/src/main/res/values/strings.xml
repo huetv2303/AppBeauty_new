@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Đặt Đồ Ăn</string>
+    <string name="app_name">Đặt Mỹ Phẩm</string>
     <string name="app_notify">Thông Báo</string>
     <string name="email_failed">Email Không Đúng</string>
     <string name="email_login_failed">Email Login Không Thành Công</string>
@@ -52,7 +52,7 @@
     <string name="example_address">Số 24/62 Phùng Khoang, Nam Từ Liêm …</string>
     <string name="total">Tổng cộng</string>
     <string name="payment">Đặt Hàng</string>
-    <string name="order_food">Đặt Hàng</string>
+    <string name="order_cosmetic">Đặt Hàng</string>
     <string name="cancel">Hủy</string>
     <string name="your_information">Thông Tin Cá Nhân</string>
     <string name="change">Thay Đổi</string>
@@ -68,7 +68,7 @@
     <string name="example_size">Size S</string>
     <string name="meat_banh_mi">Bánh mì kẹp thịt</string>
     <string name="quan_pho_gia_truyen">Quán phở gia truyền</string>
-    <string name="content_description_image">FOOD</string>
+    <string name="content_description_image">COSMETIC</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -107,12 +107,12 @@
     <string name="rice">Cơm sườn</string>
     <string name="hamburger">Bánh mì kẹp</string>
     <string name="milk_tea">Trà sữa</string>
-    <string name="water_food">Món nước</string>
+    <string name="water_cosmetic">Món nước</string>
     <string name="ice_cream">Kem</string>
     <string name="cake">Bánh ngọt</string>
     <string name="egg_banh_mi">Bánh mì trứng</string>
     <string name="money_text_short">13.000</string>
-    <string name="example_food_describe">Pizza bao gồm nhiều chất dinh dưỡng chứa nhiều chất xơ và chất đạm thơm ngon mời bạn ăn nha!</string>
+    <string name="example_cosmetic_describe">Pizza bao gồm nhiều chất dinh dưỡng chứa nhiều chất xơ và chất đạm thơm ngon mời bạn ăn nha!</string>
     <string name="example_user_name">Hoàng Anh Tiến</string>
     <string name="example_date">26/09/2023</string>
 
@@ -123,7 +123,7 @@
     <string name="quan_tra_sua">Quán trà sữa Coffee House</string>
 
     <string name="DoB_hint">Nhấn để chọn ngày</string>
-    <string name="restaurant_information">Thông tin cửa hàng</string>
+    <string name="store_information">Thông tin cửa hàng</string>
     <string name="check">ĐƠN HÀNG</string>
     <string name="check_coming">Đang đến</string>
     <string name="history">Lịch sử</string>
@@ -141,8 +141,8 @@
     <string name="size_l_describe">LỚN</string>
     <string name="add_to_saved">Lưu thông tin</string>
     <string name="add_to_cart">Thêm vào giỏ hàng</string>
-    <string name="food_type">Loại món ăn</string>
-    <string name="food">Món ăn</string>
+    <string name="cosmetic_type">Loại món ăn</string>
+    <string name="cosmetic">Món ăn</string>
     <string name="saved">ĐÃ LƯU</string>
     <string name="restaurants">Quán ăn</string>
     <string name="bill_lower">Hóa đơn</string>
@@ -157,7 +157,7 @@
 
     <string name="home_btn">Trang chủ</string>
     <string name="favourite_btn">Yêu thích</string>
-    <string name="cart_btn">Yêu thích</string>
+    <string name="cart_btn">Giỏ hàng</string>
     <string name="notify_btn">Thông báo</string>
     <string name="information_btn">Cá nhân</string>
 

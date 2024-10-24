@@ -16,17 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.btl.beauty_new.activity.ActivityImpl.CategoryActivity;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.R;
-import com.btl.beauty_new.model.RestaurantSaved;
+import com.btl.beauty_new.model.StoreSaved;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
-import com.btl.beauty_new.model.Restaurant;
+import com.btl.beauty_new.model.Store;
 
 
 import java.util.List;
 
-public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
-    private final List<Restaurant> restaurantList;
+public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
+    private final List<Store> restaurantList;
 
-    public RestaurantAdapter(List<Restaurant> restaurantList) {
+    public StoreAdapter(List<Store> restaurantList) {
         this.restaurantList = restaurantList;
     }
 
@@ -45,16 +45,16 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
     @NonNull
     @Override
-    public RestaurantAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public StoreAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.view_restaurant_card, parent, false);
+                .inflate(R.layout.view_store_card, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder, int position) {
-        Restaurant restaurant = restaurantList.get(position);
+    public void onBindViewHolder(@NonNull StoreAdapter.ViewHolder holder, int position) {
+        Store restaurant = restaurantList.get(position);
         holder.imageRestaurant.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(restaurant.getImage()));
         holder.tvRestaurantName_res_cart.setText(restaurant.getName());
         holder.tvRestaurantAddress_res_cart.setText(restaurant.getAddress());
@@ -70,7 +70,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         // lưu thông tin cửa hàng vào danh sách chờ
         holder.btnSavedShop.setOnClickListener(v -> {
             Context context = v.getContext(); // Lấy context từ View v
-            if(HomeActivity.dao.addRestaurantSaved(new RestaurantSaved(restaurant.getId(), HomeActivity.user.getId()))){
+            if(HomeActivity.dao.addStoreSaved(new StoreSaved(restaurant.getId(), HomeActivity.user.getId()))){
                 Toast.makeText(context, "Lưu thông tin nhà hàng thành công!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();
