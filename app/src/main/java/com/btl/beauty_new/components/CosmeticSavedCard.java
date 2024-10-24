@@ -38,7 +38,7 @@ public class CosmeticSavedCard extends LinearLayout implements BaseComponent{
         image = findViewById(R.id.imageSavedCosmetic);
         tvName = findViewById(R.id.tvCosmeticNameSaved);
         tvSize = findViewById(R.id.tvCosmeticSavedSize);
-        tvrestaurantName = findViewById(R.id.tvCosmeticSavedRestaurantName);
+        tvrestaurantName = findViewById(R.id.tvCosmeticSavedStoreName);
         tvPrice = findViewById(R.id.tvCosmeticSavedPrice);
         btnDelete = findViewById(R.id.btnDeleteSaveCardItem);
     }

@@ -24,21 +24,21 @@ import com.btl.beauty_new.model.Store;
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
-    private final List<Store> restaurantList;
+    private final List<Store> storeList;
 
-    public StoreAdapter(List<Store> restaurantList) {
-        this.restaurantList = restaurantList;
+    public StoreAdapter(List<Store> storeList) {
+        this.storeList = storeList;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView imageRestaurant;
-        private final TextView tvRestaurantName_res_cart, tvRestaurantAddress_res_cart;
+        private final ImageView imageStore;
+        private final TextView tvStoreName_res_cart, tvStoreAddress_res_cart;
         private CheckBox btnSavedShop;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageRestaurant = itemView.findViewById(R.id.imageRestaurant);
-            tvRestaurantName_res_cart = itemView.findViewById(R.id.tvRestaurantName_res_cart);
-            tvRestaurantAddress_res_cart = itemView.findViewById(R.id.tvRestaurantAddress_res_cart);
+            imageStore = itemView.findViewById(R.id.imageStore);
+            tvStoreName_res_cart = itemView.findViewById(R.id.tvStoreName_res_cart);
+            tvStoreAddress_res_cart = itemView.findViewById(R.id.tvStoreAddress_res_cart);
             btnSavedShop = itemView.findViewById(R.id.btnSavedShop);
         }
     }
@@ -54,23 +54,23 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull StoreAdapter.ViewHolder holder, int position) {
-        Store restaurant = restaurantList.get(position);
-        holder.imageRestaurant.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(restaurant.getImage()));
-        holder.tvRestaurantName_res_cart.setText(restaurant.getName());
-        holder.tvRestaurantAddress_res_cart.setText(restaurant.getAddress());
+        Store store = storeList.get(position);
+        holder.imageStore.setImageBitmap(DatabaseHandler.convertByteArrayToBitmap(store.getImage()));
+        holder.tvStoreName_res_cart.setText(store.getName());
+        holder.tvStoreAddress_res_cart.setText(store.getAddress());
 
         // hiển thị chi tiết FragmentCategory
-        holder.imageRestaurant.setOnClickListener(v -> {
+        holder.imageStore.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), CategoryActivity.class);
             // dùng putExtra để đẩy Id sang Fragment khác cũng là cách hay
-            intent.putExtra("restaurantId", restaurant.getId());
+            intent.putExtra("storeId", store.getId());
             v.getContext().startActivity(intent);
         });
 
         // lưu thông tin cửa hàng vào danh sách chờ
         holder.btnSavedShop.setOnClickListener(v -> {
             Context context = v.getContext(); // Lấy context từ View v
-            if(HomeActivity.dao.addStoreSaved(new StoreSaved(restaurant.getId(), HomeActivity.user.getId()))){
+            if(HomeActivity.dao.addStoreSaved(new StoreSaved(store.getId(), HomeActivity.user.getId()))){
                 Toast.makeText(context, "Lưu thông tin nhà hàng thành công!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();
@@ -81,7 +81,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return restaurantList.size();
+        return storeList.size();
     }
 
 }
