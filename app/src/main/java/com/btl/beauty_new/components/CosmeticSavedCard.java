@@ -53,7 +53,7 @@ public class CosmeticSavedCard extends LinearLayout implements BaseComponent{
 
         btnDelete.setOnClickListener(view -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
-            dialog.setMessage("Bạn có muốn xóa món " + cosmetic.getName() + " không?");
+            dialog.setMessage("Bạn có muốn xóa sản phầm " + cosmetic.getName() + " không?");
             dialog.setPositiveButton("Có", (dialogInterface, i) -> {
                 HomeActivity.dao.deleteCosmeticSavedByCosmeticIdAndSize(cosmeticSize.getCosmeticId(), cosmeticSize.getSize());
                 SavedFragment.saved_container.removeView(this);
