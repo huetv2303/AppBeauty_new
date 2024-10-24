@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.hoangtien2k3.foody_order_app'
+    namespace 'com.btl.beauty_new'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.hoangtien2k3.foody_order_app"
+        applicationId "com.btl.beauty_new"
         minSdk 26
         targetSdk 33
         versionCode 1
@@ -32,7 +32,7 @@ android {
         viewBinding = true
     }
 
-    namespace 'com.hoangtien2k3.foody_order_app'
+    namespace 'com.btl.beauty_new'
 }
 
 dependencies {
