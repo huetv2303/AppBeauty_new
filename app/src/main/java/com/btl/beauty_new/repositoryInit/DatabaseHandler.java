@@ -167,8 +167,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t Sữa rửa mặt có chứa Bột trắng siêu mịn và đất sét trắng để loại bỏ các tạp chất một cách hiệu quả. Giàu dưỡng chất. Bọt êm mịn. Loại bỏ các tế bào da xỉn màu ở bề mặt, các chất gây ô nhiễm và các chất bị ôxi hóa gây nên lão hóa. Được làm từ những nguyên liệu có khả năng dưỡng ẩm sâu, không gây khô da, củng cố khả năng bảo vệ từ bên trong.\n" +
                         "\t\t Phù hợp cho mọi loại da.\n" +
                         "\n\n- Cách dùng: sữa rửa mặt\n" +
-                        "\t\t + Thêm một it nước, tạo bọt trên sản phẩm"+
-                        "\t\t + Massage nhẹ nhàng toàn gương mặt"+
+                        "\t\t + Thêm một it nước, tạo bọt trên sản phẩm" +
+                        "\t\t + Massage nhẹ nhàng toàn gương mặt" +
                         "\t\t + Rửa mặt lại thật sạch bằng nước", 5));
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng ban ngày", "Kem",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi2, null)),
@@ -179,17 +179,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "10 NĂM TRÂN QUÝ VẺ ĐẸP.\n" +
                         "10 NĂM KHÁM PHÁ RA BÁU VẬT CỦA NHẬT BẢN: THẢO DƯỢC ENMEI.\n" +
                         "10 NĂM CỦNG CỐ VẺ ĐẸP VĨNH CỬU, LÀN DA ĐÀN HỒI VÀ TỎA SÁNG RỰC RỠ.\n" +
-                        "\t\t Thành phần chính:"+
+                        "\t\t Thành phần chính:" +
                         "\t\t  PHỨC HỢP SKINGENECELL ENMEI\n" +
-                        "Thảo dược từ xa xưa nay trở thành nguồn năng lượng sống mới cho làn da. Tìm thấy sâu trong rừng thiêng nơi ngọn núi Koya huyền bí, loài thảo mộc đã được các vị thiền sư sử dụng hàng thế kỷ nay. Các nghiên cứu hiện đại đã giúp chạm đến và khai thác sức mạnh chống lão hóa và duy trì vẻ đẹp vượt trội cùa loài thảo mộc huyền bí.\n" , 5));
+                        "Thảo dược từ xa xưa nay trở thành nguồn năng lượng sống mới cho làn da. Tìm thấy sâu trong rừng thiêng nơi ngọn núi Koya huyền bí, loài thảo mộc đã được các vị thiền sư sử dụng hàng thế kỷ nay. Các nghiên cứu hiện đại đã giúp chạm đến và khai thác sức mạnh chống lão hóa và duy trì vẻ đẹp vượt trội cùa loài thảo mộc huyền bí.\n", 5));
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng mắt", "Kem",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi3, null)),
                 "Kem dưỡng mắt chuyên sâu, giảm rõ rệt quầng thâm mắt, cho vẻ ngoài trẻ trung đầy sức sống." +
                         "\n\n  Thành phần chính:\n" +
                         "\t\t+  WATER (AQUA)･DIMETHICONE･BUTYLENE GLYCOL･GLYCERIN･ALCOHOL･DIMETHICONE/VINYL DIMETHICONE CROSSPOLYMER･MYRISTYL MYRISTATE･PETROLATUM･HYDROGENATED POLYDECENE･BEHENYL ALCOHOL･CETYL ETHYLHEXANOATE･GLYCERYL STEARATE SE･POTASSIUM METHOXYSALICYLATE･POLYMETHYL METHACRYLATE･STEARYL ALCOHOL･DIMETHYLACRYLAMIDE/SODIUM ACRYLOYLDIMETHYLTAURATE CROSSPOLYMER･POLYSORBATE 60･PEG-40 STEARATE･TOCOPHERYL ACETATE･PHENOXYETHANOL･TITANIUM DIOXIDE (CI 77891)･FRAGRANCE (PARFUM)･SORBITAN TRISTEARATE･TRISODIUM EDTA･PEG-10 DIMETHICONE･SODIUM CITRATE･ORYZANOL･2-O-ETHYL ASCORBIC ACID･MICA･SILICA･XANTHAN GUM･SODIUM METAPHOSPHATE･LIMONENE･CITRIC ACID･PEG/PPG-14/7 DIMETHYL ETHER･ALUMINUM HYDROXIDE･BENZYL BENZOATE･HYDROXYISOHEXYL 3-CYCLOHEXENE CARBOXALDEHYDE･IRON OXIDES (CI 77491)･SODIUM HYALURONATE･LINALOOL･CRATAEGUS MONOGYNA FLOWER EXTRACT･TOCOPHEROL･\n" +
                         "\n\n- Cách dùng: kem dưỡng mắt\n" +
-                        "\t\t + dàn trải một lượng nhỏ sản phẩm quanh vùng mắt."+
-                        "\t\t + Thoa đều khắp mi mắt và vùng da dưới mắt."+
+                        "\t\t + dàn trải một lượng nhỏ sản phẩm quanh vùng mắt." +
+                        "\t\t + Thoa đều khắp mi mắt và vùng da dưới mắt." +
                         "\t\t + Massage nhẹ nhàng theo hướng từ gò mà lên.", 5));
         cosmeticList.add(new Cosmetic(1, "Kem chống nắng dưỡng da", "Kem",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi4, null)),
@@ -324,26 +324,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         cosmeticList.add(new Cosmetic(1, "SRM La Roche-Posay 2024 mới", "Sữa rửa mặt",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_laroche1, null)),
-                "Dưới đây là cách làm Hamburger Heo Bò Nhà Làm1:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 100g thịt heo xay\n" +
-                        "\t\t+ 100g thịt bò xay\n" +
-                        "\t\t+ 2 cái vỏ bánh hamburger\n" +
-                        "\t\t+ Phô mai con bò cười: 1 viên\n" +
-                        "\t\t+ Phô mai lát: 2 lá (có thể dùng bất kì phomai lát nào cũng được)\n" +
-                        "\t\t+ Hành tây, hành củ, giấm, xà lách, muối, đường, bột nêm\n" +
-                        "\t\t+ Sốt kewpie, sốt tương ớt\n" +
-                        "\t\t+ 1 trái cà chua1\n" +
-                        "\nCách làm:\n" +
-                        "\n" +
-                        "\t\t+ Rửa sạch xà lách, cà chua, hành tây.\n" +
-                        "\t\t+ Trộn thịt heo và bò, cắt nhỏ hành củ, cắt 1 khoanh hành tây bằm nhỏ. Cho 2 muỗng cafe đường, 1 muỗng cafe muối, 1 muỗng cafe bột nêm. Trộn đều. Phômai con bò cười cắt nhỏ trộn chung với thịt. Chia làm 2 phần thịt bằng nhau vo viên, ép dẹp vừa đủ.\n" +
-                        "\t\t+ Cắt 2 khoanh hành tây.\n" +
-                        "\t\t+ Bỏ 2 phần thịt vào chảo tráng dầu chiên vàng đều 2 mặt khoảng 10p-15p. Vớt thịt ra cho hành tây vào xào sơ thêm ít đường và muối vào khi xào hành.\n" +
-                        "\t\t+ Hành tây đã xào sơ cho vào chén cho 1 muỗng cafe giấm ăn, 2 muỗng cafe đường. Trộn đều.\n" +
-                        "\t\t+ Trình bày: cắt vỏ bánh làm đôi. Cho sốt kewpie vào 1 bên vỏ bánh, sau đó cho lên đó 1 lớp rau củ, tiếp đến thêm 1 lớp thịt và 1 muỗng sốt hoisin lên trên, tiếp tục cho 1 lớp nấm lên trên1", 1));
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER, SODIUM LAURETH SULFATE, PEG-8, COCO-BETAINE, HEXYLENE GLYCOL, ZINC PCA, SODIUM CHLORIDE, " +
+                        "CITRIC ACID, SODIUM HYDROXIDE, PHENOXYETHANOL, CAPRYLYL GLYCOL, SODIUM BENZOATE, PARFUM/FRAGRANCE.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t- Làm ướt da mặt bằng nước ấm\n" +
+                        "\t\t- Lấy một lượng sản phẩm vừa đủ ra lòng bàn tay\n" +
+                        "\t\t- Tạo bọt và mát-xa nhẹ nhàng lên mặt, tránh vùng mắt\n" +
+                        "\t\t- Rửa lại bằng nước sạch và lau khô\n", 1));
 
         cosmeticList.add(new Cosmetic(1, "KCN La Roche-Posay", "Kem chống nắng",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_laroche2, null)),
@@ -479,7 +468,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nKết hợp cùng hệ dưỡng chất cao cấp:\n" +
                         "- Amino-Peptide (Pro-Collagen) giúp làm mờ nếp nhăn và săn chắc da\n" +
                         "- Axit Hyaluronic (HA) giúp cấp ẩm mạnh mẽ\n" +
-                        "- Chiết xuất Carob hỗ trợ phục hồi tổn thương bề mặt da.",4));
+                        "- Chiết xuất Carob hỗ trợ phục hồi tổn thương bề mặt da.", 4));
         cosmeticList.add(new Cosmetic(1, "Super Serum OLAY Luminous Niacinamide & Vitamin C ", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic5, null)),
                 "Super Serum OLAY Luminous Niacinamide + Vitamin C: Giúp Giảm 5 Năm Vết Thâm, Đốm Nâu Dài Dẳng\n" +
@@ -544,7 +533,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Chống mồ hôi/chống nước (80 phút)\n" +
                         "\nCÁCH SỬ DỤNG\n" +
                         "- Bôi Kem Chống Nắng Neutrogena Sport Face SPF 70 trước 30 phút khi đi ra đường để kem kịp thấm vào da và phát huy tác dụng chống nắng một cách tối đa.\n" +
-                        "- Chỉ cần bôi một lớp kem mỏng. Bôi quá nhiều vừa gây lãng phí vừa không tốt cho da vì lớp kem thừa không kịp thấm vào da sẽ có thể là nguyên nhân gây nên bệnh dị ứng da trong mùa hè.",3));
+                        "- Chỉ cần bôi một lớp kem mỏng. Bôi quá nhiều vừa gây lãng phí vừa không tốt cho da vì lớp kem thừa không kịp thấm vào da sẽ có thể là nguyên nhân gây nên bệnh dị ứng da trong mùa hè.", 3));
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic4, null)),
                 "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi - Hàng Mỹ\n" +
@@ -564,14 +553,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Cung cấp độ ẩm liên tục để cải thiện kết cấu da bằng cách bù nước cho da khô, da nhạy cảm và giảm rõ rệt sự xuất hiện của mẩn đỏ do khô.\n" +
                         "- Công thức đặc biệt với Allantoin, chiết xuất cam thảo và caffein để làm dịu mẩn đỏ.\n" +
                         "- Cho làn da cảm giác dịu nhẹ và cân bằng.\n" +
-                        "- Bác sĩ da liễu đã thử nghiệm và chứng minh lâm sàng là nhẹ nhàng trên da nhạy cảm.",3));
-
-
-
-
-
-
-
+                        "- Bác sĩ da liễu đã thử nghiệm và chứng minh lâm sàng là nhẹ nhàng trên da nhạy cảm.", 3));
 
 
         // region thebodyshop
@@ -595,13 +577,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t- Công thức bơ tẩy trang Camomile phiên bản giới hạn mới nhất của chúng tôi được làm giàu với dầu Rose de Mai quý giá từ Grasse, Pháp, sở hữu khả năng hòa tan lớp trang điểm trong vòng chưa đầy 30 giây. Nó phù hợp cho người đeo kính áp tròng và mọi loại da - thậm chí nhạy cảm. Để lại khuôn mặt của bạn cảm giác tươi mát và mềm mại như cánh hoa.\n" +
                         "\t\t- Mùi hương hoa hồng ngọt ngào của sản phẩm không chỉ giúp bạn thư giãn sau một ngày dài mệt mỏi mà nó còn giúp cuốn trôi đi lớp make-up nặng nề trên da mặt.\n" +
                         "\t\t- Hãy sở hữu loại sữa rửa mặt phiên bản giới hạn này bởi vì giống như mùa Rose de Mai, nó cực kỳ giới hạn về số lượng!\n" +
-                        "\t\t+ Bơ tẩy trang phiên bản giới hạn\n"+
-                        "\t\t+ Hương thơm hoa hồng Rose de Mai\n"+
-                        "\t\t+ Thích hợp cho da nhạy cảm và người đeo kính áp tròng\n"+
-                        "\t\t+ Được pha với dầu Rose de Mai từ Grasse, Pháp và dầu hoa cúc từ Norfolk, Anh\n"+
-                        "\t\t+ Tẩy sạch những lớp trang điểm cứng đầu nhất, kể cả lớp trang điểm không thấm nước\n"+
-                        "\t\t+ Làn da được nuôi dưỡng và mềm mượt\n"+
-                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n"+
+                        "\t\t+ Bơ tẩy trang phiên bản giới hạn\n" +
+                        "\t\t+ Hương thơm hoa hồng Rose de Mai\n" +
+                        "\t\t+ Thích hợp cho da nhạy cảm và người đeo kính áp tròng\n" +
+                        "\t\t+ Được pha với dầu Rose de Mai từ Grasse, Pháp và dầu hoa cúc từ Norfolk, Anh\n" +
+                        "\t\t+ Tẩy sạch những lớp trang điểm cứng đầu nhất, kể cả lớp trang điểm không thấm nước\n" +
+                        "\t\t+ Làn da được nuôi dưỡng và mềm mượt\n" +
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n" +
                         "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Kem Chống Nắng", "Kem chống nắng ",
@@ -611,13 +593,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t- Kem chống nắng Skin Defence Multi-Protection Light Essence sẽ đáp ứng nhu cầu bảo vệ da hàng ngày của bạn - hãy hứa với chúng tôi rằng bạn sẽ không rời khỏi nhà mà chưa có nó.\n" +
                         "\t\t- Tinh chất Skin Defence mới của chúng tôi là một công thức dưỡng ẩm siêu nhẹ, giúp bảo vệ làn da của bạn với độ bảo vệ SPF 50 PA +++. Tinh chất siêu lỏng này sử dụng các bộ lọc UVA/UVB phổ rộng được tối ưu hóa một cách thông minh để giúp bảo vệ da hàng ngày chống lại các tia UV gây hại, cũng như giúp bảo vệ khỏi ô nhiễm trong nhà và ngoài trời.\n" +
                         "\t\t- Công thức hấp thụ nhanh, tạo cảm giác thoáng khí và thoải mái trên da. Sản phẩm không gây nhờn dính, không để lại vệt trắng trên da bạn. Da trông rạng rỡ hơn, đều màu và sẵn sàng để trang điểm.\n" +
-                        "\t\t+ Tinh chất dưỡng ẩm thoáng nhẹ, thẩm thấu nhanh\n"+
-                        "\t\t+ SPF 50 PA+++ với khả năng chống ô nhiễm trong nhà và ngoài trời\n"+
-                        "\t\t+ Bảo vệ da khỏi tia UVA / UVB\n"+
-                        "\t\t+ Không để lại cảm giác dính hoặc nhờn trên da\n"+
-                        "\t\t+ Lớp lót hoàn hảo trước khi trang điểm\n"+
-                        "\t\t+ Thích hợp cho da nhạy cảm\n"+
-                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n"+
+                        "\t\t+ Tinh chất dưỡng ẩm thoáng nhẹ, thẩm thấu nhanh\n" +
+                        "\t\t+ SPF 50 PA+++ với khả năng chống ô nhiễm trong nhà và ngoài trời\n" +
+                        "\t\t+ Bảo vệ da khỏi tia UVA / UVB\n" +
+                        "\t\t+ Không để lại cảm giác dính hoặc nhờn trên da\n" +
+                        "\t\t+ Lớp lót hoàn hảo trước khi trang điểm\n" +
+                        "\t\t+ Thích hợp cho da nhạy cảm\n" +
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n" +
                         "\t\t+ Không gây mụn\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm", "Kem",
@@ -626,9 +608,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\n" +
                         "\t\t- Kem giữ ẩm dạng gel Seaweed Oil-Control Gel Cream giữ lại hơi nước, không dầu, không bịt kín chân lông, và thẩm thấu dễ dàng.\n" +
                         "\t\t- Kem kiểm soát bã nhờn và độ bóng của da trong khi cung cấp độ ẩm cần thiết cho các vùng da có nhu cầu nhất, cân bằng da suốt cả ngày. Cho làn da tươi khỏe, sạch, mịn, và mềm mại, không bị bóng do dầu nhờn.\n" +
-                        "\t\t+ Phù hợp cho da dầu hoặc hỗn hợp thiên dầu\n"+
-                        "\t\t+ ảo biển giàu khoáng chất từ vịnh Roaring Water, Ireland\n"+
-                        "\t\t+ Cấu tạo dịu nhẹ\n"+
+                        "\t\t+ Phù hợp cho da dầu hoặc hỗn hợp thiên dầu\n" +
+                        "\t\t+ ảo biển giàu khoáng chất từ vịnh Roaring Water, Ireland\n" +
+                        "\t\t+ Cấu tạo dịu nhẹ\n" +
                         "\t\t+ Cân bằng dầu và khô thoáng\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang", "Bông Tẩy Trang",
@@ -637,9 +619,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\n" +
                         "\t\t- Bông Tẩy Trang hữu cơ của The Body Shop hoàn chỉnh với hai bề mặt không có lông tơ đáp ứng mọi nhu cầu làm đẹp của bạn.\n" +
                         "\t\t- Một sản phẩm thiết yếu cần phải có trong mọi phòng tắm. Cho làn da tươi khỏe, sạch, mịn, và mềm mại, không bị bóng do dầu nhờn.\n" +
-                        "\t\t+ Hữu cơ\n"+
-                        "\t\t+ Hai mặt\n"+
-                        "\t\t+ Sử dụng với sữa rửa mặt hoặc toner\n"+
+                        "\t\t+ Hữu cơ\n" +
+                        "\t\t+ Hai mặt\n" +
+                        "\t\t+ Sử dụng với sữa rửa mặt hoặc toner\n" +
                         "\t\t+ Hai bề mặt có kết cấu khác nhau cho kem dưỡng da hoặc chất lỏng\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Tẩy Tế Bào Chết ", "Tẩy Tế Bào Chết ",
@@ -648,90 +630,62 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\n" +
                         "\t\t- Nhẹ nhàng xoa dịu cơ thể xinh đẹp trở nên mềm mại như lụa mà không để lại cảm giác da bị mất đi lớp dầu tự nhiên với sản phẩm Tẩy tế bào chết toàn thân Avocado của chúng tôi.\n" +
                         "\t\t- Với 96% thành phần có nguồn gốc tự nhiên, bao gồm cả dầu bơ Hass có nguồn gốc bền vững từ Nam Phi, sản phẩm tẩy tế bào chết dạng kem và giàu dưỡng chất của chúng tôi sẽ loại bỏ các tế bào da chết mang lại cảm giác da mềm mại và mịn màng hơn.\n" +
-                        "\t\t- Sản phẩm tẩy da chết có mùi tươi mát này hiện được đóng gói trong bao bì có thể tái chế.\n"+
-                        "\n\n Điểm đặc biệt:\n"+
-                        "\t\t+ Tẩy tế bào chết ngậm nước cho cơ thể\n"+
-                        "\t\t+ Hoàn hảo cho da khô\n"+
-                        "\t\t+ Để lại làn da cảm giác mềm mại và mịn màng hơn\n"+
-                        "\t\t+ Mùi thơm tinh tế tươi mát và kem\n"+
+                        "\t\t- Sản phẩm tẩy da chết có mùi tươi mát này hiện được đóng gói trong bao bì có thể tái chế.\n" +
+                        "\n\n Điểm đặc biệt:\n" +
+                        "\t\t+ Tẩy tế bào chết ngậm nước cho cơ thể\n" +
+                        "\t\t+ Hoàn hảo cho da khô\n" +
+                        "\t\t+ Để lại làn da cảm giác mềm mại và mịn màng hơn\n" +
+                        "\t\t+ Mùi thơm tinh tế tươi mát và kem\n" +
                         "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n", 6));
 
         cosmeticList.add(new Cosmetic(1, "Lăn Khử Mùi", "Lăn Khử Mùi",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the6, null)),
                 "Cảm nhận hương thơm thơm mát với Maca Root & Aloe Fresh Kick Deodorant được chiết xuất từ rễ cây maca, dầu hạt cộng đồng Brazil và dầu hữu cơ trong chương trình Thương Mại Cộng Đồng.\n" +
                         "\n" +
-                        "\t\t+ Thanh khử mùi\n"+
-                        "\t\t+ Làm mới mùi hương\n"+
+                        "\t\t+ Thanh khử mùi\n" +
+                        "\t\t+ Làm mới mùi hương\n" +
                         "\t\t+ Chiết xuất từ rễ cây maca và dầu hạt từ Brazil, lô hội hữu cơ trong chương trình Thương mại Cộng đồng từ Mexico\n", 6));
 
         // region Tra sua
-        cosmeticList.add(new Cosmetic(1, "Trà sữa dâu", "Trà sữa",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.trasua_dau, null)),
-                "Trà sữa dâu là một món đồ uống ngọt ngào, thơm mát rất được ưa chuộng. Dưới đây là cách làm trà sữa dâu tại nhà:\n" +
-                        "\n" +
-                        "Nguyên liệu: Trà đen (trà cánh hoặc trà túi lọc), dâu tươi hoặc siro dâu để tạo hương vị và trang trí, sữa đặc hoặc bột pha trà sữa chuyên dụng để tạo độ thơm béo, sữa tươi (tùy chọn để thay thế cho sữa đặc và bột sữa), đường kính hoặc siro đường để tạo độ ngọt, và đá viên12.\n" +
-                        "\n" +
-                        "Cách làm:\n" +
-                        "\n" +
-                        "\t\t+ Cách 1: Sử dụng trà túi lọc vị dâu1. Ủ trà với nước nóng trong khoảng 15 phút, sau đó lọc lấy nước cốt. Cho sữa đặc, siro dâu, đường kính vào trà nóng và hòa tan. Cho hỗn hợp vào bình lắc, thêm đá viên, đóng nắp bình và lắc khoảng 15 lần. Đổ trà sữa dâu ra ly, thêm topping và thưởng thức1.\n" +
-                        "\t\t+  Cách 2: Sử dụng nước ép dâu tươi1. Cho dâu tây vào máy xay, xay nhuyễn, dùng rây lọc lấy nước cốt dâu. Hòa tan nước cốt trà, nước cốt dâu, bột pha trà sữa chuyên dụng, siro đường. Cho hỗn hợp vào bình lắc, thêm đá viên, đóng nắp bình và lắc khoảng 15 lần. Đổ trà sữa dâu ra ly, thêm topping, trang trí thêm lát dâu tươi và bạc hà tùy thích1.\n" +
-                        "\t\t+ Cách 3: Sử dụng siro dâu và sữa tươi1. Trộn đường và siro dâu với trà đã ủ. Cho sữa tươi vào ly rồi rót trà vào khuấy đều. Thêm đá và trân châu (nếu muốn) vào trà sữa3.", 2));
-        cosmeticList.add(new Cosmetic(1, "Trà sữa matcha", "Trà sữa",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.trasua_matcha, null)),
-                "Trà sữa Matcha là một món đồ uống thơm ngon, béo ngậy từ sữa và có vị đắng nhẹ cùng hương thơm từ matcha1. Dưới đây là cách làm trà sữa Matcha tại nhà:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 3 gram bột Matcha (có thể thay thế bằng bột trà xanh)\n" +
-                        "\t\t+ 100ml sữa tươi không đường (hay 70 gram bột sữa)\n" +
-                        "\t\t+ 30ml sữa đặc\n" +
-                        "\t\t+ 1 gói trà xanh túi lọc\n" +
-                        "\t\t+ Đá viên2\n" +
-                        "Cách pha trà sữa Matcha:\n" +
-                        "\n" +
-                        "\t\t+ Cho túi trà xanh vào 50ml nước nóng, nên để nhiệt độ khoảng 80 độ C. Không đậy nắp và ủ trà trong 2 – 3 phút rồi lấy túi trà ra.\n" +
-                        "\t\t+ Cho vào ly và khuấy tan hỗn hợp gồm: 3 gram bột Matcha, 15 gram bột sữa, 50ml nước cốt trà xanh túi lọc.\n" +
-                        "\t\t+ Chuẩn bị ly khác, cho 30ml sữa đặc và 50ml nước cốt trà xanh đun nóng vào và khuấy đến khi hòa quyện.\n" +
-                        "\t\t+ Cho hỗn hợp sữa đã khuấy ở trên cùng đá viên vào bình lắc. Đậy nắp bình và lắc khoảng 3 giây cho hỗn hợp hòa quyện.\n" +
-                        "\t\t+ Rót sữa lắc ra ly thủy tinh, rót phần hỗn hợp Matcha đã pha lên trên tạo thành lớp tầng rất đẹp mắt2.", 2));
-        cosmeticList.add(new Cosmetic(1, "Trà sữa truyền thống", "Trà sữa",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.trasua_truyenthong, null)),
-                "Trà sữa truyền thống là một món đồ uống ngon và thơm mát, rất được ưa chuộng. Dưới đây là cách làm trà sữa truyền thống tại nhà:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 70g trà đen\n" +
-                        "\t\t+ 200g đường trắng\n" +
-                        "\t\t+ 250g bột sữa\n" +
-                        "\t\t+ 100ml sữa đặc1\n" +
-                        "Cách làm:\n" +
-                        "\n" +
-                        "\t\t+ Nấu sôi 1 lít nước, cho 70g trà vào khuấy đều rồi ủ 15 phút sau đó lọc lấy nước trà1.\n" +
-                        "\t\t+ Cho 200g đường trắng và 250g bột sữa vào nước trà và khuấy đều1.\n" +
-                        "\t\t+ Cuối cùng cho 100ml sữa đặc vào. Khuấy cho các nguyên liệu tan hoàn toàn thì thêm 300g đá viên vào khuấy cho tan1.\n" +
-                        "\t\t+ Lúc này có thể lọc qua rây để đảm bảo trà không còn cặn1.", 2));
-        cosmeticList.add(new Cosmetic(1, "Trà sữa xoài", "Trà sữa",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.trasua_xoai, null)),
-                "Trà sữa xoài là một món đồ uống thơm ngon, mát lạnh và vô cùng lý tưởng cho những ngày hè nóng nực. Dưới đây là cách làm trà sữa xoài tại nhà:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 50 gr trà đen hoặc trà lài\n" +
-                        "\t\t+ 200 gr bột sữa\n" +
-                        "\t\t+ 300 gr đường trắng hoặc đường nâu\n" +
-                        "\t\t+ 1 gr muối\n" +
-                        "\t\t+ 1.3l nước sôi\n" +
-                        "\t\t+ Đá viên\n" +
-                        "\t\t+ 1l nước sôi để nguội1\n" +
-                        "\t\t+ Xoài chín bỏ vỏ và hạt, cắt nhỏ2\n" +
-                        "\t\t+ Siro đào, siro chanh dây2\n" +
-                        "Cách làm:\n" +
-                        "\n" +
-                        "\t\t+ Nấu sôi 1 lít nước, cho 50g trà vào khuấy đều rồi ủ 15 phút sau đó lọc lấy nước trà1.\n" +
-                        "\t\t+ Cho vào ly và khuấy tan hỗn hợp gồm: 200g bột sữa, 300g đường trắng hoặc đường nâu, và 1.3l nước sôi1.\n" +
-                        "\t\t+ Cho xoài đã cắt nhỏ vào máy xay sinh tố, thêm siro đào, siro chanh dây, một chút đá viên vào rồi xay nhuyễn2.\n" +
-                        "\t\t+ Ngâm trà với 150ml nước nóng, sau 10 phút lọc bã lấy nước cốt, hòa tan cùng đường và để nguội bớt2.\n" +
-                        "\t\t+ Cho đá viên vào ly, đổ nước trà vào. Xúc hỗn hợp xoài lên trên cùng là hoàn thành2.", 2));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng Vichy", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy1, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER, GLYCERIN, SODIUM PCA, CAPRYLIC/CAPRIC TRIGLYCERIDE, " +
+                        "MANNITOL, SODIUM HYALURONATE, CITRIC ACID, TOCOPHEROL.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\t- Thoa lên da mặt và cổ mỗi sáng và tối\n" +
+                        "\t\t- Dùng sau khi làm sạch da\n" +
+                        "\t\t- Massage nhẹ nhàng để dưỡng chất thẩm thấu\n"
+                , 2));
+        cosmeticList.add(new Cosmetic(1, "Kem chống nắng Vichy", "Kem chống nắng",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy2, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER, DIISOPROPYL SEBACATE, ETHYLHEXYL SALICYLATE, " +
+                        "GLYCERIN, TITANIUM DIOXIDE, BUTYL METHOXYDIBENZOYLMETHANE, SILICA.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\t- Thoa kem trước khi ra ngoài nắng 15-20 phút\n" +
+                        "\t\t- Thoa lại sau mỗi 2 giờ hoặc sau khi bơi, ra mồ hôi\n" +
+                        "\t\t- Sử dụng hàng ngày cho mặt và cơ thể\n"
+                , 2));
+        cosmeticList.add(new Cosmetic(1, "Nước khoáng dưỡng da Vichy", "Nước khoáng",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy3, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER, MINERAL SALTS, CALCIUM, MAGNESIUM, BICARBONATES, SILICA.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\t- Xịt đều lên da mặt từ khoảng cách 20cm\n" +
+                        "\t\t- Để sản phẩm thẩm thấu tự nhiên hoặc vỗ nhẹ\n" +
+                        "\t\t- Dùng bất cứ lúc nào trong ngày để làm dịu và cấp ẩm cho da\n"
+                , 2));
+        cosmeticList.add(new Cosmetic(1, "Serum Vichy Liftactiv Supreme", "Serum",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy4, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER, GLYCERIN, DIMETHICONE, ASCORBIC ACID (VITAMIN C), " +
+                        "SODIUM HYALURONATE, ADENOSINE, TOCOPHEROL.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\t- Thoa serum lên mặt vào buổi sáng và tối\n" +
+                        "\t\t- Sử dụng trước bước kem dưỡng ẩm\n" +
+                        "\t\t- Massage nhẹ nhàng để serum thẩm thấu hoàn toàn\n"
+                , 2));
 
         // region cosmeticSize
         cosmeticSizeList = new ArrayList<>();
