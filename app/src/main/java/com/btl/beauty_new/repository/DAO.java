@@ -46,7 +46,6 @@ public class DAO {
         return storeArrayList;
     }
 
-
     // region storeSaved
     public boolean addStoreSaved(StoreSaved storeSaved) {
         String query = "INSERT INTO tblStoreSaved VALUES(" + storeSaved.getStoreId() + ", " + storeSaved.getUserId() + ")";
@@ -58,7 +57,7 @@ public class DAO {
         }
     }
 
-    public boolean deleteStoreSaved(StoreSaved storeSaved) {
+    public boolean deleteStoreSaved(StoreSaved storeSaved) {   // del store
         String query = "DELETE FROM tblStoreSaved WHERE store_id=" + storeSaved.getStoreId() + " AND user_id=" + storeSaved.getUserId();
         try {
             dbHelper.queryData(query);
@@ -68,7 +67,7 @@ public class DAO {
         }
     }
 
-    public ArrayList<StoreSaved> getStoreSavedList(Integer userId) {
+    public ArrayList<StoreSaved> getStoreSavedList(Integer userId) {    // get data store saved
         ArrayList<StoreSaved> storeSavedArrayList = new ArrayList<>();
         String query = "SELECT * FROM tblStoreSaved WHERE user_id=" + userId;
         Cursor cursor = dbHelper.getData(query);
