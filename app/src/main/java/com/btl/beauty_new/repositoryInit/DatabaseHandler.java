@@ -134,68 +134,81 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // region cosmetic
         cosmeticList = new ArrayList<>();
-        // region Kem
-        cosmeticList.add(new Cosmetic(1, "Kem hộp đậu đỏ", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemhop_daudo, null)),
-                "Kem hộp đậu đỏ là một món tráng miệng ngon và mát lạnh, rất thích hợp cho những ngày hè nóng bức. Dưới đây là cách làm kem hộp đậu đỏ tại nhà:\n" +
+        // region Shiseido
+        cosmeticList.add(new Cosmetic(1, "Tinh chất dưỡng da", "Dưỡng da",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi, null)),
+                "Serum ULTIMUNE đoạt nhiều giải thưởng, giúp củng cố hàng rào bảo vệ da mạnh mẽ, phục hồi độ đàn hồi của da. Trải nghiệm sự rạng rỡ, mịn màng và đàn hồi, cho làn da Khỏe khoắn, Tươi trẻ:\n" +
                         "\n" +
-                        "Nguyên liệu:\n" +
+                        "Loại da:\n" +
                         "\n" +
-                        "\t\t+ 250g đậu đỏ1\n" +
-                        "\t\t+ 35ml sữa tươi1\n" +
-                        "\t\t+ 150g đường nâu1\n" +
-                        "\t\t+ 1/4 muỗng cà phê muối1\n" +
-                        "\t\t+ 1/2 muỗng cà phê mật ong1\n" +
-                        "\t\t+ 40g sữa đặc1\n" +
-                        "\nCách làm:\n" +
+                        "\t\tTất cả loại da / Da dầu / Da hỗn hợp / Da khô\n" +
+
+                        "\nMùi hương:\n" +
                         "\n" +
-                        "\t\t+ Đậu đỏ vo sạch, sau đó ngâm nước 5-6 tiếng cho đỗ nở mềm1.\n" +
-                        "\t\t+ Cho đỗ vào nồi, sau đó cho nước ngập mặt đỗ (cỡ 1 đốt ngón tay). Bật bếp và không cần đậy nắp nồi, nấu cho tới khi đỗ chín mềm và nước cũng rút cạn thì tắt bếp1.\n" +
-                        "\t\t+ Khi thấy đậu chín mềm thì cho thêm 100g đường vào, khuấy đều. Khi đậu đã chín, bạn vớt ra để nguội1.\n" +
-                        "\t\t+ Lấy 2/3 phần đậu vừa nấu vào máy sinh tố, để nguội bớt thì thêm sữa tươi, sữa đặc vào và xay nhuyễn2.\n" +
-                        "\t\t+ Cho hỗn hợp vừa xay vào khuôn kem đã chuẩn bị sẵn2.\n" +
-                        "\t\t+ Giờ thì cùng cho vào ngăn đông của tủ lạnh, bạn để khoảng 7-8 giờ là có thể thưởng thức món kem thơm ngon, mát lạnh này rồi2.", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem hộp sữa dừa", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemhop_suadua, null)),
-                "Kem hộp sữa dừa là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của sữa dừa. \n\n- Dưới đây là một số thông tin về các loại kem hộp sữa dừa phổ biến:\n" +
-                        "\t\t+ Kem hộp sữa dừa Merino 900ml: Sản phẩm này kết hợp độc đáo giữa sầu riêng tự nhiên và sữa dừa mềm béo thơm bùi khó cưỡng, vị ngon hoàn hảo1. Giá bán tại Bách hóa XANH khoảng 84.000 VND.\n" +
-                        "\t\t+ Kem ly sữa dừa Merino 53g: Giá bán khoảng 13.000 VND, kem vẫn giữ nguyên nét thơm ngon đặc trưng truyền thống, cực hợp khẩu vị của người Việt, mang đến hương vị độc đáo cực ngon miệng.\n" +
-                        "\t\t+ Hộp sữa dừa 450ml - Kem Merino: Kem hộp Merino thơm ngon với các hương vị truyền thống quen thuộc luôn là món tráng miệng tuyệt vời cho cả gia đình.", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ốc quế vani", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_vani, null)),
-                "Kem ốc quế vani là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của vani. \n\n- Dưới đây là một số thông tin về các loại kem ốc quế vani phổ biến:\n" +
-                        "\t\t+ Kem ốc quế vani socola Celano 110ml: Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sô cô la ngọt ngào, vừa đậm đà đầy kích thích1. Giá bán tại Bách hóa XANH khoảng 20.500 VND1.\n" +
-                        "\t\t+ Kem Ốc Quế Crunchy Classic Vani 70g: Sản phẩm này có vị vani hấp dẫn cùng phần ốc quế làm từ bánh quy giòn thơm hòa quyện với cái lạnh mát của kem mang lại bạn sự ngọt ngào khó tả không thể bỏ qua2. Giá bán khoảng 19.000 VND2.\n" +
-                        "\t\t+ Kem ốc quế Merino Superteen vị vani socola 60g: Sản phẩm này được sản xuất từ nguồn nguyên liệu tươi ngon, đảm bảo chất lượng. Vị kem mát lạnh, kết hợp với vị ngọt dịu của dâu và hương vani thơm mát, mang lại sự ngon miệng, sảng khoái cho người thưởng thức3.\n" +
-                        "\t\t+ Kem vani socola Merino Super Teen cây 60g: Sản phẩm này là dạng kem cây ốc quế vô cùng thơm ngon và tiện dụng với hương vị vani socola hòa quyện độc đáo4.", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ôc quế dâu", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_dau, null)),
-                "Kem ốc quế dâu là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của dâu. \n\n-  Dưới đây là một số thông tin về các loại kem ốc quế dâu phổ biến:\n" +
-                        "\t\t+ Kem ốc quế dâu Celano Extra cây 125ml (73g): Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sữa kem béo nhẹ & mứt dâu1. Giá bán tại Bách hóa XANH khoảng 24.000 VND1.\n" +
-                        "\t\t+ Kem ốc quế vani dâu Celano cây 66g: Sản phẩm này có vị thơm ngon khó cưỡng, giúp hạ nhiệt, giải khát vô cùng hiệu quả cho các ngày nắng nóng2. Giá bán khoảng 20.000 VND2.\n" +
-                        "\t\t+ Kem Ốc Quế Delight Dâu - Nam Việt Quất 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn, thơm lừng mang đến cho bạn cảm giác thật mát lạnh & ngon khó cưỡng ngay từ miếng cắn đầu tiên3", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ốc quế socola", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_socola, null)),
-                "Kem ốc quế socola là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của socola. \n\n- Dưới đây là một số thông tin về các loại kem ốc quế socola phổ biến:\n" +
-                        "\t\t+ Kem ốc quế socola King’s cây 80g: Sản phẩm này với các nguyên liệu tự nhiên cao cấp, không sử dụng các hóa chất độc hại. Kem ốc quế socola King’s cây 80g vị socola đậm đà với thiết kế ấn tượng, bắt mắt, hương vị thơm béo càng làm cho sản phẩm thêm phần hấp dẫn1.\n" +
-                        "\t\t+ Kem ốc quế socola extra Celano cây 75g: Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sô cô la extra đầy độc đáo, béo thơm, vừa đậm đà đầy kích thích2.\n" +
-                        "\t\t+ Kem ốc quế Merino Superteen vị vani socola 60g: Sản phẩm này được sản xuất từ nguồn nguyên liệu tươi ngon, đảm bảo chất lượng. Vị kem mát lạnh, kết hợp với vị ngọt dịu của dâu và hương vani thơm mát, mang lại sự ngon miệng, sảng khoái cho người thưởng thức3.\n" +
-                        "\t\t+ Kem Ốc Quế TH true ICE CREAM Sô Cô La Nguyên Chất: Sản phẩm được làm từ sữa tươi sạch nguyên chất của Trang trại TH cùng các nguyên liệu hoàn toàn tự nhiên. Sản phẩm có lớp kem sô cô la nguyên chất mềm mịn, được phủ sốt sô cô la cùng hạt đậu phộng thơm ngậy trên bề mặt, cuộn trong vỏ bánh ốc quế giòn tan bên ngoài4.\n" +
-                        "\t\t+ Kem Ốc Quế Delight Sôcôla - Đậu Phộng 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ôc quế dâu", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_dau, null)),
-                "Kem ốc quế dâu là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của dâu. \\n\\n-  Dưới đây là một số thông tin về các loại kem ốc quế dâu phổ biến:\\n\" +\n" +
-                        "\"\\t\\t+ Kem ốc quế dâu Celano Extra cây 125ml (73g): Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sữa kem béo nhẹ & mứt dâu1. Giá bán tại Bách hóa XANH khoảng 24.000 VND1.\\n\" +\n" +
-                        "\"\\t\\t+ Kem ốc quế vani dâu Celano cây 66g: Sản phẩm này có vị thơm ngon khó cưỡng, giúp hạ nhiệt, giải khát vô cùng hiệu quả cho các ngày nắng nóng2. Giá bán khoảng 20.000 VND2.\\n\" +\n" +
-                        "\"\\t\\t+ Kem Ốc Quế Delight Dâu - Nam Việt Quất 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn, thơm lừng mang đến cho bạn cảm giác thật mát lạnh & ngon khó cưỡng ngay từ miếng cắn đầu tiên3", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ốc quế socola", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_socola, null)),
-                "Kem ốc quế socola là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của socola. \n\n- Dưới đây là một số thông tin về các loại kem ốc quế socola phổ biến:\n" +
-                        "\t\t+ Kem ốc quế socola King’s cây 80g: Sản phẩm này với các nguyên liệu tự nhiên cao cấp, không sử dụng các hóa chất độc hại. Kem ốc quế socola King’s cây 80g vị socola đậm đà với thiết kế ấn tượng, bắt mắt, hương vị thơm béo càng làm cho sản phẩm thêm phần hấp dẫn.\n" +
-                        "\t\t+ Kem ốc quế socola extra Celano cây 75g: Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sô cô la extra đầy độc đáo, béo thơm, vừa đậm đà đầy kích thích.\n" +
-                        "\t\t+ Kem ốc quế Merino Superteen vị vani socola 60g: Sản phẩm này được sản xuất từ nguồn nguyên liệu tươi ngon, đảm bảo chất lượng. Vị kem mát lạnh, kết hợp với vị ngọt dịu của dâu và hương vani thơm mát, mang lại sự ngon miệng, sảng khoái cho người thưởng thức.\n" +
-                        "\t\t+ Kem Ốc Quế TH true ICE CREAM Sô Cô La Nguyên Chất: Sản phẩm được làm từ sữa tươi sạch nguyên chất của Trang trại TH cùng các nguyên liệu hoàn toàn tự nhiên. Sản phẩm có lớp kem sô cô la nguyên chất mềm mịn, được phủ sốt sô cô la cùng hạt đậu phộng thơm ngậy trên bề mặt, cuộn trong vỏ bánh ốc quế giòn tan bên ngoài.\n" +
-                        "\t\t+ Kem Ốc Quế Delight Sôcôla - Đậu Phộng 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn.", 5));
+                        "\t\t" +
+                        "Hương thơm hoa cỏ mang đến cảm giác thư giãn và tăng cường năng lượng\n" +
+                        "Chứa hợp chất ImuCalm Compound™ ngăn ngừa các tổn thương do căng thẳng cảm xúc.\n" +
+
+                        "\n" +
+                        "Thời gian sử dụng:\n" +
+                        "\n" +
+                        "\t\t" +
+                        "Khoảng 2 tháng (với liều lượng khuyên dùng)\n" +
+
+                        "\n" +
+                        "Kết cấu :\n" +
+                        "\n" +
+                        "\t\t" +
+                        "Kết cấu sánh mịn nhưng trong mướt dễ dàng thẩm thấu trên toàn bộ khuôn mặt và vùng da mắt.\n" +
+                        "Cảm giác mịn mượt như satin đọng lại trên da, như thể làn da được bảo vệ bởi một tấm màn vô hình.\n", 5));
+        cosmeticList.add(new Cosmetic(1, "Sữa rửa mặt SHISEIDO", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi1, null)),
+                "Rạng rỡ tinh tế. " +
+                        "\t\t Sữa rửa mặt có chứa Bột trắng siêu mịn và đất sét trắng để loại bỏ các tạp chất một cách hiệu quả. Giàu dưỡng chất. Bọt êm mịn. Loại bỏ các tế bào da xỉn màu ở bề mặt, các chất gây ô nhiễm và các chất bị ôxi hóa gây nên lão hóa. Được làm từ những nguyên liệu có khả năng dưỡng ẩm sâu, không gây khô da, củng cố khả năng bảo vệ từ bên trong.\n" +
+                        "\t\t Phù hợp cho mọi loại da.\n" +
+                        "\n\n- Cách dùng: sữa rửa mặt\n" +
+                        "\t\t + Thêm một it nước, tạo bọt trên sản phẩm"+
+                        "\t\t + Massage nhẹ nhàng toàn gương mặt"+
+                        "\t\t + Rửa mặt lại thật sạch bằng nước", 5));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ban ngày", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi2, null)),
+                "Kem dưỡng cao cấp ban ngày đa chức năng với kết cấu mịn mượt giàu ẩm giúp duy trì cảm giác ẩm mượt tối ưu suốt cả ngày. Công nghệ độc quyền của Shiseido kích thích Nhân tố bảo vệ da ban ngày để mang đến làn da rạng rỡ từ bên trong. Làn da được bảo vệ ngay cả khi bị tác động bởi những yếu tố gây hại như tia UV, môi trường khô, ôxi hóa và sự ô nhiễm. Có thể sử dụng dưới lớp trang điểm.:\n" +
+                        "\t\t Bảo vệ da với SPF 20.\n" +
+                        "\t\t+ Tổng quan:\n" +
+                        "\t\t  VẺ ĐẸP VƯỢT THỜI GIAN\n" +
+                        "10 NĂM TRÂN QUÝ VẺ ĐẸP.\n" +
+                        "10 NĂM KHÁM PHÁ RA BÁU VẬT CỦA NHẬT BẢN: THẢO DƯỢC ENMEI.\n" +
+                        "10 NĂM CỦNG CỐ VẺ ĐẸP VĨNH CỬU, LÀN DA ĐÀN HỒI VÀ TỎA SÁNG RỰC RỠ.\n" +
+                        "\t\t Thành phần chính:"+
+                        "\t\t  PHỨC HỢP SKINGENECELL ENMEI\n" +
+                        "Thảo dược từ xa xưa nay trở thành nguồn năng lượng sống mới cho làn da. Tìm thấy sâu trong rừng thiêng nơi ngọn núi Koya huyền bí, loài thảo mộc đã được các vị thiền sư sử dụng hàng thế kỷ nay. Các nghiên cứu hiện đại đã giúp chạm đến và khai thác sức mạnh chống lão hóa và duy trì vẻ đẹp vượt trội cùa loài thảo mộc huyền bí.\n" , 5));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng mắt", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi3, null)),
+                "Kem dưỡng mắt chuyên sâu, giảm rõ rệt quầng thâm mắt, cho vẻ ngoài trẻ trung đầy sức sống." +
+                        "\n\n  Thành phần chính:\n" +
+                        "\t\t+  WATER (AQUA)･DIMETHICONE･BUTYLENE GLYCOL･GLYCERIN･ALCOHOL･DIMETHICONE/VINYL DIMETHICONE CROSSPOLYMER･MYRISTYL MYRISTATE･PETROLATUM･HYDROGENATED POLYDECENE･BEHENYL ALCOHOL･CETYL ETHYLHEXANOATE･GLYCERYL STEARATE SE･POTASSIUM METHOXYSALICYLATE･POLYMETHYL METHACRYLATE･STEARYL ALCOHOL･DIMETHYLACRYLAMIDE/SODIUM ACRYLOYLDIMETHYLTAURATE CROSSPOLYMER･POLYSORBATE 60･PEG-40 STEARATE･TOCOPHERYL ACETATE･PHENOXYETHANOL･TITANIUM DIOXIDE (CI 77891)･FRAGRANCE (PARFUM)･SORBITAN TRISTEARATE･TRISODIUM EDTA･PEG-10 DIMETHICONE･SODIUM CITRATE･ORYZANOL･2-O-ETHYL ASCORBIC ACID･MICA･SILICA･XANTHAN GUM･SODIUM METAPHOSPHATE･LIMONENE･CITRIC ACID･PEG/PPG-14/7 DIMETHYL ETHER･ALUMINUM HYDROXIDE･BENZYL BENZOATE･HYDROXYISOHEXYL 3-CYCLOHEXENE CARBOXALDEHYDE･IRON OXIDES (CI 77491)･SODIUM HYALURONATE･LINALOOL･CRATAEGUS MONOGYNA FLOWER EXTRACT･TOCOPHEROL･\n" +
+                        "\n\n- Cách dùng: kem dưỡng mắt\n" +
+                        "\t\t + dàn trải một lượng nhỏ sản phẩm quanh vùng mắt."+
+                        "\t\t + Thoa đều khắp mi mắt và vùng da dưới mắt."+
+                        "\t\t + Massage nhẹ nhàng theo hướng từ gò mà lên.", 5));
+        cosmeticList.add(new Cosmetic(1, "Kem chống nắng dưỡng da", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi4, null)),
+                "huyển hóa một phần ánh nắng mặt trời thành ánh sáng sinh học với Công nghệ Sun Dual Care™. " +
+                        "\n\n Sản phẩm chống nắng đầu tiên giúp bảo vệ da khỏi tia UV, đồng thời, chuyển hóa một phần ánh sáng mặt trời thành ánh sáng có lợi, tối ưu hiệu quả chăm sóc da.\n" +
+                        "\t\t Phù hợp để dùng hằng ngày với kết cấu nhẹ tênh, không dầu, với thành phần các chất chống ôxi hóa và hyaluronic acid, sản phẩm giúp bảo vệ da khỏi các yếu tố ô nhiễm môi trường gây sạm hoặc khô da, để lại một làn da ẩm mịn, tươi sáng.\n" +
+                        "\t\t SPF 50.\n" +
+                        "\t\t Tinh chất Spirulina Energy Essence\n" +
+                        "Chuyển hóa một phần ánh nắng mặt trời thành ánh sáng có lợi\n" +
+                        "\t\t Ít bị rửa trôi\n" +
+                        "So sánh với các sản phẩm chống nắng\n" +
+                        "không kháng nước và công thức kháng nước lưu lại trên da\n" +
+                        "\t\t Không gây bết dính", 5));
+        cosmeticList.add(new Cosmetic(1, "Mặt nạ ban đêm", "Mặt nạ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi5, null)),
+                "Đánh thức giác quan của làn da. Toả sáng rạng rỡ từ bên trong." +
+                        "\t\t Ứng dụng khoa học hệ thần kinh của các giác quan trên làn da. Chất gel giàu dưỡng chất, êm ái trên da, áp dụng công nghệ ReNeura Technology+™ gửi các tín hiệu cảm biến bên trong làn da, giúp da phản ứng tối ưu đến hiệu quả chống lão hoá của sản phẩm. \n" +
+                        "\t\t Tập trung vào quá trình hoạt động ban đêm của làn da, kem dưỡng cung cấp dưỡng chất tràn đầy, giúp giải quyết các tổn thương xuất hiện ban ngày, ngay trong giấc ngủ của bạn. \n" +
+                        "\t\t Làm sáng rõ rệt, loại bỏ đốm nâu, làm đều màu da, và xoá những vết nhăn nhỏ. Giúp bạn toả sáng.\n", 5));
 
         // dữ liệu cửa hàng 1
         cosmeticList.add(new Cosmetic(1, "SRM Cerave dạng chai", "Sữa rửa mặt",
@@ -489,133 +502,95 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
 
-        // region Mon nuoc
-        cosmeticList.add(new Cosmetic(1, "Bánh canh", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhcanh, null)),
-                "Bánh canh là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam và miền Trung. Bánh canh bao gồm nước dùng được nấu từ tôm, cá và giò heo thêm gia vị tùy theo từng loại bánh canh1. Sợi bánh canh có thể được làm từ bột gạo, bột mì, bột năng hoặc bột sắn hoặc bột gạo pha bột sắn12. Bánh được làm từ bột được cán thành tấm và cắt ra thành sợi to và ngắn1. Gia vị cho bánh canh thay đổi tùy theo món bánh canh và tùy theo khẩu vị mỗi vùng1.\n" +
+        // region thebodyshop
+        cosmeticList.add(new Cosmetic(1, "Sữa Rửa Mặt ", "Sữa Rửa Mặt ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the, null)),
+                "oại bỏ tạp chất và bụi bẩn hiệu quả cùng Himalayan Charcoal Purifying Clay Wash 100% thuần chay, được chiết xuất từ than tre ở chân núi Himalayan kết hợp với đất sét cao lanh và dầu cây trà theo chương trình Thương Mại Cộng Đồng từ Kenya. \n" +
                         "\n" +
-                        "Có nhiều loại bánh canh khác nhau như:\n" +
+                        " Sữa rửa mặt tạo bọt có kết cấu đất sét mềm mượt, đủ dịu nhẹ cho mọi loại da, mang lại cho làn da cảm giác tươi mát, mềm mại mà không gây cảm giác khô ráp.\n" +
                         "\n" +
                         "\t\t+ Bánh canh cua: Với những miếng thịt cua đỏ tươi được xếp ở bên trên, khi ăn bạn sẽ cảm nhận được sự dai ngọt của thịt cua3.\n" +
-                        "\t\t+ Bánh canh ghẹ: Thơm ngọt của thịt ghẹ, làm tăng thêm hương vị cho nước dùng3.\n" +
-                        "\t\t+ Bánh canh chay: Phần nước dùng từ rau củ đậm đà ngọt thanh và cực kì bổ dưỡng3.\n" +
-                        "\t\t+ Bánh canh thịt bằm: Món ăn sáng phổ biến của nhiều gia đình3.\n" +
-                        "\t\t+ Bánh canh cá lóc: Nước dùng sóng sánh, thịt cá lóc thơm ngọt, dai dai mà lại không hề bị tanh", 6));
-        cosmeticList.add(new Cosmetic(1, "Bún mắm", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bunmam, null)),
-                "Bún mắm là một món ăn đặc trưng của Việt Nam, đặc biệt là miền Tây, với hương vị đậm đà và phong cách riêng biệt. Dưới đây là mô tả chi tiết về món ăn này:\n" +
+                        "\t\t+ Làm sạch và thanh lọc da và giúp thông thoáng lỗ chân lông.\n" +
+                        "\t\t+ Loại bỏ dầu thừa và làm mờ vết thâm.\n" +
+                        "\t\t+ Làm giàu dưỡng chất với than tre từ Himalayan, đất sét cao lanh, và dầu cây trà trong chương trình Thương Mại Cộng Đồng.\n" +
+                        "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Bơ Tẩy Trang ", "Tẩy Trang ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the1, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu chính: Bún mắm chủ yếu được làm từ cá lóc phi lê, thịt heo quay, mắm linh, sặc (mắm cá), tôm sú, dưa, cà tím, sả cay, sả bằm và nước thơm1.\n" +
-                        "\t\t+ Hương vị: Bún mắm có hương vị đậm đà từ nước lèo thơm nồng kết hợp với mùi nắm cá linh và cá sặc2. Món ăn này còn được bổ sung thêm hương vị từ các loại rau đặc trưng của miền Tây2.\n" +
-                        "\t\t+ Cách chế biến: Bún mắm được chế biến bằng cách hấp các nguyên liệu chính như cá lóc phi lê, thịt heo quay và tôm sú. Sau đó, các nguyên liệu này được kết hợp với nước lèo thơm nồng để tạo ra hương vị đặc trưng cho món ăn1.\n" +
-                        "\t\t+ Phục vụ: Bún mắm thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 9986 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Bún thái", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bun_thai, null)),
-                "Bún Thái là một món ăn đặc trưng của Thái Lan, với hương vị chua cay đặc trưng. Dưới đây là cách chế biến món Bún Thái:\n" +
+                        "\t\t- Làn da của bạn sẽ trở nên tươi tắn và hồng hào hơn nhờ loại bơ tẩy trang dưỡng da mới có tông màu má hồng tuyệt đẹp.\n" +
+                        "\t\t- Công thức bơ tẩy trang Camomile phiên bản giới hạn mới nhất của chúng tôi được làm giàu với dầu Rose de Mai quý giá từ Grasse, Pháp, sở hữu khả năng hòa tan lớp trang điểm trong vòng chưa đầy 30 giây. Nó phù hợp cho người đeo kính áp tròng và mọi loại da - thậm chí nhạy cảm. Để lại khuôn mặt của bạn cảm giác tươi mát và mềm mại như cánh hoa.\n" +
+                        "\t\t- Mùi hương hoa hồng ngọt ngào của sản phẩm không chỉ giúp bạn thư giãn sau một ngày dài mệt mỏi mà nó còn giúp cuốn trôi đi lớp make-up nặng nề trên da mặt.\n" +
+                        "\t\t- Hãy sở hữu loại sữa rửa mặt phiên bản giới hạn này bởi vì giống như mùa Rose de Mai, nó cực kỳ giới hạn về số lượng!\n" +
+                        "\t\t+ Bơ tẩy trang phiên bản giới hạn\n"+
+                        "\t\t+ Hương thơm hoa hồng Rose de Mai\n"+
+                        "\t\t+ Thích hợp cho da nhạy cảm và người đeo kính áp tròng\n"+
+                        "\t\t+ Được pha với dầu Rose de Mai từ Grasse, Pháp và dầu hoa cúc từ Norfolk, Anh\n"+
+                        "\t\t+ Tẩy sạch những lớp trang điểm cứng đầu nhất, kể cả lớp trang điểm không thấm nước\n"+
+                        "\t\t+ Làn da được nuôi dưỡng và mềm mượt\n"+
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n"+
+                        "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Kem Chống Nắng", "Kem chống nắng ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the2, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Bún Thái chủ yếu được làm từ thịt bò fillet mềm, râu mực, tôm sú tươi, nghêu to, rau muống, cà chua, nấm đông cô tươi, gừng cắt sợi, riềng cắt sợi và hành tím1.\n" +
-                        "\t\t+ Hương vị: Bún Thái có hương vị chua chua, cay cay đặc trưng của xứ Thái2. Hương vị này được tạo ra từ việc kết hợp các loại gia vị đặc trưng trong ẩm thực Thái2.\n" +
-                        "\t\t+ Cách chế biến: Bún Thái được chế biến bằng cách xào thơm các nguyên liệu như thịt bò, râu mực và tôm sú. Sau đó, các nguyên liệu này được kết hợp với nước dùng thơm nồng để tạo ra hương vị đặc trưng cho món ăn1.\n" +
-                        "\t\t+ Phục vụ: Bún Thái thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 21339 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Hoành thánh", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hoanhthanh, null)),
-                "Hoành thánh là một món ăn đặc trưng của Trung Quốc và đã trở nên phổ biến ở Việt Nam. Dưới đây là cách chế biến món hoành thánh:\n" +
+                        "\t\t- Kem chống nắng Skin Defence Multi-Protection Light Essence sẽ đáp ứng nhu cầu bảo vệ da hàng ngày của bạn - hãy hứa với chúng tôi rằng bạn sẽ không rời khỏi nhà mà chưa có nó.\n" +
+                        "\t\t- Tinh chất Skin Defence mới của chúng tôi là một công thức dưỡng ẩm siêu nhẹ, giúp bảo vệ làn da của bạn với độ bảo vệ SPF 50 PA +++. Tinh chất siêu lỏng này sử dụng các bộ lọc UVA/UVB phổ rộng được tối ưu hóa một cách thông minh để giúp bảo vệ da hàng ngày chống lại các tia UV gây hại, cũng như giúp bảo vệ khỏi ô nhiễm trong nhà và ngoài trời.\n" +
+                        "\t\t- Công thức hấp thụ nhanh, tạo cảm giác thoáng khí và thoải mái trên da. Sản phẩm không gây nhờn dính, không để lại vệt trắng trên da bạn. Da trông rạng rỡ hơn, đều màu và sẵn sàng để trang điểm.\n" +
+                        "\t\t+ Tinh chất dưỡng ẩm thoáng nhẹ, thẩm thấu nhanh\n"+
+                        "\t\t+ SPF 50 PA+++ với khả năng chống ô nhiễm trong nhà và ngoài trời\n"+
+                        "\t\t+ Bảo vệ da khỏi tia UVA / UVB\n"+
+                        "\t\t+ Không để lại cảm giác dính hoặc nhờn trên da\n"+
+                        "\t\t+ Lớp lót hoàn hảo trước khi trang điểm\n"+
+                        "\t\t+ Thích hợp cho da nhạy cảm\n"+
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n"+
+                        "\t\t+ Không gây mụn\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the3, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Hoành thánh chủ yếu được làm từ thịt nạc vai xay, thịt tôm xay, cà rốt, nấm hương, hành tây, tỏi, hành tím và hành lá1.\n" +
-                        "\t\t+ Hương vị: Hoành thánh có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Hoành thánh được chế biến bằng cách nặn từng viên hoành thánh rồi nấu trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hoành thánh thường được phục vụ nóng hổi cùng với nước dùng thanh mát1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 1 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu bò kho", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_bokho, null)),
-                "Hủ tiếu bò kho là một món ăn ngon, đậm đà được nhiều người yêu thích. Dưới đây là cách chế biến món hủ tiếu bò kho:\n" +
+                        "\t\t- Kem giữ ẩm dạng gel Seaweed Oil-Control Gel Cream giữ lại hơi nước, không dầu, không bịt kín chân lông, và thẩm thấu dễ dàng.\n" +
+                        "\t\t- Kem kiểm soát bã nhờn và độ bóng của da trong khi cung cấp độ ẩm cần thiết cho các vùng da có nhu cầu nhất, cân bằng da suốt cả ngày. Cho làn da tươi khỏe, sạch, mịn, và mềm mại, không bị bóng do dầu nhờn.\n" +
+                        "\t\t+ Phù hợp cho da dầu hoặc hỗn hợp thiên dầu\n"+
+                        "\t\t+ ảo biển giàu khoáng chất từ vịnh Roaring Water, Ireland\n"+
+                        "\t\t+ Cấu tạo dịu nhẹ\n"+
+                        "\t\t+ Cân bằng dầu và khô thoáng\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang", "Bông Tẩy Trang",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the4, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Hủ tiếu bò kho chủ yếu được làm từ thịt bò nạm, hủ tiếu, giá, màu dầu điều, hạt nêm, đường, muối, ớt bột, tiêu, bột gia vị bò kho, sả, ngò gai, hành lá, hành tím, hành tây, ớt, tỏi, quế, chanh1.\n" +
-                        "\t\t+ Hương vị: Hủ tiếu bò kho có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Hủ tiếu bò kho được chế biến bằng cách ướp thịt bò trong 30 phút với gia vị bò kho, màu dầu điều, đường, hạt nêm, tiêu, ớt bột và muối. Sau đó thịt được xào sơ trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hủ tiếu bò kho thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu nam vang", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_namvang, null)),
-                "Hủ tiếu Nam Vang là một món ăn đặc trưng của Việt Nam, với hương vị đậm đà và phong cách riêng biệt. Dưới đây là mô tả chi tiết về món ăn này:\n" +
+                        "\t\t- Bông Tẩy Trang hữu cơ của The Body Shop hoàn chỉnh với hai bề mặt không có lông tơ đáp ứng mọi nhu cầu làm đẹp của bạn.\n" +
+                        "\t\t- Một sản phẩm thiết yếu cần phải có trong mọi phòng tắm. Cho làn da tươi khỏe, sạch, mịn, và mềm mại, không bị bóng do dầu nhờn.\n" +
+                        "\t\t+ Hữu cơ\n"+
+                        "\t\t+ Hai mặt\n"+
+                        "\t\t+ Sử dụng với sữa rửa mặt hoặc toner\n"+
+                        "\t\t+ Hai bề mặt có kết cấu khác nhau cho kem dưỡng da hoặc chất lỏng\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Tẩy Tế Bào Chết ", "Tẩy Tế Bào Chết ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the5, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu chính: Hủ tiếu Nam Vang chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, trứng cút, tỏi, hành lá, cần tàu, xà lách, giá và hủ tiếu1.\n" +
-                        "\t\t+ Hương vị: Hủ tiếu Nam Vang có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Hủ tiếu Nam Vang được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hủ tiếu Nam Vang thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Bún thái", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bun_thai, null)),
-                "Bún Thái là một món ăn đặc trưng của Thái Lan, với hương vị chua cay đặc trưng. Dưới đây là cách chế biến món Bún Thái:\n" +
+                        "\t\t- Nhẹ nhàng xoa dịu cơ thể xinh đẹp trở nên mềm mại như lụa mà không để lại cảm giác da bị mất đi lớp dầu tự nhiên với sản phẩm Tẩy tế bào chết toàn thân Avocado của chúng tôi.\n" +
+                        "\t\t- Với 96% thành phần có nguồn gốc tự nhiên, bao gồm cả dầu bơ Hass có nguồn gốc bền vững từ Nam Phi, sản phẩm tẩy tế bào chết dạng kem và giàu dưỡng chất của chúng tôi sẽ loại bỏ các tế bào da chết mang lại cảm giác da mềm mại và mịn màng hơn.\n" +
+                        "\t\t- Sản phẩm tẩy da chết có mùi tươi mát này hiện được đóng gói trong bao bì có thể tái chế.\n"+
+                        "\n\n Điểm đặc biệt:\n"+
+                        "\t\t+ Tẩy tế bào chết ngậm nước cho cơ thể\n"+
+                        "\t\t+ Hoàn hảo cho da khô\n"+
+                        "\t\t+ Để lại làn da cảm giác mềm mại và mịn màng hơn\n"+
+                        "\t\t+ Mùi thơm tinh tế tươi mát và kem\n"+
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Lăn Khử Mùi", "Lăn Khử Mùi",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the6, null)),
+                "Cảm nhận hương thơm thơm mát với Maca Root & Aloe Fresh Kick Deodorant được chiết xuất từ rễ cây maca, dầu hạt cộng đồng Brazil và dầu hữu cơ trong chương trình Thương Mại Cộng Đồng.\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Bún Thái chủ yếu được làm từ thịt bò fillet mềm, râu mực, tôm sú tươi, nghêu to, rau muống, cà chua, nấm đông cô tươi, gừng cắt sợi, riềng cắt sợi và hành tím1.\n" +
-                        "\t\t+ Hương vị: Bún Thái có hương vị chua chua, cay cay đặc trưng của xứ Thái2. Hương vị này được tạo ra từ việc kết hợp các loại gia vị đặc trưng trong ẩm thực Thái2.\n" +
-                        "\t\t+ Cách chế biến: Bún Thái được chế biến bằng cách xào thơm các nguyên liệu như thịt bò, râu mực và tôm sú. Sau đó, các nguyên liệu này được kết hợp với nước dùng thơm nồng để tạo ra hương vị đặc trưng cho món ăn1.\n" +
-                        "\t\t+ Phục vụ: Bún Thái thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 21339 đánh giá1", 6));
-        cosmeticList.add(new Cosmetic(1, "Hoành thánh", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hoanhthanh, null)),
-                "Hoành thánh là một món ăn đặc trưng của Trung Quốc và đã trở nên phổ biến ở Việt Nam. Dưới đây là cách chế biến món hoành thánh:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Hoành thánh chủ yếu được làm từ thịt nạc vai xay, thịt tôm xay, cà rốt, nấm hương, hành tây, tỏi, hành tím và hành lá1.\n" +
-                        "\t\t+ Hương vị: Hoành thánh có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+  Cách chế biến: Hoành thánh được chế biến bằng cách nặn từng viên hoành thánh rồi nấu trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hoành thánh thường được phục vụ nóng hổi cùng với nước dùng thanh mát1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 1 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu bò kho", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_bokho, null)),
-                "Hủ tiếu bò kho là một món ăn ngon, đậm đà được nhiều người yêu thích. Dưới đây là cách chế biến món hủ tiếu bò kho:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Nguyên liệu: Hủ tiếu bò kho chủ yếu được làm từ thịt bò nạm, hủ tiếu, giá, màu dầu điều, hạt nêm, đường, muối, ớt bột, tiêu, bột gia vị bò kho, sả, ngò gai, hành lá, hành tím, hành tây, ớt, tỏi, quế, chanh1.\\n\" +\n" +
-                        "\"\\t\\t+ Hương vị: Hủ tiếu bò kho có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\\n\" +\n" +
-                        "\"\\t\\t+ Cách chế biến: Hủ tiếu bò kho được chế biến bằng cách ướp thịt bò trong 30 phút với gia vị bò kho, màu dầu điều, đường, hạt nêm, tiêu, ớt bột và muối. Sau đó thịt được xào sơ trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\\n\" +\n" +
-                        "\"\\t\\t+ Phục vụ: Hủ tiếu bò kho thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\\n\" +\n" +
-                        "\"\\t\\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu nam vang", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_namvang, null)),
-                "Hủ tiếu Nam Vang là một món ăn đặc trưng của Việt Nam, với hương vị đậm đà và phong cách riêng biệt. Dưới đây là mô tả chi tiết về món ăn này:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Nguyên liệu chính: Hủ tiếu Nam Vang chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, trứng cút, tỏi, hành lá, cần tàu, xà lách, giá và hủ tiếu1.\\n\" +\n" +
-                        "\"\\t\\t+ Hương vị: Hủ tiếu Nam Vang có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\\n\" +\n" +
-                        "\"\\t\\t+ Cách chế biến: Hủ tiếu Nam Vang được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\\n\" +\n" +
-                        "\"\\t\\t+ Phục vụ: Hủ tiếu Nam Vang thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\\n\" +\n" +
-                        "\"\\t\\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Mì vằn thắn", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.mi_vanthan, null)),
-                "Mì vằn thắn là một món ăn thơm ngon, bổ dưỡng và cực kỳ hấp dẫn. Dưới đây là cách chế biến món mì vằn thắn:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Mì vằn thắn chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, tôm khô, mì tươi, vỏ gói sủi cảo, bóng bì lợn, trứng gà, rau tần ô hoặc rau cải xanh123.\n" +
-                        "\t\t+ Hương vị: Mì vằn thắn có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài2.\n" +
-                        "\t\t+ Cách chế biến: Mì vằn thắn được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Mì vằn thắn thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng", 6));
-        cosmeticList.add(new Cosmetic(1, "Mì xá xíu", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.mi_xaxiu, null)),
-                "Mì Xá Xíu là một món ăn ngon và thường được ăn vào bữa sáng. Dưới đây là cách chế biến món Mì Xá Xíu:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Mì Xá Xíu chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, tôm khô, mì tươi, vỏ gói sủi cảo, bóng bì lợn, trứng gà, rau tần ô hoặc rau cải xanh12.\n" +
-                        "\t\t+ Hương vị: Mì Xá Xíu có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài3.\n" +
-                        "\t\t+ Cách chế biến: Mì Xá Xíu được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ3.\n" +
-                        "\t\t+ Phục vụ: Mì Xá Xíu thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị3.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng3", 6));
-        cosmeticList.add(new Cosmetic(1, "Nui", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.nui, null)),
-                "Nui là một loại mì Ý dạng ngắn, thường được sử dụng trong nhiều món ăn khác nhau. Dưới đây là một số cách chế biến nui:\n" +
-                        "\n" +
-                        "\t\t+ Nui xào hải sản: Món ăn này được làm từ rau mực cắt nhỏ, nui, tôm sú, sò điệp, thịt ngao, cà chua bằm, bắp hạt (Hà Lan), muối (tiêu, đường, ăn), cà chua hộp (bằm, tỏi bằm), và hạt Aji-ngon Heo1.\n" +
-                        "\t\t+ Nui Xào Lòng Gà: Món ăn này được làm từ lòng gà (mề, gan, tim), nui, hành lá (gia vị nem nem), và cải ngọt2.\n" +
-                        "\t\t+ Nui sốt cay kiểu Hàn: Món ăn này được làm từ nui khô, quả trứng cút, lá rong biển, cá cơm (khô), tôm khô, lá (hẹ), và gia vị (Siro bắp, đường, nước tương, dầu ăn, ớt bột Hàn Quốc, tương ớt Hàn Quốc)3", 6));
-        cosmeticList.add(new Cosmetic(1, "Phở bò", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.phobo, null)),
-                "Phở Bò là một món ăn quốc gia của Việt Nam, một món ăn mà nhiều người Việt yêu thích. Dưới đây là cách chế biến Phở Bò:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Phở Bò chủ yếu được làm từ xương cục (xương ống), thịt bò, hành khô, gừng, quế, hoa hồi, trái thảo (quả), muối, hạt nêm, nước mắm, chín (mì, bột ngọt), hành lá (rau mùi, ngò ri), bánh phở1.\n" +
-                        "\t\t+ Hương vị: Phở Bò có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Phở Bò được chế biến bằng cách nấu sôi các nguyên liệu như xương cục (xương ống), thịt bò trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Phở Bò thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng", 6));
+                        "\t\t+ Thanh khử mùi\n"+
+                        "\t\t+ Làm mới mùi hương\n"+
+                        "\t\t+ Chiết xuất từ rễ cây maca và dầu hạt từ Brazil, lô hội hữu cơ trong chương trình Thương mại Cộng đồng từ Mexico\n", 6));
 
         // region Tra sua
         cosmeticList.add(new Cosmetic(1, "Trà sữa dâu", "Trà sữa",
