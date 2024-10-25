@@ -30,7 +30,7 @@
         android:layout_marginTop="10dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/money_icon"
-        android:text="Đặt Đồ Ăn"
+        android:text="Đặt Mỹ Phẩm"
         android:textColor="@color/red"
         android:textSize="25dp"
         android:textStyle="bold"

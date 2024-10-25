@@ -347,77 +347,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t- Thoa lại sau mỗi 2 giờ hoặc sau khi bơi lội, ra mồ hôi\n" +
                         "\t\t- Tránh tiếp xúc trực tiếp với mắt\n", 1));
 
-<<<<<<< HEAD
-        // region Com suon
-        cosmeticList.add(new Cosmetic(1, "Sữa rửa mặt neutrogena", "Sữa rửa mặt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.anh_test, null)),
-                "Cơm sườn trứng là một món ăn truyền thống của Việt Nam, thường được phục vụ trong bữa ăn hàng ngày. Dưới đây là cách làm cơm sườn trứng tại nhà1:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 1kg sườn cốt lết\n" +
-                        "\t\t+ 400g thịt băm\n" +
-                        "\t\t+ 3 quả trứng gà\n" +
-                        "\t\t+ Hành tím, hành lá, hành tây, tỏi\n" +
-                        "\t\t+ Gia vị: Mật ong, sữa tươi không đường, sữa đặc, dầu hào, giấm ăn, dầu ăn, nước tương, nước mắm, đường, muối, hạt nêm, tiêu xay1\n" +
-                        "\nCách làm:\n" +
-                        "\n" +
-                        "\t\t+ Sơ chế sườn heo và ướp sườn: Rửa sạch sườn heo, sau đó dùng búa đập nhẹ nhàng lên 2 mặt thịt để thịt mềm và dễ ngấm gia vị hơn. Với sườn, bạn ướp sườn nướng như sau: 1 muỗng canh đường, 2 muỗng canh nước tương, 2 muỗng canh dầu hào, 2 muỗng canh nước mắm, 1 muỗng canh mật ong. Sau đó thêm vào 100ml sữa tươi không đường, 2 muỗng canh sữa đặc, 1 muỗng canh hành băm, 1 muỗng canh tỏi băm, 1 muỗng cà phê tiêu xay, ½ muỗng canh dầu ăn, ⅓ muỗng cà phê muối. Bạn trộn đều tất cả lên cùng thịt sườn. Sau đó cho phần thịt đã ướp vào hộp nhựa đậy nắp kín1.\n" +
-                        "\t\t+ Sơ chế các nguyên liệu khác: Hành tây thái mỏng. Gừng, tỏi, sả đập dập. Cà chua cắt hạt lựu. Cà rốt tỉa hoa1.\n" +
-                        "\t\t+ Pha nước mắm: Trong một cái chén nhỏ bạn cho vào: 3 muỗng canh nước mắm ngon (hoặc nước mắm chấm), sau đó cho tiếp vào chén: 2 muỗng canh dầu hào (hoặc dầu cá), tiếp theo là: 3 muỗng canh nước lọc (hoặc nước cốt dừa), cuối cùng bạn cho vào chén: 3 muỗng canh đường và khuấy đều1.\n" +
-                        "\t\t+ Nướng thịt: Bạn cho từ từ phần thịt đã được ướp vào chảo và để lửa vừa phải1.\n" +
-                        "\t\t+ Làm mỡ hành và tóp mỡ: Bạn cho từ từ phần thịt đã được ướp vào chảo và để lửa vừa phải1.\n" +
-                        "\t\t+ Chiên trứng: Bạn cho từ từ phần thịt đã được ướp vào chảo và để lửa vừa phải1.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn bì chả", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_bi_cha, null)),
-                "Cơm sườn bì chả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm cơm tấm (cơm gạo tấm), sườn heo nướng, bì (da heo giòn) và chả (thường là chả trứng hoặc chả hấp). " +
-                        "\n+ Cơm tấm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng. Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới. \n+ " +
-                        "\t\t+ Bì được làm từ da heo, thường được luộc và xắt nhỏ. Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người. \n+ " +
-                        "\t\t+ Món ăn thường được dùng kèm với nước mắm pha chua ngọt và rau sống. Cơm sườn bì chả là một món ăn ngon và bổ dưỡng, rất phù hợp cho bữa trưa hoặc bữa tối. \n+ " +
-                        "\t\t+ Chúc bạn thưởng thức ngon miệng! \uD83D\uDE0A", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn nướng", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_nuong, null)),
-                "Cơm sườn nướng ả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm:\n" +
-                        "\n" +
-                        "\t\t+ Cơm tấm: Cơm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng.\n" +
-                        "\t\t+ Sườn heo nướng: Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới.\n" +
-                        "\t\t+ Bì (da heo giòn): Bì được làm từ da heo, thường được luộc và xắt nhỏ.\n" +
-                        "\t\t+ Chả: Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn ram", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_ram, null)),
-                "Cơm sườn ram là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam. Món này bao gồm cơm trắng được phục vụ cùng với sườn heo đã được ướp với các loại gia vị và sau đó được ram cho tới khi chín tới. Dưới đây là một số công thức nấu Cơm sườn ram:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm món sườn ram: 6 công thức ram sườn ngon khỏi chê1: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, ớt, đường, bột nêm, bột ngọt, nước mắm, nước màu trong khoảng 20 phút. Sau đó, sườn được chiên trong chảo dầu nóng. Khi sườn chín, lửa được tăng lớn để sườn lên màu1.\n" +
-                        "\t\t+ Cách Làm Sườn Ram Mặn Ngọt Ngon Mềm, Đậm Đà Đưa Cơm2: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, tỏi, nước mắm, dầu hào, bột nêm, tiêu và nước hàng. Sau đó, sườn được chiên trong chảo dầu nóng. Khi miếng sườn đã rất mềm và thấm gia vị mặn ngọt đậm đà, thêm hành lá vào chảo và tắt bếp2.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn bì chả", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_bi_cha, null)),
-                "Cơm sườn bì chả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm cơm tấm (cơm gạo tấm), sườn heo nướng, bì (da heo giòn) và chả (thường là chả trứng hoặc chả hấp). \\n+ Cơm tấm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng. Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới. \\n+ \" +\n" +
-                        "\"Bì được làm từ da heo, thường được luộc và xắt nhỏ. Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người. \\n+ \" +\n" +
-                        "\"Món ăn thường được dùng kèm với nước mắm pha chua ngọt và rau sống. Cơm sườn bì chả là một món ăn ngon và bổ dưỡng, rất phù hợp cho bữa trưa hoặc bữa tối. \\n+ \" +\n" +
-                        "\"Chúc bạn thưởng thức ngon miệng! \\uD83D\\uDE0A", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn nướng", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_nuong, null)),
-                "Cơm sườn nướng ả là một món ăn truyền thống của người Việt, đặc biệt là ở miền Nam. Món này bao gồm:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Cơm tấm: Cơm được nấu từ gạo tấm, loại gạo vụn vỡ nhỏ, mang lại hương vị đặc trưng.\\n\" +\n" +
-                        "\"\\t\\t+ Sườn heo nướng: Sườn heo được ướp với các loại gia vị như nước mắm, đường, tỏi… sau đó được nướng cho tới khi chín tới.\\n\" +\n" +
-                        "\"\\t\\t+ Bì (da heo giòn): Bì được làm từ da heo, thường được luộc và xắt nhỏ.\\n\" +\n" +
-                        "\"\\t\\t+ Chả: Chả có thể là chả trứng hoặc chả hấp, tùy vào sở thích của từng người.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn ram", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_ram, null)),
-                "Cơm sườn ram là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam. Món này bao gồm cơm trắng được phục vụ cùng với sườn heo đã được ướp với các loại gia vị và sau đó được ram cho tới khi chín tới. Dưới đây là một số công thức nấu Cơm sườn ram:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Cách làm món sườn ram: 6 công thức ram sườn ngon khỏi chê1: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, ớt, đường, bột nêm, bột ngọt, nước mắm, nước màu trong khoảng 20 phút. Sau đó, sườn được chiên trong chảo dầu nóng. Khi sườn chín, lửa được tăng lớn để sườn lên màu1.\\n\" +\n" +
-                        "\"\\t\\t+ Cách Làm Sườn Ram Mặn Ngọt Ngon Mềm, Đậm Đà Đưa Cơm2: Công thức này giới thiệu cách làm sườn ram mặn ngọt. Sườn non được ướp với hành tím, tỏi, nước mắm, dầu hào, bột nêm, tiêu và nước hàng. Sau đó, sườn được chiên trong chảo dầu nóng. Khi miếng sườn đã rất mềm và thấm gia vị mặn ngọt đậm đà, thêm hành lá vào chảo và tắt bếp2.", 3));
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn xào chua ngọt", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_chuangot, null)),
-                "Cơm sườn xào chua ngọt là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam. Món này bao gồm cơm trắng được phục vụ cùng với sườn heo đã được ướp với các loại gia vị và sau đó được xào chung với nước sốt chua ngọt. Dưới đây là một số công thức nấu Cơm sườn xào chua ngọt:\n" +
-                        "\n" +
-                        "\t\t+ 6 Cách Làm Sườn Xào Chua Ngọt Đậm Đà, Hấp Dẫn, Ngon Đúng Điệu1: Công thức này giới thiệu cách làm sườn xào chua ngọt mặn ngọt. Sườn non được ướp với hành tím, ớt, đường, bột nêm, bột ngọt, nước mắm, nước màu trong khoảng 20 phút. Sau đó, sườn được chiên trong chảo dầu nóng. Khi sườn chín, lửa được tăng lớn để sườn lên màu1.\n" +
-                        "\t\t+ Cách làm sườn xào chua ngọt ngon bất bại, vô cùng đơn giản2: Công thức này giới thiệu cách làm sườn xào chua ngọt. Sườn non được ướp với hành tím, tỏi, nước mắm, dầu hào, bột nêm, tiêu và nước hàng. Sau đó, sườn được chiên trong chảo dầu nóng. Khi miếng sườn đã rất mềm và thấm gia vị mặn ngọt thì thêm hành lá vào chảo và tắt bếp2.\n" +
-                        "\t\t+ Cách làm sườn xào chua ngọt kiểu miền Nam vét sạch nồi cơm3: Công thức này hướng dẫn cách làm sườn xào chua ngọt theo kiểu miền Nam3.\n" +
-                        "\t\t+ Sườn xào chua ngọt cho bữa cơm ngon hấp dẫn mỗi ngày4: Công thức này hướng dẫn cách làm sườn xào chua ngọt4.", 3));
-=======
+
         // region Olay
         cosmeticList.add(new Cosmetic(1, "Tinh Chất Olay Chống Lão Hóa Chứa Chiết Xuât Retinol24 30ml", "Tinh chất",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic1, null)),
@@ -490,7 +420,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Da khô\n" +
                         "- Da xỉn màu\n" +
                         "- Lỗ chân lông to.", 4));
->>>>>>> f0a9aa5072ea137b3bd40541d7cac12957fccd61
 
 
         // region neutro

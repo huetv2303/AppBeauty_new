@@ -153,7 +153,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         if (orderDetail != null) {
             orderDetail.setQuantity(orderDetail.getQuantity() + quantity);
             if (dao.updateQuantity(orderDetail)) {
-                Toast.makeText(this, getResources().getString(R.string.add_product_successfully), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_cosmetic_successfully), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, getResources().getString(R.string.add_error), Toast.LENGTH_SHORT).show();
             }
@@ -163,7 +163,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
                     cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), cosmeticSize.getPrice(), quantity));
 
             if (addOrderDetail) {
-                Toast.makeText(this, getResources().getString(R.string.add_product_successfully), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_cosmetic_successfully), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, getResources().getString(R.string.add_error), Toast.LENGTH_SHORT).show();
             }
@@ -175,7 +175,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
     private void saveCosmetic() {
         boolean addCosmeticSaved = dao.addCosmeticSaved(new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID));
         if (addCosmeticSaved) {
-            Toast.makeText(this, getResources().getString(R.string.SAVED_Product), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.SAVED_COSMETIC), Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, getResources().getString(R.string.INFORMATION_EXISTED), Toast.LENGTH_SHORT).show();
         }
