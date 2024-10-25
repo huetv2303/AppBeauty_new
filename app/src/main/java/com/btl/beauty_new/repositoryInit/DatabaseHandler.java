@@ -426,8 +426,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Bánh Su kem (Choux à la Crème) – Demo & Một số lưu ý khi làm Choux3: Công thức này hướng dẫn cách làm bánh su kem theo công thức như thế nào ngon nhất", 4));
 
         // region Com suon
-        cosmeticList.add(new Cosmetic(1, "Cơm sườn trứng", "Cơm sườn",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.comsuon_trung, null)),
+        cosmeticList.add(new Cosmetic(1, "Sữa rửa mặt neutrogena", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.anh_test, null)),
                 "Cơm sườn trứng là một món ăn truyền thống của Việt Nam, thường được phục vụ trong bữa ăn hàng ngày. Dưới đây là cách làm cơm sườn trứng tại nhà1:\n" +
                         "\n" +
                         "Nguyên liệu:\n" +
