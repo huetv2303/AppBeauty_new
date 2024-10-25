@@ -89,6 +89,33 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(storeAdapter);
 
 
+
+
+//        rootView.findViewById(R.id.imageCart).setOnClickListener(v -> {
+//            intent = new Intent(getActivity(), HomeActivity.class);
+//            intent.putExtra("request", "cart");
+//            startActivity(intent);
+//        });
+//
+//        rootView.findViewById(R.id.imageNotify).setOnClickListener(v -> {
+//            intent = new Intent(getActivity(), HomeActivity.class);
+//            intent.putExtra("request", "hint");
+//            startActivity(intent);
+//        });
+//
+//        rootView.findViewById(R.id.imageLogout).setOnClickListener(view -> {
+//            AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+//            dialog.setMessage("Bạn có muốn đăng xuất tài khoản ?");
+//            dialog.setPositiveButton("Có", (dialogInterface, i) -> {
+//                Toast.makeText(this.getActivity(), "Đã đăng xuất khỏi hệ thống!", Toast.LENGTH_SHORT).show();
+//                requireActivity().finish();
+//                startActivity(new Intent(getActivity(), SignInActivity.class));
+//            });
+//            dialog.setNegativeButton("Không", (dialogInterface, i) -> {
+//            });
+//            dialog.show();
+//        });
+
         SearchView searchBar = rootView.findViewById(R.id.search_bar);
 
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

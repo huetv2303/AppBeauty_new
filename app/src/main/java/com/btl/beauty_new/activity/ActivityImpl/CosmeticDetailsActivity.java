@@ -1,5 +1,6 @@
 package com.btl.beauty_new.activity.ActivityImpl;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -53,6 +54,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         LoadData();
     }
 
+    @NonNull
     private String getRoundPrice(Double price) {
         return Math.round(price) + " VNĐ";
     }
@@ -151,7 +153,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         if (orderDetail != null) {
             orderDetail.setQuantity(orderDetail.getQuantity() + quantity);
             if (dao.updateQuantity(orderDetail)) {
-                Toast.makeText(this, getResources().getString(R.string.add_dish_successfully), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_product_successfully), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, getResources().getString(R.string.add_error), Toast.LENGTH_SHORT).show();
             }
@@ -161,7 +163,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
                     cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), cosmeticSize.getPrice(), quantity));
 
             if (addOrderDetail) {
-                Toast.makeText(this, getResources().getString(R.string.add_dish_successfully), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.add_product_successfully), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, getResources().getString(R.string.add_error), Toast.LENGTH_SHORT).show();
             }
@@ -169,11 +171,11 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
     }
 
 
-    // lưu lại thông tin món ăn
+    // lưu lại thông tin sản phẩm
     private void saveCosmetic() {
         boolean addCosmeticSaved = dao.addCosmeticSaved(new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID));
         if (addCosmeticSaved) {
-            Toast.makeText(this, getResources().getString(R.string.SAVED_DISHED), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.SAVED_Product), Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, getResources().getString(R.string.INFORMATION_EXISTED), Toast.LENGTH_SHORT).show();
         }

@@ -134,159 +134,196 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // region cosmetic
         cosmeticList = new ArrayList<>();
-        // region Kem
-        cosmeticList.add(new Cosmetic(1, "Kem hộp đậu đỏ", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemhop_daudo, null)),
-                "Kem hộp đậu đỏ là một món tráng miệng ngon và mát lạnh, rất thích hợp cho những ngày hè nóng bức. Dưới đây là cách làm kem hộp đậu đỏ tại nhà:\n" +
+        // region Shiseido
+        cosmeticList.add(new Cosmetic(1, "Tinh chất dưỡng da", "Dưỡng da",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi, null)),
+                "Serum ULTIMUNE đoạt nhiều giải thưởng, giúp củng cố hàng rào bảo vệ da mạnh mẽ, phục hồi độ đàn hồi của da. Trải nghiệm sự rạng rỡ, mịn màng và đàn hồi, cho làn da Khỏe khoắn, Tươi trẻ:\n" +
                         "\n" +
-                        "Nguyên liệu:\n" +
+                        "Loại da:\n" +
                         "\n" +
-                        "\t\t+ 250g đậu đỏ1\n" +
-                        "\t\t+ 35ml sữa tươi1\n" +
-                        "\t\t+ 150g đường nâu1\n" +
-                        "\t\t+ 1/4 muỗng cà phê muối1\n" +
-                        "\t\t+ 1/2 muỗng cà phê mật ong1\n" +
-                        "\t\t+ 40g sữa đặc1\n" +
-                        "\nCách làm:\n" +
-                        "\n" +
-                        "\t\t+ Đậu đỏ vo sạch, sau đó ngâm nước 5-6 tiếng cho đỗ nở mềm1.\n" +
-                        "\t\t+ Cho đỗ vào nồi, sau đó cho nước ngập mặt đỗ (cỡ 1 đốt ngón tay). Bật bếp và không cần đậy nắp nồi, nấu cho tới khi đỗ chín mềm và nước cũng rút cạn thì tắt bếp1.\n" +
-                        "\t\t+ Khi thấy đậu chín mềm thì cho thêm 100g đường vào, khuấy đều. Khi đậu đã chín, bạn vớt ra để nguội1.\n" +
-                        "\t\t+ Lấy 2/3 phần đậu vừa nấu vào máy sinh tố, để nguội bớt thì thêm sữa tươi, sữa đặc vào và xay nhuyễn2.\n" +
-                        "\t\t+ Cho hỗn hợp vừa xay vào khuôn kem đã chuẩn bị sẵn2.\n" +
-                        "\t\t+ Giờ thì cùng cho vào ngăn đông của tủ lạnh, bạn để khoảng 7-8 giờ là có thể thưởng thức món kem thơm ngon, mát lạnh này rồi2.", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem hộp sữa dừa", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemhop_suadua, null)),
-                "Kem hộp sữa dừa là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của sữa dừa. \n\n- Dưới đây là một số thông tin về các loại kem hộp sữa dừa phổ biến:\n" +
-                        "\t\t+ Kem hộp sữa dừa Merino 900ml: Sản phẩm này kết hợp độc đáo giữa sầu riêng tự nhiên và sữa dừa mềm béo thơm bùi khó cưỡng, vị ngon hoàn hảo1. Giá bán tại Bách hóa XANH khoảng 84.000 VND.\n" +
-                        "\t\t+ Kem ly sữa dừa Merino 53g: Giá bán khoảng 13.000 VND, kem vẫn giữ nguyên nét thơm ngon đặc trưng truyền thống, cực hợp khẩu vị của người Việt, mang đến hương vị độc đáo cực ngon miệng.\n" +
-                        "\t\t+ Hộp sữa dừa 450ml - Kem Merino: Kem hộp Merino thơm ngon với các hương vị truyền thống quen thuộc luôn là món tráng miệng tuyệt vời cho cả gia đình.", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ốc quế vani", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_vani, null)),
-                "Kem ốc quế vani là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của vani. \n\n- Dưới đây là một số thông tin về các loại kem ốc quế vani phổ biến:\n" +
-                        "\t\t+ Kem ốc quế vani socola Celano 110ml: Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sô cô la ngọt ngào, vừa đậm đà đầy kích thích1. Giá bán tại Bách hóa XANH khoảng 20.500 VND1.\n" +
-                        "\t\t+ Kem Ốc Quế Crunchy Classic Vani 70g: Sản phẩm này có vị vani hấp dẫn cùng phần ốc quế làm từ bánh quy giòn thơm hòa quyện với cái lạnh mát của kem mang lại bạn sự ngọt ngào khó tả không thể bỏ qua2. Giá bán khoảng 19.000 VND2.\n" +
-                        "\t\t+ Kem ốc quế Merino Superteen vị vani socola 60g: Sản phẩm này được sản xuất từ nguồn nguyên liệu tươi ngon, đảm bảo chất lượng. Vị kem mát lạnh, kết hợp với vị ngọt dịu của dâu và hương vani thơm mát, mang lại sự ngon miệng, sảng khoái cho người thưởng thức3.\n" +
-                        "\t\t+ Kem vani socola Merino Super Teen cây 60g: Sản phẩm này là dạng kem cây ốc quế vô cùng thơm ngon và tiện dụng với hương vị vani socola hòa quyện độc đáo4.", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ôc quế dâu", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_dau, null)),
-                "Kem ốc quế dâu là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của dâu. \n\n-  Dưới đây là một số thông tin về các loại kem ốc quế dâu phổ biến:\n" +
-                        "\t\t+ Kem ốc quế dâu Celano Extra cây 125ml (73g): Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sữa kem béo nhẹ & mứt dâu1. Giá bán tại Bách hóa XANH khoảng 24.000 VND1.\n" +
-                        "\t\t+ Kem ốc quế vani dâu Celano cây 66g: Sản phẩm này có vị thơm ngon khó cưỡng, giúp hạ nhiệt, giải khát vô cùng hiệu quả cho các ngày nắng nóng2. Giá bán khoảng 20.000 VND2.\n" +
-                        "\t\t+ Kem Ốc Quế Delight Dâu - Nam Việt Quất 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn, thơm lừng mang đến cho bạn cảm giác thật mát lạnh & ngon khó cưỡng ngay từ miếng cắn đầu tiên3", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ốc quế socola", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_socola, null)),
-                "Kem ốc quế socola là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của socola. \n\n- Dưới đây là một số thông tin về các loại kem ốc quế socola phổ biến:\n" +
-                        "\t\t+ Kem ốc quế socola King’s cây 80g: Sản phẩm này với các nguyên liệu tự nhiên cao cấp, không sử dụng các hóa chất độc hại. Kem ốc quế socola King’s cây 80g vị socola đậm đà với thiết kế ấn tượng, bắt mắt, hương vị thơm béo càng làm cho sản phẩm thêm phần hấp dẫn1.\n" +
-                        "\t\t+ Kem ốc quế socola extra Celano cây 75g: Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sô cô la extra đầy độc đáo, béo thơm, vừa đậm đà đầy kích thích2.\n" +
-                        "\t\t+ Kem ốc quế Merino Superteen vị vani socola 60g: Sản phẩm này được sản xuất từ nguồn nguyên liệu tươi ngon, đảm bảo chất lượng. Vị kem mát lạnh, kết hợp với vị ngọt dịu của dâu và hương vani thơm mát, mang lại sự ngon miệng, sảng khoái cho người thưởng thức3.\n" +
-                        "\t\t+ Kem Ốc Quế TH true ICE CREAM Sô Cô La Nguyên Chất: Sản phẩm được làm từ sữa tươi sạch nguyên chất của Trang trại TH cùng các nguyên liệu hoàn toàn tự nhiên. Sản phẩm có lớp kem sô cô la nguyên chất mềm mịn, được phủ sốt sô cô la cùng hạt đậu phộng thơm ngậy trên bề mặt, cuộn trong vỏ bánh ốc quế giòn tan bên ngoài4.\n" +
-                        "\t\t+ Kem Ốc Quế Delight Sôcôla - Đậu Phộng 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ôc quế dâu", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_dau, null)),
-                "Kem ốc quế dâu là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của dâu. \\n\\n-  Dưới đây là một số thông tin về các loại kem ốc quế dâu phổ biến:\\n\" +\n" +
-                        "\"\\t\\t+ Kem ốc quế dâu Celano Extra cây 125ml (73g): Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sữa kem béo nhẹ & mứt dâu1. Giá bán tại Bách hóa XANH khoảng 24.000 VND1.\\n\" +\n" +
-                        "\"\\t\\t+ Kem ốc quế vani dâu Celano cây 66g: Sản phẩm này có vị thơm ngon khó cưỡng, giúp hạ nhiệt, giải khát vô cùng hiệu quả cho các ngày nắng nóng2. Giá bán khoảng 20.000 VND2.\\n\" +\n" +
-                        "\"\\t\\t+ Kem Ốc Quế Delight Dâu - Nam Việt Quất 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn, thơm lừng mang đến cho bạn cảm giác thật mát lạnh & ngon khó cưỡng ngay từ miếng cắn đầu tiên3", 5));
-        cosmeticList.add(new Cosmetic(1, "Kem ốc quế socola", "Kem",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.kemocque_socola, null)),
-                "Kem ốc quế socola là một loại kem thơm ngon, mềm mịn, có hương vị đặc trưng của socola. \n\n- Dưới đây là một số thông tin về các loại kem ốc quế socola phổ biến:\n" +
-                        "\t\t+ Kem ốc quế socola King’s cây 80g: Sản phẩm này với các nguyên liệu tự nhiên cao cấp, không sử dụng các hóa chất độc hại. Kem ốc quế socola King’s cây 80g vị socola đậm đà với thiết kế ấn tượng, bắt mắt, hương vị thơm béo càng làm cho sản phẩm thêm phần hấp dẫn.\n" +
-                        "\t\t+ Kem ốc quế socola extra Celano cây 75g: Sản phẩm này mang đến sự độc đáo, mới lạ với kem bánh giòn cùng vị sô cô la extra đầy độc đáo, béo thơm, vừa đậm đà đầy kích thích.\n" +
-                        "\t\t+ Kem ốc quế Merino Superteen vị vani socola 60g: Sản phẩm này được sản xuất từ nguồn nguyên liệu tươi ngon, đảm bảo chất lượng. Vị kem mát lạnh, kết hợp với vị ngọt dịu của dâu và hương vani thơm mát, mang lại sự ngon miệng, sảng khoái cho người thưởng thức.\n" +
-                        "\t\t+ Kem Ốc Quế TH true ICE CREAM Sô Cô La Nguyên Chất: Sản phẩm được làm từ sữa tươi sạch nguyên chất của Trang trại TH cùng các nguyên liệu hoàn toàn tự nhiên. Sản phẩm có lớp kem sô cô la nguyên chất mềm mịn, được phủ sốt sô cô la cùng hạt đậu phộng thơm ngậy trên bề mặt, cuộn trong vỏ bánh ốc quế giòn tan bên ngoài.\n" +
-                        "\t\t+ Kem Ốc Quế Delight Sôcôla - Đậu Phộng 110ml: Là sự hòa quyện độc đáo giữa vị béo kem sữa cùng những nguyên liệu thơm ngon, phủ bên trên chiếc bánh ốc quế giòn giòn.", 5));
+                        "\t\tTất cả loại da / Da dầu / Da hỗn hợp / Da khô\n" +
 
-        // region Banh mi
-        cosmeticList.add(new Cosmetic(1, "Bánh mì bò kho", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_bokho, null)),
-                "Bánh mì bò kho là một món ăn ngon và bổ dưỡng, thường được chế biến cho bữa ăn sáng. Dưới đây là cách nấu bánh mì bò kho1:\n" +
+                        "\nMùi hương:\n" +
                         "\n" +
-                        "Nguyên liệu:\n" +
+                        "\t\t" +
+                        "Hương thơm hoa cỏ mang đến cảm giác thư giãn và tăng cường năng lượng\n" +
+                        "Chứa hợp chất ImuCalm Compound™ ngăn ngừa các tổn thương do căng thẳng cảm xúc.\n" +
+
                         "\n" +
-                        "\t\t+ 1 kg thịt bắp bò hoặc thịt mông bò\n" +
-                        "\t\t+ 2 củ hành khô hoặc ½ củ hành tây\n" +
-                        "\t\t+ 1 trái cà chua\n" +
-                        "\t\t+ 1 mẩu gừng nhỏ\n" +
-                        "\t\t+ 5 tép tỏi\n" +
-                        "\t\t+ 3 cây sả\n" +
-                        "\t\t+ 2 hoa hồi\n" +
-                        "\t\t+ 1 thanh quế\n" +
-                        "\t\t+ 2 củ cà rốt\n" +
-                        "\t\t+ 1 thìa dầu màu điều\n" +
-                        "\t\t+ 1 thìa bột năng\n" +
-                        "\t\t+ Nước dừa tươi (nếu có)\n" +
-                        "\t\t+ Bánh mì: 2 cái1\n" +
-                        "\nCách làm:\n" +
+                        "Thời gian sử dụng:\n" +
                         "\n" +
-                        "\t\t+ Sơ chế thịt bò: Thịt bò vo sạch, sau đó ngâm nước khoảng 5-6 tiếng cho đỗ nở mềm1.\n" +
-                        "\t\t+ Nấu thịt bò: Cho thịt vào nồi, sau đó cho nước ngập mặt thịt (cỡ 1 đốt ngón tay). Bật bếp và không cần đậy nắp nồi, nấu cho tới khi thịt chín mềm và nước cũng rút cạn thì tắt bếp1.\n" +
-                        "\t\t+ Sơ chế các nguyên liệu khác: Hành tây thái mỏng. Gừng, tỏi, sả đập dập. Cà chua cắt hạt lựu. Cà rốt tỉa hoa, thái miếng vừa ăn. Hoa hồi, quế rang thơm. Hòa tan bột năng cùng một chút nước1.\n" +
-                        "\t\t+ Nấu bò kho: Phi thơm gừng, tỏi, sả với 1 thìa dầu màu điều. Cho thịt bò vào xào đến khi săn lại thì cho cà chua vào đảo đều tay. Cho nước dừa, nước lọc xâm xấp mặt thịt. Cho tiếp quế, hoa hồi vào nồi và đun sôi1.\n" +
-                        "\t\t+ Sau khoảng 30 phút thì vớt xác quế, hoa hồi, sả ra ngoài1.\n" +
-                        "\t\t+ Cho bột năng đã hòa tan vào và khuấy đều1.\n" +
-                        "\t\t+ Cuối cùng cho cà rốt, nêm nếm gia vị vừa ăn1.\n" +
-                        "\t\t+ Đun sôi thêm một lúc đến khi cà rốt chín thì tắt bếp1.", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì bơ tỏi", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_botoi, null)),
-                "Bánh mì bơ tỏi là một món ăn rất nhiều người yêu thích, không chỉ tiện lợi cho bữa sáng dinh dưỡng mà còn cực kỳ thích hợp cho những buổi tiệc nhỏ1. \n\n-  Dưới đây là một số công thức nấu bánh mì bơ tỏi:\n" +
-                        "\t\t+ Hướng Dẫn Cách Làm Bánh Mì Bơ Tỏi Siêu Ngon - Huongnghiepaau1: Công thức này giới thiệu cách làm bánh mì bơ tỏi kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh mì bơ tỏi giòn thơm nức mũi - Bách hóa XANH2: Công thức này hướng dẫn cách làm bánh mì bơ tỏi thơm ngon, giòn rụm đơn giản tại nhà2.\n" +
-                        "\t\t+ Cách làm bánh mì bơ tỏi bằng nồi chiên không dầu hấp dẫn3: Công thức này hướng dẫn cách làm bánh mì bơ tỏi với nồi chiên không dầu, giúp bạn có được chiếc bánh mì giòn rụm, thơm phức3.", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì chảo", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_chao, null)),
-                "Bánh mì chảo là một món ăn ngon và nhanh gọn, thích hợp cho bữa sáng. Dưới đây là cách làm bánh mì chảo pate, xúc xích, trứng1:\n" +
+                        "\t\t" +
+                        "Khoảng 2 tháng (với liều lượng khuyên dùng)\n" +
+
                         "\n" +
-                        "Nguyên liệu:\n" +
+                        "Kết cấu :\n" +
                         "\n" +
-                        "\t\t+ 2 muỗng canh dầu ăn\n" +
-                        "\t\t+ 1 muỗng canh tỏi băm\n" +
-                        "\t\t+ 2 trái cà chua cắt hạt lựu\n" +
-                        "\t\t+ 3 muỗng canh sốt cà chua\n" +
-                        "\t\t+ 1 muỗng cà phê muối\n" +
-                        "\t\t+ 1 muỗng cà phê đường\n" +
-                        "\t\t+ 1 muỗng cà phê tiêu\n" +
-                        "\t\t+ Bánh mì, pa tê, xúc xích, trứng gà (số lượng tùy thích)1\n" +
-                        "\nCách làm:\n" +
+                        "\t\t" +
+                        "Kết cấu sánh mịn nhưng trong mướt dễ dàng thẩm thấu trên toàn bộ khuôn mặt và vùng da mắt.\n" +
+                        "Cảm giác mịn mượt như satin đọng lại trên da, như thể làn da được bảo vệ bởi một tấm màn vô hình.\n", 5));
+        cosmeticList.add(new Cosmetic(1, "Sữa rửa mặt SHISEIDO", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi1, null)),
+                "Rạng rỡ tinh tế. " +
+                        "\t\t Sữa rửa mặt có chứa Bột trắng siêu mịn và đất sét trắng để loại bỏ các tạp chất một cách hiệu quả. Giàu dưỡng chất. Bọt êm mịn. Loại bỏ các tế bào da xỉn màu ở bề mặt, các chất gây ô nhiễm và các chất bị ôxi hóa gây nên lão hóa. Được làm từ những nguyên liệu có khả năng dưỡng ẩm sâu, không gây khô da, củng cố khả năng bảo vệ từ bên trong.\n" +
+                        "\t\t Phù hợp cho mọi loại da.\n" +
+                        "\n\n- Cách dùng: sữa rửa mặt\n" +
+                        "\t\t + Thêm một it nước, tạo bọt trên sản phẩm"+
+                        "\t\t + Massage nhẹ nhàng toàn gương mặt"+
+                        "\t\t + Rửa mặt lại thật sạch bằng nước", 5));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ban ngày", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi2, null)),
+                "Kem dưỡng cao cấp ban ngày đa chức năng với kết cấu mịn mượt giàu ẩm giúp duy trì cảm giác ẩm mượt tối ưu suốt cả ngày. Công nghệ độc quyền của Shiseido kích thích Nhân tố bảo vệ da ban ngày để mang đến làn da rạng rỡ từ bên trong. Làn da được bảo vệ ngay cả khi bị tác động bởi những yếu tố gây hại như tia UV, môi trường khô, ôxi hóa và sự ô nhiễm. Có thể sử dụng dưới lớp trang điểm.:\n" +
+                        "\t\t Bảo vệ da với SPF 20.\n" +
+                        "\t\t+ Tổng quan:\n" +
+                        "\t\t  VẺ ĐẸP VƯỢT THỜI GIAN\n" +
+                        "10 NĂM TRÂN QUÝ VẺ ĐẸP.\n" +
+                        "10 NĂM KHÁM PHÁ RA BÁU VẬT CỦA NHẬT BẢN: THẢO DƯỢC ENMEI.\n" +
+                        "10 NĂM CỦNG CỐ VẺ ĐẸP VĨNH CỬU, LÀN DA ĐÀN HỒI VÀ TỎA SÁNG RỰC RỠ.\n" +
+                        "\t\t Thành phần chính:"+
+                        "\t\t  PHỨC HỢP SKINGENECELL ENMEI\n" +
+                        "Thảo dược từ xa xưa nay trở thành nguồn năng lượng sống mới cho làn da. Tìm thấy sâu trong rừng thiêng nơi ngọn núi Koya huyền bí, loài thảo mộc đã được các vị thiền sư sử dụng hàng thế kỷ nay. Các nghiên cứu hiện đại đã giúp chạm đến và khai thác sức mạnh chống lão hóa và duy trì vẻ đẹp vượt trội cùa loài thảo mộc huyền bí.\n" , 5));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng mắt", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi3, null)),
+                "Kem dưỡng mắt chuyên sâu, giảm rõ rệt quầng thâm mắt, cho vẻ ngoài trẻ trung đầy sức sống." +
+                        "\n\n  Thành phần chính:\n" +
+                        "\t\t+  WATER (AQUA)･DIMETHICONE･BUTYLENE GLYCOL･GLYCERIN･ALCOHOL･DIMETHICONE/VINYL DIMETHICONE CROSSPOLYMER･MYRISTYL MYRISTATE･PETROLATUM･HYDROGENATED POLYDECENE･BEHENYL ALCOHOL･CETYL ETHYLHEXANOATE･GLYCERYL STEARATE SE･POTASSIUM METHOXYSALICYLATE･POLYMETHYL METHACRYLATE･STEARYL ALCOHOL･DIMETHYLACRYLAMIDE/SODIUM ACRYLOYLDIMETHYLTAURATE CROSSPOLYMER･POLYSORBATE 60･PEG-40 STEARATE･TOCOPHERYL ACETATE･PHENOXYETHANOL･TITANIUM DIOXIDE (CI 77891)･FRAGRANCE (PARFUM)･SORBITAN TRISTEARATE･TRISODIUM EDTA･PEG-10 DIMETHICONE･SODIUM CITRATE･ORYZANOL･2-O-ETHYL ASCORBIC ACID･MICA･SILICA･XANTHAN GUM･SODIUM METAPHOSPHATE･LIMONENE･CITRIC ACID･PEG/PPG-14/7 DIMETHYL ETHER･ALUMINUM HYDROXIDE･BENZYL BENZOATE･HYDROXYISOHEXYL 3-CYCLOHEXENE CARBOXALDEHYDE･IRON OXIDES (CI 77491)･SODIUM HYALURONATE･LINALOOL･CRATAEGUS MONOGYNA FLOWER EXTRACT･TOCOPHEROL･\n" +
+                        "\n\n- Cách dùng: kem dưỡng mắt\n" +
+                        "\t\t + dàn trải một lượng nhỏ sản phẩm quanh vùng mắt."+
+                        "\t\t + Thoa đều khắp mi mắt và vùng da dưới mắt."+
+                        "\t\t + Massage nhẹ nhàng theo hướng từ gò mà lên.", 5));
+        cosmeticList.add(new Cosmetic(1, "Kem chống nắng dưỡng da", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi4, null)),
+                "huyển hóa một phần ánh nắng mặt trời thành ánh sáng sinh học với Công nghệ Sun Dual Care™. " +
+                        "\n\n Sản phẩm chống nắng đầu tiên giúp bảo vệ da khỏi tia UV, đồng thời, chuyển hóa một phần ánh sáng mặt trời thành ánh sáng có lợi, tối ưu hiệu quả chăm sóc da.\n" +
+                        "\t\t Phù hợp để dùng hằng ngày với kết cấu nhẹ tênh, không dầu, với thành phần các chất chống ôxi hóa và hyaluronic acid, sản phẩm giúp bảo vệ da khỏi các yếu tố ô nhiễm môi trường gây sạm hoặc khô da, để lại một làn da ẩm mịn, tươi sáng.\n" +
+                        "\t\t SPF 50.\n" +
+                        "\t\t Tinh chất Spirulina Energy Essence\n" +
+                        "Chuyển hóa một phần ánh nắng mặt trời thành ánh sáng có lợi\n" +
+                        "\t\t Ít bị rửa trôi\n" +
+                        "So sánh với các sản phẩm chống nắng\n" +
+                        "không kháng nước và công thức kháng nước lưu lại trên da\n" +
+                        "\t\t Không gây bết dính", 5));
+        cosmeticList.add(new Cosmetic(1, "Mặt nạ ban đêm", "Mặt nạ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi5, null)),
+                "Đánh thức giác quan của làn da. Toả sáng rạng rỡ từ bên trong." +
+                        "\t\t Ứng dụng khoa học hệ thần kinh của các giác quan trên làn da. Chất gel giàu dưỡng chất, êm ái trên da, áp dụng công nghệ ReNeura Technology+™ gửi các tín hiệu cảm biến bên trong làn da, giúp da phản ứng tối ưu đến hiệu quả chống lão hoá của sản phẩm. \n" +
+                        "\t\t Tập trung vào quá trình hoạt động ban đêm của làn da, kem dưỡng cung cấp dưỡng chất tràn đầy, giúp giải quyết các tổn thương xuất hiện ban ngày, ngay trong giấc ngủ của bạn. \n" +
+                        "\t\t Làm sáng rõ rệt, loại bỏ đốm nâu, làm đều màu da, và xoá những vết nhăn nhỏ. Giúp bạn toả sáng.\n", 5));
+
+        // dữ liệu cửa hàng 1
+        cosmeticList.add(new Cosmetic(1, "SRM Cerave dạng chai", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cerave1, null)),
+                "Sữa rửa mặt Cerave - sản phẩm hoàn hảo cho làn da dầu siêu nhạy cảm:\n" +
                         "\n" +
-                        "\t\t+ Làm sốt cà chua: Cho 1 muỗng canh dầu ăn vào nồi để phi tỏi cho thơm. Khi tỏi đã vàng thì cho cà chua cắt nhỏ và 3 muỗng canh sốt cà chua vào trộn đều, thêm chút nước và nêm với 1 muỗng cà phê muối, 1 muỗng cà phê đường và 1 muỗng cà phê tiêu rồi nấu cho đến khi cà chua nhừ là được1.\n" +
-                        "\t\t+ Làm bánh mì chảo: Làm nóng chảo rồi cho 1 muỗng canh dầu ăn vào, dầu ăn nóng thì cho xúc xích đã cắt đôi và 1 viên pa tê vào chiên cho xúc xích vàng. Khi xúc xích đã vàng thì đập trứng gà và hành tây cắt sợi vào. Cuối cùng múc nước sốt đã làm chan vào rồi cho 1 viên bơ lạt lên", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì hoa cúc", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_hoacuc, null)),
-                "Bánh mì chảo là một món ăn ngon được giới trẻ yêu thích và ngày càng trở nên phổ biến1. Hương vị hòa quyện giữa xúc xích, trứng, pate, thịt bò mềm… đắm chìm trong nước xốt đậm đà, sánh mịn thật khó quên khi đã thưởng thức qua 1 lần1. \n\n- Dưới đây là một số công thức nấu bánh mì chảo:\n" +
-                        "\t\t+ Cách làm bánh mì chảo pate, xúc xích1: Công thức này giới thiệu cách làm bánh mì chảo kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Tự Tay Làm Bánh Mì Chảo Cho Siêu Ngon Bữa Sáng Đầy Năng Lượng2: Công thức này hướng dẫn cách làm bánh mì chảo thơm ngon, giòn rụm đơn giản tại nhà2.\n" +
-                        "\t\t+ Bánh mì chảo cá hộp3: Bạn tìm 1 món ăn sáng chế biến nhanh nhưng cũng phải ngon miệng thì bánh mì chảo là món bạn đang tìm kiếm. Nguyên liệu dễ mua, thời gian thực hiện nhanh chóng và còn rất được lòng của mọi người3.\n" +
-                        "\t\t- 4 cách làm bánh mì chảo tại nhà thơm ngon cho bữa sáng4: Công thức này hướng dẫn cách làm bánh mì chảo theo công thức như thế nào ngon nhất. Vì thế, hôm nay Chef.vn sẽ hướng dẫn các bạn cách nấu bò kho bánh mì rất đơn giản mà lại dễ làm, quan trọng nhất là bạn phải biết mẹo để ướp thịt bò để món bò kho đậm đà thơm ngon mà không bị dai", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì hoa cúc", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_hoacuc, null)),
-                "Bánh mì hoa cúc, còn được gọi là Brioche, là một loại bánh mì có nguồn gốc từ Pháp. Với thành phần giàu bơ và trứng, bánh mì hoa cúc có một lớp vỏ mềm, ẩm và vàng sẫm. Khi nướng lên, bánh luôn có thớ mềm và xốp, hương vị vô cùng tuyệt vời1. \n\n- Dưới đây là một số công thức nấu bánh mì hoa cúc:\n" +
-                        "\t\t+ Cách Làm Bánh Mì Hoa Cúc Đơn Giản & Ngon Nhất1: Công thức này giới thiệu cách làm bánh mì hoa cúc kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh mì hoa cúc Harrys (đơn giản, nhồi bột dễ) [VIDEO]2: Công thức này hướng dẫn cách làm bánh mì hoa cúc theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh mì hoa cúc Harrys (đơn giản, nhồi bột dễ) [VIDEO] - Savoury Days2: Công thức này hướng dẫn cách làm bánh mì hoa cúc theo công thức như thế nào ngon nhất2", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì kẹp thịt", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_kepthit, null)),
-                "Bánh mì kẹp thịt là một món ăn truyền thống của người Việt, được nhiều người yêu thích và trở thành “siêu sao” ẩm thực không chỉ ở Việt Nam mà còn trên khắp thế giới1. \n\n- Dưới đây là một số công thức nấu bánh mì kẹp thịt:\n" +
-                        "\t\t+ Cách Làm Bánh Mì Kẹp Thịt Việt Nam Làm Mê Mẩn Thực Khách Thế Giới - Huongnghiepaau1: Công thức này giới thiệu cách làm bánh mì kẹp thịt kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm 4 món bánh mì kẹp siêu ngon và đơn giản - YummyDay2: Công thức này hướng dẫn cách làm bánh mì kẹp thơm ngon, giòn rụm đơn giản tại nhà2.\n" +
-                        "\t\t+ Bánh mì sandwich kẹp thịt nguội cho bữa sáng ngon lành3: Công thức này hướng dẫn cách làm bánh mì sandwich kẹp thịt nguội cho bữa sáng ngon lành3.\n" +
-                        "\t\t+ Top 10 loại nhân kẹp bánh mì thơm ngon, dinh dưỡng cho bữa sáng4: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất4.\n" +
-                        "\t\t+ Cách làm bánh mì kẹp thịt ngon không kém ngoài hàng5: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất5.", 1));
-        cosmeticList.add(new Cosmetic(1, "Bánh mì kẹp xúc xích", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhmi_kepxucxich, null)),
-                "Bánh mì kẹp xúc xích là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. \n\n- Dưới đây là một số công thức nấu bánh mì kẹp xúc xích:\n" +
-                        "\t\t+ Cách làm bánh mì kẹp trứng xúc xích cho bữa sáng ngon miệng!1: Công thức này giới thiệu cách làm bánh mì kẹp trứng xúc xích kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh mì kẹp trứng xúc xích CỰC NGON2: Công thức này hướng dẫn cách làm bánh mì kẹp trứng xúc xích thơm ngon hấp dẫn chi tiết2.\n" +
-                        "\t\t+ Cách làm bánh mì kẹp xúc xích NGON, RẺ, CỰC DỄ LÀM tại nhà3: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất3.\n" +
-                        "\t\t+ Bật mí cách làm bánh mì kẹp xúc xích đơn giản, chuẩn vị4: Công thức này hướng dẫn cách làm bánh mì kẹp theo công thức như thế nào ngon nhất4.", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger bò", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_bo, null)),
-                "Hamburger bò là một món ăn nhanh phổ biến của người phương Tây1. \n\n- Dưới đây là một số công thức nấu Hamburger bò:\n" +
-                        "\t\t+ Cách làm Hamburger bò cực đơn giản chỉ trong 3 bước - PasGo2: Công thức này giới thiệu cách làm Hamburger bò kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu2.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng1: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger heo", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_heo, null)),
+                        "Thành phần & công dụng chính:\n" +
+                        "\n" +
+                        "\t\tCeramides - giúp duy trì lớp màng bảo vệ da, giúp tăng dẻo dai, khỏe mạnh, chống tia cực tím cho da\n" +
+                        "\t\tHyaluoronic acid - tạo lớp dưỡng ẩm tự nhiên trên da, giúp dưỡng da mềm mịn và tránh tình trạng lão hóa sớm\n" +
+                        "\t\tNiacinamide - giúp da tự sản sinh thêm ceramides và các acid béo cần thiết để tự duy trì và phục hồi màng bảo vệ da, giúp hỗ trợ làm trắng da, phòng ngừa lão hóa và giảm mụn\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\n" +
+                        "\t\tLàm ẩm da với nước và cho một lượng sản phẩm vừa đủ ra lòng bàn tay. Thoa sản phẩm lên mặt nhẹ nhàng massage trong vòng 1 phút. Tránh tiếp xúc sản phẩm với mắt, nếu có, rửa kỹ lại với nước\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Cerave dạng chai nhỏ", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cerave2, null)),
+                "\n" +
+                        "Thành phần & công dụng chính:\n" +
+                        "\n" +
+                        "\t\tCeramides - giúp duy trì lớp màng bảo vệ da, giúp tăng dẻo dai, khỏe mạnh, chống tia cực tím cho da\n" +
+                        "\t\tHyaluoronic acid - tạo lớp dưỡng ẩm tự nhiên trên da, giúp dưỡng da mềm mịn và tránh tình trạng lão hóa sớm\n" +
+                        "\t\tNiacinamide - giúp da tự sản sinh thêm ceramides và các acid béo cần thiết để tự duy trì và phục hồi màng bảo vệ da, giúp hỗ trợ làm trắng da, phòng ngừa lão hóa và giảm mụn\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\n" +
+                        "\t\tLàm ẩm da với nước và cho một lượng sản phẩm vừa đủ ra lòng bàn tay. Thoa sản phẩm lên mặt nhẹ nhàng massage trong vòng 1 phút. Tránh tiếp xúc sản phẩm với mắt, nếu có, rửa kỹ lại với nước\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm Cerave", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cerave3, null)),
+                ":\n" +
+                        "Thành Phần:\n" +
+                        "\n" +
+                        "\t\tAqua/Water/Eau, Glycerin, Cetearyl Alcohol, Caprylic/Capric Triglyceride, Cetyl Alcohol, Ceteareth-20, Petrolatum , Potassium Phosphate," +
+                        " Ceramide Np, Ceramide Ap, Ceramide Eop, Carbomer, Dimethicone, Behentrimonium Methosulfate, Sodium Lauroyl Lactylate, Sodium Hyaluronate," +
+                        " Cholesterol, Phenoxyethanol, Disodium Edta, Dipotassium Phosphate, Tocopherol, Phytosphingosine, Xanthan Gum, Ethylhexylglycerin\n" +
+                        "\t\tCông dụng:\n" +
+                        "\t\tThích hợp cho da khô và rất khô sử dụng cho mặt và cơ thể\n" +
+                        "\t\tGiúp khôi phục và duy trì hàng rào bảo vệ tự nhiên của da\n" +
+                        "\t\tGiúp duy trì độ ẩm tự nhiên của da\n" +
+                        "\t\tKhông gây mụn, không có mùi thơm\n" +
+                        "\t\tĐược phát triển bởi các bác sĩ da liễu\n" +
+                        "\t\tĐỐI TƯỢNG SỬ DỤNG: Phù hợp với da khô, cần dưỡng ẩm\n" +
+                        "\nHướng dấn sử dụng:\n" +
+                        "\t\tSử dụng ngày 2 lần sáng và tối", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Cetaphil", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cetaphil1, null)),
+                ":\n" +
+                        "Thành Phần:\n" +
+                        "\n" +
+                        "\t\tCetyl Alcohol và Stearyl Alcohol: Là hai loại cồn béo có tác dụng làm mềm da và cải thiện độ đàn hồi cho da rất tốt. Cetyl Alcohol và Stearyl Alcohol đều rất lành tính với da nên được sử dụng rất phổ biến trong các sản phẩm dưỡng da.\n" +
+                        "\t\tSodium Lauryl Sulfate: Có công dụng làm sạch nhẹ nhàng các bụi bẩn, bã nhờn dư thừa và lớp trang điểm còn sót lại, giúp da luôn khô thoáng và sạch sẽ.\n" +
+                        "\t\tPropylene Glycol: Là thành phần ngăn sự thoát hơi nước trên bề mặt da, có công dụng hydrat hóa và cung cấp độ ẩm cho da.\n" +
+                        "\t\tĐặc biệt, sữa rửa mặt không chứa xà phòng, không chứa hương liệu và các chất bảo quản nên đảm bảo an toàn cho da và không gây kích ứng cho da, dù là da nhạy cảm.\n" +
+                        "\nHướng dấn sử dụng:\n" +
+                        "\t\tDùng ướt:\n" +
+                        "\t\tĐầu tiên, làm ướt da mặt với nước\n" +
+                        "\t\tSau đó cho một lượng sản phẩm vừa đủ và thoa đều lên mặt, kết hợp thực hiện massage nhẹ nhàng trong khoảng 2 – 3 phút để thư giãn cũng như giúp loại bỏ bụi bẩn bám trên da một cách nhẹ nhàng.\n" +
+                        "\t\tCuối cùng, rửa sạch lại với nước và dùng khăn hoặc bông cotton nhẹ nhàng thấm khô nước trên mặt.\n" +
+                        "\t\tDùng khô:\n" +
+                        "\t\tCho sữa rửa mặt lên da và mát-xa nhẹ nhàng để hoà tan bụi bẩn, tạp chất.\n" +
+                        "\t\tDùng miếng vải mềm hoặc bông cotton để lau đi lượng sữa rửa mặt còn dư. Nhờ đó, trên da để lại trên làn da một màng sữa rửa mặt Cetaphil mỏng giữ cho da mềm và ẩm suốt cả ngày.\n" +
+                        "\t\t", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Bioderma 2024 lọ nhỏ mới", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio1, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER/EAU, SODIUM COCOAMPHOACETATE, SODIUM LAURETH SULFATE, METHYLPROPANEDIOL, DISODIUM EDTA, MANNITOL, " +
+                        "XYLITOL, RHAMNOSE, FRUCTOOLIGOSACCHARIDES, ZINC SULFATE, COPPER SULFATE, GINKGO BILOBA LEAF EXTRACT, PEG-90 GLYCERYL ISOSTEARATE, " +
+                        "LACTIC ACID , LAURETH-2, POTASSIUM SORBATE, SODIUM CHLORIDE, PROPYLENE GLYCOL, SODIUM HYDROXIDE, FRAGRANCE (PARFUM). [BI 418]\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t- Lấy một ít sản phẩm lên tay ướt đã rửa sạch và tạo bọt \n" +
+                        "\t\t- Massage nhẹ nhàng lên vùng da đã làm ướt rồi rửa lại thật sạch\n" +
+                        "\t\t- Lau khô nhẹ nhàng bằng khăn sạch\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Bioderma 2024 dạng chai mới", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio2, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER/EAU, SODIUM COCOAMPHOACETATE, SODIUM LAURETH SULFATE, METHYLPROPANEDIOL, DISODIUM EDTA, MANNITOL, " +
+                        "XYLITOL, RHAMNOSE, FRUCTOOLIGOSACCHARIDES, ZINC SULFATE, COPPER SULFATE, GINKGO BILOBA LEAF EXTRACT, PEG-90 GLYCERYL ISOSTEARATE, " +
+                        "LACTIC ACID , LAURETH-2, POTASSIUM SORBATE, SODIUM CHLORIDE, PROPYLENE GLYCOL, SODIUM HYDROXIDE, FRAGRANCE (PARFUM). [BI 418]\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t- Lấy một ít sản phẩm lên tay ướt đã rửa sạch và tạo bọt \n" +
+                        "\t\t- Massage nhẹ nhàng lên vùng da đã làm ướt rồi rửa lại thật sạch\n" +
+                        "\t\t- Lau khô nhẹ nhàng bằng khăn sạch\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "Tẩy trang Bioderma", "Tẩy trang",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio3, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER/EAU, SODIUM COCOAMPHOACETATE, SODIUM LAURETH SULFATE, METHYLPROPANEDIOL, DISODIUM EDTA, MANNITOL, " +
+                        "XYLITOL, RHAMNOSE, FRUCTOOLIGOSACCHARIDES, ZINC SULFATE, COPPER SULFATE, GINKGO BILOBA LEAF EXTRACT, PEG-90 GLYCERYL ISOSTEARATE, " +
+                        "LACTIC ACID , LAURETH-2, POTASSIUM SORBATE, SODIUM CHLORIDE, PROPYLENE GLYCOL, SODIUM HYDROXIDE, FRAGRANCE (PARFUM). [BI 418]\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t1. Làm ướt bông tẩy trang với dung dịch Sensibio H20 \n" +
+                        "\t\t2. Nhẹ nhàng làm sạch vùng mặt và mắt\n" +
+                        "\t\t3. Thực hiện lại thao tác trên cho đến khi không thấy bám bẩn trên bông tẩy trang\n" +
+                        "\t\t4. Không cần rửa lại với nước\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM Bioderma 2023 cũ", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_bio4, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA/WATER, SODIUM LAURETH SULFATE, PEG-8, COCO-BETAINE, HEXYLENE GLYCOL, ZINC PCA, SODIUM CHLORIDE, " +
+                        "CITRIC ACID, SODIUM HYDROXIDE, PHENOXYETHANOL, CAPRYLYL GLYCOL, SODIUM BENZOATE, PARFUM/FRAGRANCE.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\tDùng mỗi sáng và tối:\n" +
+                        "\t\t- Làm ướt da mặt bằng nước ấm\n" +
+                        "\t\t- Lấy một lượng sản phẩm vừa đủ ra lòng bàn tay\n" +
+                        "\t\t- Tạo bọt và mát-xa nhẹ nhàng lên mặt, tránh vùng mắt\n" +
+                        "\t\t- Rửa lại bằng nước sạch và lau khô\n", 1));
+
+        cosmeticList.add(new Cosmetic(1, "SRM La Roche-Posay 2024 mới", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_laroche1, null)),
                 "Dưới đây là cách làm Hamburger Heo Bò Nhà Làm1:\n" +
                         "\n" +
                         "Nguyên liệu:\n" +
@@ -307,124 +344,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Bỏ 2 phần thịt vào chảo tráng dầu chiên vàng đều 2 mặt khoảng 10p-15p. Vớt thịt ra cho hành tây vào xào sơ thêm ít đường và muối vào khi xào hành.\n" +
                         "\t\t+ Hành tây đã xào sơ cho vào chén cho 1 muỗng cafe giấm ăn, 2 muỗng cafe đường. Trộn đều.\n" +
                         "\t\t+ Trình bày: cắt vỏ bánh làm đôi. Cho sốt kewpie vào 1 bên vỏ bánh, sau đó cho lên đó 1 lớp rau củ, tiếp đến thêm 1 lớp thịt và 1 muỗng sốt hoisin lên trên, tiếp tục cho 1 lớp nấm lên trên1", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger bò", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_bo, null)),
-                "Hamburger bò là một món ăn nhanh phổ biến của người phương Tây1. \n\n- Dưới đây là một số công thức nấu Hamburger bò:\n" +
-                        "\t\t+ Cách làm Hamburger bò cực đơn giản chỉ trong 3 bước - PasGo2: Công thức này giới thiệu cách làm Hamburger bò kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu2.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng1: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger heo", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_heo, null)),
-                "Hamburger heo là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. \n\n- Dưới đây là một số công thức nấu Hamburger heo:\n" +
-                        "\t\t+ Cách làm Hamburger heo cực đơn giản chỉ trong 3 bước - PasGo1: Công thức này giới thiệu cách làm Hamburger heo kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng2: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
-        cosmeticList.add(new Cosmetic(1, "Hamburger gà", "Bánh mì",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.burger_ga, null)),
-                "Hamburger gà là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. \n\n- Dưới đây là một số công thức nấu Hamburger gà:\n" +
-                        "\t\t+ Cách làm Hamburger gà cực đơn giản chỉ trong 3 bước - PasGo1: Công thức này giới thiệu cách làm Hamburger gà kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ 3 cách làm hamburger bò kiểu Mỹ ngon như ngoài hàng2: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ 2 Cách Làm Hamburger Bò Cực Ngon Không Thể Bỏ Qua3: Công thức này hướng dẫn cách làm hamburger bò theo công thức như thế nào ngon nhất", 1));
 
-        // region Banh ngot
-        cosmeticList.add(new Cosmetic(1, "Bánh đậu xanh cốt dừa", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhdauxanh_cotdua, null)),
-                "Bánh đậu xanh cốt dừa là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh đậu xanh cốt dừa:\n" +
-                        "\n" +
-                        "Nguyên liệu:\n" +
-                        "\n" +
-                        "\t\t+ 200g đậu xanh không vỏ\n" +
-                        "\t\t+ 120g đường\n" +
-                        "\t\t+ Một chút muối\n" +
-                        "\t\t+ 1 thìa dầu ăn\n" +
-                        "\t\t+ 60ml nước cốt dừa1\n" +
-                        "\nCách làm:\n" +
-                        "\n" +
-                        "\t\t+ Đậu xanh vo sạch, sau đó ngâm nước 2-3 tiếng cho đỗ nở mềm1.\n" +
-                        "\t\t+ Cho đỗ, một chút muối vào nồi, sau đó cho nước ngập mặt đỗ (cỡ 1 đốt ngón tay). Bật bếp và không cần đậy nắp nồi, nấu cho tới khi đỗ chín mềm và nước cũng rút cạn thì tắt bếp1.\n" +
-                        "\t\t+ Cho đỗ vào máy xay sinh tố cùng với nước cốt dừa, xay cho hỗn hợp nhuyễn mịn1.\n" +
-                        "\t\t+ Đổ hỗn hợp vừa xay ra chảo chống dính và bật bếp nhỏ lửa, cho thêm đường, dầu ăn và trộn đều, xào như vậy cho tới khi bột đậu xanh khô ráo là tắt bếp1.\n" +
-                        "\t\t+ Chuẩn bị 1 chiếc khuôn vuông, sau đó lót màng bọc thực phẩm vào rồi lấy 1 lượng đậu xanh vừa đủ, trút vào khuôn và ấn đều 4 góc sao cho phẳng đều là được1.\n" +
-                        "\t\t+ Lấy bánh ra khỏi khuôn, bôi 1 lớp mỏng dầu ăn lên dao rồi cắt bánh thành các miếng vuông vừa nhỏ là xong rồi nhé! Những chiếc bánh nhỏ xinh lại bùi thơm vị đỗ xanh, béo ngậy nước cốt dừa, ngọt vừa phải, ăn không bị ngấy1.", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh matcha", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banh_matcha, null)),
-                "Bánh matcha là một loại bánh ngọt với hương vị đặc trưng từ bột trà xanh matcha. Dưới đây là một số cách làm bánh matcha phổ biến:\n" +
-                        "\n" +
-                        "Bánh bông lan matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: 100g bột mì, 50g bột bắp, 5g bột nở, 20g bột matcha, 3 quả trứng gà, 80g đường, 40g bơ nhạt, muối, vani1.\n" +
-                        "\t\t+ Cách chế biến: Đầu tiên, bạn cần tách lòng đỏ và lòng trắng trứng, sau đó đánh lòng đỏ với 40g đường và vani. Tiếp theo, hòa tan bơ và dầu ăn trong nước sôi. Khi hỗn hợp bơ còn ấm, bạn cho bột trà xanh vào và khuấy đều. Sau cùng, bạn trộn hỗn hợp bột mì, bột bắp và bột nở với nhau và cho vào hỗn hợp trà xanh. Tiếp tục thêm hỗn hợp lòng đỏ trứng ban đầu và trộn thật đều1.\n" +
-                        "\t\t+ Bánh mousse matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: Vài lát bánh bông lan matcha, 250g whipping cream, 5g bột trà xanh, 60g đường, 2 lá gelatine1.\n" +
-                        "\t\t+ Cách chế biến: Bạn cần phải kết hợp các nguyên liệu này để tạo ra một lớp mousse mềm mại và thơm ngon1.\n" +
-                        "\t\t+ Bánh tiramisu matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: Các nguyên liệu cần thiết cho loại bánh này gồm có matcha, kem mascarpone, và các loại nguyên liệu khác tùy thuộc vào cách bạn muốn làm1.\n" +
-                        "\t\t+ Cách chế biến: Bạn sẽ cần phải kết hợp các nguyên liệu này để tạo ra một lớp tiramisu mềm mại và thơm ngon1.\n" +
-                        "\t\t+ Bánh quy matcha1:\n" +
-                        "\n" +
-                        "\nNguyên liệu: Bạn sẽ cần có bột matcha, bột mì, và các nguyên liệu khác tùy thuộc vào cách bạn muốn làm1.\n" +
-                        "\t\t+ Cách chế biến: Bạn sẽ cần phải kết hợp các nguyên liệu này để tạo ra những chiếc bánh quy giòn và thơm ngon1.", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh sầu riêng", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banh_saurieng, null)),
-                "Bánh matcha là một loại bánh ngọt có hương vị đặc trưng của bột trà xanh matcha. Dưới đây là một số công thức làm bánh matcha:\n" +
-                        "\n" +
-                        "\t\t+ Bánh bông lan matcha: Bánh bông lan matcha có vị béo ngọt, đắng nhẹ của bột trà xanh và hương vị thơm ngon của trứng. Bánh bông lan matcha mềm mịn, thơm ngon chắc chắn sẽ làm các bé thích mê1.\n" +
-                        "\t\t+ Bánh mousse matcha: Bánh mousse matcha là sự kết hợp cực kỳ sáng tạo và mới lạ từ những nguyên liệu đơn giản. Bột trà xanh đắng nhẹ, thơm dịu kết hợp cùng whipping cream béo ngậy chắc chắn sẽ khiến cho những tâm hồn yêu đồ ngọt thích thú1.\n" +
-                        "\t\t+ Bánh Chocopie Orion Matcha Trà Xanh: Lớp bánh xốp mịn với sô cô la chảy ngọt ngào bên ngoài đến lớp nhân marshmallow vị matcha thanh hấp dẫn ở bên trong2.", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan cuộn", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_cuon, null)),
-                "Bánh bông lan cuộn là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan cuộn:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn đơn giản1: Công thức này giới thiệu cách làm bánh bông lan cuộn kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn Vanilla Cake Roll Recipe1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn kem tươi hoa quả2: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn hoa cúc1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh sầu riêng", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banh_saurieng, null)),
-                "Bánh sầu riêng là một loại bánh ngọt có hương vị đặc trưng của sầu riêng. Dưới đây là một số thông tin về các loại bánh sầu riêng phổ biến:\n" +
-                        "\n" +
-                        "\t\t+ Bánh Sầu Riêng TBT: Bánh được làm bằng sầu riêng Ri6 tươi nguyên chất, không sử dụng sầu kem sầu pha trộn. Vỏ bánh dai mềm mịn, không bị bột bở khi ăn. Lớp kem lạnh thơm béo, xen lẫn nhân sầu ngọt dịu1.\n" +
-                        "\t\t+ Bánh Sầu Riêng: Chuyên sỉ & lẻ bánh sầu riêng ngàn lớp, bánh crepe. Với phương châm luôn đặt chất lượng lên hàng đầu, chúng tôi tự hào mang đến những sản phẩm tốt nhất cho khách hàng2.\n" +
-                        "\t\t+ Bánh Sầu Riêng Chiên: Bánh Sầu Riêng Chiên giòn rụm thơm ngon tuyệt cú mèo3.\n" +
-                        "\t\t+ Bánh Trung Thu Nhân Sầu Riêng: Bánh Trung Thu Nhân Sầu Riêng thơm nức mũi4", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan cuộn", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_cuon, null)),
-                "Bánh bông lan cuộn là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan cuộn:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn đơn giản1: Công thức này giới thiệu cách làm bánh bông lan cuộn kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn Vanilla Cake Roll Recipe1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn kem tươi hoa quả2: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh bông lan cuộn hoa cúc1: Công thức này hướng dẫn cách làm bánh bông lan cuộn theo công thức như thế nào ngon nhất1", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan socola", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_socola, null)),
-                "Bánh bông lan socola là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan socola:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm Bánh Bông Lan Socola cực đơn giản chỉ trong 3 bước - PasGo1: Công thức này giới thiệu cách làm Bánh Bông Lan Socola kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách làm Bánh Bông Lan Socola Tươi | Chocolate Cake | Chị Mía2: Công thức này hướng dẫn cách làm Bánh Bông Lan Socola Tươi theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Cách làm bánh bông lan socola cực đơn giản (chocolate sponge cake …3: Công thức này hướng dẫn cách làm bánh bông lan socola theo công thức như thế nào ngon nhất3.\n" +
-                        "\t\t+ BÁNH BÔNG LAN SOCOLA – Công ty TNHH Đại Hiền Tâm4: Công thức này hướng dẫn cách làm bánh bông lan socola theo công thức như thế nào ngon nhất4", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan trứng muối", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_trungmuoi, null)),
-                "Bánh bông lan trứng muối là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan trứng muối:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan trứng muối (bằng nồi cơm điện hoặc lò nướng)1: Công thức này giới thiệu cách làm bánh bông lan trứng muối kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách Làm Bánh Bông Lan Trứng Muối Đơn Giản Tại Nhà2: Công thức này hướng dẫn cách làm bánh bông lan trứng muối theo công thức như thế nào ngon nhất", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh bông lan trứng muối", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhbonglan_trungmuoi, null)),
-                "Bánh bông lan trứng muối là một món ăn ngon và phổ biến, thường được dùng làm bữa sáng hoặc bữa ăn nhẹ. Dưới đây là một số công thức nấu Bánh bông lan trứng muối:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm bánh bông lan trứng muối (bằng nồi cơm điện hoặc lò nướng)1: Công thức này giới thiệu cách làm bánh bông lan trứng muối kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Cách Làm Bánh Bông Lan Trứng Muối Đơn Giản Tại Nhà2: Công thức này hướng dẫn cách làm bánh bông lan trứng muối theo công thức như thế nào ngon nhất", 4));
-        cosmeticList.add(new Cosmetic(1, "Bánh su kem", "Bánh ngọt",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhsukem, null)),
-                "Bánh su kem, còn được gọi là Choux à la crème, là một loại bánh ngọt có nguồn gốc từ nước Pháp. Bánh su kem có độ mềm dẻo, thơm ngậy đầy lôi cuốn1. Dưới đây là một số công thức nấu bánh su kem:\n" +
-                        "\n" +
-                        "\t\t+ Cách làm Bánh Su Kem (Choux à la crème) Ngon Béo Ngậy – bTaskee1: Công thức này giới thiệu cách làm bánh su kem kiểu mới làm món ăn “đổi gió” cho cả gia đình. Cách làm khá đơn giản và dễ dàng, bất cứ ai cũng có thể thành công ngay lần đầu1.\n" +
-                        "\t\t+ Làm Bánh Su Kem Với Công Thức Dễ Thành Công Ngay Lần Đầu | Choux Pastry Recipe | Chị Mía2: Công thức này hướng dẫn cách làm bánh su kem theo công thức như thế nào ngon nhất2.\n" +
-                        "\t\t+ Bánh Su kem (Choux à la Crème) – Demo & Một số lưu ý khi làm Choux3: Công thức này hướng dẫn cách làm bánh su kem theo công thức như thế nào ngon nhất", 4));
+        cosmeticList.add(new Cosmetic(1, "KCN La Roche-Posay", "Kem chống nắng",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_laroche2, null)),
+                "Thành phần:\n" +
+                        "\t\tAQUA / WATER, HOMOSALATE, ETHYLHEXYL SALICYLATE, SILICA, BIS-ETHYLHEXYLOXYPHENOL METHOXYPHENYL TRIAZINE, BUTYL METHOXYDIBENZOYLMETHANE, " +
+                        "C12-15 ALKYL BENZOATE, ETHYLHEXYL TRIAZONE, ALCOHOL DENAT., GLYCERIN, PROPANEDIOL, DIMETHICONE, OCTOCRYLENE, POTASSIUM CETYL PHOSPHATE, " +
+                        "PEG-8 LAURATE, TOCOPHEROL, CAPRYLYL GLYCOL, ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER, SODIUM HYDROXIDE, XANTHAN GUM, " +
+                        "DISODIUM EDTA, PARFUM / FRAGRANCE.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "\t\t- Lắc đều trước khi sử dụng\n" +
+                        "\t\t- Thoa đều lên da trước khi tiếp xúc với ánh nắng ít nhất 20 phút\n" +
+                        "\t\t- Thoa lại sau mỗi 2 giờ hoặc sau khi bơi lội, ra mồ hôi\n" +
+                        "\t\t- Tránh tiếp xúc trực tiếp với mắt\n", 1));
 
+<<<<<<< HEAD
         // region Com suon
         cosmeticList.add(new Cosmetic(1, "Sữa rửa mặt neutrogena", "Sữa rửa mặt",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.anh_test, null)),
@@ -494,134 +428,241 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Cách làm sườn xào chua ngọt ngon bất bại, vô cùng đơn giản2: Công thức này giới thiệu cách làm sườn xào chua ngọt. Sườn non được ướp với hành tím, tỏi, nước mắm, dầu hào, bột nêm, tiêu và nước hàng. Sau đó, sườn được chiên trong chảo dầu nóng. Khi miếng sườn đã rất mềm và thấm gia vị mặn ngọt thì thêm hành lá vào chảo và tắt bếp2.\n" +
                         "\t\t+ Cách làm sườn xào chua ngọt kiểu miền Nam vét sạch nồi cơm3: Công thức này hướng dẫn cách làm sườn xào chua ngọt theo kiểu miền Nam3.\n" +
                         "\t\t+ Sườn xào chua ngọt cho bữa cơm ngon hấp dẫn mỗi ngày4: Công thức này hướng dẫn cách làm sườn xào chua ngọt4.", 3));
+=======
+        // region Olay
+        cosmeticList.add(new Cosmetic(1, "Tinh Chất Olay Chống Lão Hóa Chứa Chiết Xuât Retinol24 30ml", "Tinh chất",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic1, null)),
+                "Serum OLAY RETINOL24: LIỆU TRÌNH TRẺ HÓA DA BAN ĐÊM, GIÚP MỜ NẾP NHĂN RÕ RỆT SAU 28 NGÀY\n" +
+                        "\nRetinol là một dẫn xuất của Vitamin A, có tác dụng trung hòa các gốc tự do, kích thích sản sinh collagen và tái tạo bề mặt da. Retinol giúp làm mờ thâm nám, cải thiện lỗ chân lông và mụn.\n" +
+                        "\nOlay Retinol24 kết hợp phức hợp độc quyền giữa Niacinamide, Retinol và Retinyl Propionate, giúp trẻ hóa da hiệu quả mà không gây kích ứng mạnh. Serum giúp mờ nếp nhăn, đều màu da, mờ đốm nâu, và tăng cường độ săn chắc cho da.\n" +
+                        "\nCông thức nhẹ nhàng, không chứa hương liệu và phẩm màu, thẩm thấu nhanh, không nhờn dính, đồng thời cấp ẩm cho da suốt 24 giờ.\n" +
+                        "\nHướng dẫn sử dụng:\n" +
+                        "- Sử dụng vào ban đêm.\n" +
+                        "- Lấy một lượng vừa đủ thoa đều lên mặt và cổ sau khi rửa mặt.\n" +
+                        "- Dùng hàng ngày để đạt hiệu quả tối ưu, thấy rõ sự cải thiện sau 28 ngày.", 4));
+        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm Ban Đêm Sáng Da OLAY LUMINOUS 50G", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic, null)),
+                "Cuộc sống bận rộn, năng động, khiến làn da của chúng ta dễ xuất hiện những dấu hiệu lão hóa: da sạm, không đều màu, thâm mụn, nếp nhăn, chảy xệ…\n" +
+                        "\nOlay - thương hiệu mỹ phẩm hàng đầu thế giới đến từ Mỹ, với công nghệ hiện đại và thành phần an toàn, giúp cải thiện rõ rệt các vấn đề về da, đồng thời phục hồi và làm chậm quá trình lão hóa.\n" +
+                        "\nOlay Luminous sử dụng phức hợp Niacinamide giúp thúc đẩy tái tạo bề mặt da, tăng sinh collagen và làm sáng đều màu da. Kết cấu kem mỏng nhẹ, thấm nhanh, nuôi dưỡng da từ sâu bên trong.\n" +
+                        "\nHướng dẫn sử dụng: Lấy một lượng vừa đủ thoa đều lên mặt và cổ, massage nhẹ nhàng. Dùng hàng ngày vào buổi tối sau khi rửa mặt.\n" +
+                        "\nXuất xứ thương hiệu: Mỹ\n" +
+                        "\nSản xuất tại: Thái Lan", 4));
+        cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang OLAY Vitamin C Sạch Sâu 80 miếng/hộp", "Tẩy trang",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic2, null)),
+                "Thiết kế theo Olay\n" +
+                        "\nKích thước: 6cm x 6cm\n" +
+                        "Số lượng: 80 miếng/hộp\n" +
+                        "Thành phần: 100% bông xơ tự nhiên\n" +
+                        "Hạn sử dụng: 3 năm kể từ ngày sản xuất\n" +
+                        "\nĐặc điểm:\n" +
+                        "- Bề mặt dập nổi hình tròn tăng khả năng loại bỏ bụi bẩn giúp vệ sinh da sạch hơn.\n" +
+                        "- 100% bông xơ tự nhiên mềm mại, an toàn, có khả năng tự hủy, thân thiện với môi trường.\n" +
+                        "- Công nghệ Spunlace xử lý màng bông bằng tia nước áp lực cao giúp bông mịn, dai, không bị xơ trên bề mặt.\n" +
+                        "- Đạt chứng nhận ISO 9001, ISO 13485, Hàng Việt Nam chất lượng cao, và các chứng nhận CE.", 4));
+        cosmeticList.add(new Cosmetic(1, "Sữa Rửa Mặt Ngày & Đêm", "Sữa rửa mặt",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic3, null)),
+                "OLAY Total Effects: Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa\n" +
+                        "\nOLAY Total Effects là thương hiệu chăm sóc da đại chúng đầu tiên giới thiệu thành phần Niacinamide (Vitamin B3), được chứng minh giúp tăng cường hàng rào bảo vệ da và phục hồi vẻ ngoài tươi trẻ hơn.\n" +
+                        "\nKem dưỡng OLAY Total Effects được cải tiến với 50% Vitamin E kết hợp cùng hệ dưỡng chất vitamin C, B5 và không chứa dầu, giúp phục hồi và làm chậm 7 dấu hiệu lão hóa da:\n" +
+                        "- Rãnh và nếp nhăn\n" +
+                        "- Da không đều màu\n" +
+                        "- Đốm đồi mồi\n" +
+                        "- Da kém săn chắc\n" +
+                        "- Da khô\n" +
+                        "- Da xỉn màu\n" +
+                        "- Lỗ chân lông to.", 4));
+        cosmeticList.add(new Cosmetic(1, "Combo 2: Serum Căng Mướt, Sáng Khỏe & Phục Hồi Dấu Hiệu Lão", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic4, null)),
+                "OLAY Regenerist: Dưỡng Da Căng Mướt, Sáng Khỏe & Phục Hồi Dấu Hiệu Lão Hóa\n" +
+                        "\nThành phần chính là Bioavailable Niacinamide, tính ổn định cao và khả năng thẩm thấu sâu vào 10 lớp biểu bì, giúp thúc đẩy quá trình thay mới tế bào da và ngăn chặn dịch chuyển của hắc sắc tố, giúp da tươi sáng, rạng rỡ.\n" +
+                        "\nKết hợp cùng hệ dưỡng chất cao cấp:\n" +
+                        "- Amino-Peptide (Pro-Collagen) giúp làm mờ nếp nhăn và săn chắc da\n" +
+                        "- Axit Hyaluronic (HA) giúp cấp ẩm mạnh mẽ\n" +
+                        "- Chiết xuất Carob hỗ trợ phục hồi tổn thương bề mặt da.",4));
+        cosmeticList.add(new Cosmetic(1, "Super Serum OLAY Luminous Niacinamide & Vitamin C ", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic5, null)),
+                "Super Serum OLAY Luminous Niacinamide + Vitamin C: Giúp Giảm 5 Năm Vết Thâm, Đốm Nâu Dài Dẳng\n" +
+                        "\nBạn có biết, những vết thâm, đốm nâu chỉ là bề nổi của tảng băng, được hình thành tích tụ dưới lớp biểu bì qua năm tháng?\n" +
+                        "\nRa mắt dòng sản phẩm OLAY Luminous Niacinamide + Vitamin C MỚI! Với phức hợp Bioavailable^ Vitamin C gồm Niacinamide & Vitamin C, sản phẩm không chỉ tác động trên bề mặt mà còn thẩm thấu sâu vào 10 lớp biểu bì, giúp GIẢM 5 NĂM vết thâm, đốm nâu tích tụ lâu ngày, làm đều màu da cho làn da tươi sáng, rạng rỡ gấp 2 lần**.\n" +
+                        "\nSUPER SERUM mỏng nhẹ, thấm nhanh, không nhờn dính, kết hợp với Kem Dưỡng OLAY Luminous Vitamin C để đạt được hiệu quả tối ưu.\n" +
+                        "\nKẾT QUẢ NGHIÊN CỨU LÂM SÀNG CHO THẤY^^:\n" +
+                        "- 96% người dùng cảm thấy da được cấp ẩm sau khi sử dụng\n" +
+                        "- 91% người dùng cảm thấy da sáng khỏe hơn sau khi sử dụng.", 4));
+        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm Ban Ngày Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa ", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic6, null)),
+                "OLAY Total Effects: Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa\n" +
+                        "\nOLAY Total Effects là thương hiệu chăm sóc da đại chúng đầu tiên giới thiệu thành phần làm chậm dấu hiệu lão hóa mạnh mẽ, Niacinamide (Vitamin B3), giúp tăng cường hàng rào bảo vệ da và phục hồi vẻ ngoài tươi trẻ.\n" +
+                        "\nKem dưỡng OLAY Total Effects được cải tiến bổ sung 50% Vitamin E cùng hệ dưỡng chất vitamin C, B5 và không chứa dầu, giúp phục hồi và làm chậm rõ rệt 7 dấu hiệu lão hóa của da:\n" +
+                        "- Rãnh và nếp nhăn\n" +
+                        "- Da không đều màu\n" +
+                        "- Đốm đồi mồi\n" +
+                        "- Da kém săn chắc\n" +
+                        "- Da khô\n" +
+                        "- Da xỉn màu\n" +
+                        "- Lỗ chân lông to.", 4));
+>>>>>>> f0a9aa5072ea137b3bd40541d7cac12957fccd61
 
-        // region Mon nuoc
-        cosmeticList.add(new Cosmetic(1, "Bánh canh", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.banhcanh, null)),
-                "Bánh canh là một món ăn truyền thống của Việt Nam, đặc biệt phổ biến ở miền Nam và miền Trung. Bánh canh bao gồm nước dùng được nấu từ tôm, cá và giò heo thêm gia vị tùy theo từng loại bánh canh1. Sợi bánh canh có thể được làm từ bột gạo, bột mì, bột năng hoặc bột sắn hoặc bột gạo pha bột sắn12. Bánh được làm từ bột được cán thành tấm và cắt ra thành sợi to và ngắn1. Gia vị cho bánh canh thay đổi tùy theo món bánh canh và tùy theo khẩu vị mỗi vùng1.\n" +
+
+        // region neutro
+        cosmeticList.add(new Cosmetic(1, "Tinh chất cấp nước phục hồi da Neutrogena Serum dưỡng ẩm", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic, null)),
+                "Tinh Chất Cấp Nước Phục Hồi Da Neutrogena® Hydro Boost Hyaluronic Acid Serum dưỡng ẩm\n" +
+                        "\nƯU ĐIỂM:\n" +
+                        "Cấp ẩm ngay lập tức, bổ sung và làm mịn da khô bằng cách truyền hydrat hóa không trọng lượng vào sâu bên trong bề mặt da. Huyết thanh dưỡng ẩm được chứng minh là có khả năng làm mịn và cấp nước cho da để có làn da khỏe mạnh hơn trong suốt 24 giờ.\n" +
+                        "\nSản phẩm chứa Axit Hyaluronic tinh khiết + Chất tăng cường độ ẩm, pro-vitamin B5 và glycerin, chất dưỡng ẩm tự nhiên, giúp làm dịu và mềm da, trẻ hóa da và giải quyết các vấn đề như khô, ngứa, mụn và ửng đỏ.\n" +
+                        "\nĐược cho là có tác dụng với mọi loại da, kể cả da nhạy cảm, serum nên được sử dụng cả sáng và tối để tạo cảm giác \"sảng khoái\" trên da.\n" +
+                        "\nĐã được chứng minh lâm sàng về khả năng tăng cường hydrat hóa không trọng lượng trong 24 giờ cho làn da khỏe mạnh, sáng mịn. Hơn 78% người dùng đồng ý rằng huyết thanh này không để lại cảm giác nhờn trên da.\n" +
+                        "\nKhông chứa hương liệu, phù hợp với mọi loại da và da nhạy cảm đã được phê duyệt.", 3));
+        cosmeticList.add(new Cosmetic(1, "Nước Hoa Hồng Neutrogena Clear Pore Oil-Eliminating Astringent Toner", "Nước hoa",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic1, null)),
+                "Nước Hoa Hồng Neutrogena Clear Pore Oil-Eliminating Astringent Toner\n" +
+                        "\nDung tích: 236ml\n" +
+                        "Xuất xứ: Mỹ\n" +
+                        "\n– Công thức có chứa Salicylic Acid, một chất hóa học giúp ngăn ngừa tắc nghẽn và mụn trứng cá, được các bác sĩ da liễu khuyên dùng.\n" +
+                        "\n– Toner hỗ trợ ngăn ngừa mụn trứng cá, giảm viêm sưng, hình thành mụn và mụn đầu đen.\n" +
+                        "\n– Với độ pH cân bằng, toner không gây kích ứng hay khô da, se khít lỗ chân lông, mang đến làn da sạch sẽ, thoải mái và mịn màng.\n" +
+                        "\n– Thiết kế chai chắc chắn, sạch sẽ, tạo cảm giác dễ chịu.\n" +
+                        "\n– Sản phẩm thích hợp cho da dầu, da hỗn hợp.\n" +
+                        "\nHƯỚNG DẪN SỬ DỤNG:\n" +
+                        "- Làm sạch da trước khi áp dụng sản phẩm, thoa nhẹ một lớp mỏng lên bề mặt da.\n" +
+                        "- Nếu xảy ra tình trạng khô hoặc bong tróc khó chịu, hãy giảm tần suất sử dụng xuống một lần/ngày hoặc cách ngày.", 3));
+        cosmeticList.add(new Cosmetic(1, "Chấm mụn thần thánh Stubborn Acne™ Spot Drying Lotion", "Chấm mụn",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic2, null)),
+                "Chấm mụn Stubborn Acne™ Spot Drying Lotion\n" +
+                        "\nSản phẩm giúp làm khô bề mặt, thu gom cồi mụn nhanh chóng, mụn trông rõ ràng hơn, nhỏ hơn chỉ sau 1 ngày.\n" +
+                        "\n- Có tác dụng hiệu quả đối với mụn trứng cá.\n" +
+                        "- Làm mờ vết thâm đen sau mụn.\n" +
+                        "- Không mùi, rất dịu nhẹ, có thể sử dụng cả ngày.", 3));
+        cosmeticList.add(new Cosmetic(1, "Kem chống nắng Sport Face Oil-Free Lotion Sunscreen SPF 70+", "Kem chống nắng",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic3, null)),
+                "Kem chống nắng Sport Face Oil-Free Lotion Sunscreen Broad Spectrum SPF 70+\n" +
+                        "\nCông thức kem chống nắng dành cho da mặt thể thao của chúng tôi khai thác sức mạnh của Công nghệ Helioplex® để cung cấp khả năng chống tia UVA/UVB phổ rộng vượt trội khỏi ánh nắng mặt trời. Nó cũng chống nước (lên đến 80 phút), cọ xát, mồ hôi và lau để bạn có thể tiếp tục hoạt động mà không lo bị cháy nắng.\n" +
+                        "\n- Non-comedogenic (không làm tắc nghẽn lỗ chân lông)\n" +
+                        "- Không chứa dầu\n" +
+                        "- Không chứa PABA\n" +
+                        "- Chống mồ hôi/chống nước (80 phút)\n" +
+                        "\nCÁCH SỬ DỤNG\n" +
+                        "- Bôi Kem Chống Nắng Neutrogena Sport Face SPF 70 trước 30 phút khi đi ra đường để kem kịp thấm vào da và phát huy tác dụng chống nắng một cách tối đa.\n" +
+                        "- Chỉ cần bôi một lớp kem mỏng. Bôi quá nhiều vừa gây lãng phí vừa không tốt cho da vì lớp kem thừa không kịp thấm vào da sẽ có thể là nguyên nhân gây nên bệnh dị ứng da trong mùa hè.",3));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic4, null)),
+                "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi - Hàng Mỹ\n" +
+                        "\n- Kem dưỡng ban ngày Protect & Perfect Advanced Day Cream: Kem dưỡng ban ngày Protect And Perfect Advanced Day Cream có chỉ số chống nắng phổ rộng SPF 30 để bảo vệ làn da của bạn khỏi các tia có hại của mặt trời.\n" +
+                        "\n- Kem dưỡng ban đêm cao cấp Protect & Perfect: Kem dưỡng ban đêm cao cấp Protect And Perfect giúp giảm nếp nhăn và giảm rõ rệt các nếp nhăn. Dễ dàng áp dụng trước khi đi ngủ.\n" +
+                        "\nKem cao cấp Protect & Perfect: Cả Kem ban ngày và Kem ban đêm đều có công nghệ tiên tiến bảo vệ và hoàn hảo giúp giảm nếp nhăn và giảm rõ rệt.", 3));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng cấp ẩm cho mặt La.Roch.e.P.osay", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic5, null)),
+                "Kem dưỡng cấp ẩm cho mặt La Roche-Posay Toleriane Double Repair - Dung tích 100ml\n" +
+                        "\nThành phần Kem dưỡng Toleriane Double Repair Face Moisturizer UV gồm nước khoáng La Roche-Posay prebiotic, ceramide-3, niacinamide và glycerin, cung cấp độ ẩm lên đến 48 giờ và phục hồi hàng rào bảo vệ tự nhiên của da, phục hồi làn da khỏe mạnh. Ngay lập tức làm dịu ngay cả làn da nhạy cảm với kết cấu kem nhẹ.\n" +
+                        "\nKết cấu kem nhẹ của nó dễ dàng hấp thụ vào da để mang lại sự thoải mái ngay lập tức.\n" +
+                        "\nPhù hợp với mọi loại da, kể cả da nhạy cảm. Không mùi, không paraben, không dầu, không cồn, không gây mụn.", 3));
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm ngày / đêm cho da nhạy cảm CETAPHIL REDNESS", "Dưỡng ẩm",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic6, null)),
+                "Kem dưỡng ẩm ngày / đêm cho da nhạy cảm CETAPHIL REDNESS RELIEVING MOISTURIZER - Dung tích 50ml - Hàng Mỹ\n" +
+                        "\nDành cho da dễ mẩn đỏ, nhạy cảm.\n" +
+                        "- Cung cấp độ ẩm liên tục để cải thiện kết cấu da bằng cách bù nước cho da khô, da nhạy cảm và giảm rõ rệt sự xuất hiện của mẩn đỏ do khô.\n" +
+                        "- Công thức đặc biệt với Allantoin, chiết xuất cam thảo và caffein để làm dịu mẩn đỏ.\n" +
+                        "- Cho làn da cảm giác dịu nhẹ và cân bằng.\n" +
+                        "- Bác sĩ da liễu đã thử nghiệm và chứng minh lâm sàng là nhẹ nhàng trên da nhạy cảm.",3));
+
+
+
+
+
+
+
+
+
+        // region thebodyshop
+        cosmeticList.add(new Cosmetic(1, "Sữa Rửa Mặt ", "Sữa Rửa Mặt ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the, null)),
+                "oại bỏ tạp chất và bụi bẩn hiệu quả cùng Himalayan Charcoal Purifying Clay Wash 100% thuần chay, được chiết xuất từ than tre ở chân núi Himalayan kết hợp với đất sét cao lanh và dầu cây trà theo chương trình Thương Mại Cộng Đồng từ Kenya. \n" +
                         "\n" +
-                        "Có nhiều loại bánh canh khác nhau như:\n" +
+                        " Sữa rửa mặt tạo bọt có kết cấu đất sét mềm mượt, đủ dịu nhẹ cho mọi loại da, mang lại cho làn da cảm giác tươi mát, mềm mại mà không gây cảm giác khô ráp.\n" +
                         "\n" +
                         "\t\t+ Bánh canh cua: Với những miếng thịt cua đỏ tươi được xếp ở bên trên, khi ăn bạn sẽ cảm nhận được sự dai ngọt của thịt cua3.\n" +
-                        "\t\t+ Bánh canh ghẹ: Thơm ngọt của thịt ghẹ, làm tăng thêm hương vị cho nước dùng3.\n" +
-                        "\t\t+ Bánh canh chay: Phần nước dùng từ rau củ đậm đà ngọt thanh và cực kì bổ dưỡng3.\n" +
-                        "\t\t+ Bánh canh thịt bằm: Món ăn sáng phổ biến của nhiều gia đình3.\n" +
-                        "\t\t+ Bánh canh cá lóc: Nước dùng sóng sánh, thịt cá lóc thơm ngọt, dai dai mà lại không hề bị tanh", 6));
-        cosmeticList.add(new Cosmetic(1, "Bún mắm", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bunmam, null)),
-                "Bún mắm là một món ăn đặc trưng của Việt Nam, đặc biệt là miền Tây, với hương vị đậm đà và phong cách riêng biệt. Dưới đây là mô tả chi tiết về món ăn này:\n" +
+                        "\t\t+ Làm sạch và thanh lọc da và giúp thông thoáng lỗ chân lông.\n" +
+                        "\t\t+ Loại bỏ dầu thừa và làm mờ vết thâm.\n" +
+                        "\t\t+ Làm giàu dưỡng chất với than tre từ Himalayan, đất sét cao lanh, và dầu cây trà trong chương trình Thương Mại Cộng Đồng.\n" +
+                        "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Bơ Tẩy Trang ", "Tẩy Trang ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the1, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu chính: Bún mắm chủ yếu được làm từ cá lóc phi lê, thịt heo quay, mắm linh, sặc (mắm cá), tôm sú, dưa, cà tím, sả cay, sả bằm và nước thơm1.\n" +
-                        "\t\t+ Hương vị: Bún mắm có hương vị đậm đà từ nước lèo thơm nồng kết hợp với mùi nắm cá linh và cá sặc2. Món ăn này còn được bổ sung thêm hương vị từ các loại rau đặc trưng của miền Tây2.\n" +
-                        "\t\t+ Cách chế biến: Bún mắm được chế biến bằng cách hấp các nguyên liệu chính như cá lóc phi lê, thịt heo quay và tôm sú. Sau đó, các nguyên liệu này được kết hợp với nước lèo thơm nồng để tạo ra hương vị đặc trưng cho món ăn1.\n" +
-                        "\t\t+ Phục vụ: Bún mắm thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 9986 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Bún thái", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bun_thai, null)),
-                "Bún Thái là một món ăn đặc trưng của Thái Lan, với hương vị chua cay đặc trưng. Dưới đây là cách chế biến món Bún Thái:\n" +
+                        "\t\t- Làn da của bạn sẽ trở nên tươi tắn và hồng hào hơn nhờ loại bơ tẩy trang dưỡng da mới có tông màu má hồng tuyệt đẹp.\n" +
+                        "\t\t- Công thức bơ tẩy trang Camomile phiên bản giới hạn mới nhất của chúng tôi được làm giàu với dầu Rose de Mai quý giá từ Grasse, Pháp, sở hữu khả năng hòa tan lớp trang điểm trong vòng chưa đầy 30 giây. Nó phù hợp cho người đeo kính áp tròng và mọi loại da - thậm chí nhạy cảm. Để lại khuôn mặt của bạn cảm giác tươi mát và mềm mại như cánh hoa.\n" +
+                        "\t\t- Mùi hương hoa hồng ngọt ngào của sản phẩm không chỉ giúp bạn thư giãn sau một ngày dài mệt mỏi mà nó còn giúp cuốn trôi đi lớp make-up nặng nề trên da mặt.\n" +
+                        "\t\t- Hãy sở hữu loại sữa rửa mặt phiên bản giới hạn này bởi vì giống như mùa Rose de Mai, nó cực kỳ giới hạn về số lượng!\n" +
+                        "\t\t+ Bơ tẩy trang phiên bản giới hạn\n"+
+                        "\t\t+ Hương thơm hoa hồng Rose de Mai\n"+
+                        "\t\t+ Thích hợp cho da nhạy cảm và người đeo kính áp tròng\n"+
+                        "\t\t+ Được pha với dầu Rose de Mai từ Grasse, Pháp và dầu hoa cúc từ Norfolk, Anh\n"+
+                        "\t\t+ Tẩy sạch những lớp trang điểm cứng đầu nhất, kể cả lớp trang điểm không thấm nước\n"+
+                        "\t\t+ Làn da được nuôi dưỡng và mềm mượt\n"+
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n"+
+                        "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Kem Chống Nắng", "Kem chống nắng ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the2, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Bún Thái chủ yếu được làm từ thịt bò fillet mềm, râu mực, tôm sú tươi, nghêu to, rau muống, cà chua, nấm đông cô tươi, gừng cắt sợi, riềng cắt sợi và hành tím1.\n" +
-                        "\t\t+ Hương vị: Bún Thái có hương vị chua chua, cay cay đặc trưng của xứ Thái2. Hương vị này được tạo ra từ việc kết hợp các loại gia vị đặc trưng trong ẩm thực Thái2.\n" +
-                        "\t\t+ Cách chế biến: Bún Thái được chế biến bằng cách xào thơm các nguyên liệu như thịt bò, râu mực và tôm sú. Sau đó, các nguyên liệu này được kết hợp với nước dùng thơm nồng để tạo ra hương vị đặc trưng cho món ăn1.\n" +
-                        "\t\t+ Phục vụ: Bún Thái thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 21339 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Hoành thánh", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hoanhthanh, null)),
-                "Hoành thánh là một món ăn đặc trưng của Trung Quốc và đã trở nên phổ biến ở Việt Nam. Dưới đây là cách chế biến món hoành thánh:\n" +
+                        "\t\t- Kem chống nắng Skin Defence Multi-Protection Light Essence sẽ đáp ứng nhu cầu bảo vệ da hàng ngày của bạn - hãy hứa với chúng tôi rằng bạn sẽ không rời khỏi nhà mà chưa có nó.\n" +
+                        "\t\t- Tinh chất Skin Defence mới của chúng tôi là một công thức dưỡng ẩm siêu nhẹ, giúp bảo vệ làn da của bạn với độ bảo vệ SPF 50 PA +++. Tinh chất siêu lỏng này sử dụng các bộ lọc UVA/UVB phổ rộng được tối ưu hóa một cách thông minh để giúp bảo vệ da hàng ngày chống lại các tia UV gây hại, cũng như giúp bảo vệ khỏi ô nhiễm trong nhà và ngoài trời.\n" +
+                        "\t\t- Công thức hấp thụ nhanh, tạo cảm giác thoáng khí và thoải mái trên da. Sản phẩm không gây nhờn dính, không để lại vệt trắng trên da bạn. Da trông rạng rỡ hơn, đều màu và sẵn sàng để trang điểm.\n" +
+                        "\t\t+ Tinh chất dưỡng ẩm thoáng nhẹ, thẩm thấu nhanh\n"+
+                        "\t\t+ SPF 50 PA+++ với khả năng chống ô nhiễm trong nhà và ngoài trời\n"+
+                        "\t\t+ Bảo vệ da khỏi tia UVA / UVB\n"+
+                        "\t\t+ Không để lại cảm giác dính hoặc nhờn trên da\n"+
+                        "\t\t+ Lớp lót hoàn hảo trước khi trang điểm\n"+
+                        "\t\t+ Thích hợp cho da nhạy cảm\n"+
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n"+
+                        "\t\t+ Không gây mụn\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm", "Kem",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the3, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Hoành thánh chủ yếu được làm từ thịt nạc vai xay, thịt tôm xay, cà rốt, nấm hương, hành tây, tỏi, hành tím và hành lá1.\n" +
-                        "\t\t+ Hương vị: Hoành thánh có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Hoành thánh được chế biến bằng cách nặn từng viên hoành thánh rồi nấu trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hoành thánh thường được phục vụ nóng hổi cùng với nước dùng thanh mát1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 1 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu bò kho", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_bokho, null)),
-                "Hủ tiếu bò kho là một món ăn ngon, đậm đà được nhiều người yêu thích. Dưới đây là cách chế biến món hủ tiếu bò kho:\n" +
+                        "\t\t- Kem giữ ẩm dạng gel Seaweed Oil-Control Gel Cream giữ lại hơi nước, không dầu, không bịt kín chân lông, và thẩm thấu dễ dàng.\n" +
+                        "\t\t- Kem kiểm soát bã nhờn và độ bóng của da trong khi cung cấp độ ẩm cần thiết cho các vùng da có nhu cầu nhất, cân bằng da suốt cả ngày. Cho làn da tươi khỏe, sạch, mịn, và mềm mại, không bị bóng do dầu nhờn.\n" +
+                        "\t\t+ Phù hợp cho da dầu hoặc hỗn hợp thiên dầu\n"+
+                        "\t\t+ ảo biển giàu khoáng chất từ vịnh Roaring Water, Ireland\n"+
+                        "\t\t+ Cấu tạo dịu nhẹ\n"+
+                        "\t\t+ Cân bằng dầu và khô thoáng\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang", "Bông Tẩy Trang",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the4, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Hủ tiếu bò kho chủ yếu được làm từ thịt bò nạm, hủ tiếu, giá, màu dầu điều, hạt nêm, đường, muối, ớt bột, tiêu, bột gia vị bò kho, sả, ngò gai, hành lá, hành tím, hành tây, ớt, tỏi, quế, chanh1.\n" +
-                        "\t\t+ Hương vị: Hủ tiếu bò kho có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Hủ tiếu bò kho được chế biến bằng cách ướp thịt bò trong 30 phút với gia vị bò kho, màu dầu điều, đường, hạt nêm, tiêu, ớt bột và muối. Sau đó thịt được xào sơ trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hủ tiếu bò kho thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu nam vang", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_namvang, null)),
-                "Hủ tiếu Nam Vang là một món ăn đặc trưng của Việt Nam, với hương vị đậm đà và phong cách riêng biệt. Dưới đây là mô tả chi tiết về món ăn này:\n" +
+                        "\t\t- Bông Tẩy Trang hữu cơ của The Body Shop hoàn chỉnh với hai bề mặt không có lông tơ đáp ứng mọi nhu cầu làm đẹp của bạn.\n" +
+                        "\t\t- Một sản phẩm thiết yếu cần phải có trong mọi phòng tắm. Cho làn da tươi khỏe, sạch, mịn, và mềm mại, không bị bóng do dầu nhờn.\n" +
+                        "\t\t+ Hữu cơ\n"+
+                        "\t\t+ Hai mặt\n"+
+                        "\t\t+ Sử dụng với sữa rửa mặt hoặc toner\n"+
+                        "\t\t+ Hai bề mặt có kết cấu khác nhau cho kem dưỡng da hoặc chất lỏng\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Tẩy Tế Bào Chết ", "Tẩy Tế Bào Chết ",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the5, null)),
+                "Điểm nổi bật\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu chính: Hủ tiếu Nam Vang chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, trứng cút, tỏi, hành lá, cần tàu, xà lách, giá và hủ tiếu1.\n" +
-                        "\t\t+ Hương vị: Hủ tiếu Nam Vang có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Hủ tiếu Nam Vang được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hủ tiếu Nam Vang thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Bún thái", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.bun_thai, null)),
-                "Bún Thái là một món ăn đặc trưng của Thái Lan, với hương vị chua cay đặc trưng. Dưới đây là cách chế biến món Bún Thái:\n" +
+                        "\t\t- Nhẹ nhàng xoa dịu cơ thể xinh đẹp trở nên mềm mại như lụa mà không để lại cảm giác da bị mất đi lớp dầu tự nhiên với sản phẩm Tẩy tế bào chết toàn thân Avocado của chúng tôi.\n" +
+                        "\t\t- Với 96% thành phần có nguồn gốc tự nhiên, bao gồm cả dầu bơ Hass có nguồn gốc bền vững từ Nam Phi, sản phẩm tẩy tế bào chết dạng kem và giàu dưỡng chất của chúng tôi sẽ loại bỏ các tế bào da chết mang lại cảm giác da mềm mại và mịn màng hơn.\n" +
+                        "\t\t- Sản phẩm tẩy da chết có mùi tươi mát này hiện được đóng gói trong bao bì có thể tái chế.\n"+
+                        "\n\n Điểm đặc biệt:\n"+
+                        "\t\t+ Tẩy tế bào chết ngậm nước cho cơ thể\n"+
+                        "\t\t+ Hoàn hảo cho da khô\n"+
+                        "\t\t+ Để lại làn da cảm giác mềm mại và mịn màng hơn\n"+
+                        "\t\t+ Mùi thơm tinh tế tươi mát và kem\n"+
+                        "\t\t+ Được chứng nhận bởi Hiệp hội thuần chay\n", 6));
+
+        cosmeticList.add(new Cosmetic(1, "Lăn Khử Mùi", "Lăn Khử Mùi",
+                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the6, null)),
+                "Cảm nhận hương thơm thơm mát với Maca Root & Aloe Fresh Kick Deodorant được chiết xuất từ rễ cây maca, dầu hạt cộng đồng Brazil và dầu hữu cơ trong chương trình Thương Mại Cộng Đồng.\n" +
                         "\n" +
-                        "\t\t+ Nguyên liệu: Bún Thái chủ yếu được làm từ thịt bò fillet mềm, râu mực, tôm sú tươi, nghêu to, rau muống, cà chua, nấm đông cô tươi, gừng cắt sợi, riềng cắt sợi và hành tím1.\n" +
-                        "\t\t+ Hương vị: Bún Thái có hương vị chua chua, cay cay đặc trưng của xứ Thái2. Hương vị này được tạo ra từ việc kết hợp các loại gia vị đặc trưng trong ẩm thực Thái2.\n" +
-                        "\t\t+ Cách chế biến: Bún Thái được chế biến bằng cách xào thơm các nguyên liệu như thịt bò, râu mực và tôm sú. Sau đó, các nguyên liệu này được kết hợp với nước dùng thơm nồng để tạo ra hương vị đặc trưng cho món ăn1.\n" +
-                        "\t\t+ Phục vụ: Bún Thái thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 21339 đánh giá1", 6));
-        cosmeticList.add(new Cosmetic(1, "Hoành thánh", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hoanhthanh, null)),
-                "Hoành thánh là một món ăn đặc trưng của Trung Quốc và đã trở nên phổ biến ở Việt Nam. Dưới đây là cách chế biến món hoành thánh:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Hoành thánh chủ yếu được làm từ thịt nạc vai xay, thịt tôm xay, cà rốt, nấm hương, hành tây, tỏi, hành tím và hành lá1.\n" +
-                        "\t\t+ Hương vị: Hoành thánh có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+  Cách chế biến: Hoành thánh được chế biến bằng cách nặn từng viên hoành thánh rồi nấu trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Hoành thánh thường được phục vụ nóng hổi cùng với nước dùng thanh mát1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng, với điểm số trung bình là 5/5 dựa trên 1 đánh giá1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu bò kho", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_bokho, null)),
-                "Hủ tiếu bò kho là một món ăn ngon, đậm đà được nhiều người yêu thích. Dưới đây là cách chế biến món hủ tiếu bò kho:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Nguyên liệu: Hủ tiếu bò kho chủ yếu được làm từ thịt bò nạm, hủ tiếu, giá, màu dầu điều, hạt nêm, đường, muối, ớt bột, tiêu, bột gia vị bò kho, sả, ngò gai, hành lá, hành tím, hành tây, ớt, tỏi, quế, chanh1.\\n\" +\n" +
-                        "\"\\t\\t+ Hương vị: Hủ tiếu bò kho có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\\n\" +\n" +
-                        "\"\\t\\t+ Cách chế biến: Hủ tiếu bò kho được chế biến bằng cách ướp thịt bò trong 30 phút với gia vị bò kho, màu dầu điều, đường, hạt nêm, tiêu, ớt bột và muối. Sau đó thịt được xào sơ trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\\n\" +\n" +
-                        "\"\\t\\t+ Phục vụ: Hủ tiếu bò kho thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\\n\" +\n" +
-                        "\"\\t\\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1", 6));
-        cosmeticList.add(new Cosmetic(1, "Hủ tiếu nam vang", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.hutieu_namvang, null)),
-                "Hủ tiếu Nam Vang là một món ăn đặc trưng của Việt Nam, với hương vị đậm đà và phong cách riêng biệt. Dưới đây là mô tả chi tiết về món ăn này:\\n\" +\n" +
-                        "\"\\n\" +\n" +
-                        "\"\\t\\t+ Nguyên liệu chính: Hủ tiếu Nam Vang chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, trứng cút, tỏi, hành lá, cần tàu, xà lách, giá và hủ tiếu1.\\n\" +\n" +
-                        "\"\\t\\t+ Hương vị: Hủ tiếu Nam Vang có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\\n\" +\n" +
-                        "\"\\t\\t+ Cách chế biến: Hủ tiếu Nam Vang được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\\n\" +\n" +
-                        "\"\\t\\t+ Phục vụ: Hủ tiếu Nam Vang thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\\n\" +\n" +
-                        "\"\\t\\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng1.", 6));
-        cosmeticList.add(new Cosmetic(1, "Mì vằn thắn", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.mi_vanthan, null)),
-                "Mì vằn thắn là một món ăn thơm ngon, bổ dưỡng và cực kỳ hấp dẫn. Dưới đây là cách chế biến món mì vằn thắn:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Mì vằn thắn chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, tôm khô, mì tươi, vỏ gói sủi cảo, bóng bì lợn, trứng gà, rau tần ô hoặc rau cải xanh123.\n" +
-                        "\t\t+ Hương vị: Mì vằn thắn có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài2.\n" +
-                        "\t\t+ Cách chế biến: Mì vằn thắn được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Mì vằn thắn thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng", 6));
-        cosmeticList.add(new Cosmetic(1, "Mì xá xíu", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.mi_xaxiu, null)),
-                "Mì Xá Xíu là một món ăn ngon và thường được ăn vào bữa sáng. Dưới đây là cách chế biến món Mì Xá Xíu:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Mì Xá Xíu chủ yếu được làm từ thịt nạc vai, tôm tươi, gan heo, tôm khô, mì tươi, vỏ gói sủi cảo, bóng bì lợn, trứng gà, rau tần ô hoặc rau cải xanh12.\n" +
-                        "\t\t+ Hương vị: Mì Xá Xíu có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài3.\n" +
-                        "\t\t+ Cách chế biến: Mì Xá Xíu được chế biến bằng cách nấu sôi các nguyên liệu như thịt nạc vai, gan heo và tôm trong nước dùng xương thơm vị đặc trưng của lá hẹ3.\n" +
-                        "\t\t+ Phục vụ: Mì Xá Xíu thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị3.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng3", 6));
-        cosmeticList.add(new Cosmetic(1, "Nui", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.nui, null)),
-                "Nui là một loại mì Ý dạng ngắn, thường được sử dụng trong nhiều món ăn khác nhau. Dưới đây là một số cách chế biến nui:\n" +
-                        "\n" +
-                        "\t\t+ Nui xào hải sản: Món ăn này được làm từ rau mực cắt nhỏ, nui, tôm sú, sò điệp, thịt ngao, cà chua bằm, bắp hạt (Hà Lan), muối (tiêu, đường, ăn), cà chua hộp (bằm, tỏi bằm), và hạt Aji-ngon Heo1.\n" +
-                        "\t\t+ Nui Xào Lòng Gà: Món ăn này được làm từ lòng gà (mề, gan, tim), nui, hành lá (gia vị nem nem), và cải ngọt2.\n" +
-                        "\t\t+ Nui sốt cay kiểu Hàn: Món ăn này được làm từ nui khô, quả trứng cút, lá rong biển, cá cơm (khô), tôm khô, lá (hẹ), và gia vị (Siro bắp, đường, nước tương, dầu ăn, ớt bột Hàn Quốc, tương ớt Hàn Quốc)3", 6));
-        cosmeticList.add(new Cosmetic(1, "Phở bò", "Món nước",
-                convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.phobo, null)),
-                "Phở Bò là một món ăn quốc gia của Việt Nam, một món ăn mà nhiều người Việt yêu thích. Dưới đây là cách chế biến Phở Bò:\n" +
-                        "\n" +
-                        "\t\t+ Nguyên liệu: Phở Bò chủ yếu được làm từ xương cục (xương ống), thịt bò, hành khô, gừng, quế, hoa hồi, trái thảo (quả), muối, hạt nêm, nước mắm, chín (mì, bột ngọt), hành lá (rau mùi, ngò ri), bánh phở1.\n" +
-                        "\t\t+ Hương vị: Phở Bò có hương vị thơm ngon từ nhân thịt bùi ngọt bên trong và lớp vỏ mềm mại bên ngoài1.\n" +
-                        "\t\t+ Cách chế biến: Phở Bò được chế biến bằng cách nấu sôi các nguyên liệu như xương cục (xương ống), thịt bò trong nước dùng xương thơm vị đặc trưng của lá hẹ1.\n" +
-                        "\t\t+ Phục vụ: Phở Bò thường được phục vụ nóng hổi cùng với các loại rau sống và gia vị1.\n" +
-                        "\t\t+ Đánh giá: Món ăn này được đánh giá rất cao bởi người dùng", 6));
+                        "\t\t+ Thanh khử mùi\n"+
+                        "\t\t+ Làm mới mùi hương\n"+
+                        "\t\t+ Chiết xuất từ rễ cây maca và dầu hạt từ Brazil, lô hội hữu cơ trong chương trình Thương mại Cộng đồng từ Mexico\n", 6));
 
         // region Tra sua
         cosmeticList.add(new Cosmetic(1, "Trà sữa dâu", "Trà sữa",
@@ -696,9 +737,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cosmeticSizeList = new ArrayList<>();
         Random random = new Random();
         for (int i = 1; i <= 55; i++) {
-            cosmeticSizeList.add(new CosmeticSize(i, 1, (random.nextInt(20) + 1) * 1000d));
-            cosmeticSizeList.add(new CosmeticSize(i, 2, (random.nextInt(20) + 21) * 1000d));
-            cosmeticSizeList.add(new CosmeticSize(i, 3, (random.nextInt(20) + 41) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 1, (random.nextInt(50) + 1) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 2, (random.nextInt(50) + 21) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 3, (random.nextInt(50) + 41) * 1000d));
         }
 
         // region cosmeticSaved
@@ -714,8 +755,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cosmeticSavedList.add(new CosmeticSaved(42, 3, 3));
         cosmeticSavedList.add(new CosmeticSaved(31, 3, 3));
         cosmeticSavedList.add(new CosmeticSaved(20, 1, 4));
-
-
 
 
         // region notify
@@ -963,6 +1002,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         addSampleData(sqLiteDatabase);
         Log.i("SQLite", "ADDED DATA");
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         Log.i("SQLite", "Upgrade SQLite");
