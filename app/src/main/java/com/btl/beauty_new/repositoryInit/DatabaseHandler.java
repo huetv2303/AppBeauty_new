@@ -628,16 +628,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // region cosmeticSaved
         cosmeticSavedList = new ArrayList<>();
         cosmeticSavedList.add(new CosmeticSaved(1, 3, 1));
-        cosmeticSavedList.add(new CosmeticSaved(36, 3, 2));
+        cosmeticSavedList.add(new CosmeticSaved(2, 3, 2));
         cosmeticSavedList.add(new CosmeticSaved(3, 3, 2));
-        cosmeticSavedList.add(new CosmeticSaved(42, 3, 2));
-        cosmeticSavedList.add(new CosmeticSaved(11, 3, 1));
-        cosmeticSavedList.add(new CosmeticSaved(28, 1, 4));
-        cosmeticSavedList.add(new CosmeticSaved(40, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(3, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(42, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(31, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(20, 1, 4));
+        cosmeticSavedList.add(new CosmeticSaved(4, 3, 2));
+        cosmeticSavedList.add(new CosmeticSaved(5, 3, 1));
+        cosmeticSavedList.add(new CosmeticSaved(6, 1, 4));
+        cosmeticSavedList.add(new CosmeticSaved(7, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(8, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(9, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(10, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(11, 1, 4));
 
 
         // region notify
