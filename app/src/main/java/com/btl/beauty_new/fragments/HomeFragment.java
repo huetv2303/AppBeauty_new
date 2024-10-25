@@ -1,6 +1,5 @@
 package com.btl.beauty_new.fragments;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,30 +9,19 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.btl.beauty_new.activity.ActivityImpl.CategoryActivity;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.R;
-import com.btl.beauty_new.activity.ActivityImpl.SignInActivity;
 import com.btl.beauty_new.adapter.StoreAdapter;
-import com.btl.beauty_new.imageBanner.Photo;
-import com.btl.beauty_new.imageBanner.PhotoAdapter;
 import com.btl.beauty_new.repository.DAO;
-import com.btl.beauty_new.repositoryInit.DataInitFragmentHome;
 
-import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
-
-import me.relex.circleindicator.CircleIndicator;
 
 public class HomeFragment extends Fragment {
     private Intent intent;
@@ -44,7 +32,6 @@ public class HomeFragment extends Fragment {
 
     // loaf
     private ViewPager viewPager;
-    private List<Photo> listPhoto; // danh sách các ảnh để hiển thị
     private Timer timer; // thằng này sẽ sét thời gian các ảnh hiển thị
 
     private static final String ARG_PARAM1 = "param1";

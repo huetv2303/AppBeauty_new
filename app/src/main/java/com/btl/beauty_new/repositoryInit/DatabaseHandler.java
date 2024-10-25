@@ -421,6 +421,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Da xỉn màu\n" +
                         "- Lỗ chân lông to.", 4));
 
+
         // region neutro
         cosmeticList.add(new Cosmetic(1, "Tinh chất cấp nước phục hồi da Neutrogena Serum dưỡng ẩm", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic, null)),
