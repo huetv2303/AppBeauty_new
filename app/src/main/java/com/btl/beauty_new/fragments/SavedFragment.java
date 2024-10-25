@@ -1,5 +1,7 @@
 package com.btl.beauty_new.fragments;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
@@ -80,7 +82,7 @@ public class SavedFragment extends Fragment {
         tv_saved_store = mainView.findViewById(R.id.tv_saved_store);
         searchView = mainView.findViewById(R.id.searchView); // Thêm dòng này
 
-        // Sự kiện click cho nút "Lưu món ăn"
+        // Sự kiện click cho nút "Lưu sản phẩm"
         btn_saved_cosmetic.setOnClickListener(view -> {
             btn_saved_cosmetic.setBackground(ContextCompat.getDrawable(requireContext(), R.color.silver));
             tv_saved_cosmetic.setTextColor(Color.BLUE);
@@ -89,7 +91,7 @@ public class SavedFragment extends Fragment {
             LoadSavedCard("cosmetic", "");
         });
 
-        // Sự kiện click cho nút "Lưu nhà hàng"
+        // Sự kiện click cho nút "Lưu cửa hàng"
         btn_saved_store.setOnClickListener(view -> {
             btn_saved_cosmetic.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_white));
             tv_saved_cosmetic.setTextColor(Color.BLACK);
@@ -115,7 +117,7 @@ public class SavedFragment extends Fragment {
             }
         });
 
-        // Tải danh sách món ăn đã lưu lúc đầu
+        // Tải danh sách sản phẩm đã lưu lúc đầu
         LoadSavedCard("cosmetic", "");
 
         return mainView;
@@ -156,7 +158,7 @@ public class SavedFragment extends Fragment {
                             try {
                                 startActivity(intent);
                             } catch (Exception e) {
-                                Toast.makeText(getContext(), "Không thể hiển thị thông tin!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Không thể hiển thị thông tin!", LENGTH_SHORT).show();
                             }
                         });
 
