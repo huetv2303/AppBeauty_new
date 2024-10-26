@@ -2,6 +2,8 @@ package com.btl.beauty_new.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,15 +75,48 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             v.getContext().startActivity(intent);
         });
 
-        // lưu thông tin cửa hàng vào danh sách chờ
+
+        // Màu đậm và nhạt cho checkbox
+        int colorChecked = Color.parseColor("#FF6200EE"); // Màu đậm
+        int colorUnchecked = Color.parseColor("#A3A3A3"); // Màu nhạt
+
+        // Kiểm tra trạng thái checkbox và thay đổi màu ban đầu
+        if (HomeActivity.dao.isStoreSaved(store.getId(), HomeActivity.user.getId())) {
+            holder.btnSavedShop.setChecked(true);
+            holder.btnSavedShop.setButtonTintList(ColorStateList.valueOf(colorChecked));
+        } else {
+            holder.btnSavedShop.setChecked(false);
+            holder.btnSavedShop.setButtonTintList(ColorStateList.valueOf(colorUnchecked));
+        }
+
         holder.btnSavedShop.setOnClickListener(v -> {
-            Context context = v.getContext(); // Lấy context từ View v
-            if (HomeActivity.dao.addStoreSaved(new StoreSaved(store.getId(), HomeActivity.user.getId()))) {
-                Toast.makeText(context, "Lưu thông tin nhà hàng thành công!", Toast.LENGTH_SHORT).show();
+            Context context = v.getContext();
+            int storeId = store.getId();
+            int userId = HomeActivity.user.getId();
+
+            if (HomeActivity.dao.isStoreSaved(storeId, userId)) {
+                // Bỏ lưu và cập nhật màu
+                if (HomeActivity.dao.deleteStoreSaved(new StoreSaved(storeId, userId))) {
+                    Toast.makeText(context, "Đã bỏ lưu cửa hàng!", Toast.LENGTH_SHORT).show();
+                    holder.btnSavedShop.setChecked(false);
+                    holder.btnSavedShop.setButtonTintList(ColorStateList.valueOf(colorUnchecked)); // Đổi sang màu nhạt
+                } else {
+                    Toast.makeText(context, "Không thể bỏ lưu cửa hàng error!", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();
+                // Lưu và cập nhật màu
+                if (HomeActivity.dao.addStoreSaved(new StoreSaved(storeId, userId))) {
+                    Toast.makeText(context, "Lưu thông tin cửa hàng thành công!", Toast.LENGTH_SHORT).show();
+                    holder.btnSavedShop.setChecked(true);
+                    holder.btnSavedShop.setButtonTintList(ColorStateList.valueOf(colorChecked)); // Đổi sang màu đậm
+                } else {
+                    Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+
+
 
     }
 

@@ -84,7 +84,7 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
         image.setOnClickListener(view -> finish());
 
 
-        // tìm kiếm thông tin về đồ ăn trên danh sách đồ ăn.
+        // tìm kiếm thông tin về mỹ phẩm trên danh sách mỹ phâm.
         setupSearchBar();
 
         // store data: đẩy thông tin lên
@@ -107,7 +107,7 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
 
         ArrayList<Cosmetic> cosmeticArrayList; // Khai báo danh sách mỹ phẩm
 
-        // Kiểm tra nếu tên mỹ phẩm la null
+        // Kiểm tra nếu tên mỹ phẩm là null
         if (nameCosmeticOfThisStore == null) {
             int getstoreId = intent_get_data.getIntExtra("storeId", -1); // Lấy storeId từ intent
             System.out.println(getstoreId); // In ra storeId để kiểm tra

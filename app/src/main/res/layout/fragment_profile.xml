@@ -168,7 +168,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/account_btn_layout_policy"
+            android:id="@+id/account_btn_layout_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_function_profile"
@@ -179,14 +179,14 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:contentDescription="@string/content_description_image"
-                android:src="@drawable/privacy_icon" />
+                android:src="@drawable/del_account" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
-                android:text="@string/policy_and_secure"
+                android:text="@string/delete_account"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
