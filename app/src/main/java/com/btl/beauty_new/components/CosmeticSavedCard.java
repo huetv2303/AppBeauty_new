@@ -19,16 +19,16 @@ import com.btl.beauty_new.model.CosmeticSize;
 @SuppressLint("ViewConstructor")
 public class CosmeticSavedCard extends LinearLayout implements BaseComponent{
     private final Cosmetic cosmetic;
-    private final String restaurantName;
+    private final String storeName;
     private final CosmeticSize cosmeticSize;
     private ImageView image;
-    private TextView tvName, tvSize, tvrestaurantName, tvPrice;
+    private TextView tvName, tvSize, tvstoreName, tvPrice;
     private Button btnDelete;
 
-    public CosmeticSavedCard(Context context, Cosmetic cosmetic, String restaurantName, CosmeticSize cosmeticSize) {
+    public CosmeticSavedCard(Context context, Cosmetic cosmetic, String storeName, CosmeticSize cosmeticSize) {
         super(context);
         this.cosmetic = cosmetic;
-        this.restaurantName = restaurantName;
+        this.storeName = storeName;
         this.cosmeticSize = cosmeticSize;
         initControl(context);
     }
@@ -38,7 +38,7 @@ public class CosmeticSavedCard extends LinearLayout implements BaseComponent{
         image = findViewById(R.id.imageSavedCosmetic);
         tvName = findViewById(R.id.tvCosmeticNameSaved);
         tvSize = findViewById(R.id.tvCosmeticSavedSize);
-        tvrestaurantName = findViewById(R.id.tvCosmeticSavedStoreName);
+        tvstoreName = findViewById(R.id.tvCosmeticSavedStoreName);
         tvPrice = findViewById(R.id.tvCosmeticSavedPrice);
         btnDelete = findViewById(R.id.btnDeleteSaveCardItem);
     }
@@ -78,7 +78,7 @@ public class CosmeticSavedCard extends LinearLayout implements BaseComponent{
                 tvSize.setText("Size L");
                 break;
         }
-        tvrestaurantName.setText(restaurantName);
+        tvstoreName.setText(storeName);
         tvPrice.setText(getRoundPrice(cosmeticSize.getPrice()));
     }
 

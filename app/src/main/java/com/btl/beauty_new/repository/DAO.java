@@ -57,6 +57,8 @@ public class DAO {
         }
     }
 
+
+
     public boolean deleteStoreSaved(StoreSaved storeSaved) {   // del store
         String query = "DELETE FROM tblStoreSaved WHERE store_id=" + storeSaved.getStoreId() + " AND user_id=" + storeSaved.getUserId();
         try {
@@ -66,6 +68,57 @@ public class DAO {
             return false;
         }
     }
+
+    public boolean isStoreSaved(int storeId, int userId) {
+        String query = "SELECT * FROM tblStoreSaved WHERE store_id = " + storeId + " AND user_id = " + userId;
+        Cursor cursor = null;
+        try {
+            cursor = dbHelper.getData(query);
+            // Kiểm tra xem cursor có bản ghi nào hay không
+            if (cursor != null && cursor.moveToFirst()) {
+                return true; // Nếu có bản ghi, nghĩa là đã lưu
+            }
+            return false; // Không có bản ghi, nghĩa là chưa lưu
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        } finally {
+            if (cursor != null) {
+                cursor.close(); // Đóng cursor sau khi dùng
+            }
+        }
+    }
+
+    public boolean isCosmeticSaved(CosmeticSaved cosmeticSaved) {
+        String query = "SELECT * FROM tblCosmeticSaved WHERE cosmetic_id = " + cosmeticSaved.getCosmeticId() + " AND user_id = " + cosmeticSaved.getUserId();
+        Cursor cursor = null;
+        try {
+            cursor = dbHelper.getData(query);
+            // Kiểm tra xem cursor có bản ghi nào hay không
+            if (cursor != null && cursor.moveToFirst()) {
+                return true; // Nếu có bản ghi, nghĩa là đã lưu
+            }
+            return false; // Không có bản ghi, nghĩa là chưa lưu
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        } finally {
+            if (cursor != null) {
+                cursor.close(); // Đóng cursor sau khi dùng
+            }
+        }
+    }
+
+    public boolean deleteCosmeticSaved(CosmeticSaved cosmeticSaved) {   // del store
+        String query = "DELETE FROM tblCosmeticSaved WHERE cosmetic_id=" + cosmeticSaved.getCosmeticId() + " AND user_id=" + cosmeticSaved.getUserId();
+        try {
+            dbHelper.queryData(query);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
+    }
+
 
     public ArrayList<StoreSaved> getStoreSavedList(Integer userId) {    // get data store saved
         ArrayList<StoreSaved> storeSavedArrayList = new ArrayList<>();
@@ -138,6 +191,7 @@ public class DAO {
         }
         return null;
     }
+
 
     public boolean addOrderDetail(OrderDetail od) {
         String query = "INSERT INTO tblOrderDetail VALUES(" +

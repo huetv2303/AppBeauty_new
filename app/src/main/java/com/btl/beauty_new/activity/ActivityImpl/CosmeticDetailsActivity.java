@@ -1,11 +1,17 @@
 package com.btl.beauty_new.activity.ActivityImpl;
 
+import static java.security.AccessController.getContext;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -16,6 +22,7 @@ import android.widget.Toast;
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.activity.CosmeticDetailsActivityImpl;
 import com.btl.beauty_new.model.Cosmetic;
+import com.btl.beauty_new.model.StoreSaved;
 import com.btl.beauty_new.repository.DAO;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
 import com.btl.beauty_new.model.CosmeticSaved;
@@ -39,7 +46,18 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
     public static Integer userID; // lấy ra userId
     private static int quantity;
     public static CosmeticSize cosmeticSize;    // lấy ra gias cả và kích thước
-    private DAO dao;    // kết nối với CSDL
+    private static DAO dao;    // kết nối với CSDL
+
+    private void updateCheckBoxFavoriteStatus() {
+        boolean isSaved = CosmeticDetailsActivity.dao.isCosmeticSaved(new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID));
+        Log.d("CosmeticDetailsActivity", "updateCheckBoxFavoriteStatus: isSaved = " + isSaved); // Thêm log để kiểm tra trạng thái
+
+        int colorChecked = Color.parseColor("#FF6200EE"); // Màu đậm
+        int colorUnchecked = Color.parseColor("#A3A3A3"); // Màu nhạt
+
+        checkBoxFavorite.setChecked(isSaved);
+        checkBoxFavorite.setButtonTintList(ColorStateList.valueOf(isSaved ? colorChecked : colorUnchecked));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +68,61 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         dao = new DAO(this);
 
         initializeUI();
-        referenceComponent();
+        // quay về màn hình trước đó.
+        findViewById(R.id.btnBack).setOnClickListener(view -> this.finish());
+
+        btnAddToCart.setOnClickListener(view -> {
+            addCartProduct();
+        });
+
+        checkBoxFavorite.setOnClickListener(view -> {
+            CosmeticSaved cosmeticSaved = new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID);
+            boolean isSaved = dao.isCosmeticSaved(cosmeticSaved);
+            Log.d("CosmeticDetailsActivity", "checkBoxFavorite clicked: isSaved = " + isSaved); // Thêm log để kiểm tra trạng thái trước khi thay đổi
+
+            if (isSaved) {
+                // Bỏ lưu
+                if (dao.deleteCosmeticSaved(cosmeticSaved)) {
+                    Toast.makeText(this, "Đã bỏ lưu mỹ phẩm!", Toast.LENGTH_SHORT).show();
+                    Log.d("CosmeticDetailsActivity", "Deleted cosmetic saved successfully"); // Log thành công khi xóa
+                } else {
+                    Toast.makeText(this, "Không thể bỏ lưu mỹ phẩm!", Toast.LENGTH_SHORT).show();
+                    Log.d("CosmeticDetailsActivity", "Failed to delete cosmetic saved"); // Log thất bại khi xóa
+                }
+            } else {
+                // Lưu
+                if (dao.addCosmeticSaved(cosmeticSaved)) {
+                    Toast.makeText(this, "Lưu thông tin mỹ phẩm thành công!", Toast.LENGTH_SHORT).show();
+                    Log.d("CosmeticDetailsActivity", "Added cosmetic saved successfully"); // Log thành công khi thêm
+                } else {
+                    Toast.makeText(this, "Bạn đã lưu thông tin mỹ phẩm này rồi!", Toast.LENGTH_SHORT).show();
+                    Log.d("CosmeticDetailsActivity", "Failed to add cosmetic saved"); // Log thất bại khi thêm
+                }
+            }
+
+            updateCheckBoxFavoriteStatus(); // Cập nhật lại giao diện checkbox sau khi lưu hoặc bỏ lưu
+        });
+
+        // tăng số lượng mỹ phẩm
+        btnAddQuantity.setOnClickListener(view -> {
+            quantity++;
+            tvQuantity.setText(String.format("%s", quantity));
+            tvPrice.setText(getTotalPrice());
+        });
+
+        // giảm số lượng mỹ phẩm
+        btnSubQuantity.setOnClickListener(view -> {
+            if (quantity > 1) {
+                quantity--;
+                tvQuantity.setText(String.format("%s", quantity));
+                tvPrice.setText(getTotalPrice());
+            }
+        });
+
         LoadData();
     }
+
+
 
     @NonNull
     private String getRoundPrice(Double price) {
@@ -85,52 +155,12 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         tvStoreAddress = findViewById(R.id.tvStoreAddress);
 
         btnAddToCart = findViewById(R.id.btnAddToCart);
-        btnSavedCosmetic = findViewById(R.id.btnSavedCosmetic);
-        checkBoxCart = findViewById(R.id.checkBoxCart);
         checkBoxFavorite = findViewById(R.id.checkBoxFavorite);
 
         btnAddQuantity = findViewById(R.id.btnAddQuantity_Cosmetic);
         btnSubQuantity = findViewById(R.id.btnSubQuantity_Cosmetic);
     }
 
-    @Override
-    public void referenceComponent() {
-        // quay về màn hình trước đó.
-        findViewById(R.id.btnBack).setOnClickListener(view -> this.finish());
-
-        btnAddToCart.setOnClickListener(view -> {
-            addCartProduct();
-        });
-
-        checkBoxCart.setOnClickListener(view -> {
-            addCartProduct();
-        });
-
-        btnSavedCosmetic.setOnClickListener(view -> {
-            saveCosmetic();
-        });
-
-        checkBoxFavorite.setOnClickListener(view -> {
-            saveCosmetic();
-        });
-
-        // tăng số lượng my pham
-        btnAddQuantity.setOnClickListener(view -> {
-            quantity++;
-            tvQuantity.setText(String.format("%s", quantity));
-            tvPrice.setText(getTotalPrice());
-        });
-
-
-        // giảm số lượng my pham
-        btnSubQuantity.setOnClickListener(view -> {
-            if (quantity > 1) {
-                quantity--;
-                tvQuantity.setText(String.format("%s", quantity));
-                tvPrice.setText(getTotalPrice());
-            }
-        });
-    }
 
 
     // đẩy thông tin vào giỏ hàng
@@ -167,17 +197,6 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
             } else {
                 Toast.makeText(this, getResources().getString(R.string.add_error), Toast.LENGTH_SHORT).show();
             }
-        }
-    }
-
-
-    // lưu lại thông tin sản phẩm
-    private void saveCosmetic() {
-        boolean addCosmeticSaved = dao.addCosmeticSaved(new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID));
-        if (addCosmeticSaved) {
-            Toast.makeText(this, getResources().getString(R.string.SAVED_COSMETIC), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, getResources().getString(R.string.INFORMATION_EXISTED), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -244,6 +263,9 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
 
             // set giá tổng
             tvPrice.setText(getRoundPrice(cosmeticSize.getPrice()));
+
+            // Cập nhật trạng thái của CheckBox
+            updateCheckBoxFavoriteStatus();
         }
     }
 }
