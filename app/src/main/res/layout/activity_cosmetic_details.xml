@@ -75,24 +75,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:useMaterialThemeColors="false" />
 
-        <CheckBox
-            android:id="@+id/checkBoxCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/checkBoxFavorite"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_shape_ring"
-            android:button="@drawable/bg_selector_cart"
-            android:scaleX="1"
-            android:scaleY="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/checkBoxFavorite"
-            app:layout_constraintStart_toStartOf="@+id/checkBoxFavorite"
-            app:layout_constraintTop_toBottomOf="@+id/checkBoxFavorite"
-            app:layout_constraintVertical_bias="0.0"
-            app:useMaterialThemeColors="false" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -376,32 +358,6 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/btnSavedCosmetic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:background="@drawable/bg_while_rounded"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="3dp"
-                    android:background="@drawable/saved_icon"
-                    android:backgroundTint="@color/purple" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Ưu thích"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/btnAddToCart"
