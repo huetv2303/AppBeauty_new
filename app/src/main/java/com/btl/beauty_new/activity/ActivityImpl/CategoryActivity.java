@@ -24,12 +24,12 @@ import com.btl.beauty_new.model.Store;
 import java.util.ArrayList;
 
 public class CategoryActivity extends AppCompatActivity implements CategoryActivityImpl {
-    private LinearLayout cosmeticCartContainer;
+    private LinearLayout cosmeticContainer;
     private DAO dao;
     private Intent intent_get_data;
     private Integer storeId;
 
-    private ImageView image, imageSync, storeImage;
+    private ImageView image, storeImage;
     private TextView tvstoreName, tvstoreAddress, tvstorePhone;
     private SearchView searchBar;
 
@@ -51,12 +51,11 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
     @Override
     public void initializeUI() {
         image = findViewById(R.id.imageCartC);
-        imageSync = findViewById(R.id.imageSync);
         storeImage = findViewById(R.id.imageStore_category);
         tvstoreName = findViewById(R.id.tvStoreName_category);
         tvstoreAddress = findViewById(R.id.tvStoreAddress_category);
         tvstorePhone = findViewById(R.id.tvStorePhone_category);
-        cosmeticCartContainer = findViewById(R.id.cosmeticCartContainer);
+        cosmeticContainer = findViewById(R.id.cosmeticContainer);
         searchBar = findViewById(R.id.search_bar);
     }
 
@@ -84,8 +83,6 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
         // thoat về trang chủ
         image.setOnClickListener(view -> finish());
 
-        // load lại tất cả thông tin
-        imageSync.setOnClickListener(view -> loadCosmeticData(null));
 
         // tìm kiếm thông tin về đồ ăn trên danh sách đồ ăn.
         setupSearchBar();
@@ -106,11 +103,11 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
 
     @Override
     public void loadCosmeticData(String nameCosmeticOfThisStore) {
-        cosmeticCartContainer.removeAllViews(); // Xóa tất cả các view hiện có trong cosmeticCartContainer
+        cosmeticContainer.removeAllViews(); // Xóa tất cả các view hiện có trong cosmeticCartContainer
 
         ArrayList<Cosmetic> cosmeticArrayList; // Khai báo danh sách mỹ phẩm
 
-        // Kiểm tra nếu tên mỹ phẩm không phải null
+        // Kiểm tra nếu tên mỹ phẩm la null
         if (nameCosmeticOfThisStore == null) {
             int getstoreId = intent_get_data.getIntExtra("storeId", -1); // Lấy storeId từ intent
             System.out.println(getstoreId); // In ra storeId để kiểm tra
@@ -147,7 +144,7 @@ public class CategoryActivity extends AppCompatActivity implements CategoryActiv
             });
 
             // Thêm CosmeticCard vào cosmeticCartContainer
-            cosmeticCartContainer.addView(cosmeticCard);
+            cosmeticContainer.addView(cosmeticCard);
         }
 
     }
