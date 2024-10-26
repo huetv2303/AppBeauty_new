@@ -70,7 +70,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         // hiển thị chi tiết FragmentCategory
         holder.imageStore.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), CategoryActivity.class);
-            // dùng putExtra để đẩy Id sang Fragment khác cũng là cách hay
+            // dùng putExtra để đẩy Id sang Fragment khác
             intent.putExtra("storeId", store.getId());
             v.getContext().startActivity(intent);
         });

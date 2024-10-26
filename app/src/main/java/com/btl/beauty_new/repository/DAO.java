@@ -57,6 +57,8 @@ public class DAO {
         }
     }
 
+
+
     public boolean deleteStoreSaved(StoreSaved storeSaved) {   // del store
         String query = "DELETE FROM tblStoreSaved WHERE store_id=" + storeSaved.getStoreId() + " AND user_id=" + storeSaved.getUserId();
         try {
@@ -189,6 +191,7 @@ public class DAO {
         }
         return null;
     }
+
 
     public boolean addOrderDetail(OrderDetail od) {
         String query = "INSERT INTO tblOrderDetail VALUES(" +
