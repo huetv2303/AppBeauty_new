@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -38,7 +41,10 @@ public class SavedFragment extends Fragment {
     public static LinearLayout saved_container;
     private LinearLayout btn_saved_cosmetic, btn_saved_store;
     private TextView tv_saved_cosmetic, tv_saved_store;
-    private SearchView searchView;
+    private EditText tv_search;
+    private ImageView btn_search,btn_sync;
+  //  private SearchView searchView;
+    //private Button btn_search;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -80,7 +86,11 @@ public class SavedFragment extends Fragment {
         tv_saved_cosmetic = mainView.findViewById(R.id.tv_saved_cosmetic);
         btn_saved_store = mainView.findViewById(R.id.btn_saved_store);
         tv_saved_store = mainView.findViewById(R.id.tv_saved_store);
-        searchView = mainView.findViewById(R.id.searchView); // Thêm dòng này
+        //searchView = mainView.findViewById(R.id.searchView); // Thêm dòng này
+        tv_search = mainView.findViewById(R.id.tv_search); // Thêm dòng này
+        btn_search = mainView.findViewById(R.id.btnSearch); // Thêm dòng này
+        btn_sync = mainView.findViewById(R.id.btnSync); // Thêm dòng này
+
 
         // Sự kiện click cho nút "Lưu sản phẩm"
         btn_saved_cosmetic.setOnClickListener(view -> {
@@ -89,6 +99,7 @@ public class SavedFragment extends Fragment {
             btn_saved_store.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_white));
             tv_saved_store.setTextColor(Color.BLACK);
             LoadSavedCard("cosmetic", "");
+            reload("cosmetic");
         });
 
         // Sự kiện click cho nút "Lưu cửa hàng"
@@ -99,28 +110,36 @@ public class SavedFragment extends Fragment {
             tv_saved_store.setTextColor(Color.BLUE);
 
             LoadSavedCard("store", "");
+            reload("store");
         });
 
-        // Xử lý sự kiện tìm kiếm
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // Không cần xử lý trong onQueryTextSubmit
-                return false;  // Trả về false để cho phép tìm kiếm tiếp tục
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                String type = btn_saved_cosmetic.getBackground().getConstantState().equals(ContextCompat.getDrawable(requireContext(), R.color.silver).getConstantState()) ? "cosmetic" : "store";
-                LoadSavedCard(type, newText);  // Xử lý tìm kiếm trong onQueryTextChange
-                return true;  // Trả về true để thông báo rằng sự kiện đã được xử lý
-            }
-        });
-
+        search();
         // Tải danh sách sản phẩm đã lưu lúc đầu
         LoadSavedCard("cosmetic", "");
-
         return mainView;
+    }
+
+    public void reload(String type){
+        btn_sync.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadSavedCard(type, "");
+            }
+        });
+    }
+
+    public void search(){
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchQuery = tv_search.getText().toString();
+                String type = btn_saved_cosmetic.getBackground().getConstantState()
+                        .equals(ContextCompat.getDrawable(requireContext(), R.color.silver).getConstantState()) ? "cosmetic" : "store";
+
+                LoadSavedCard(type, searchQuery);
+            }
+        });
+
     }
 
     //Hàm xử lý dấu tiếng việt
@@ -144,7 +163,7 @@ public class SavedFragment extends Fragment {
             if (cosmeticSavedArrayList.size() > 0) {
                 for (CosmeticSaved cosmeticSaved : cosmeticSavedArrayList) {
                     Cosmetic cosmetic = HomeActivity.dao.getCosmeticById(cosmeticSaved.getCosmeticId());
-                    // Loại bỏ dấu khỏi tên thực phẩm trước khi so sánh
+                    // Loại bỏ dấu khỏi tên sản phẩm trước khi so sánh
                     String cosmeticName = removeAccents(cosmetic.getName().toLowerCase());
                     if (cosmeticName.contains(searchQuery)) {
                         Store store = HomeActivity.dao.getStoreInformation(cosmetic.getStoreId());
