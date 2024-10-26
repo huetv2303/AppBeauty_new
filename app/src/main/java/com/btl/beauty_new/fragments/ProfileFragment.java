@@ -61,6 +61,7 @@ public class ProfileFragment extends Fragment {
         LinearLayout user_information = mainView.findViewById(R.id.layout_user_information);
         user_information.setOnClickListener(view -> startActivity(new Intent(getActivity(), UserInformationActivity.class)));
 
+<<<<<<< HEAD
       /*  LinearLayout payment = mainView.findViewById(R.id.account_btn_layout_payment);
         payment.setOnClickListener(view -> {
             intent = new Intent(getActivity(), HomeActivity.class);
@@ -68,6 +69,8 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });*/
 
+=======
+>>>>>>> 24abbbe814509a80432690a3f238a464224efbbc
         LinearLayout history = mainView.findViewById(R.id.account_btn_layout_history);
         history.setOnClickListener(view -> {
             intent = new Intent(getActivity(), HomeActivity.class);
@@ -88,8 +91,6 @@ public class ProfileFragment extends Fragment {
             intent.putExtra("request", "hint");
             startActivity(intent);
         });
-
-//        LinearLayout policy = mainView.findViewById(R.id.account_btn_layout_policy);
 
         LinearLayout logout = mainView.findViewById(R.id.account_btn_layout_logout);
         logout.setOnClickListener(view -> {

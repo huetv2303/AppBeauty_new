@@ -34,6 +34,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         private final ImageView imageStore;
         private final TextView tvStoreName_res_cart, tvStoreAddress_res_cart;
         private CheckBox btnSavedShop;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageStore = itemView.findViewById(R.id.imageStore);
@@ -50,6 +51,11 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
                 .from(parent.getContext())
                 .inflate(R.layout.view_store_card, parent, false);
         return new ViewHolder(view);
+    }
+
+    @Override
+    public int getItemCount() {
+        return storeList.size();
     }
 
     @Override
@@ -70,18 +76,13 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         // lưu thông tin cửa hàng vào danh sách chờ
         holder.btnSavedShop.setOnClickListener(v -> {
             Context context = v.getContext(); // Lấy context từ View v
-            if(HomeActivity.dao.addStoreSaved(new StoreSaved(store.getId(), HomeActivity.user.getId()))){
+            if (HomeActivity.dao.addStoreSaved(new StoreSaved(store.getId(), HomeActivity.user.getId()))) {
                 Toast.makeText(context, "Lưu thông tin nhà hàng thành công!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();
             }
         });
 
-    }
-
-    @Override
-    public int getItemCount() {
-        return storeList.size();
     }
 
 }

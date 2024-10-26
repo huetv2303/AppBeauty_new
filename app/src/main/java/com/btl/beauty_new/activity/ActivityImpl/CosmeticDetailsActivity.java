@@ -114,7 +114,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
             saveCosmetic();
         });
 
-        // tăng số lượng món ăn
+        // tăng số lượng my pham
         btnAddQuantity.setOnClickListener(view -> {
             quantity++;
             tvQuantity.setText(String.format("%s", quantity));
@@ -122,7 +122,7 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         });
 
 
-        // giảm số lượng món ăn
+        // giảm số lượng my pham
         btnSubQuantity.setOnClickListener(view -> {
             if (quantity > 1) {
                 quantity--;

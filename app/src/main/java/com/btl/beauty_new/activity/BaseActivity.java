@@ -11,11 +11,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         referencesComponents();
-        getFoodData(null);
+        getCosmeticData(null);
     }
 
     protected abstract void referencesComponents();
-    protected abstract void getFoodData(String nameFoodOfThisRestaurant);
+    protected abstract void getCosmeticData(String nameCosmeticOfStore);
 
 
 }
