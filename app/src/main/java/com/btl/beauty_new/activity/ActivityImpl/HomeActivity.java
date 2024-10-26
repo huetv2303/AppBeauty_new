@@ -41,6 +41,8 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         Integer userID = user.getId(); // dữ liệu user đã được truyền vào ở phần đăng nhập tài khoản rồi
         CosmeticDetailsActivity.userID = userID; // truyền userID của người dùng qua CosmeticDetailsActivity
         ViewOrderActivity.userID = userID;   // truyền userID của người dùng qua ViewOrderActivity
+        AddressActivity.userId = userID;
+        PaymentActivity.userID = userID;
 
         dao = new DAO(this);
         initializeUI();

@@ -118,6 +118,32 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btn_layout_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_function_profile"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:contentDescription="@string/content_description_image"
+                android:src="@drawable/home">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:text="Địa chỉ"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/account_btn_layout_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

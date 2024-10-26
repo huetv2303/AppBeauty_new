@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.btl.beauty_new.R;
+import com.btl.beauty_new.activity.ActivityImpl.AddressActivity;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.activity.ActivityImpl.SignInActivity;
 import com.btl.beauty_new.activity.ActivityImpl.UserInformationActivity;
@@ -61,7 +62,6 @@ public class ProfileFragment extends Fragment {
         LinearLayout user_information = mainView.findViewById(R.id.layout_user_information);
         user_information.setOnClickListener(view -> startActivity(new Intent(getActivity(), UserInformationActivity.class)));
 
-<<<<<<< HEAD
       /*  LinearLayout payment = mainView.findViewById(R.id.account_btn_layout_payment);
         payment.setOnClickListener(view -> {
             intent = new Intent(getActivity(), HomeActivity.class);
@@ -69,12 +69,12 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });*/
 
-=======
->>>>>>> 24abbbe814509a80432690a3f238a464224efbbc
-        LinearLayout history = mainView.findViewById(R.id.account_btn_layout_history);
-        history.setOnClickListener(view -> {
-            intent = new Intent(getActivity(), HomeActivity.class);
-            intent.putExtra("request", "history");
+
+
+        LinearLayout address = mainView.findViewById(R.id.btn_layout_address);
+        address.setOnClickListener(view -> {
+            intent = new Intent(getActivity(), AddressActivity.class);
+            intent.putExtra("request", "address");
             startActivity(intent);
         });
 
