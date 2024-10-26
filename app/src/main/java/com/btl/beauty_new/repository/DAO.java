@@ -288,6 +288,11 @@ public class DAO {
         return null;
     }
 
+    // delete user
+    public void deleteUser(int user_id){
+        String query = "DELETE FROM tblUser WHERE id = " + user_id;
+        dbHelper.queryData(query);
+    }
 
     // kiểm tra xem user đã tồn tại trong db hay không
     public boolean checkUsername(String username) {

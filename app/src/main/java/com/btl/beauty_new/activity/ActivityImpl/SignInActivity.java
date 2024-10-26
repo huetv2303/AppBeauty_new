@@ -91,11 +91,9 @@ public class SignInActivity extends AppCompatActivity {
                 Toast.makeText(this, getResources().getString(R.string.input_full_username_and_password), Toast.LENGTH_SHORT).show();
                 return;
             }
-
             validateUsername.setText("");
             validatePassword.setText("");
         });
-
 
         // hiện password
         findViewById(R.id.checkPassword).setOnClickListener(v -> togglePasswordVisibility());
@@ -103,7 +101,6 @@ public class SignInActivity extends AppCompatActivity {
         txtPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -116,9 +113,7 @@ public class SignInActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
-
         });
     }
 

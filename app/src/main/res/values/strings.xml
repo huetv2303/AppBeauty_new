@@ -18,7 +18,7 @@
     <string name="not_view_information">Không thể hiển thị thông tin!</string>
     <string name="add_cosmetic_successfully">Thêm Mỹ Phẩm Vào Giỏ Hàng Thành Công.</string>
     <string name="add_error">Thêm mỹ phẩm không thành công (Lỗi)</string>
-    <string name="SAVED_COSMETIC">Đã lưu thông tin món ăn</string>
+    <string name="SAVED_COSMETIC">Đã lưu thông tin mỹ phẩm</string>
     <string name="INFORMATION_EXISTED">Thông tin mỹ phẩm đã tồn tại trong giỏ hàng.</string>
     <string name="If_You_Delete_Cart">Bạn có muốn xóa đơn hàng này không?</string>
     <string name="order_cancel">Đơn hàng đã bị hủy.</string>
@@ -150,7 +150,7 @@
     <string name="voucher">Ví voucher</string>
     <string name="invite_friend">Mời bạn bè</string>
     <string name="hint">Thông báo</string>
-    <string name="policy_and_secure">Chính sách và bảo mật</string>
+    <string name="delete_account">Xóa tài khoản</string>
     <string name="logout">Đăng xuất</string>
     <string name="title">Tiêu đề</string>
     <string name="content">Nội dung</string>
