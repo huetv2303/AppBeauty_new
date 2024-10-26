@@ -23,7 +23,7 @@
     <string name="If_You_Delete_Cart">Bạn có muốn xóa đơn hàng này không?</string>
     <string name="order_cancel">Đơn hàng đã bị hủy.</string>
     <string name="not_found_information">Không thể hiển thị thông tin.</string>
-    <string name="save_restaurant_successfully">Lưu thông tin cửa hàng thành công.</string>
+    <string name="save_store_successfully">Lưu thông tin cửa hàng thành công.</string>
 
     <string name="home_fragment">Home fragment</string>
     <string name="favorite_fragment">Favorite fragment</string>

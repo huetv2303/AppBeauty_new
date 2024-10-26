@@ -65,7 +65,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return c;
     }
 
-    // Convert Image
+    // Convert ảnh thành một mảng byte
     public byte[] convertDrawableToByteArray(Drawable drawable) {
         // Convert khi đúng cấu trúc bitmap
         if (drawable instanceof BitmapDrawable) {
@@ -90,16 +90,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
 
-        // Chuyển kiểu
+        // Chuyển kiểu bitmap thành byte
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         return stream.toByteArray();
     }
 
+    // convert từ một mảng byte thành một bitmap
     public static Bitmap convertByteArrayToBitmap(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
+    // insert data into list
     private void SampleData() {
         // region User
         userList = new ArrayList<>();
@@ -123,7 +125,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         storeList.add(new Store(6, "Cửa Hàng Thebodyshop", "Royal City 72A Nguyễn Trãi, Nam Từ Liêm",
                 "0828007853", convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.store_thebodyshop, null))));
 
-        // region store saved
+        // region storesaved
         storeSavedList = new ArrayList<>();
         storeSavedList.add(new StoreSaved(1, 3));
         storeSavedList.add(new StoreSaved(4, 3));
@@ -134,7 +136,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // region cosmetic
         cosmeticList = new ArrayList<>();
-        // region Shiseido
+        // store Shiseido
         cosmeticList.add(new Cosmetic(1, "Tinh chất dưỡng da", "Dưỡng da",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi, null)),
                 "Serum ULTIMUNE đoạt nhiều giải thưởng, giúp củng cố hàng rào bảo vệ da mạnh mẽ, phục hồi độ đàn hồi của da. Trải nghiệm sự rạng rỡ, mịn màng và đàn hồi, cho làn da Khỏe khoắn, Tươi trẻ:\n" +
@@ -142,37 +144,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "Loại da:\n" +
                         "\n" +
                         "\t\tTất cả loại da / Da dầu / Da hỗn hợp / Da khô\n" +
-
                         "\nMùi hương:\n" +
                         "\n" +
                         "\t\t" +
                         "Hương thơm hoa cỏ mang đến cảm giác thư giãn và tăng cường năng lượng\n" +
                         "Chứa hợp chất ImuCalm Compound™ ngăn ngừa các tổn thương do căng thẳng cảm xúc.\n" +
-
                         "\n" +
                         "Thời gian sử dụng:\n" +
                         "\n" +
                         "\t\t" +
                         "Khoảng 2 tháng (với liều lượng khuyên dùng)\n" +
-
                         "\n" +
                         "Kết cấu :\n" +
                         "\n" +
                         "\t\t" +
                         "Kết cấu sánh mịn nhưng trong mướt dễ dàng thẩm thấu trên toàn bộ khuôn mặt và vùng da mắt.\n" +
                         "Cảm giác mịn mượt như satin đọng lại trên da, như thể làn da được bảo vệ bởi một tấm màn vô hình.\n", 5));
+
         cosmeticList.add(new Cosmetic(1, "Sữa rửa mặt SHISEIDO", "Sữa rửa mặt",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi1, null)),
                 "Rạng rỡ tinh tế. " +
-                        "\t\t Sữa rửa mặt có chứa Bột trắng siêu mịn và đất sét trắng để loại bỏ các tạp chất một cách hiệu quả. Giàu dưỡng chất. Bọt êm mịn. Loại bỏ các tế bào da xỉn màu ở bề mặt, các chất gây ô nhiễm và các chất bị ôxi hóa gây nên lão hóa. Được làm từ những nguyên liệu có khả năng dưỡng ẩm sâu, không gây khô da, củng cố khả năng bảo vệ từ bên trong.\n" +
+                        "\t\t Sữa rửa mặt có chứa Bột trắng siêu mịn và đất sét trắng để loại bỏ các tạp chất một cách hiệu quả. Giàu dưỡng chất. Bọt êm mịn. Loại bỏ các tế" +
+                        " bào da xỉn màu ở bề mặt, các chất gây ô nhiễm và các chất bị ôxi hóa gây nên lão hóa. Được làm từ những nguyên liệu có khả năng dưỡng ẩm sâu, không gây khô da, củng cố khả năng bảo vệ từ bên trong.\n" +
                         "\t\t Phù hợp cho mọi loại da.\n" +
                         "\n\n- Cách dùng: sữa rửa mặt\n" +
                         "\t\t + Thêm một it nước, tạo bọt trên sản phẩm" +
                         "\t\t + Massage nhẹ nhàng toàn gương mặt" +
                         "\t\t + Rửa mặt lại thật sạch bằng nước", 5));
+
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng ban ngày", "Kem",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi2, null)),
-                "Kem dưỡng cao cấp ban ngày đa chức năng với kết cấu mịn mượt giàu ẩm giúp duy trì cảm giác ẩm mượt tối ưu suốt cả ngày. Công nghệ độc quyền của Shiseido kích thích Nhân tố bảo vệ da ban ngày để mang đến làn da rạng rỡ từ bên trong. Làn da được bảo vệ ngay cả khi bị tác động bởi những yếu tố gây hại như tia UV, môi trường khô, ôxi hóa và sự ô nhiễm. Có thể sử dụng dưới lớp trang điểm.:\n" +
+                "Kem dưỡng cao cấp ban ngày đa chức năng với kết cấu mịn mượt giàu ẩm giúp duy trì cảm giác ẩm mượt tối ưu suốt cả ngày. Công nghệ" +
+                        " độc quyền của Shiseido kích thích Nhân tố bảo vệ da ban ngày để mang đến làn da rạng rỡ từ bên trong. Làn da được bảo vệ ngay cả khi " +
+                        "bị tác động bởi những yếu tố gây hại như tia UV, môi trường khô, ôxi hóa và sự ô nhiễm. Có thể sử dụng dưới lớp trang điểm.:\n" +
                         "\t\t Bảo vệ da với SPF 20.\n" +
                         "\t\t+ Tổng quan:\n" +
                         "\t\t  VẺ ĐẸP VƯỢT THỜI GIAN\n" +
@@ -181,21 +185,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "10 NĂM CỦNG CỐ VẺ ĐẸP VĨNH CỬU, LÀN DA ĐÀN HỒI VÀ TỎA SÁNG RỰC RỠ.\n" +
                         "\t\t Thành phần chính:" +
                         "\t\t  PHỨC HỢP SKINGENECELL ENMEI\n" +
-                        "Thảo dược từ xa xưa nay trở thành nguồn năng lượng sống mới cho làn da. Tìm thấy sâu trong rừng thiêng nơi ngọn núi Koya huyền bí, loài thảo mộc đã được các vị thiền sư sử dụng hàng thế kỷ nay. Các nghiên cứu hiện đại đã giúp chạm đến và khai thác sức mạnh chống lão hóa và duy trì vẻ đẹp vượt trội cùa loài thảo mộc huyền bí.\n", 5));
+                        "Thảo dược từ xa xưa nay trở thành nguồn năng lượng sống mới cho làn da. Tìm thấy sâu trong rừng thiêng nơi ngọn núi Koya huyền bí, loài " +
+                        "thảo mộc đã được các vị thiền sư sử dụng hàng thế kỷ nay. Các nghiên cứu hiện đại đã giúp chạm đến và khai thác sức mạnh chống lão hóa và duy trì vẻ đẹp vượt trội cùa loài thảo mộc huyền bí.\n", 5));
+
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng mắt", "Kem",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi3, null)),
                 "Kem dưỡng mắt chuyên sâu, giảm rõ rệt quầng thâm mắt, cho vẻ ngoài trẻ trung đầy sức sống." +
                         "\n\n  Thành phần chính:\n" +
-                        "\t\t+  WATER (AQUA)･DIMETHICONE･BUTYLENE GLYCOL･GLYCERIN･ALCOHOL･DIMETHICONE/VINYL DIMETHICONE CROSSPOLYMER･MYRISTYL MYRISTATE･PETROLATUM･HYDROGENATED POLYDECENE･BEHENYL ALCOHOL･CETYL ETHYLHEXANOATE･GLYCERYL STEARATE SE･POTASSIUM METHOXYSALICYLATE･POLYMETHYL METHACRYLATE･STEARYL ALCOHOL･DIMETHYLACRYLAMIDE/SODIUM ACRYLOYLDIMETHYLTAURATE CROSSPOLYMER･POLYSORBATE 60･PEG-40 STEARATE･TOCOPHERYL ACETATE･PHENOXYETHANOL･TITANIUM DIOXIDE (CI 77891)･FRAGRANCE (PARFUM)･SORBITAN TRISTEARATE･TRISODIUM EDTA･PEG-10 DIMETHICONE･SODIUM CITRATE･ORYZANOL･2-O-ETHYL ASCORBIC ACID･MICA･SILICA･XANTHAN GUM･SODIUM METAPHOSPHATE･LIMONENE･CITRIC ACID･PEG/PPG-14/7 DIMETHYL ETHER･ALUMINUM HYDROXIDE･BENZYL BENZOATE･HYDROXYISOHEXYL 3-CYCLOHEXENE CARBOXALDEHYDE･IRON OXIDES (CI 77491)･SODIUM HYALURONATE･LINALOOL･CRATAEGUS MONOGYNA FLOWER EXTRACT･TOCOPHEROL･\n" +
+                        "\t\t+  WATER (AQUA)･DIMETHICONE･BUTYLENE GLYCOL･GLYCERIN･ALCOHOL･DIMETHICONE/VINYL DIMETHICONE CROSSPOLYMER･MYRISTYL MYRISTATE･PETROLATUM･" +
+                        "HYDROGENATED POLYDECENE･BEHENYL ALCOHOL･CETYL ETHYLHEXANOATE･GLYCERYL STEARATE SE･POTASSIUM METHOXYSALICYLATE･POLYMETHYL METHACRYLATE･STEARYL " +
+                        "ALCOHOL･DIMETHYLACRYLAMIDE/SODIUM ACRYLOYLDIMETHYLTAURATE CROSSPOLYMER･POLYSORBATE 60･PEG-40 STEARATE･TOCOPHERYL ACETATE･PHENOXYETHANOL･TITANIUM" +
+                        " DIOXIDE (CI 77891)･FRAGRANCE (PARFUM)･SORBITAN TRISTEARATE･TRISODIUM EDTA･PEG-10 DIMETHICONE･SODIUM CITRATE･ORYZANOL･2-O-ETHYL ASCORBIC " +
+                        "ACID･MICA･SILICA･XANTHAN GUM･SODIUM METAPHOSPHATE･LIMONENE･CITRIC ACID･PEG/PPG-14/7 DIMETHYL ETHER･ALUMINUM HYDROXIDE･BENZYL BENZOATE･HYDROXYISOHEXYL" +
+                        " 3-CYCLOHEXENE CARBOXALDEHYDE･IRON OXIDES (CI 77491)･SODIUM HYALURONATE･LINALOOL･CRATAEGUS MONOGYNA FLOWER EXTRACT･TOCOPHEROL･\n" +
                         "\n\n- Cách dùng: kem dưỡng mắt\n" +
                         "\t\t + dàn trải một lượng nhỏ sản phẩm quanh vùng mắt." +
                         "\t\t + Thoa đều khắp mi mắt và vùng da dưới mắt." +
                         "\t\t + Massage nhẹ nhàng theo hướng từ gò mà lên.", 5));
+
         cosmeticList.add(new Cosmetic(1, "Kem chống nắng dưỡng da", "Kem",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi4, null)),
                 "huyển hóa một phần ánh nắng mặt trời thành ánh sáng sinh học với Công nghệ Sun Dual Care™. " +
                         "\n\n Sản phẩm chống nắng đầu tiên giúp bảo vệ da khỏi tia UV, đồng thời, chuyển hóa một phần ánh sáng mặt trời thành ánh sáng có lợi, tối ưu hiệu quả chăm sóc da.\n" +
-                        "\t\t Phù hợp để dùng hằng ngày với kết cấu nhẹ tênh, không dầu, với thành phần các chất chống ôxi hóa và hyaluronic acid, sản phẩm giúp bảo vệ da khỏi các yếu tố ô nhiễm môi trường gây sạm hoặc khô da, để lại một làn da ẩm mịn, tươi sáng.\n" +
+                        "\t\t Phù hợp để dùng hằng ngày với kết cấu nhẹ tênh, không dầu, với thành phần các chất chống ôxi hóa và hyaluronic acid, sản phẩm giúp bảo vệ da khỏi các yếu tố " +
+                        "ô nhiễm môi trường gây sạm hoặc khô da, để lại một làn da ẩm mịn, tươi sáng.\n" +
                         "\t\t SPF 50.\n" +
                         "\t\t Tinh chất Spirulina Energy Essence\n" +
                         "Chuyển hóa một phần ánh nắng mặt trời thành ánh sáng có lợi\n" +
@@ -203,6 +216,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "So sánh với các sản phẩm chống nắng\n" +
                         "không kháng nước và công thức kháng nước lưu lại trên da\n" +
                         "\t\t Không gây bết dính", 5));
+
         cosmeticList.add(new Cosmetic(1, "Mặt nạ ban đêm", "Mặt nạ",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_shi5, null)),
                 "Đánh thức giác quan của làn da. Toả sáng rạng rỡ từ bên trong." +
@@ -210,7 +224,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t Tập trung vào quá trình hoạt động ban đêm của làn da, kem dưỡng cung cấp dưỡng chất tràn đầy, giúp giải quyết các tổn thương xuất hiện ban ngày, ngay trong giấc ngủ của bạn. \n" +
                         "\t\t Làm sáng rõ rệt, loại bỏ đốm nâu, làm đều màu da, và xoá những vết nhăn nhỏ. Giúp bạn toả sáng.\n", 5));
 
-        // dữ liệu cửa hàng 1
+        // store mac
         cosmeticList.add(new Cosmetic(1, "SRM Cerave dạng chai", "Sữa rửa mặt",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_cerave1, null)),
                 "Sữa rửa mặt Cerave - sản phẩm hoàn hảo cho làn da dầu siêu nhạy cảm:\n" +
@@ -259,7 +273,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 ":\n" +
                         "Thành Phần:\n" +
                         "\n" +
-                        "\t\tCetyl Alcohol và Stearyl Alcohol: Là hai loại cồn béo có tác dụng làm mềm da và cải thiện độ đàn hồi cho da rất tốt. Cetyl Alcohol và Stearyl Alcohol đều rất lành tính với da nên được sử dụng rất phổ biến trong các sản phẩm dưỡng da.\n" +
+                        "\t\tCetyl Alcohol và Stearyl Alcohol: Là hai loại cồn béo có tác dụng làm mềm da và cải thiện độ đàn hồi cho da rất tốt. Cetyl Alcohol và Stearyl Alcohol đều rất" +
+                        " lành tính với da nên được sử dụng rất phổ biến trong các sản phẩm dưỡng da.\n" +
                         "\t\tSodium Lauryl Sulfate: Có công dụng làm sạch nhẹ nhàng các bụi bẩn, bã nhờn dư thừa và lớp trang điểm còn sót lại, giúp da luôn khô thoáng và sạch sẽ.\n" +
                         "\t\tPropylene Glycol: Là thành phần ngăn sự thoát hơi nước trên bề mặt da, có công dụng hydrat hóa và cung cấp độ ẩm cho da.\n" +
                         "\t\tĐặc biệt, sữa rửa mặt không chứa xà phòng, không chứa hương liệu và các chất bảo quản nên đảm bảo an toàn cho da và không gây kích ứng cho da, dù là da nhạy cảm.\n" +
@@ -347,19 +362,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t- Thoa lại sau mỗi 2 giờ hoặc sau khi bơi lội, ra mồ hôi\n" +
                         "\t\t- Tránh tiếp xúc trực tiếp với mắt\n", 1));
 
-
-        // region Olay
-        cosmeticList.add(new Cosmetic(1, "Tinh Chất Olay Chống Lão Hóa Chứa Chiết Xuât Retinol24 30ml", "Tinh chất",
+        // store Olay
+        cosmeticList.add(new Cosmetic(1, "Tinh Chất Olay Retinol24 30ml", "Serum",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic1, null)),
                 "Serum OLAY RETINOL24: LIỆU TRÌNH TRẺ HÓA DA BAN ĐÊM, GIÚP MỜ NẾP NHĂN RÕ RỆT SAU 28 NGÀY\n" +
                         "\nRetinol là một dẫn xuất của Vitamin A, có tác dụng trung hòa các gốc tự do, kích thích sản sinh collagen và tái tạo bề mặt da. Retinol giúp làm mờ thâm nám, cải thiện lỗ chân lông và mụn.\n" +
-                        "\nOlay Retinol24 kết hợp phức hợp độc quyền giữa Niacinamide, Retinol và Retinyl Propionate, giúp trẻ hóa da hiệu quả mà không gây kích ứng mạnh. Serum giúp mờ nếp nhăn, đều màu da, mờ đốm nâu, và tăng cường độ săn chắc cho da.\n" +
+                        "\nOlay Retinol24 kết hợp phức hợp độc quyền giữa Niacinamide, Retinol và Retinyl Propionate, giúp trẻ hóa da hiệu quả mà không gây kích ứng mạnh. Serum giúp mờ nếp nhăn, " +
+                        "đều màu da, mờ đốm nâu, và tăng cường độ săn chắc cho da.\n" +
                         "\nCông thức nhẹ nhàng, không chứa hương liệu và phẩm màu, thẩm thấu nhanh, không nhờn dính, đồng thời cấp ẩm cho da suốt 24 giờ.\n" +
                         "\nHướng dẫn sử dụng:\n" +
                         "- Sử dụng vào ban đêm.\n" +
                         "- Lấy một lượng vừa đủ thoa đều lên mặt và cổ sau khi rửa mặt.\n" +
                         "- Dùng hàng ngày để đạt hiệu quả tối ưu, thấy rõ sự cải thiện sau 28 ngày.", 4));
-        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm Ban Đêm Sáng Da OLAY LUMINOUS 50G", "Dưỡng ẩm",
+
+        cosmeticList.add(new Cosmetic(1, "Dưỡng Ẩm Ban Đêm OLAY LUMINOUS 50G", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic, null)),
                 "Cuộc sống bận rộn, năng động, khiến làn da của chúng ta dễ xuất hiện những dấu hiệu lão hóa: da sạm, không đều màu, thâm mụn, nếp nhăn, chảy xệ…\n" +
                         "\nOlay - thương hiệu mỹ phẩm hàng đầu thế giới đến từ Mỹ, với công nghệ hiện đại và thành phần an toàn, giúp cải thiện rõ rệt các vấn đề về da, đồng thời phục hồi và làm chậm quá trình lão hóa.\n" +
@@ -367,7 +383,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nHướng dẫn sử dụng: Lấy một lượng vừa đủ thoa đều lên mặt và cổ, massage nhẹ nhàng. Dùng hàng ngày vào buổi tối sau khi rửa mặt.\n" +
                         "\nXuất xứ thương hiệu: Mỹ\n" +
                         "\nSản xuất tại: Thái Lan", 4));
-        cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang OLAY Vitamin C Sạch Sâu 80 miếng/hộp", "Tẩy trang",
+
+        cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang OLAY Vitamin C", "Tẩy trang",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic2, null)),
                 "Thiết kế theo Olay\n" +
                         "\nKích thước: 6cm x 6cm\n" +
@@ -379,7 +396,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- 100% bông xơ tự nhiên mềm mại, an toàn, có khả năng tự hủy, thân thiện với môi trường.\n" +
                         "- Công nghệ Spunlace xử lý màng bông bằng tia nước áp lực cao giúp bông mịn, dai, không bị xơ trên bề mặt.\n" +
                         "- Đạt chứng nhận ISO 9001, ISO 13485, Hàng Việt Nam chất lượng cao, và các chứng nhận CE.", 4));
-        cosmeticList.add(new Cosmetic(1, "Sữa Rửa Mặt Ngày & Đêm", "Sữa rửa mặt",
+
+        cosmeticList.add(new Cosmetic(1, "SRM Ngày & Đêm", "Sữa rửa mặt",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic3, null)),
                 "OLAY Total Effects: Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa\n" +
                         "\nOLAY Total Effects là thương hiệu chăm sóc da đại chúng đầu tiên giới thiệu thành phần Niacinamide (Vitamin B3), được chứng minh giúp tăng cường hàng rào bảo vệ da và phục hồi vẻ ngoài tươi trẻ hơn.\n" +
@@ -391,7 +409,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Da khô\n" +
                         "- Da xỉn màu\n" +
                         "- Lỗ chân lông to.", 4));
-        cosmeticList.add(new Cosmetic(1, "Combo 2: Serum Căng Mướt, Sáng Khỏe & Phục Hồi Dấu Hiệu Lão", "Dưỡng ẩm",
+
+        cosmeticList.add(new Cosmetic(1, "Combo Serum Căng Mướt & Phục Hồi", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic4, null)),
                 "OLAY Regenerist: Dưỡng Da Căng Mướt, Sáng Khỏe & Phục Hồi Dấu Hiệu Lão Hóa\n" +
                         "\nThành phần chính là Bioavailable Niacinamide, tính ổn định cao và khả năng thẩm thấu sâu vào 10 lớp biểu bì, giúp thúc đẩy quá trình thay mới tế bào da và ngăn chặn dịch chuyển của hắc sắc tố, giúp da tươi sáng, rạng rỡ.\n" +
@@ -399,6 +418,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Amino-Peptide (Pro-Collagen) giúp làm mờ nếp nhăn và săn chắc da\n" +
                         "- Axit Hyaluronic (HA) giúp cấp ẩm mạnh mẽ\n" +
                         "- Chiết xuất Carob hỗ trợ phục hồi tổn thương bề mặt da.", 4));
+
         cosmeticList.add(new Cosmetic(1, "Super Serum OLAY Luminous Niacinamide & Vitamin C ", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic5, null)),
                 "Super Serum OLAY Luminous Niacinamide + Vitamin C: Giúp Giảm 5 Năm Vết Thâm, Đốm Nâu Dài Dẳng\n" +
@@ -408,7 +428,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nKẾT QUẢ NGHIÊN CỨU LÂM SÀNG CHO THẤY^^:\n" +
                         "- 96% người dùng cảm thấy da được cấp ẩm sau khi sử dụng\n" +
                         "- 91% người dùng cảm thấy da sáng khỏe hơn sau khi sử dụng.", 4));
-        cosmeticList.add(new Cosmetic(1, "Kem Dưỡng Ẩm Ban Ngày Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa ", "Dưỡng ẩm",
+
+        cosmeticList.add(new Cosmetic(1, "Dưỡng Ẩm Ban Ngày Phục Hồi & Làm Chậm Lão Hóa ", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.olay_cosmetic6, null)),
                 "OLAY Total Effects: Phục Hồi & Làm Chậm 7 Dấu Hiệu Lão Hóa\n" +
                         "\nOLAY Total Effects là thương hiệu chăm sóc da đại chúng đầu tiên giới thiệu thành phần làm chậm dấu hiệu lão hóa mạnh mẽ, Niacinamide (Vitamin B3), giúp tăng cường hàng rào bảo vệ da và phục hồi vẻ ngoài tươi trẻ.\n" +
@@ -421,9 +442,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Da xỉn màu\n" +
                         "- Lỗ chân lông to.", 4));
 
-
-        // region neutro
-        cosmeticList.add(new Cosmetic(1, "Tinh chất cấp nước phục hồi da Neutrogena Serum dưỡng ẩm", "Dưỡng ẩm",
+        // store neutro
+        cosmeticList.add(new Cosmetic(1, "Tinh chất cấp nước phục hồi da Neutrogena", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic, null)),
                 "Tinh Chất Cấp Nước Phục Hồi Da Neutrogena® Hydro Boost Hyaluronic Acid Serum dưỡng ẩm\n" +
                         "\nƯU ĐIỂM:\n" +
@@ -432,7 +452,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nĐược cho là có tác dụng với mọi loại da, kể cả da nhạy cảm, serum nên được sử dụng cả sáng và tối để tạo cảm giác \"sảng khoái\" trên da.\n" +
                         "\nĐã được chứng minh lâm sàng về khả năng tăng cường hydrat hóa không trọng lượng trong 24 giờ cho làn da khỏe mạnh, sáng mịn. Hơn 78% người dùng đồng ý rằng huyết thanh này không để lại cảm giác nhờn trên da.\n" +
                         "\nKhông chứa hương liệu, phù hợp với mọi loại da và da nhạy cảm đã được phê duyệt.", 3));
-        cosmeticList.add(new Cosmetic(1, "Nước Hoa Hồng Neutrogena Clear Pore Oil-Eliminating Astringent Toner", "Nước hoa",
+
+        cosmeticList.add(new Cosmetic(1, "Toner Neutrogena Clear Pore Oil-Eliminating Astringent", "Toner",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic1, null)),
                 "Nước Hoa Hồng Neutrogena Clear Pore Oil-Eliminating Astringent Toner\n" +
                         "\nDung tích: 236ml\n" +
@@ -445,17 +466,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nHƯỚNG DẪN SỬ DỤNG:\n" +
                         "- Làm sạch da trước khi áp dụng sản phẩm, thoa nhẹ một lớp mỏng lên bề mặt da.\n" +
                         "- Nếu xảy ra tình trạng khô hoặc bong tróc khó chịu, hãy giảm tần suất sử dụng xuống một lần/ngày hoặc cách ngày.", 3));
-        cosmeticList.add(new Cosmetic(1, "Chấm mụn thần thánh Stubborn Acne™ Spot Drying Lotion", "Chấm mụn",
+
+        cosmeticList.add(new Cosmetic(1, "Chấm mụn Stubborn Acne™ Spot Drying Lotion", "Chấm mụn",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic2, null)),
                 "Chấm mụn Stubborn Acne™ Spot Drying Lotion\n" +
                         "\nSản phẩm giúp làm khô bề mặt, thu gom cồi mụn nhanh chóng, mụn trông rõ ràng hơn, nhỏ hơn chỉ sau 1 ngày.\n" +
                         "\n- Có tác dụng hiệu quả đối với mụn trứng cá.\n" +
                         "- Làm mờ vết thâm đen sau mụn.\n" +
                         "- Không mùi, rất dịu nhẹ, có thể sử dụng cả ngày.", 3));
-        cosmeticList.add(new Cosmetic(1, "Kem chống nắng Sport Face Oil-Free Lotion Sunscreen SPF 70+", "Kem chống nắng",
+
+        cosmeticList.add(new Cosmetic(1, "KCN Sport Face Oil-Free Lotion Sunscreen SPF 70+", "Kem chống nắng",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic3, null)),
                 "Kem chống nắng Sport Face Oil-Free Lotion Sunscreen Broad Spectrum SPF 70+\n" +
-                        "\nCông thức kem chống nắng dành cho da mặt thể thao của chúng tôi khai thác sức mạnh của Công nghệ Helioplex® để cung cấp khả năng chống tia UVA/UVB phổ rộng vượt trội khỏi ánh nắng mặt trời. Nó cũng chống nước (lên đến 80 phút), cọ xát, mồ hôi và lau để bạn có thể tiếp tục hoạt động mà không lo bị cháy nắng.\n" +
+                        "\nCông thức kem chống nắng dành cho da mặt thể thao của chúng tôi khai thác sức mạnh của Công nghệ Helioplex® để cung cấp khả năng chống " +
+                        "tia UVA/UVB phổ rộng vượt trội khỏi ánh nắng mặt trời. Nó cũng chống nước (lên đến 80 phút), cọ xát, mồ hôi và lau để bạn có thể tiếp tục hoạt động mà không lo bị cháy nắng.\n" +
                         "\n- Non-comedogenic (không làm tắc nghẽn lỗ chân lông)\n" +
                         "- Không chứa dầu\n" +
                         "- Không chứa PABA\n" +
@@ -463,19 +487,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nCÁCH SỬ DỤNG\n" +
                         "- Bôi Kem Chống Nắng Neutrogena Sport Face SPF 70 trước 30 phút khi đi ra đường để kem kịp thấm vào da và phát huy tác dụng chống nắng một cách tối đa.\n" +
                         "- Chỉ cần bôi một lớp kem mỏng. Bôi quá nhiều vừa gây lãng phí vừa không tốt cho da vì lớp kem thừa không kịp thấm vào da sẽ có thể là nguyên nhân gây nên bệnh dị ứng da trong mùa hè.", 3));
-        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi", "Dưỡng ẩm",
+
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic4, null)),
                 "Kem dưỡng ẩm No7 Protect & Perfect Intense Advanced không mùi - Hàng Mỹ\n" +
                         "\n- Kem dưỡng ban ngày Protect & Perfect Advanced Day Cream: Kem dưỡng ban ngày Protect And Perfect Advanced Day Cream có chỉ số chống nắng phổ rộng SPF 30 để bảo vệ làn da của bạn khỏi các tia có hại của mặt trời.\n" +
                         "\n- Kem dưỡng ban đêm cao cấp Protect & Perfect: Kem dưỡng ban đêm cao cấp Protect And Perfect giúp giảm nếp nhăn và giảm rõ rệt các nếp nhăn. Dễ dàng áp dụng trước khi đi ngủ.\n" +
                         "\nKem cao cấp Protect & Perfect: Cả Kem ban ngày và Kem ban đêm đều có công nghệ tiên tiến bảo vệ và hoàn hảo giúp giảm nếp nhăn và giảm rõ rệt.", 3));
-        cosmeticList.add(new Cosmetic(1, "Kem dưỡng cấp ẩm cho mặt La.Roch.e.P.osay", "Dưỡng ẩm",
+
+        cosmeticList.add(new Cosmetic(1, "Kem dưỡng cấp ẩm La Roche-Posay", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic5, null)),
                 "Kem dưỡng cấp ẩm cho mặt La Roche-Posay Toleriane Double Repair - Dung tích 100ml\n" +
                         "\nThành phần Kem dưỡng Toleriane Double Repair Face Moisturizer UV gồm nước khoáng La Roche-Posay prebiotic, ceramide-3, niacinamide và glycerin, cung cấp độ ẩm lên đến 48 giờ và phục hồi hàng rào bảo vệ tự nhiên của da, phục hồi làn da khỏe mạnh. Ngay lập tức làm dịu ngay cả làn da nhạy cảm với kết cấu kem nhẹ.\n" +
                         "\nKết cấu kem nhẹ của nó dễ dàng hấp thụ vào da để mang lại sự thoải mái ngay lập tức.\n" +
                         "\nPhù hợp với mọi loại da, kể cả da nhạy cảm. Không mùi, không paraben, không dầu, không cồn, không gây mụn.", 3));
-        cosmeticList.add(new Cosmetic(1, "Kem dưỡng ẩm ngày / đêm cho da nhạy cảm CETAPHIL REDNESS", "Dưỡng ẩm",
+
+        cosmeticList.add(new Cosmetic(1, "Dưỡng ẩm cho da nhạy cảm CETAPHIL REDNESS", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.neutro_cosmetic6, null)),
                 "Kem dưỡng ẩm ngày / đêm cho da nhạy cảm CETAPHIL REDNESS RELIEVING MOISTURIZER - Dung tích 50ml - Hàng Mỹ\n" +
                         "\nDành cho da dễ mẩn đỏ, nhạy cảm.\n" +
@@ -484,8 +511,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "- Cho làn da cảm giác dịu nhẹ và cân bằng.\n" +
                         "- Bác sĩ da liễu đã thử nghiệm và chứng minh lâm sàng là nhẹ nhàng trên da nhạy cảm.", 3));
 
-
-        // region thebodyshop
+        // store thebodyshop
         cosmeticList.add(new Cosmetic(1, "Sữa Rửa Mặt ", "Sữa Rửa Mặt ",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the, null)),
                 "oại bỏ tạp chất và bụi bẩn hiệu quả cùng Himalayan Charcoal Purifying Clay Wash 100% thuần chay, được chiết xuất từ than tre ở chân núi Himalayan kết hợp với đất sét cao lanh và dầu cây trà theo chương trình Thương Mại Cộng Đồng từ Kenya. \n" +
@@ -498,7 +524,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Làm giàu dưỡng chất với than tre từ Himalayan, đất sét cao lanh, và dầu cây trà trong chương trình Thương Mại Cộng Đồng.\n" +
                         "\t\t+ Đã được kiểm nghiệm da liễu\n", 6));
 
-        cosmeticList.add(new Cosmetic(1, "Bơ Tẩy Trang ", "Tẩy Trang ",
+        cosmeticList.add(new Cosmetic(1, "Bông Tẩy Trang ", "Tẩy Trang ",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.sec_the1, null)),
                 "Điểm nổi bật\n" +
                         "\n" +
@@ -575,7 +601,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\t\t+ Làm mới mùi hương\n" +
                         "\t\t+ Chiết xuất từ rễ cây maca và dầu hạt từ Brazil, lô hội hữu cơ trong chương trình Thương mại Cộng đồng từ Mexico\n", 6));
 
-        // region Tra sua
+        // store
         cosmeticList.add(new Cosmetic(1, "Kem dưỡng Vichy", "Dưỡng ẩm",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy1, null)),
                 "Thành phần:\n" +
@@ -584,8 +610,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nHướng dẫn sử dụng:\n" +
                         "\t\t- Thoa lên da mặt và cổ mỗi sáng và tối\n" +
                         "\t\t- Dùng sau khi làm sạch da\n" +
-                        "\t\t- Massage nhẹ nhàng để dưỡng chất thẩm thấu\n"
-                , 2));
+                        "\t\t- Massage nhẹ nhàng để dưỡng chất thẩm thấu\n", 2));
+
         cosmeticList.add(new Cosmetic(1, "Kem chống nắng Vichy", "Kem chống nắng",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy2, null)),
                 "Thành phần:\n" +
@@ -594,8 +620,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nHướng dẫn sử dụng:\n" +
                         "\t\t- Thoa kem trước khi ra ngoài nắng 15-20 phút\n" +
                         "\t\t- Thoa lại sau mỗi 2 giờ hoặc sau khi bơi, ra mồ hôi\n" +
-                        "\t\t- Sử dụng hàng ngày cho mặt và cơ thể\n"
-                , 2));
+                        "\t\t- Sử dụng hàng ngày cho mặt và cơ thể\n", 2));
+
         cosmeticList.add(new Cosmetic(1, "Nước khoáng dưỡng da Vichy", "Nước khoáng",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy3, null)),
                 "Thành phần:\n" +
@@ -603,8 +629,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nHướng dẫn sử dụng:\n" +
                         "\t\t- Xịt đều lên da mặt từ khoảng cách 20cm\n" +
                         "\t\t- Để sản phẩm thẩm thấu tự nhiên hoặc vỗ nhẹ\n" +
-                        "\t\t- Dùng bất cứ lúc nào trong ngày để làm dịu và cấp ẩm cho da\n"
-                , 2));
+                        "\t\t- Dùng bất cứ lúc nào trong ngày để làm dịu và cấp ẩm cho da\n", 2));
+
         cosmeticList.add(new Cosmetic(1, "Serum Vichy Liftactiv Supreme", "Serum",
                 convertDrawableToByteArray(ResourcesCompat.getDrawable(context.getResources(), R.drawable.cos_vichy4, null)),
                 "Thành phần:\n" +
@@ -613,32 +639,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         "\nHướng dẫn sử dụng:\n" +
                         "\t\t- Thoa serum lên mặt vào buổi sáng và tối\n" +
                         "\t\t- Sử dụng trước bước kem dưỡng ẩm\n" +
-                        "\t\t- Massage nhẹ nhàng để serum thẩm thấu hoàn toàn\n"
-                , 2));
+                        "\t\t- Massage nhẹ nhàng để serum thẩm thấu hoàn toàn\n", 2));
 
         // region cosmeticSize
         cosmeticSizeList = new ArrayList<>();
         Random random = new Random();
         for (int i = 1; i <= 55; i++) {
-            cosmeticSizeList.add(new CosmeticSize(i, 1, (random.nextInt(50) + 1) * 1000d));
-            cosmeticSizeList.add(new CosmeticSize(i, 2, (random.nextInt(50) + 21) * 1000d));
-            cosmeticSizeList.add(new CosmeticSize(i, 3, (random.nextInt(50) + 41) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 1, (random.nextInt(50) + 10) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 2, (random.nextInt(50) + 15) * 1000d));
+            cosmeticSizeList.add(new CosmeticSize(i, 3, (random.nextInt(50) + 20) * 1000d));
         }
 
         // region cosmeticSaved
         cosmeticSavedList = new ArrayList<>();
         cosmeticSavedList.add(new CosmeticSaved(1, 3, 1));
-        cosmeticSavedList.add(new CosmeticSaved(36, 3, 2));
+        cosmeticSavedList.add(new CosmeticSaved(2, 3, 2));
         cosmeticSavedList.add(new CosmeticSaved(3, 3, 2));
-        cosmeticSavedList.add(new CosmeticSaved(42, 3, 2));
-        cosmeticSavedList.add(new CosmeticSaved(11, 3, 1));
-        cosmeticSavedList.add(new CosmeticSaved(28, 1, 4));
-        cosmeticSavedList.add(new CosmeticSaved(40, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(3, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(42, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(31, 3, 3));
-        cosmeticSavedList.add(new CosmeticSaved(20, 1, 4));
-
+        cosmeticSavedList.add(new CosmeticSaved(4, 3, 2));
+        cosmeticSavedList.add(new CosmeticSaved(5, 3, 1));
+        cosmeticSavedList.add(new CosmeticSaved(6, 1, 4));
+        cosmeticSavedList.add(new CosmeticSaved(7, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(8, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(9, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(10, 3, 3));
+        cosmeticSavedList.add(new CosmeticSaved(11, 1, 4));
 
         // region notify
         notifyList = new ArrayList<>();
@@ -683,6 +707,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         orderDetailList.add(new OrderDetail(5, 41, 3, 25000d, 1));
     }
 
+    // Insert record into DB
     private void addSampleData(SQLiteDatabase db) {
         SampleData();
 
@@ -903,7 +928,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         onCreate(sqLiteDatabase);
     }
-
 
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
