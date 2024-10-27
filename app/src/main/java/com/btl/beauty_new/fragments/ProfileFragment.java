@@ -68,7 +68,6 @@ public class ProfileFragment extends Fragment {
 
 
 
-
         LinearLayout address = mainView.findViewById(R.id.btn_layout_address);
         address.setOnClickListener(view -> {
                     intent = new Intent(getActivity(), AddressActivity.class);
