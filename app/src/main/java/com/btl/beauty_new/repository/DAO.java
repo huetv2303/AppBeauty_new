@@ -550,7 +550,8 @@ public class DAO {
     }
 
     public boolean addCosmeticSaved(CosmeticSaved cosmeticSaved) {
-        String query = "INSERT INTO tblCosmeticSaved VALUES(" + cosmeticSaved.getCosmeticId() + ", "
+        String query = "INSERT INTO tblCosmeticSaved VALUES("
+                + cosmeticSaved.getCosmeticId() + ", "
                 + cosmeticSaved.getSize() + ", "
                 + cosmeticSaved.getUserId() + ")";
         try {

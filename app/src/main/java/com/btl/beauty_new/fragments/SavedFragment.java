@@ -139,7 +139,6 @@ public class SavedFragment extends Fragment {
                 LoadSavedCard(type, searchQuery);
             }
         });
-
     }
 
     //Hàm xử lý dấu tiếng việt

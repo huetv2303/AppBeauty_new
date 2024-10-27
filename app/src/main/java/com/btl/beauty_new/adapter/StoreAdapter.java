@@ -110,7 +110,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
                     holder.btnSavedShop.setChecked(true);
                     holder.btnSavedShop.setButtonTintList(ColorStateList.valueOf(colorChecked)); // Đổi sang màu đậm
                 } else {
-                    Toast.makeText(context, "Bạn đã lưu thông tin nhà hàng này rồi!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Bạn đã lưu thông tin cửa hàng này rồi!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

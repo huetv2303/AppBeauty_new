@@ -99,7 +99,7 @@ public class ViewOrderActivity extends AppCompatActivity {
                 card.setOnClickListener(view -> {
                     CosmeticDetailsActivity.cosmeticSize = cosmeticSize;
                     Intent intent = new Intent(this, CosmeticDetailsActivity.class);
-                    intent.putExtra("food", cosmetic);
+                    intent.putExtra("cosmetic", cosmetic);
                     try {
                         startActivity(intent);
                     } catch (Exception e) {

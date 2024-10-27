@@ -42,8 +42,8 @@ public class StoreCard extends LinearLayout implements BaseComponent{
         image = findViewById(R.id.imageStore);
         tvStoreName = findViewById(R.id.tvStoreName_res_cart);
         tvStoreAddress = findViewById(R.id.tvStoreAddress_res_cart);
-//        btnSavedShop = findViewById(R.id.btnSavedShop);
         btnSavedShop = findViewById(R.id.btnSavedShop);
+       // btnSavedShop = findViewById(R.id.btnSavedShop);
 
         textViewSaveShop = findViewById(R.id.textViewSaveShop);
     }
@@ -66,13 +66,13 @@ public class StoreCard extends LinearLayout implements BaseComponent{
                 } else {
                     Toast.makeText(context, "Có lỗi khi xóa thông tin!", Toast.LENGTH_SHORT).show();
                 }
-            } else {
+            } /*else {
                 if(HomeActivity.dao.addStoreSaved(new StoreSaved(store.getId(), HomeActivity.user.getId()))){
-                    Toast.makeText(context, "Lưu thông tin cửa hàng thành công!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Lưu thông tin cửa hàng thành công.....!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(context, "Bạn đã lưu thông tin cửa hàng này rồi!", Toast.LENGTH_SHORT).show();
                 }
-            }
+            }*/
         });
 
         // set information
