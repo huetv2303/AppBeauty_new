@@ -85,10 +85,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         int colorUnchecked = Color.parseColor("#A3A3A3"); // Màu nhạt
 
 
-        boolean isSaved = HomeActivity.dao.isStoreSaved(store.getId(), HomeActivity.user.getId());
 
         // Kiểm tra trạng thái checkbox và thay đổi màu ban đầu
-        if (isSaved) {
+        if (HomeActivity.dao.isStoreSaved(store.getId(), HomeActivity.user.getId())) {
             holder.btnSavedShop.setChecked(true);
             holder.btnSavedShop.setButtonTintList(ColorStateList.valueOf(colorChecked));
         } else {
@@ -101,7 +100,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             int storeId = store.getId();
             int userId = HomeActivity.user.getId();
 
-            if (isSaved) {
+            if (HomeActivity.dao.isStoreSaved(store.getId(), HomeActivity.user.getId())) {
                 // Bỏ lưu và cập nhật màu
                 if (HomeActivity.dao.deleteStoreSaved(new StoreSaved(storeId, userId))) {
                     Toast.makeText(context, "Đã bỏ lưu cửa hàng!", Toast.LENGTH_SHORT).show();
