@@ -20,12 +20,12 @@ import com.btl.beauty_new.model.OrderDetail;
 
 public class CartCard extends LinearLayout implements BaseComponent {
     private Cosmetic cosmetic;
-    private String restaurantName;
+    private String storeName;
     private OrderDetail card;
     private boolean activateControl;
     private int quantity;
     private ImageView image;
-    private TextView tvName, tvSize, tvRestaurantName, tvPrice, tvQuantity;
+    private TextView tvName, tvSize, tvStoreName, tvPrice, tvQuantity;
     private ImageView btnSub, btnAdd, btnDelete;
     private LinearLayout layout;
 
@@ -35,19 +35,19 @@ public class CartCard extends LinearLayout implements BaseComponent {
         initControl(context);
     }
 
-    public CartCard(Context context, Cosmetic cosmetic, String restaurantName, OrderDetail card) {
+    public CartCard(Context context, Cosmetic cosmetic, String storeName, OrderDetail card) {
         super(context);
         this.cosmetic = cosmetic;
-        this.restaurantName = restaurantName;
+        this.storeName = storeName;
         this.card = card;
         this.activateControl = true;
         initControl(context);
     }
 
-    public CartCard(Context context, Cosmetic cosmetic, String restaurantName, OrderDetail card, boolean activateControl) {
+    public CartCard(Context context, Cosmetic cosmetic, String storeName, OrderDetail card, boolean activateControl) {
         super(context);
         this.cosmetic = cosmetic;
-        this.restaurantName = restaurantName;
+        this.storeName = storeName;
         this.card = card;
         this.activateControl = activateControl;
         initControl(context);
@@ -55,12 +55,12 @@ public class CartCard extends LinearLayout implements BaseComponent {
 
     @Override
     public void initUI() {
-        image = findViewById(R.id.imageCartFood);
-        tvName = findViewById(R.id.tvFoodNameCart);
-        tvSize = findViewById(R.id.tvFoodSizeCart);
-        tvRestaurantName = findViewById(R.id.tvRestaurantNameCart);
-        tvPrice = findViewById(R.id.tvFoodPriceCart);
-        tvQuantity = findViewById(R.id.tvFoodQuantity_Cart); // Số lượng món ăn
+        image = findViewById(R.id.imageCartCosmetic);
+        tvName = findViewById(R.id.tvCosmeticNameCart);
+        tvSize = findViewById(R.id.tvCosmeticSizeCart);
+        tvStoreName = findViewById(R.id.tvStoreNameCart);
+        tvPrice = findViewById(R.id.tvCosmeticPriceCart);
+        tvQuantity = findViewById(R.id.tvCosmeticQuantity_Cart); // Số lượng món ăn
         btnSub = findViewById(R.id.btnSubQuantity_Cart);
         btnAdd = findViewById(R.id.btnAddQuantity_Cart);
         btnDelete = findViewById(R.id.btnDeleteCartItem);
@@ -136,7 +136,7 @@ public class CartCard extends LinearLayout implements BaseComponent {
                 tvSize.setText("Size L");
                 break;
         }
-        tvRestaurantName.setText(restaurantName);
+        tvStoreName.setText(storeName);
         tvPrice.setText(getRoundPrice(card.getPrice()));
         tvQuantity.setText("" + quantity);
     }
