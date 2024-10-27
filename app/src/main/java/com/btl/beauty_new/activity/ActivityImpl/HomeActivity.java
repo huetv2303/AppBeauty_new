@@ -41,6 +41,8 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         Integer userID = user.getId(); // dữ liệu user đã được truyền vào ở phần đăng nhập tài khoản rồi
         CosmeticDetailsActivity.userID = userID; // truyền userID của người dùng qua CosmeticDetailsActivity
         ViewOrderActivity.userID = userID;   // truyền userID của người dùng qua ViewOrderActivity
+        AddressActivity.userId = userID;
+        PaymentActivity.userID = userID;
 
         dao = new DAO(this);
         initializeUI();
@@ -52,9 +54,12 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityImpl 
         // từ Fragment trở đến Activity để lấy đối tượng User (Xác thực)
         Intent intent = getIntent();
         String request = intent.getStringExtra("request");
-        if(request != null) {
+        if (request != null) {
             switch (request) {
-                case "history": case "check": case "payment": case "cart":
+                case "history":
+                case "check":
+                case "payment":
+                case "cart":
                     loadFragment_replace(chatFragment, 2);
                     break;
                 case "hint":

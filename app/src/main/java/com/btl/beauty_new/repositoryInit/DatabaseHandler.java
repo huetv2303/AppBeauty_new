@@ -27,7 +27,7 @@ import java.util.Random;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "beauty_new.sqlite";
-    private static final Integer DATABASE_VERSION = 1;
+    private static final Integer DATABASE_VERSION = 4;
     private static final SQLiteDatabase.CursorFactory DATABASE_FACTORY = null;
     private final Context context;
 
@@ -42,6 +42,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private List<Order> orderList;
     private List<OrderDetail> orderDetailList;
     private List<CosmeticSaved> cosmeticSavedList;
+    private List<Address> addressList;
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, DATABASE_FACTORY, DATABASE_VERSION);
@@ -705,6 +706,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         orderDetailList.add(new OrderDetail(5, 31, 2, 18000d, 1));
         orderDetailList.add(new OrderDetail(5, 33, 3, 25000d, 3));
         orderDetailList.add(new OrderDetail(5, 41, 3, 25000d, 1));
+
+        //region address
+        addressList = new ArrayList<>();
+        addressList.add(new Address(1,1,"Tưởng Huế", "0335304882", "Xóm điếm", "Cổng 1", "Home","hue"));
+
     }
 
     // Insert record into DB
@@ -716,6 +722,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             db.execSQL(format("INSERT INTO tblUser VALUES(null, '%s','%s', '%s', '%s', '%s', '%s')",
                     user.getName(), user.getGender(), user.getDateOfBirth(), user.getPhone(), user.getUsername(), user.getPassword()));
         }
+
+        for (Address address : addressList) {
+            String sql = "INSERT INTO tblAddress VALUES(null,?, ?, ?, ?, ?, ?,?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+            statement.clearBindings();
+
+            statement.bindLong(1, address.getUserID());
+            statement.bindString(2, address.getNameRecipient());
+            statement.bindString(3, address.getPhone());
+            statement.bindString(4, address.getBuilding());
+            statement.bindString(5, address.getGate());
+            statement.bindString(6, address.getType_address());
+            statement.bindString(7, address.getNote());
+            statement.executeInsert();
+        }
+
+
 
         // Add store
         for (Store store : storeList) {
@@ -830,6 +853,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "password VARCHAR(100))";
         sqLiteDatabase.execSQL(queryCreateUser);
 
+        String queryCreateAddress = "CREATE TABLE IF NOT EXISTS tblAddress(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                "user_id INTEGER," +
+                "nameRecipient TEXT," + // tên khách hàng
+                "phone TEXT," + // Số điện thoại liên hệ
+                "building TEXT ," +
+                "gate TEXT ," +
+                "type_address TEXT," +
+                "note TEXT )";
+        sqLiteDatabase.execSQL(queryCreateAddress);
+
         //Create table "store" => để lưu ảnh trong SQLite ta dùng BLOG (Binary Longer Object)
         String queryCreateStore = "CREATE TABLE IF NOT EXISTS tblStore(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -916,6 +950,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Log.i("SQLite", "Upgrade SQLite");
 
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tblNotifyToUser");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tblAddress");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tblNotify");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tblCosmeticSaved");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS tblCosmeticSize");

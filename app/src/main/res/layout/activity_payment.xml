@@ -104,25 +104,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address"
+            android:text="Chọn địa chỉ:"
             android:textColor="#202020"
             android:textStyle="bold"
             android:layout_gravity="start"
             android:gravity="center"/>
 
-        <EditText
-            android:id="@+id/editText_payment_address"
+        <Spinner
+            android:id="@+id/getAddress"
             android:layout_width="350sp"
             android:layout_height="50sp"
-            android:layout_marginTop="2sp"
-            android:autofillHints="postalAddress"
-            android:background="@drawable/bg_edit_text"
-            android:hint="@string/example_address"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingStart="10sp"
-            android:paddingEnd="0sp"
-            android:textColorHint="#78909C" />
+            android:background="@drawable/bg_edit_text" />
     </LinearLayout>
 
     <LinearLayout

@@ -1,5 +1,6 @@
 package com.btl.beauty_new.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,6 +10,7 @@ import com.btl.beauty_new.model.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class DAO {
@@ -147,6 +149,87 @@ public class DAO {
                 order.getStatus() + "')";
         dbHelper.queryData(query);
     }
+
+    // Thêm địa chỉ mới
+    public boolean addAddress(Address address) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("user_id", address.getUserID());
+        values.put("nameRecipient", address.getNameRecipient());
+        values.put("phone", address.getPhone());
+        values.put("building", address.getBuilding());
+        values.put("gate", address.getGate());
+        values.put("type_address", address.getType_address());
+        values.put("note", address.getNote());
+
+        long result = db.insert("tblAddress", null, values);
+        db.close();
+        return result != -1;
+    }
+
+
+    //update địa chỉ
+    public boolean updateAddress(Address address, int userid) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("NameRecipient", address.getNameRecipient());
+        values.put("phone", address.getPhone());
+        values.put("building", address.getBuilding());
+        values.put("gate", address.getGate());
+        values.put("type_address", address.getType_address());
+        values.put("note", address.getNote());
+
+        int rowsAffected = db.update("tblAddress", values, "id = ? and user_id = ?", new String[]{String.valueOf(address.getIdAddress()),String.valueOf(address.getUserID())});
+        db.close();
+        return rowsAffected > 0; // Trả về true nếu cập nhật thành công
+    }
+
+    //Delete
+    public boolean deleteAddress(int id) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        int result = db.delete("tblAddress", "id = ?", new String[]{String.valueOf(id)});
+        db.close();
+        return result > 0;
+    }
+
+    public List<Address> getAllAddresses(int user_id) {
+        List<Address> addressList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM tblAddress WHERE user_id = ?", new String[]{String.valueOf(user_id)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                addressList.add(new Address(cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7)));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return addressList;
+    }
+
+
+    public List<String> getAllAddressNames(int user_id) {
+        List<String> addressNames = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT building FROM tblAddress WHERE user_id = ?", new String[]{String.valueOf(user_id)});
+        if (cursor.moveToFirst()) {
+            do {
+                addressNames.add(cursor.getString(0)); // Lấy tên địa chỉ
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return addressNames;
+    }
+
 
     public void updateOrder(Order order) {
         String query = "UPDATE tblOrder SET address='" + order.getAddress() +
@@ -342,6 +425,11 @@ public class DAO {
         return null;
     }
 
+    // delete user
+    public void deleteUser(int user_id){
+        String query = "DELETE FROM tblUser WHERE id = " + user_id;
+        dbHelper.queryData(query);
+    }
 
     // kiểm tra xem user đã tồn tại trong db hay không
     public boolean checkUsername(String username) {
@@ -462,7 +550,8 @@ public class DAO {
     }
 
     public boolean addCosmeticSaved(CosmeticSaved cosmeticSaved) {
-        String query = "INSERT INTO tblCosmeticSaved VALUES(" + cosmeticSaved.getCosmeticId() + ", "
+        String query = "INSERT INTO tblCosmeticSaved VALUES("
+                + cosmeticSaved.getCosmeticId() + ", "
                 + cosmeticSaved.getSize() + ", "
                 + cosmeticSaved.getUserId() + ")";
         try {
