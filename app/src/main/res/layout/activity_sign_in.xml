@@ -47,7 +47,6 @@
                 android:drawableStart="@drawable/email"
                 android:drawablePadding="20dp"
                 android:ems="10"
-                android:hint="Tài khoản"
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColorHint="#603a91" />
@@ -79,7 +78,6 @@
                     android:drawableStart="@drawable/password"
                     android:drawablePadding="20dp"
                     android:ems="10"
-                    android:hint="Mật khẩu"
                     android:inputType="textPersonName"
                     android:padding="8dp"
                     android:password="true"
