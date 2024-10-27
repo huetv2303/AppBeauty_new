@@ -75,6 +75,8 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
             addCartProduct();
         });
 
+
+        ///Huế làm
         checkBoxFavorite.setOnClickListener(view -> {
             CosmeticSaved cosmeticSaved = new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID);
             boolean isSaved = dao.isCosmeticSaved(cosmeticSaved);

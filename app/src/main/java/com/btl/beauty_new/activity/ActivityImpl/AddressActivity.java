@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.btl.beauty_new.R;
 import com.btl.beauty_new.adapter.AddressAdapter;
+import com.btl.beauty_new.fragments.SavedFragment;
 import com.btl.beauty_new.model.Address;
 import com.btl.beauty_new.repository.DAO;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
@@ -194,12 +195,22 @@ public class AddressActivity extends AppCompatActivity {
                         EditAddress(address,userId); // Hiển thị dialog sửa địa chỉ
                     } else if (which == 1) {
                         // Xử lý xóa địa chỉ
-                        if (dao.deleteAddress(address.getIdAddress())) {
-                            Toast.makeText(this, "Đã xóa địa chỉ: " + address.getBuilding(), Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder dialogs = new AlertDialog.Builder(AddressActivity.this);
+                            dialogs.setMessage("Bạn có muốn xóa sản phầm " +  address.getBuilding() + " không?");
+                            dialogs.setPositiveButton("Có", (dialogInterface, i) -> {
+                                if (dao.deleteAddress(address.getIdAddress())) {
+                                    Toast.makeText(this, "Đã xóa địa chỉ: " + address.getBuilding(), Toast.LENGTH_SHORT).show();
+                                    reload(); // Tải lại danh sách địa chỉ
+                                } else {
+                                    Toast.makeText(this, "Không thể xóa địa chỉ!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            dialogs.setNegativeButton("Không", (dialogInterface, i) -> {
+                            });
+                            dialogs.show();
+
                             reload(); // Tải lại danh sách địa chỉ
-                        } else {
-                            Toast.makeText(this, "Không thể xóa địa chỉ!", Toast.LENGTH_SHORT).show();
-                        }
+
                     }
                 })
                 .setNegativeButton("Hủy", null)
