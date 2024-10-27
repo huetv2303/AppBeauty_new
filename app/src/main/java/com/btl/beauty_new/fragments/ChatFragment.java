@@ -135,11 +135,11 @@ public class ChatFragment extends Fragment {
                 ArrayList<OrderDetail> orderDetailArrayList = HomeActivity.dao.getCartDetailList(cursor.getInt(0));
                 if (orderDetailArrayList.size() > 0) {
                     Cosmetic cosmetic;
-                    Store restaurant;
+                    Store store;
                     for (OrderDetail orderDetail : orderDetailArrayList) {
                         cosmetic = HomeActivity.dao.getCosmeticById(orderDetail.getCosmeticId());
-                        restaurant = HomeActivity.dao.getStoreInformation(cosmetic.getStoreId());
-                        CartCard card = new CartCard(getContext(), cosmetic, restaurant.getName(), orderDetail);
+                        store = HomeActivity.dao.getStoreInformation(cosmetic.getStoreId());
+                        CartCard card = new CartCard(getContext(), cosmetic, store.getName(), orderDetail);
                         cartContainer.addView(card);
                     }
                 }
