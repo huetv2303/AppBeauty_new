@@ -78,25 +78,20 @@ public class CosmeticDetailsActivity extends AppCompatActivity implements Cosmet
         checkBoxFavorite.setOnClickListener(view -> {
             CosmeticSaved cosmeticSaved = new CosmeticSaved(cosmeticSize.getCosmeticId(), cosmeticSize.getSize(), userID);
             boolean isSaved = dao.isCosmeticSaved(cosmeticSaved);
-            Log.d("CosmeticDetailsActivity", "checkBoxFavorite clicked: isSaved = " + isSaved); // Thêm log để kiểm tra trạng thái trước khi thay đổi
 
             if (isSaved) {
                 // Bỏ lưu
                 if (dao.deleteCosmeticSaved(cosmeticSaved)) {
                     Toast.makeText(this, "Đã bỏ lưu mỹ phẩm!", Toast.LENGTH_SHORT).show();
-                    Log.d("CosmeticDetailsActivity", "Deleted cosmetic saved successfully"); // Log thành công khi xóa
                 } else {
                     Toast.makeText(this, "Không thể bỏ lưu mỹ phẩm!", Toast.LENGTH_SHORT).show();
-                    Log.d("CosmeticDetailsActivity", "Failed to delete cosmetic saved"); // Log thất bại khi xóa
                 }
             } else {
                 // Lưu
                 if (dao.addCosmeticSaved(cosmeticSaved)) {
                     Toast.makeText(this, "Lưu thông tin mỹ phẩm thành công!", Toast.LENGTH_SHORT).show();
-                    Log.d("CosmeticDetailsActivity", "Added cosmetic saved successfully"); // Log thành công khi thêm
                 } else {
                     Toast.makeText(this, "Bạn đã lưu thông tin mỹ phẩm này rồi!", Toast.LENGTH_SHORT).show();
-                    Log.d("CosmeticDetailsActivity", "Failed to add cosmetic saved"); // Log thất bại khi thêm
                 }
             }
 

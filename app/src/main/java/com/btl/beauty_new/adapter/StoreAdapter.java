@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.btl.beauty_new.activity.ActivityImpl.CategoryActivity;
+import com.btl.beauty_new.activity.ActivityImpl.CosmeticDetailsActivity;
 import com.btl.beauty_new.activity.ActivityImpl.HomeActivity;
 import com.btl.beauty_new.R;
+import com.btl.beauty_new.model.CosmeticSaved;
 import com.btl.beauty_new.model.StoreSaved;
 import com.btl.beauty_new.repositoryInit.DatabaseHandler;
 import com.btl.beauty_new.model.Store;
@@ -60,6 +63,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         return storeList.size();
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull StoreAdapter.ViewHolder holder, int position) {
         Store store = storeList.get(position);
@@ -80,8 +84,11 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         int colorChecked = Color.parseColor("#FF6200EE"); // Màu đậm
         int colorUnchecked = Color.parseColor("#A3A3A3"); // Màu nhạt
 
+
+        boolean isSaved = HomeActivity.dao.isStoreSaved(store.getId(), HomeActivity.user.getId());
+
         // Kiểm tra trạng thái checkbox và thay đổi màu ban đầu
-        if (HomeActivity.dao.isStoreSaved(store.getId(), HomeActivity.user.getId())) {
+        if (isSaved) {
             holder.btnSavedShop.setChecked(true);
             holder.btnSavedShop.setButtonTintList(ColorStateList.valueOf(colorChecked));
         } else {
@@ -94,7 +101,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             int storeId = store.getId();
             int userId = HomeActivity.user.getId();
 
-            if (HomeActivity.dao.isStoreSaved(storeId, userId)) {
+            if (isSaved) {
                 // Bỏ lưu và cập nhật màu
                 if (HomeActivity.dao.deleteStoreSaved(new StoreSaved(storeId, userId))) {
                     Toast.makeText(context, "Đã bỏ lưu cửa hàng!", Toast.LENGTH_SHORT).show();
