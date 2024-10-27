@@ -51,7 +51,7 @@ public class ChatFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+    //dùng để xử lý các công việc khởi tạo Fragment không liên quan đến giao diện.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,8 @@ public class ChatFragment extends Fragment {
         }
     }
 
+
+    //onCreateView() dùng để tạo và trả về giao diện của Fragment.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
